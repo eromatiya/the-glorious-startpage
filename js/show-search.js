@@ -60,14 +60,14 @@ document.onkeydown = function keydown (evt) {
     if (!evt) evt = event; 
 
     if (searchBoxVisible == false) {
-    	
+
         // Don't accept this keycodes
         if (evt.keyCode === 13 || evt.altKey || 
-            evt.ctrlKey || evt.keyCode === 91) { return; };
+            evt.ctrlKey || evt.keyCode === 91 || evt.keyCode === 116) { return; };
 
     	// Show search box
-    toggleSearchBox();
-    searchBox.focus();
+	    toggleSearchBox();
+    	searchBox.focus();
 
     } else {
 
