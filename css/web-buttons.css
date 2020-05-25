@@ -1,0 +1,68 @@
+/*Web buttons*/
+
+.buttonContainer {
+	width: 36px;
+	height: 36px;
+	position: relative;
+	background: var(--base-container);
+	border-radius: var(--rounded-radius);
+	margin: 2px;
+	padding: 5px;
+	border: none;
+	cursor: pointer;
+}
+
+.buttonContainer div {
+	background-size: cover;
+	width: 36px;
+	height: 36px;
+	border: none;
+
+	position:absolute;
+	left:0; right:0;
+	top:0; bottom:0;
+	margin:auto;
+	
+	max-width:100%;
+	max-height:100%;
+	overflow:auto;
+}
+
+.buttonContainer:hover {
+	background: var(--base-hover-bg);
+}
+
+.buttonContainer:active {
+	background: var(--base-active-bg);
+}
+
+#buttonImage0 {
+	background-image: url("../assets/buttons/launch.svg");
+}
+#buttonImage1 {
+	background-image: url("../assets/webcons/reddit.svg");
+}
+#buttonImage2 {
+	background-image: url("../assets/webcons/github.svg");
+}
+#buttonImage3 {
+	background-image: url("../assets/webcons/facebook.svg");
+}
+#buttonImage4 {
+	background-image: url("../assets/webcons/gmail.svg");
+}
+#buttonImage5 {
+	background-image: url("../assets/webcons/youtube.svg");
+}
+#buttonImage6 {
+	background-image: url("../assets/webcons/gdrive.svg");
+}
+#buttonImage7 {
+	background-image: url("../assets/webcons/twitter.svg");
+}
+#buttonImage8 {
+	background-image: url("../assets/webcons/instagram.svg");
+}
+#buttonImage9 {
+	background-image: url("../assets/buttons/menu.svg");
+}

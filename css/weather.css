@@ -1,0 +1,108 @@
+.weather {
+	font-family: sans;
+	width: 100%;
+	height: auto;
+	position: relative;;
+	border-radius: 6px;
+	color: var(--base-color);
+	background: var(--base-container);
+	margin-top: 10px;
+}
+
+#weatherPadding {
+	padding: 5px;
+	height: auto;
+}
+
+
+#weatherHeader {
+	height: 32px;
+	width: 100%;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+}
+
+#weatherHeaderIcon {
+	background: url('../assets/weather.svg');
+	background-size: cover;
+	margin-right: 10px;
+	width: 28px;
+	height: 28px;
+}
+
+#weatherHeaderLabel {
+	text-align: left;
+	font-weight: bold;
+	font-size: 14pt;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.weatherDetails {
+	height: auto;
+	width: 100%;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+}
+
+#weatherIcon {
+	width: 64px;
+	height: 64px;
+	background: url("../assets/weather-icons/weather-error.svg");
+	background-size: cover;
+	position: relative;
+}
+
+#weatherDetailsContainer {
+	margin-left: 5px;
+}
+
+#weatherLocation {
+	font-weight: normal;
+	font-size: 12pt;
+}
+
+#weatherDescription {
+	font-weight: bold;
+	font-size: 14pt;
+}
+
+#weatherHoursContainer,
+.weatherHours {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+}
+
+.hourIcon {
+	height: 18px;
+	width: 18px;
+	background-size: cover;
+}
+
+#sunriseHourIcon {
+	background: url("../assets/weather-icons/sunrise.svg");
+	background-size: cover;
+
+}
+
+#sunsetHourIcon {
+	background: url("../assets/weather-icons/sunset.svg");
+	background-size: cover;
+	margin-left: 5px
+}
+
+#updateHourIcon {
+	background: url("../assets/weather-icons/refresh.svg");
+	background-size: cover;
+	margin-left: 5px
+}
+
+.hourLabel {
+	margin: auto;
+	font-size: 11pt;
+}

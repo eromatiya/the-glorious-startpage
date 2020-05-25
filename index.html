@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="noindex" />
+	<link rel="icon" type="image/png" href="assets/favicon.svg">
+	<link rel="stylesheet" href="css/style.css" class="style">
+	<title>Home</title>
+</head>
+<body>
+	<div id="blurOverlay"></div>
+	
+	<div class="panel" id="panelTop">
+		<div id="clock"></div>
+	</div>
+	
+	<div class="panelFloat" id="rightDashboard">
+		<div class="floatPadding">
+			<div id="greeterMessage"></div>
+			<div id="dateMessage"></div>
+			<div class="weather">
+				<div id="weatherPadding">
+					<div class="header" id="weatherHeader">
+						<div class="headerIcon" id="weatherHeaderIcon"></div>
+						<div class="headerLabel" id="weatherHeaderLabel">Weather</div>
+					</div>
+					<div class="weatherDetails">
+						<div id="weatherIcon"></div>
+						<div id="weatherDetailsContainer">
+							<div id="weatherLocation">Earth, Milky Way</div>
+							<div id="weatherDescription">dust and clouds, -1000°C</div>
+							<div id="weatherHoursContainer">
+								<div class="weatherHours" id="weatherSunrise">
+									<div class="hourIcon" id="sunriseHourIcon"></div>
+									<div class="hourLabel" id="sunriseHour">00:00</div>
+								</div>
+								<div class="weatherHours" id="weatherSunset">
+									<div class="hourIcon" id="sunsetHourIcon"></div>
+									<div class="hourLabel" id="sunsetHour">00:00</div>
+								</div>
+								<div class="weatherHours" id="weatherUpdate">
+									<div class="hourIcon" id="updateHourIcon"></div>
+									<div class="hourLabel" id="updateHour">00:00</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="hideFloat" id="overlayHider"></div>
+
+	<div class="mainContainer">
+		<div id="profileContainer" class="rotateAnim">
+			<div id="userProfile"></div>
+		</div>
+		<input type="text" id="searchBox" autocomplete="off" placeholder="Type to search"/>
+	</div>
+	
+	<div class="panel" id="panelBottom">
+		<div id="button0" class="buttonContainer">
+			<div id="buttonImage0" class="bottomButton"></div>
+		</div>
+		<div id="button1" class="buttonContainer">
+			<div id="buttonImage1" class="bottomButton"></div>
+		</div>
+		<div id="button2" class="buttonContainer">
+			<div id="buttonImage2" class="bottomButton"></div>
+		</div>
+		<div id="button3" class="buttonContainer">
+			<div id="buttonImage3" class="bottomButton"></div>
+		</div>
+		<div id="button4" class="buttonContainer">
+			<div id="buttonImage4" class="bottomButton"></div>
+		</div>
+		<div id="button5" class="buttonContainer">
+			<div id="buttonImage5" class="bottomButton"></div>
+		</div>
+		<div id="button6" class="buttonContainer">
+			<div id="buttonImage6" class="bottomButton"></div>
+		</div>
+		<div id="button7" class="buttonContainer">
+			<div id="buttonImage7" class="bottomButton"></div>
+		</div>
+		<div id="button8" class="buttonContainer">
+			<div id="buttonImage8" class="bottomButton"></div>
+		</div>
+		<div id="button9" class="buttonContainer">
+			<div id="buttonImage9" class="bottomButton"></div>
+		</div>
+
+	</div>
+
+	<script src="js/config.js"></script>
+	<script src="js/show-search.js"></script>
+	<script src="js/search.js"></script>
+	<script src="js/clock.js"></script>
+	<script src="js/shortcuts.js"></script>
+	<script src="js/animate-dashboard.js"></script>
+	<script src="js/greeter.js"></script>
+	<script src="js/weather.js"></script>
+	<script src="js/dynamic-bg.js"></script>
+</body>
+</html>

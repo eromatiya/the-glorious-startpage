@@ -1,0 +1,33 @@
+#profileContainer {
+	background: var(--base-bg);
+	height: 138px;
+	width: 138px;
+	border-radius: 50%;
+	backdrop-filter: blur(var(--blur-strength));
+    margin: 0 auto;
+    margin-bottom: 90px;
+    position: relative;
+}
+
+.rotateAnim {
+	animation: rotate 500ms 1;
+	animation-iteration-count: 1;
+	animation-play-state: paused;
+}
+
+@keyframes rotate {
+    from { -webkit-transform: rotate(0deg) } 
+    to { -webkit-transform: rotate(360deg) } 
+}
+
+#profileContainer  #userProfile {
+	background-image: url('../assets/user.png') ;
+	height: 128px;
+	width: 128px;
+	border-radius: 50%;
+	background-size: cover;
+	margin:0  auto;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+}

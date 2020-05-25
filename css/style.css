@@ -1,0 +1,136 @@
+
+@import url('normalize.css');
+@import url('web-buttons.css');
+@import url('blur-overlay.css');
+@import url('profile-container.css');
+@import url('panel-float.css');
+@import url('greeter.css');
+@import url('weather.css');
+
+:root {
+	/* Colors */
+	--base-bg: #00000066;
+	--base-color: #f2f2f2;
+	--base-container: #f2f2f220;
+
+	--base-hover-bg: #f2f2f240;
+	--base-active-bg: #0a0a0a60;
+
+
+	--blur-strength: 6px;
+	
+	--panel-bg: var(--base-bg);
+	--panel-color: var(--base-color);
+
+	--rounded-radius: 12px;
+}
+
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
+::placeholder {
+  color: var(--base-color);
+  opacity: 0.75;
+}
+
+body {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	transition: background 0.4s;
+	color: var(--foreground);
+	background: url("../assets/morning.jpg");
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.panel {
+	background: var(--panel-bg);
+	backdrop-filter: blur(var(--blur-strength));
+}
+
+#panelTop {
+	height: 32px;
+	width: 100%;
+}
+
+#panelBottom {
+	position: absolute;
+	padding: 5px;
+	margin: 5px;
+	bottom: 0;
+	height: auto;
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: var(--rounded-radius);
+    overflow: hidden;
+    display:flex;
+}
+
+#clock {
+	color: var(--base-color);
+	font-size: 11pt;
+	font-family: sans;
+	font-weight: bold;
+
+	/*Center lock*/
+	text-align: center;
+   	position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    /*Make clock unselectable*/
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.mainContainer {
+	width: 100%;
+    height: auto;
+    border: none;
+    
+    position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+#searchBox {
+	backdrop-filter: blur(var(--blur-strength));
+	text-align: center;
+	font-family: sans;
+	font-weight: 500;
+	color: var(--panel-color);
+	background: var(--panel-bg);
+	width: 30%;
+	height: 48px;
+	border: none;
+	border-radius: 24px;
+	margin: 0;
+	position: absolute;
+	left: 50%;
+	top: 60%;
+	opacity: 0;
+	transition: opacity 500ms, top 500ms ; 
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+#searchBox.unfade {
+	opacity: 1;
+	top: 100%;
+}
+

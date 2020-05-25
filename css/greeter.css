@@ -1,0 +1,15 @@
+#greeterMessage {
+	color: var(--base-color);
+	font-weight: 200;
+	font-size: 32pt;
+	font-family: sans;
+	margin: 5px;
+}
+
+#dateMessage {
+	color: #f2f2f2;
+	font-weight: normal;
+	font-size: 12pt;
+	font-family:  sans;
+	margin: 5px;
+}
