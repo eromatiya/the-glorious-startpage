@@ -125,7 +125,8 @@ body {
 	left: 50%;
 	top: 60%;
 	opacity: 0;
-	transition: opacity 500ms, top 500ms ; 
+	visibility: hidden;
+	transition: opacity 500ms, top 500ms, visibility 500ms ; 
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
@@ -133,5 +134,6 @@ body {
 #searchBox.unfade {
 	opacity: 1;
 	top: 100%;
+	visibility: visible;
 }
 
