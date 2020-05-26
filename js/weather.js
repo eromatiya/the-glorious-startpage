@@ -57,7 +57,7 @@ function setValue(loc, desc, icon, sunr, suns, updt) {
 function setErrValue() {
 	var wLoc = "Earth, Milky Way";
 	var wDesc = "dust & clouds, -1000";
-	var wIcon = "url('assets/weather-icons/weather-error.svg')";
+	var wIcon = "weather-error.svg";
 
 	var time = "00:00";
 
