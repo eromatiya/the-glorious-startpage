@@ -33,7 +33,7 @@ var weatherSettingsReset = document.getElementById("weatherSettingsReset");
 var weatherSettingsApply = document.getElementById("weatherSettingsApply");
 
 // Update functions
-function resetWeatherSettingsValue() {
+function deleteWeatherSettingsValue() {
 	apiBox.value = '';
 	cityBox.value = '';
 	weatherSelectUnits.value = "metric";
@@ -46,11 +46,11 @@ function updateWeatherSettingsPlaceholder() {
 }
 
 function updateWeatherSettings() {
-	appID = localStorage.getItem('apiKey');
-	cityID = localStorage.getItem('cityID');
-	units = localStorage.getItem('units');
+	appID = localStorage.getItem('apiKey') || "API Key";
+	cityID = localStorage.getItem('cityID') || "City ID";
+	units = localStorage.getItem('units') || "metric";
 
-	resetWeatherSettingsValue();
+	deleteWeatherSettingsValue();
 	updateWeatherSettingsPlaceholder();
 }
 
