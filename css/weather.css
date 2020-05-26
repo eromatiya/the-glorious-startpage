@@ -138,6 +138,13 @@
 	display: flex;
   	justify-content: center;
   	align-items: center;
+
+  	opacity: 0.5;
+  	transition: opacity 500ms;
+}
+
+#weatherSettingsIcon:hover {
+	opacity: 1;
 }
 
 .weatherSettingsGroups {
