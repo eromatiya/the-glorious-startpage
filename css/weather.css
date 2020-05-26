@@ -43,6 +43,7 @@
 .weatherDetails {
 	height: auto;
 	width: 100%;
+	margin-top: 5px;
 
 	display: flex;
 	flex-direction: row;
@@ -138,13 +139,57 @@
 }
 
 #weatherSettingsContainer {
-	height: 0;
-	display: none;
-
-	transition: height 500ms, display 500ms;
 }
 
 #weatherSettingsContainer.show {
+}
+
+.weatherSettingsGroups {
 	height: auto;
-	display: initial;
+	width: 100%;
+	margin-top: 5px;
+}
+
+.weatherSettingsLabels {
+	font-size: 12pt;
+	text-align: left;
+}
+
+.weatherSettingsInputs {
+	height: 32px;
+	width: 100%;
+	box-sizing: border-box;
+	margin-top: 5px;
+	border: none;
+	text-align: center;
+	border-radius: 6px;
+	color: var(--base-color);
+	background: var(--panel-bg);
+
+	/*Center vertically*/
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+#weatherSelectUnits {
+	background: var(--base-container);
+	color: var(--base-color);
+
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+#weatherSettingsApply {
+	background: var(--base-container) !important;
+}
+
+#weatherSelectUnits:hover {
+	cursor: pointer;
+}
+
+#weatherSelectUnits option {
+	color: initial;
+	border: none;
 }

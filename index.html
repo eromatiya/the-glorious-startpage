@@ -30,8 +30,30 @@
 						</div>
 					</div>
 					<div id="weatherSettingsContainer">
-						<div>
-							filc
+						<div class="weatherSettingsGroups">
+							<div class="weatherSettingsLabels">
+								API Key
+							</div>
+							<input type="text" class="weatherSettingsInputs" id="apiBox" autocomplete="off" placeholder="API KEY"/>
+						</div>
+						<div class="weatherSettingsGroups">
+							<div class="weatherSettingsLabels">
+								City ID
+							</div>
+							<input type="text" class="weatherSettingsInputs" id="cityBox" autocomplete="off" placeholder="City ID"/>
+						</div>
+						<div class="weatherSettingsGroups">
+							<div class="weatherSettingsLabels">
+								Units
+							</div>
+							<select class="weatherSettingsInputs" id="weatherSelectUnits">
+								<option value="metric">Metric</option>
+							  	<option value="imperial">Imperial</option>
+							</select>
+						</div>
+
+						<div class="weatherSettingsGroups">
+							<div class="weatherSettingsInputs" id="weatherSettingsApply">Set as default</div>
 						</div>
 					</div>
 					<div class="weatherDetails">
@@ -133,6 +155,7 @@
 	<script src="js/shortcuts.js"></script>
 	<script src="js/animate-dashboard.js"></script>
 	<script src="js/greeter.js"></script>
+	<script src="js/weather-settings.js"></script>
 	<script src="js/weather.js"></script>
 	<script src="js/dynamic-bg.js"></script>
 </body>

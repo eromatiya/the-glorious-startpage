@@ -66,8 +66,8 @@ document.onkeydown = function keydown (evt) {
             evt.ctrlKey || evt.keyCode === 91 || evt.keyCode === 116) { return; };
 
     	// Show search box
-	    toggleSearchBox();
-    	searchBox.focus();
+	    // toggleSearchBox();
+    	// searchBox.focus();
 
     } else {
 
