@@ -15,3 +15,7 @@ weatherSettingsIconContainer.onmouseup = function() {
 }
 
 
+// var txt = "Height with padding and border: " + weatherSettingsContainer.offsetHeight + "px<br>";
+// txt += "Width with padding and border: " + weatherSettingsContainer.offsetWidth + "px";
+
+// alert(txt);

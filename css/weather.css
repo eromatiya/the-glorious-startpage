@@ -108,6 +108,8 @@
 	font-size: 11pt;
 }
 
+/*Weather Settings*/
+
 #weatherSettingsIconContainer {
 	background: transparent;
 	margin-left: auto;
@@ -188,6 +190,14 @@
 	background: var(--base-container) !important;
 }
 
+#weatherSettingsApply {
+	margin-left: 2.5px;
+}
+
+#weatherSettingsReset {
+	margin-right: 2.5px;
+}
+
 #weatherSettingsApply:hover, #weatherSettingsReset:hover {
 	background: var(--base-hover-bg) !important;
 	cursor: pointer;
@@ -195,6 +205,12 @@
 
 #weatherSettingsApply:active, #weatherSettingsReset:active {
 	background: var(--base-active-bg) !important;
+}
+
+#weatherSettingsButtons {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
 }
 
 #weatherSettingsContainer {
@@ -205,7 +221,7 @@
 }
 
 #weatherSettingsContainer.show {
-	height: 249px;
+	height: 217px;
 	opacity: 1;
 	pointer-events: initial;
 }
