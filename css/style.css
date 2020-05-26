@@ -6,6 +6,7 @@
 @import url('panel-float.css');
 @import url('greeter.css');
 @import url('weather.css');
+@import url('search-engine-select.css');
 
 :root {
 	/* Colors */
