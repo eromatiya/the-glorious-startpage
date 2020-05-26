@@ -6,13 +6,13 @@ function webSearch() {
 
 	var searchQueryPrefix;
 
-	if (searchEngine === "google") {
+	if (defaultEngine === "google") {
 		searchQueryPrefix = 'http://www.google.com/search?q=';
 
-	} else if (searchEngine === "duckduckgo") {
+	} else if (defaultEngine === "duckduckgo") {
 		searchQueryPrefix = 'https://duckduckgo.com/?q=';
 
-	} else if (searchEngine === "ecosia") {
+	} else if (defaultEngine === "ecosia") {
 		searchQueryPrefix = 'https://www.ecosia.org/search?q=';
 	
 	} else {

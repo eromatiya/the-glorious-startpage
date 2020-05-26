@@ -6,6 +6,7 @@
 @import url('panel-float.css');
 @import url('greeter.css');
 @import url('weather.css');
+@import url('search-engine-select.css');
 
 :root {
 	/* Colors */
@@ -44,7 +45,7 @@ body {
 	padding: 0;
 	transition: background 0.4s;
 	color: var(--foreground);
-	background: url("../assets/morning.jpg");
+	background: url("../assets/backgrounds/morning.jpg");
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-attachment: fixed;
