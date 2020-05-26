@@ -64,7 +64,7 @@ body {
 #panelBottom {
 	position: absolute;
 	padding: 5px;
-	margin: 5px;
+	margin: 10px;
 	bottom: 0;
 	height: auto;
     width: auto;
