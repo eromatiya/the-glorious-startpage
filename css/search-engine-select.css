@@ -56,6 +56,10 @@
 	appearance: none;
 }
 
+#searchEngineSelect:hover {
+	cursor: pointer;
+}
+
 #searchEngineSelect option {
 	color: initial;
 	border: none;
