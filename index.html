@@ -25,6 +25,37 @@
 					<div class="header" id="weatherHeader">
 						<div class="headerIcon" id="weatherHeaderIcon"></div>
 						<div class="headerLabel" id="weatherHeaderLabel">Weather</div>
+						<div id="weatherSettingsIconContainer">
+							<div class="headerSettingsIcon" id="weatherSettingsIcon"></div>
+						</div>
+					</div>
+					<div id="weatherSettingsContainer">
+						<div class="weatherSettingsGroups">
+							<div class="weatherSettingsLabels">
+								API Key
+							</div>
+							<input type="text" class="weatherSettingsInputs" id="apiBox" autocomplete="off" placeholder="API KEY"/>
+						</div>
+						<div class="weatherSettingsGroups">
+							<div class="weatherSettingsLabels">
+								City ID
+							</div>
+							<input type="text" class="weatherSettingsInputs" id="cityBox" autocomplete="off" placeholder="City ID"/>
+						</div>
+						<div class="weatherSettingsGroups">
+							<div class="weatherSettingsLabels">
+								Units
+							</div>
+							<select class="weatherSettingsInputs" id="weatherSelectUnits">
+								<option value="metric">Metric</option>
+							  	<option value="imperial">Imperial</option>
+							</select>
+						</div>
+
+						<div class="weatherSettingsGroups" id="weatherSettingsButtons">
+							<div class="weatherSettingsInputs" id="weatherSettingsReset">Reset Credentials</div>
+							<div class="weatherSettingsInputs" id="weatherSettingsApply">Apply</div>
+						</div>
 					</div>
 					<div class="weatherDetails">
 						<div id="weatherIcon"></div>
@@ -65,6 +96,7 @@
 						  <option value="ecosia">Ecosia</option>
 						</select>
 					</div>
+					<div id="searchEngineAsDefault">Set as default</div>
 				</div>
 			</div>
 
@@ -116,7 +148,7 @@
 
 	</div>
 
-	<script src="js/config.js"></script>
+	<script src="js/weather-settings.js"></script>
 	<script src="js/search-engine-select.js"></script>
 	<script src="js/show-search.js"></script>
 	<script src="js/search.js"></script>

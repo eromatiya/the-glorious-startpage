@@ -1,8 +1,11 @@
+var localStorage = window.localStorage;
+
 var selectEngine = document.getElementById("searchEngineSelect");
 var searchBox = document.getElementById("searchBox");
+var searchEngineAsDefault = document.getElementById("searchEngineAsDefault");
 
 // Get default search engine
-var defaultEngine = configData.searchEngine;
+var defaultEngine = localStorage.getItem('searchEngine') || 'google';
 
 let searchQueryPrefix;
 
@@ -46,4 +49,15 @@ selectEngine.onchange = function() {
 	defaultEngine = selectedEngine;
 	selectTheEngine()
 
+}
+
+
+searchEngineAsDefault.onmouseup = function() {
+
+	var selectCurrentIndex = selectEngine.options[selectEngine.selectedIndex]
+
+	alert('Success! ' + selectCurrentIndex.text + 
+		' is now your default search engine!');
+
+	localStorage.setItem('searchEngine', selectCurrentIndex.value);
 }

@@ -6,11 +6,6 @@ var sunriseHour = document.getElementById("sunriseHour");
 var sunsetHour = document.getElementById("sunsetHour");
 var updateHour = document.getElementById("updateHour")
 
-// Get credentials
-var appID = configData.weather.appID;
-var cityID = configData.weather.cityID;
-var units = configData.weather.units;
-
 function formatUnixTime(unix) {
 	var date = new Date(unix*1000);
 	var hour = date.getHours();
@@ -62,7 +57,7 @@ function setValue(loc, desc, icon, sunr, suns, updt) {
 function setErrValue() {
 	var wLoc = "Earth, Milky Way";
 	var wDesc = "dust & clouds, -1000";
-	var wIcon = "url('assets/weather-icons/weather-error.svg')";
+	var wIcon = "weather-error.svg";
 
 	var time = "00:00";
 

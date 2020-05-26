@@ -14,7 +14,6 @@
 	height: auto;
 }
 
-
 #weatherHeader {
 	height: 32px;
 	width: 100%;
@@ -43,6 +42,7 @@
 .weatherDetails {
 	height: auto;
 	width: 100%;
+	margin-top: 5px;
 
 	display: flex;
 	flex-direction: row;
@@ -105,4 +105,130 @@
 .hourLabel {
 	margin: auto;
 	font-size: 11pt;
+}
+
+/*Weather Settings*/
+
+#weatherSettingsIconContainer {
+	background: transparent;
+	margin-left: auto;
+	width: 28px;
+	height: 28px;
+	border-radius: 6px;
+
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+#weatherSettingsIconContainer:hover {
+	background-size: cover;
+	margin-left: auto;
+	background: var(--base-hover-bg);
+	cursor: pointer;
+}
+
+#weatherSettingsIcon {
+	background: url('../assets/settings.svg');
+	background-size: cover;
+	width: 24px;
+	height: 24px;
+
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+
+  	opacity: 0.5;
+  	transition: opacity 500ms;
+}
+
+#weatherSettingsIcon:hover {
+	opacity: 1;
+}
+
+.weatherSettingsGroups {
+	height: auto;
+	width: 100%;
+	margin-top: 5px;
+}
+
+.weatherSettingsLabels {
+	font-size: 12pt;
+	text-align: left;
+}
+
+.weatherSettingsInputs {
+	height: 32px;
+	width: 100%;
+	box-sizing: border-box;
+	margin-top: 5px;
+	border: none;
+	text-align: center;
+	border-radius: 6px;
+	color: var(--base-color);
+	background: var(--panel-bg);
+
+	/*Center vertically*/
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+#weatherSelectUnits {
+	background: var(--base-container);
+	color: var(--base-color);
+
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+#weatherSelectUnits:hover {
+	cursor: pointer;
+}
+
+#weatherSelectUnits option {
+	color: initial;
+	border: none;
+}
+
+#weatherSettingsApply, #weatherSettingsReset {
+	margin-top: 0;
+	background: var(--base-container) !important;
+}
+
+#weatherSettingsApply {
+	margin-left: 2.5px;
+}
+
+#weatherSettingsReset {
+	margin-right: 2.5px;
+}
+
+#weatherSettingsApply:hover, #weatherSettingsReset:hover {
+	background: var(--base-hover-bg) !important;
+	cursor: pointer;
+}
+
+#weatherSettingsApply:active, #weatherSettingsReset:active {
+	background: var(--base-active-bg) !important;
+}
+
+#weatherSettingsButtons {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+}
+
+#weatherSettingsContainer {
+	max-height: 0;
+	opacity: 0;
+	pointer-events: none;
+	transition: max-height 500ms, opacity 500ms, pointer-events 500ms;
+}
+
+#weatherSettingsContainer.show {
+	max-height: 217px;
+	opacity: 1;
+	pointer-events: auto;
 }

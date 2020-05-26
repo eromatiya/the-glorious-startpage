@@ -1,6 +1,7 @@
 
 @import url('normalize.css');
 @import url('web-buttons.css');
+@import url('searchbox.css');
 @import url('blur-overlay.css');
 @import url('profile-container.css');
 @import url('panel-float.css');
@@ -15,8 +16,7 @@
 	--base-container: #f2f2f220;
 
 	--base-hover-bg: #f2f2f240;
-	--base-active-bg: #0a0a0a60;
-
+	--base-active-bg: #fefefe60;
 
 	--blur-strength: 6px;
 	
@@ -33,6 +33,15 @@ input:focus, textarea:focus, select:focus{
 ::placeholder {
   color: var(--base-color);
   opacity: 0.75;
+}
+
+select {
+	text-align: center;
+	text-align-last: center;
+}
+
+option {
+	text-align: left;
 }
 
 body {
@@ -108,32 +117,3 @@ body {
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
-
-#searchBox {
-	backdrop-filter: blur(var(--blur-strength));
-	text-align: center;
-	font-family: sans;
-	font-weight: 500;
-	color: var(--panel-color);
-	background: var(--panel-bg);
-	width: 30%;
-	height: 48px;
-	border: none;
-	border-radius: 24px;
-	margin: 0;
-	position: absolute;
-	left: 50%;
-	top: 60%;
-	opacity: 0;
-	pointer-events: none;
-	transition: opacity 500ms, top 500ms, visibility 500ms, pointer-events 500ms ; 
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-}
-
-#searchBox.unfade {
-	opacity: 1;
-	top: 100%;
-	pointer-events: initial;
-}
-
