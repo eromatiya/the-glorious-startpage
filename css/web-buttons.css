@@ -10,6 +10,7 @@
 	padding: 5px;
 	border: none;
 	cursor: pointer;
+	transition: transform .2s;
 }
 
 .buttonContainer div {
@@ -30,10 +31,18 @@
 
 .buttonContainer:hover {
 	background: var(--base-hover-bg);
+
+	-ms-transform: scale(1.25);
+	-webkit-transform: scale(1.25);
+	transform: scale(1.25); 
 }
 
 .buttonContainer:active {
 	background: var(--base-active-bg);
+
+	-ms-transform: scale(1);
+	-webkit-transform: scale(1);
+	transform: scale(1); 
 }
 
 #buttonImage0 {
