@@ -138,12 +138,6 @@
   	align-items: center;
 }
 
-#weatherSettingsContainer {
-}
-
-#weatherSettingsContainer.show {
-}
-
 .weatherSettingsGroups {
 	height: auto;
 	width: 100%;
@@ -201,4 +195,17 @@
 
 #weatherSettingsApply:active, #weatherSettingsReset:active {
 	background: var(--base-active-bg) !important;
+}
+
+#weatherSettingsContainer {
+	height: 0;
+	opacity: 0;
+	pointer-events: none;
+	transition: height 500ms, opacity 500ms, pointer-events 500ms;
+}
+
+#weatherSettingsContainer.show {
+	height: 249px;
+	opacity: 1;
+	pointer-events: initial;
 }
