@@ -49,10 +49,6 @@
 	border: none;
 	border-radius: 6px;
 	padding: 5px;
-
-  /*-webkit-appearance: none;*/
-  /*-moz-appearance: none;*/
-  /*appearance: none;*/
 }
 
 #searchEngineSelect option {

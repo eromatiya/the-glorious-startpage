@@ -45,7 +45,7 @@ body {
 	padding: 0;
 	transition: background 0.4s;
 	color: var(--foreground);
-	background: url("../assets/morning.jpg");
+	background: url("../assets/backgrounds/morning.jpg");
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-attachment: fixed;
