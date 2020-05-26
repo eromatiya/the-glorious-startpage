@@ -6,11 +6,6 @@ var sunriseHour = document.getElementById("sunriseHour");
 var sunsetHour = document.getElementById("sunsetHour");
 var updateHour = document.getElementById("updateHour")
 
-// Get credentials
-var appID = configData.weather.appID;
-var cityID = configData.weather.cityID;
-var units = configData.weather.units;
-
 function formatUnixTime(unix) {
 	var date = new Date(unix*1000);
 	var hour = date.getHours();
