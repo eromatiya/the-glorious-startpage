@@ -65,9 +65,12 @@ document.onkeydown = function keydown (evt) {
         if (evt.keyCode === 13 || evt.altKey || 
             evt.ctrlKey || evt.keyCode === 91 || evt.keyCode === 116) { return; };
 
+        // Check if weather settings is open
+        if (weatherSettingsVisible) { return; };
+
     	// Show search box
-	    // toggleSearchBox();
-    	// searchBox.focus();
+	    toggleSearchBox();
+    	searchBox.focus();
 
     } else {
 

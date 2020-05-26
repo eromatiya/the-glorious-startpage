@@ -3,6 +3,8 @@ var localStorage = window.localStorage;
 var weatherSettingsIconContainer = document.getElementById("weatherSettingsIconContainer");
 var weatherSettingsContainer = document.getElementById("weatherSettingsContainer");
 
+let weatherSettingsVisible = false;
+
 // Apply credentials
 function applyWeatherSettings(key, city, units) {
 	localStorage.setItem('apiKey', key);
@@ -13,20 +15,9 @@ function applyWeatherSettings(key, city, units) {
 // Update on startup
 
 // Set variable
-let appID = configData.weather.appID;
-let cityID = configData.weather.cityID;
-let units = configData.weather.units;
-
-function updateWeatherSettings() {
-	var appID = localStorage.getItem('apiKey');
-	var cityID = localStorage.getItem('cityID');
-	var units = localStorage.getItem('units');
-
-	alert("id " + appID + "<br>city: "  + cityID + "<br>units: " + units);
-}
-
-// Call
-updateWeatherSettings();
+let appID;
+let cityID;
+let units;
 
 // Input elements
 
@@ -41,15 +32,44 @@ var weatherSelectUnits = document.getElementById("weatherSelectUnits");
 var weatherSettingsReset = document.getElementById("weatherSettingsReset");
 var weatherSettingsApply = document.getElementById("weatherSettingsApply");
 
+// Update functions
+function resetWeatherSettingsValue() {
+	apiBox.value = '';
+	cityBox.value = '';
+	weatherSelectUnits.value = "metric";
+}
+
+function updateWeatherSettingsPlaceholder() {
+	apiBox.placeholder = String(appID) || "API Key";
+	cityBox.placeholder = String(cityID) || "City ID";
+	weatherSelectUnits.value = String(units) || "metric";
+}
+
+function updateWeatherSettings() {
+	appID = localStorage.getItem('apiKey');
+	cityID = localStorage.getItem('cityID');
+	units = localStorage.getItem('units');
+
+	resetWeatherSettingsValue();
+	updateWeatherSettingsPlaceholder();
+}
+
+// Call
+updateWeatherSettings();
+
 // Button events
 weatherSettingsIconContainer.onmouseup = function() {
 	weatherSettingsContainer.classList.toggle('show');
+	weatherSettingsVisible = !weatherSettingsVisible;
 }
 
 // Reset button was pressed
 weatherSettingsReset.onmouseup = function() {
 	// Reset keys
-	applyWeatherSettings('', '', '')
+	applyWeatherSettings('', '', '');
+	updateWeatherSettings();
+	getWeatherData();
+	alert('Credentials deleted!');
 }
 
 // Apply settings
@@ -59,5 +79,7 @@ weatherSettingsApply.onmouseup = function() {
 		cityBox.value,
 		weatherSelectUnits.options[weatherSelectUnits.selectedIndex].value
 	);
+	updateWeatherSettings();
+	getWeatherData();
 	alert('Successfully updated!');
 }

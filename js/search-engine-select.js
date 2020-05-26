@@ -5,7 +5,7 @@ var searchBox = document.getElementById("searchBox");
 var searchEngineAsDefault = document.getElementById("searchEngineAsDefault");
 
 // Get default search engine
-var defaultEngine = localStorage.getItem('searchEngine') || configData.searchEngine;
+var defaultEngine = localStorage.getItem('searchEngine') || 'google';
 
 let searchQueryPrefix;
 

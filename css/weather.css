@@ -214,14 +214,14 @@
 }
 
 #weatherSettingsContainer {
-	height: 0;
+	max-height: 0;
 	opacity: 0;
 	pointer-events: none;
-	transition: height 500ms, opacity 500ms, pointer-events 500ms;
+	transition: max-height 500ms, opacity 500ms, pointer-events 500ms;
 }
 
 #weatherSettingsContainer.show {
-	height: 217px;
+	max-height: 217px;
 	opacity: 1;
-	pointer-events: initial;
+	pointer-events: auto;
 }
