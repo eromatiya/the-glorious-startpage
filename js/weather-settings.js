@@ -75,8 +75,8 @@ weatherSettingsReset.onmouseup = function() {
 // Apply settings
 weatherSettingsApply.onmouseup = function() {
 	applyWeatherSettings(
-		apiBox.value,
-		cityBox.value,
+		apiBox.value || apiBox.placeholder,
+		cityBox.value || cityBox.placeholder,
 		weatherSelectUnits.options[weatherSelectUnits.selectedIndex].value
 	);
 	updateWeatherSettings();
