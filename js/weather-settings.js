@@ -50,6 +50,9 @@ function updateWeatherSettings() {
 	cityID = localStorage.getItem('cityID') || "City ID";
 	units = localStorage.getItem('units') || "metric";
 
+	// Update weather forecast elements
+	getWeatherData(appID, cityID, units);
+
 	deleteWeatherSettingsValue();
 	updateWeatherSettingsPlaceholder();
 }
@@ -68,7 +71,6 @@ weatherSettingsReset.onmouseup = function() {
 	// Reset keys
 	applyWeatherSettings('', '', '');
 	updateWeatherSettings();
-	getWeatherData();
 	alert('Credentials deleted!');
 }
 
@@ -80,6 +82,5 @@ weatherSettingsApply.onmouseup = function() {
 		weatherSelectUnits.options[weatherSelectUnits.selectedIndex].value
 	);
 	updateWeatherSettings();
-	getWeatherData();
 	alert('Successfully updated!');
 }

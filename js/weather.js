@@ -64,53 +64,44 @@ function setErrValue() {
 	setValue(wLoc, wDesc, wIcon, time, time, time);
 }
 
-function getWeatherData() {
+// This will be called in weather-settings
+function getWeatherData(appID, cityID, units) {
 
-	openWMLink = "http://api.openweathermap.org/data/2.5/weather?APPID=" + appID + "&id=" + cityID + "&units=" + units;
+	requestString = "http://api.openweathermap.org/data/2.5/weather?APPID=" + appID + "&id=" + cityID + "&units=" + units;
 
-	var XHR = new XMLHttpRequest();
-
-	XHR.onreadystatechange = function() {
-    	// If complete
-    	if (XHR.readyState === 4){   
-
-    		// Check if "OK" (200)
-        	if(XHR.status === 200){  
-				XHR.onload = function(){
-					var owData = JSON.parse(this.response);
-					if (XHR.status >= 200 && XHR.status < 400) {
-
-						var cityName = owData.name;
-						var countryName = owData.sys.country;
-						var weatherDescription = owData.weather[0].description;
-						var weatherIcon = owData.weather[0].icon;
-						var weatherTemp = Math.floor(owData.main.temp);
-						var sunRise = owData.sys.sunrise;
-						var sunSet = owData.sys.sunset;
-						var update = owData.dt;
-
-						var wLoc = cityName + ", " + countryName;
-						var wDesc = weatherDescription + ", " + weatherTemp;
-
-						// Capitalize first word
-						wDesc = wDesc && wDesc[0].toUpperCase() + wDesc.slice(1)
-						
-						var wIcon = getIcon(weatherIcon);
-						var rise = formatUnixTime(sunRise);
-						var set = formatUnixTime(sunSet);
-						var upd = formatUnixTime(update);
-
-						setValue(wLoc, wDesc, wIcon, rise, set, upd);		
-					}
-				}
-        	} else {
-				setErrValue();
-        	}
-    	}
-	}
-
-	XHR.open('GET', openWMLink, true);
-	XHR.send();
+	request = new XMLHttpRequest();
+	request.open("GET", requestString, true);
+	request.onload = e => {
+		if (request.readyState === 4 && request.status === 200 && request.status < 400) {
+			processData(JSON.parse(request.response));
+		} else {
+			setErrValue();
+		};
+	};
+	request.send();
 };
 
-getWeatherData();
+function  processData(data) {
+
+	var cityName = data.name;
+	var countryName = data.sys.country;
+	var weatherDescription = data.weather[0].description;
+	var weatherIcon = data.weather[0].icon;
+	var weatherTemp = Math.floor(data.main.temp);
+	var sunRise = data.sys.sunrise;
+	var sunSet = data.sys.sunset;
+	var update = data.dt;
+
+	var wLoc = cityName + ", " + countryName;
+	var wDesc = weatherDescription + ", " + weatherTemp;
+
+	// Capitalize first word
+	wDesc = wDesc && wDesc[0].toUpperCase() + wDesc.slice(1)
+
+	var wIcon = getIcon(weatherIcon);
+	var rise = formatUnixTime(sunRise);
+	var set = formatUnixTime(sunSet);
+	var upd = formatUnixTime(update);
+
+	setValue(wLoc, wDesc, wIcon, rise, set, upd);		
+}
