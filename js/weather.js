@@ -67,7 +67,7 @@ function setErrValue() {
 // This will be called in weather-settings
 function getWeatherData(appID, cityID, units) {
 
-	requestString = "http://api.openweathermap.org/data/2.5/weather?APPID=" + appID + "&id=" + cityID + "&units=" + units;
+	requestString = "https://api.openweathermap.org/data/2.5/weather?APPID=" + appID + "&id=" + cityID + "&units=" + units;
 
 	request = new XMLHttpRequest();
 	request.open("GET", requestString, true);
