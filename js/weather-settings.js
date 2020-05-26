@@ -12,6 +12,7 @@ function applyWeatherSettings(key, city, units) {
 
 // Update on startup
 
+// Set variable
 let appID = configData.weather.appID;
 let cityID = configData.weather.cityID;
 let units = configData.weather.units;
@@ -20,7 +21,12 @@ function updateWeatherSettings() {
 	var appID = localStorage.getItem('apiKey');
 	var cityID = localStorage.getItem('cityID');
 	var units = localStorage.getItem('units');
+
+	alert("id " + appID + "<br>city: "  + cityID + "<br>units: " + units);
 }
+
+// Call
+updateWeatherSettings();
 
 // Input elements
 
