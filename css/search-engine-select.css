@@ -42,6 +42,7 @@
 
 #searchEngineSelect {
 	width: 100%;
+	height: 32px;
 	background: var(--base-container);
 	color: var(--base-color);
 	font-weight: normal;
