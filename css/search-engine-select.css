@@ -40,6 +40,10 @@
 	margin-bottom: auto;
 }
 
+#searchEngineContainer {
+	margin-top: 5px;
+}
+
 #searchEngineSelect {
 	width: 100%;
 	height: 32px;

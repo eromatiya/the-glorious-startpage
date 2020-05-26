@@ -193,6 +193,7 @@
 }
 
 #weatherSettingsApply, #weatherSettingsReset {
+	margin-top: 0;
 	background: var(--base-container) !important;
 }
 
