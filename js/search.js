@@ -3,22 +3,6 @@ var searchBox = document.getElementById("searchBox");
 
 // Web Search
 function webSearch() {
-
-	var searchQueryPrefix;
-
-	if (defaultEngine === "google") {
-		searchQueryPrefix = 'http://www.google.com/search?q=';
-
-	} else if (defaultEngine === "duckduckgo") {
-		searchQueryPrefix = 'https://duckduckgo.com/?q=';
-
-	} else if (defaultEngine === "ecosia") {
-		searchQueryPrefix = 'https://www.ecosia.org/search?q=';
-	
-	} else {
-		searchQueryPrefix = 'http://www.google.com/search?q=';
-	}
-
 	// Search
 	window.location.href = encodeURI(searchQueryPrefix + searchBox.value);
 };
