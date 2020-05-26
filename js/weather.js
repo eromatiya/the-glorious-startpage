@@ -11,7 +11,7 @@ var appID = configData.weather.appID;
 var cityID = configData.weather.cityID;
 var units = configData.weather.units;
 
-function format_unix_time(unix) {
+function formatUnixTime(unix) {
 	var date = new Date(unix*1000);
 	var hour = date.getHours();
 	var minutes = "0" + date.getMinutes();
@@ -19,7 +19,7 @@ function format_unix_time(unix) {
 	return formattedTime;
 }
 
-function get_icon(code) {
+function getIcon(code) {
 	var icon_tbl = {
 		'01d': 'sun_icon.svg',
 		'01n': 'moon_icon.svg',
@@ -100,10 +100,10 @@ function getWeatherData() {
 						// Capitalize first word
 						wDesc = wDesc && wDesc[0].toUpperCase() + wDesc.slice(1)
 						
-						var wIcon = get_icon(weatherIcon);
-						var rise = format_unix_time(sunRise);
-						var set = format_unix_time(sunSet);
-						var upd = format_unix_time(update);
+						var wIcon = getIcon(weatherIcon);
+						var rise = formatUnixTime(sunRise);
+						var set = formatUnixTime(sunSet);
+						var upd = formatUnixTime(update);
 
 						setValue(wLoc, wDesc, wIcon, rise, set, upd);		
 					}
