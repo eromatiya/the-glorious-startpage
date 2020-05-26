@@ -40,3 +40,4 @@
 
 + The code could be better, this is my first time writing a startpage from the ground up. I will improve this from time to time.
 + If you discovered a bug or error in the logs, please open an issue so I can fix it.
++ Tested only on Firefox and Google Chrome.
