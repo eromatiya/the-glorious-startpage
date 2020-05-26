@@ -113,6 +113,10 @@
 	width: 28px;
 	height: 28px;
 	border-radius: 6px;
+
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
 }
 
 #weatherSettingsContainer:hover {
@@ -125,8 +129,8 @@
 #weatherSettingsIcon {
 	background: url('../assets/settings.svg');
 	background-size: cover;
-	width: 28px;
-	height: 28px;
+	width: 24px;
+	height: 24px;
 
 	display: flex;
   	justify-content: center;
