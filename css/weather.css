@@ -106,3 +106,29 @@
 	margin: auto;
 	font-size: 11pt;
 }
+
+#weatherSettingsContainer {
+	background: transparent;
+	margin-left: auto;
+	width: 28px;
+	height: 28px;
+	border-radius: 6px;
+}
+
+#weatherSettingsContainer:hover {
+	background-size: cover;
+	margin-left: auto;
+	background: var(--base-hover-bg);
+	cursor: pointer;
+}
+
+#weatherSettingsIcon {
+	background: url('../assets/settings.svg');
+	background-size: cover;
+	width: 28px;
+	height: 28px;
+
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
