@@ -20,6 +20,10 @@ var webSites = [
 { site: 'Google', icon: 'google', url: 'https://google.com/'},
 { site: 'Wikipedia', icon: 'wikipedia', url: 'https://wikipedia.org/'},
 { site: 'Unsplash', icon: 'unsplash', url: 'https://unsplash.com/'},
+
+{ site: 'Twitch', icon: 'twitch', url: 'https://twitch.tv/'},
+{ site: 'Yahoo', icon: 'yahoo', url: 'https://mail.yahoo.com/'},
+{ site: 'Pornhub', icon: 'pornhub', url: 'https://pornhub.com/'},
 ];
 
 // Generate a list
