@@ -81,7 +81,17 @@
 	width: 128px;
 	height: 128px;
 	margin: 5px;
-	border: solid;
+	border-radius: var(--rounded-radius);
+	background: var(--base-container);
+}
+
+.webItem:hover {
+	background: var(--base-hover-bg);
+	cursor: pointer;
+}
+
+.webItem:active {
+	background: var(--base-active-bg);
 }
 
 /*Contains web icon and label*/
@@ -104,8 +114,7 @@
 	background: #ff000060;
 	height: 96px;
 	width: 96px;
-	margin-bottom: 5px;
-
+	margin-bottom: 0;
 }
 
 /*Web label/name*/

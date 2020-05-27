@@ -1,6 +1,7 @@
 var webMenuList = document.getElementById("webMenuList");
 var webMenuSearchBox = document.getElementById("webMenuSearchBox");
 
+// Data
 var webSites = [
 { site: 'Youtube', icon: 'youtube', url: 'https://youtube.com'},
 { site: 'Youtube', icon: 'youtube', url: 'https://youtube.com'},
@@ -10,7 +11,7 @@ var webSites = [
 { site: 'Youtube', icon: 'youtube', url: 'https://youtube.com'}
 ];
 
-
+// Generate a list
 for (i = 0; i < (webSites.length / 3); i++) {
 	var site = webSites[i];
 	webSites.map(function(item) {
@@ -33,7 +34,6 @@ for (i = 0; i < (webSites.length / 3); i++) {
 		// Create a second div, webItemContainer
 		var webItemContainer = document.createElement('div');
 		webItemContainer.className = 'webItemContainer';
-
 
 		// Create the innermost div, contains icon and label
 		var webItemBody = document.createElement('div');
@@ -63,8 +63,8 @@ for (i = 0; i < (webSites.length / 3); i++) {
 	});
 }
 
+// Search through the list
 webMenuSearchBox.onkeyup = function() {
-
 	// Declare variables
 	var input, filter, ul, li, a, i, txtValue;
 	input = webMenuSearchBox;
