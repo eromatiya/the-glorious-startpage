@@ -1,34 +1,17 @@
-"use strict";
-
-var profileContainer = document.getElementById("profileContainer");
 var searchBox = document.getElementById("searchBox");
 var blurOverlay = document.getElementById("blurOverlay");
 
-var running = false;
 var searchBoxVisible = false
 
-// Paused animation
-profileContainer.style.webkitAnimationPlayState = "paused";
 
 // Show searchbox
 function toggleSearchBox() {
 
-	// Dont animate again if animation's still running
-	if (running) { return; };
+	// Dont animate again if animation's still profileRotating
+	if (profileRotating) { return; };
 
-    event.preventDefault;
-
-    // Remove anim class
-    profileContainer.classList.remove('rotateAnim');
-
-    // Triggering reflow
-    void profileContainer.offsetWidth;
-
-    // Re-add animation class
-    profileContainer.classList.add('rotateAnim');
-
-    profileContainer.style.webkitAnimationPlayState = "running";
-    running = true;
+    // Rotate
+    rotateProfile();
 
 	// Call unfade class to show search box    
     searchBox.classList.toggle('unfade');
@@ -41,19 +24,6 @@ function toggleSearchBox() {
     }
 
 }
-
-// Reenable animation after death
-profileContainer.addEventListener(
-    "animationend", 
-    function(event) {
-        running = false;
-    }
-); 
-
-// Animate/Show searchbox if profile container was clicked
-profileContainer.onclick = function() {
-	toggleSearchBox()
-};
 
 // Keypress events
 document.onkeydown = function keydown (evt) { 

@@ -6,7 +6,7 @@
 	height: 100%;
 	margin: 0;
 	background: var(--panel-bg);
-	z-index: 999999999;
+	z-index: 0;
 	overflow: hidden;
 	backdrop-filter: blur(var(--blur-strength));
 	
@@ -27,8 +27,16 @@
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+
+
+	/*Transitions*/
+	transform: scale(0);
+	transition: transform 500ms;
 }
 
+#webMenu.show {
+	transform: scale(1);
+}
 
 #webMenuContainer {
 	background: transparent;

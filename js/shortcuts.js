@@ -9,7 +9,7 @@ function openSite(url) {
 
 // Launch search bar
 document.getElementById('button0').onclick = function() {
-    toggleSearchBox();
+    webMenuLaunch();
 };
 // Reddit
 document.getElementById('button1').onclick = function() {

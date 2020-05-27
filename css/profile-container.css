@@ -9,7 +9,7 @@
     position: relative;
 }
 
-.rotateAnim {
+.rotateProfile {
 	animation: rotate 500ms 1;
 	animation-iteration-count: 1;
 	animation-play-state: paused;

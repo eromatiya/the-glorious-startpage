@@ -1,3 +1,4 @@
+var webMenu = document.getElementById("webMenu");
 var webMenuList = document.getElementById("webMenuList");
 var webMenuSearchBox = document.getElementById("webMenuSearchBox");
 
@@ -114,31 +115,37 @@ webMenuSearchBox.onkeyup = function(event) {
 }
 
 
-
-function scrollList() {
-	var list = document.getElementById('webMenuList');
-     
-     // Get first child
-     var first = list.firstChild;
-
-
-     var maininput = webMenuSearchBox;  // targets the input, which triggers the functions populating the list
-     document.onkeydown = function(e) { // listen to keyboard events
-     switch (e.keyCode) {
-
-     	// Up key
-        case 38:
-        	if (document.activeElement == (maininput || first)) { break; } // stop the script if the focus is on the input or first element
-            else { document.activeElement.parentNode.previousSibling.firstChild.focus(); } // select the element before the current, and focus it
-            break;
-
-        // Down key
-        case 40:
-            if (document.activeElement == maininput) { first.firstChild.focus(); } // if the currently focused element is the main input --> focus the first <li>
-            else { document.activeElement.parentNode.nextSibling.firstChild.focus(); } // target the currently focused element -> <a>, go up a node -> <li>, select the next node, go down a node and focus it
-            break;
-        }
-    }
+function webMenuLaunch() {
+	rotateProfile();
+	webMenu.classList.toggle("show");
 }
 
+
+
+
+// function scrollList() {
+// 	var list = document.getElementById('webMenuList');
+     
+//      // Get first child
+//      var first = list.firstChild;
+
+
+//      var maininput = webMenuSearchBox;  // targets the input, which triggers the functions populating the list
+//      document.onkeydown = function(e) { // listen to keyboard events
+//      switch (e.keyCode) {
+
+//      	// Up key
+//         case 38:
+//         	if (document.activeElement == (maininput || first)) { break; } // stop the script if the focus is on the input or first element
+//             else { document.activeElement.parentNode.previousSibling.firstChild.focus(); } // select the element before the current, and focus it
+//             break;
+
+//         // Down key
+//         case 40:
+//             if (document.activeElement == maininput) { first.firstChild.focus(); } // if the currently focused element is the main input --> focus the first <li>
+//             else { document.activeElement.parentNode.nextSibling.firstChild.focus(); } // target the currently focused element -> <a>, go up a node -> <li>, select the next node, go down a node and focus it
+//             break;
+//         }
+//     }
+// }
 
