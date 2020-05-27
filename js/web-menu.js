@@ -29,7 +29,7 @@ var webSites = [
 { site: 'Office 365', icon: 'office365', url: 'https://office.com/'}
 ];
 
-
+// Create mouse event on passed div
 function addEvent(div, url) {
 	div.onmouseup = function() {
 		window.location.href = encodeURI(url);
@@ -53,10 +53,6 @@ for (i = 0; i < (webSites.length); i++) {
 	
 	// Add mouseup event
 	addEvent(webItemDiv, url);
-
-	// live("click", "test", function (event) {
-	//     alert(this.id);
-	// });
 
 	// Create a second div, webItemContainer
 	var webItemContainer = document.createElement('div');
