@@ -1,5 +1,5 @@
 ## a modern looking startpage
-[![maintained](https://img.shields.io/maintenance/yes/2020?label=maintained&style=flat-square)](https://github.com/manilarome/modern-startpage/commits/master) [![contributions](https://img.shields.io/badge/contribution-welcome-brightgreen&?style=flat-square)](https://github.com/manilarome/modern-startpage/pulls) [![HitCount](http://hits.dwyl.com/manilarome/modern-startpage.svg)](http://hits.dwyl.com/manilarome/modern-startpage)
+[![maintained](https://img.shields.io/maintenance/yes/2020?label=maintained&style=flat-square)](https://github.com/manilarome/the-glorious-startpage/commits/master) [![contributions](https://img.shields.io/badge/contribution-welcome-brightgreen&?style=flat-square)](https://github.com/manilarome/the-glorious-startpage/pulls) [![HitCount](http://hits.dwyl.com/manilarome/the-glorious-startpage.svg)](http://hits.dwyl.com/manilarome/the-glorious-startpage)
 
 
 ### A feature-rich modern-looking startpage
@@ -8,7 +8,7 @@
 | --- |
 | ![gif](gif.gif) |
 
-## [Live Preview](https://manilarome.github.io/modern-startpage/)
+## [Live Preview](https://manilarome.github.io/the-glorious-startpage/)
 
 ## Features
 
