@@ -14,57 +14,53 @@ var webSites = [
 ];
 
 // Generate a list
-for (i = 0; i < (webSites.length / 3); i++) {
-	var site = webSites[i];
+for (i = 0; i < (webSites.length); i++) {
 
-	webSites.map(function(item) {
+	var site = webSites[i].site;
+	var icon = webSites[i].icon;
+	var url = webSites[i].url;
 
-		// var value = "name: " + String(item.name) + "<br>lat: " + String(item.lat) + "<br>lng: " + String(item.lng);
-		// alert("name:" + item.name);
-		// alert(value);
+	var li = document.createElement('li');
 
-		var li = document.createElement('li');
-
-		// Add mouseup event
-		li.onmouseup = function() {
-			window.location.href = encodeURI(item.url);
-		}
+	// Add mouseup event
+	li.onmouseup = function() {
+		window.location.href = encodeURI(url);
+	}
 		
-		// Create an outer div, child of li
-		var webItem = document.createElement('div')
-		webItem.className = 'webItem';
+	// Create an outer div, child of li
+	var webItem = document.createElement('div')
+	webItem.className = 'webItem';
 
-		// Create a second div, webItemContainer
-		var webItemContainer = document.createElement('div');
-		webItemContainer.className = 'webItemContainer';
+	// Create a second div, webItemContainer
+	var webItemContainer = document.createElement('div');
+	webItemContainer.className = 'webItemContainer';
 
-		// Create the innermost div, contains icon and label
-		var webItemBody = document.createElement('div');
-		webItemBody.className = 'webItemBody';
+	// Create the innermost div, contains icon and label
+	var webItemBody = document.createElement('div');
+	webItemBody.className = 'webItemBody';
 
-		// Create div for webItemIcon
-		var webItemIcon = document.createElement('div');
-		webItemIcon.className = 'webItemIcon';
-		webItemIcon.style.background = "url('assets/webcons/" + item.icon + ".svg')";
-		webItemIcon.style.backgroundSize = 'cover';
+	// Create div for webItemIcon
+	var webItemIcon = document.createElement('div');
+	webItemIcon.className = 'webItemIcon';
+	webItemIcon.style.background = "url('assets/webcons/" + icon + ".svg')";
+	webItemIcon.style.backgroundSize = 'cover';
 
-		// Create webItemName
-		var webItemName = document.createElement('div');
-		webItemName.className = 'webItemName';
-		webItemName.innerHTML = item.site;
+	// Create webItemName
+	var webItemName = document.createElement('div');
+	webItemName.className = 'webItemName';
+	webItemName.innerHTML = site;
 
-		// Append divs with heirarchy
-		webItem.appendChild(webItemContainer);
-		webItemContainer.appendChild(webItemBody);
+	// Append divs with heirarchy
+	webItem.appendChild(webItemContainer);
+	webItemContainer.appendChild(webItemBody);
 
-		webItemBody.appendChild(webItemIcon);
-		webItemBody.appendChild(webItemName);
+	webItemBody.appendChild(webItemIcon);
+	webItemBody.appendChild(webItemName);
 
-		li.appendChild(webItem);
-		webMenuList.appendChild(li);
-
-	});
+	li.appendChild(webItem);
+	webMenuList.appendChild(li);
 }
+
 
 // Search through the list
 webMenuSearchBox.onkeyup = function() {
