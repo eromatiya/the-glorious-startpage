@@ -69,8 +69,8 @@ document.onkeydown = function keydown (evt) {
         if (weatherSettingsVisible) { return; };
 
     	// Show search box
-	    toggleSearchBox();
-    	searchBox.focus();
+	    // toggleSearchBox();
+    	// searchBox.focus();
 
     } else {
 
