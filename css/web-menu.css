@@ -10,7 +10,6 @@
 	overflow: hidden;
 	backdrop-filter: blur(var(--blur-strength));
 	
-
 	padding-top: 6vh;
 	padding-bottom: 6vh;
 	padding-left: 12vw;
@@ -21,6 +20,13 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 
+	/*Disable user touch/select on text elements*/
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 
