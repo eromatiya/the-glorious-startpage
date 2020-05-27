@@ -3,17 +3,20 @@ var webMenuSearchBox = document.getElementById("webMenuSearchBox");
 
 // Data
 var webSites = [
+{ site: 'Reddit', icon: 'reddit', url: 'https://redit.com'},
+{ site: 'Github', icon: 'github', url: 'https://github.com'},
+{ site: 'Facebook', icon: 'facebook', url: 'https://facebook.com'},
+{ site: 'Gmail', icon: 'gmail', url: 'https://mail.google.com'},
 { site: 'Youtube', icon: 'youtube', url: 'https://youtube.com'},
-{ site: 'Youtube', icon: 'youtube', url: 'https://youtube.com'},
-{ site: 'Youtube', icon: 'youtube', url: 'https://youtube.com'},
-{ site: 'Youtube', icon: 'youtube', url: 'https://youtube.com'},
-{ site: 'Youtube', icon: 'youtube', url: 'https://youtube.com'},
-{ site: 'Youtube', icon: 'youtube', url: 'https://youtube.com'}
+{ site: 'GDrive', icon: 'gdrive', url: 'https://drive.google.com'},
+{ site: 'Twitter', icon: 'twitter', url: 'https://twitter.com'},
+{ site: 'Instagram', icon: 'instagram', url: 'https://instagram.com'}
 ];
 
 // Generate a list
 for (i = 0; i < (webSites.length / 3); i++) {
 	var site = webSites[i];
+
 	webSites.map(function(item) {
 
 		// var value = "name: " + String(item.name) + "<br>lat: " + String(item.lat) + "<br>lng: " + String(item.lng);
@@ -42,7 +45,7 @@ for (i = 0; i < (webSites.length / 3); i++) {
 		// Create div for webItemIcon
 		var webItemIcon = document.createElement('div');
 		webItemIcon.className = 'webItemIcon';
-		webItemIcon.style.background = "url('assets/webcons/youtube.svg')";
+		webItemIcon.style.background = "url('assets/webcons/" + item.icon + ".svg')";
 		webItemIcon.style.backgroundSize = 'cover';
 
 		// Create webItemName
