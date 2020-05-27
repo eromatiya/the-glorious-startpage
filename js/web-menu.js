@@ -29,6 +29,13 @@ var webSites = [
 { site: 'Office 365', icon: 'office365', url: 'https://office.com/'}
 ];
 
+
+function addEvent(div, url) {
+	div.onmouseup = function() {
+		window.location.href = encodeURI(url);
+	}
+}
+
 // Generate a list
 for (i = 0; i < (webSites.length); i++) {
 
@@ -38,14 +45,18 @@ for (i = 0; i < (webSites.length); i++) {
 
 	var li = document.createElement('li');
 
-	// Add mouseup event
-	li.onmouseup = function() {
-		window.location.href = encodeURI(url);
-	}
-		
 	// Create an outer div, child of li
-	var webItem = document.createElement('div')
-	webItem.className = 'webItem';
+	let webItemDiv = document.createElement('div')
+	webItemDiv.className = 'webItem';
+	webItemDiv.tabIndex = '0';
+	webItemDiv.id = "id" + site;
+	
+	// Add mouseup event
+	addEvent(webItemDiv, url);
+
+	// live("click", "test", function (event) {
+	//     alert(this.id);
+	// });
 
 	// Create a second div, webItemContainer
 	var webItemContainer = document.createElement('div');
@@ -67,16 +78,17 @@ for (i = 0; i < (webSites.length); i++) {
 	webItemName.innerHTML = site;
 
 	// Append divs with heirarchy
-	webItem.appendChild(webItemContainer);
+	webItemDiv.appendChild(webItemContainer);
 	webItemContainer.appendChild(webItemBody);
 
 	webItemBody.appendChild(webItemIcon);
 	webItemBody.appendChild(webItemName);
 
-	li.appendChild(webItem);
+	li.appendChild(webItemDiv);
 	webMenuList.appendChild(li);
 }
 
+let firstEntry;
 
 // Search through the list
 webMenuSearchBox.onkeyup = function(event) {
@@ -86,11 +98,7 @@ webMenuSearchBox.onkeyup = function(event) {
 	filter = input.value.toUpperCase();
 	ul = webMenuList;
 	li = ul.getElementsByTagName('li');
-
-	if (event.keyCode === 13) {
-		
-	};
-
+	
 	// Loop through all list items, and hide those who don't match the search query
 	for (i = 0; i < li.length; i++) {
 		a = li[i].getElementsByClassName("webItem")[0];
@@ -98,9 +106,43 @@ webMenuSearchBox.onkeyup = function(event) {
 		if (txtValue.toUpperCase().indexOf(filter) > -1) {
 			// Filtered tile/s
 			li[i].style.display = "";
+			firstEntry = li[i];
 		} else {
 			// Hidden tile/s
 			li[i].style.display = "none";
 		}
 	}
+
+
+	scrollList();
 }
+
+
+
+function scrollList() {
+	var list = document.getElementById('webMenuList');
+     
+     // Get first child
+     var first = list.firstChild;
+
+
+     var maininput = webMenuSearchBox;  // targets the input, which triggers the functions populating the list
+     document.onkeydown = function(e) { // listen to keyboard events
+     switch (e.keyCode) {
+
+     	// Up key
+        case 38:
+        	if (document.activeElement == (maininput || first)) { break; } // stop the script if the focus is on the input or first element
+            else { document.activeElement.parentNode.previousSibling.firstChild.focus(); } // select the element before the current, and focus it
+            break;
+
+        // Down key
+        case 40:
+            if (document.activeElement == maininput) { first.firstChild.focus(); } // if the currently focused element is the main input --> focus the first <li>
+            else { document.activeElement.parentNode.nextSibling.firstChild.focus(); } // target the currently focused element -> <a>, go up a node -> <li>, select the next node, go down a node and focus it
+            break;
+        }
+    }
+}
+
+
