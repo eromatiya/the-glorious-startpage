@@ -30,7 +30,7 @@ var webSites = [
 ];
 
 // Create mouse event on passed div
-function addEvent(div, url) {
+function addMouseUpEvent(div, url) {
 	div.onmouseup = function() {
 		window.location.href = encodeURI(url);
 	}
@@ -52,7 +52,7 @@ for (i = 0; i < (webSites.length); i++) {
 	webItemDiv.id = "id" + site;
 	
 	// Add mouseup event
-	addEvent(webItemDiv, url);
+	addMouseUpEvent(webItemDiv, url);
 
 	// Create a second div, webItemContainer
 	var webItemContainer = document.createElement('div');
