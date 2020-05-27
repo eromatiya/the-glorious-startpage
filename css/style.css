@@ -40,14 +40,24 @@ select:focus{
   opacity: 0.75;
 }
 
-/*Hide scrollbar*/
-html {
-  overflow:   scroll;
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-::-webkit-scrollbar {
-    width: 0px;
-    background: transparent; /* make scrollbar transparent */
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--base-container);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--base-active-bg);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--base-hover-bg);
 }
 
 select {

@@ -24,6 +24,9 @@ var webSites = [
 { site: 'Twitch', icon: 'twitch', url: 'https://twitch.tv/'},
 { site: 'Yahoo', icon: 'yahoo', url: 'https://mail.yahoo.com/'},
 { site: 'Pornhub', icon: 'pornhub', url: 'https://pornhub.com/'},
+{ site: 'Material.io', icon: 'materialio', url: 'https://material.io/'},
+{ site: 'Netflix', icon: 'netflix', url: 'https://netflix.com/'},
+{ site: 'Office 365', icon: 'office365', url: 'https://office.com/'}
 ];
 
 // Generate a list
