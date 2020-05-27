@@ -27,13 +27,27 @@
 	--rounded-radius: 12px;
 }
 
-input:focus, textarea:focus, select:focus{
+/*Hide focus elements*/
+input:focus,
+textarea:focus,
+select:focus{
     outline: none;
 }
 
+/*Placeholder*/
 ::placeholder {
   color: var(--base-color);
   opacity: 0.75;
+}
+
+/*Hide scrollbar*/
+html {
+  overflow:   scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
 }
 
 select {
