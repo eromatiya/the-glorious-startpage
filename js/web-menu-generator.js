@@ -21,8 +21,8 @@ var webSites = [
 	'Google',
 ];
 
-for (var i = 0; i < webSites.length; i++) {
-	var name = webSites[i];
+for (let site of webSites) {
+	var name = site;
 
 	var li = document.createElement('li');
 
