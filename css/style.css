@@ -8,6 +8,7 @@
 @import url('greeter.css');
 @import url('weather.css');
 @import url('search-engine-select.css');
+@import url('web-menu.css');
 
 :root {
 	/* Colors */
