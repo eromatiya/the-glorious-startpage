@@ -9,13 +9,10 @@ function slideDashboard() {
 	if (searchBoxVisible) {
 		toggleSearchBox();
 	}
-
+	
 	// Toggle right panel
-	if (!floatPanelVisible) {
-		dashboard.style.width = "350px"
-	} else {
-		dashboard.style.width = "0"
-	}
+	dashboard.classList.toggle('show');
+	
 	// Enable overlay
 	dashboardHider.classList.toggle('show');
 	floatPanelVisible = !floatPanelVisible;
