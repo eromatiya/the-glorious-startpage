@@ -1,7 +1,7 @@
 var dashboard = document.getElementById("rightDashboard");
 var dashboardHider = document.getElementById("overlayHider");
 
-var panelOpen = false;
+var floatPanelVisible = false;
 
 function slideDashboard() {
 
@@ -11,21 +11,21 @@ function slideDashboard() {
 	}
 
 	// Toggle right panel
-	if (!panelOpen) {
+	if (!floatPanelVisible) {
 		dashboard.style.width = "350px"
 	} else {
 		dashboard.style.width = "0"
 	}
 	// Enable overlay
 	dashboardHider.classList.toggle('show');
-	panelOpen = !panelOpen;
+	floatPanelVisible = !floatPanelVisible;
 
 }
 
 
 dashboardHider.addEventListener(
 	"mouseup", function() {
-		if (panelOpen) {
+		if (floatPanelVisible) {
 			slideDashboard();
 		}
 	}
