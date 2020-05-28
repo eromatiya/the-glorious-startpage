@@ -121,8 +121,8 @@ body {
 
 	/*On bottom, center horizontally*/
 	left: 50%;
-	-ms-transform: translate(-50%);
-	transform: translate(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
 }
 
 #panelBottomContainer {
@@ -139,6 +139,31 @@ body {
 
 
     border-radius: var(--rounded-radius);
+}
+
+
+@media screen and (max-width: 450px) {
+
+	#dockBody {
+    	position: relative;
+
+		margin:0  auto;
+    	top: 50%;
+    	left: 0;
+    	bottom: 0;
+    	right: 0;
+		display: inline-block;
+    	
+    	transition: translateY(-50%);
+    	-webkit-transform: translateY(-50%);
+	}
+
+	#panelBottomContainer {
+		display: inline-block;
+    	width: auto;
+    	height: auto;
+	}
+
 }
 
 
