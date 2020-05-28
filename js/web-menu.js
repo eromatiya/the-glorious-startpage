@@ -115,7 +115,7 @@ function filterWebList() {
 	}
 }
 
-webMenuSearchBox.onkeyup = function(event) {
+webMenuSearchBox.onkeydown = function(event) {
 
 	if (event.keyCode === 13 && firstEntry) {
 		firstEntry.onmouseup();
