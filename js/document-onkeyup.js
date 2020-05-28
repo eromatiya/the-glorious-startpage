@@ -31,10 +31,10 @@ document.onkeyup = function keydown (event) {
             return;
         }
 
-        // Dont accept alt, ctrl,
+        // Dont accept ctrl, alt,
         // left/right window key, f5, return
-        if (event.altKey ||
-            event.ctrlKey ||
+        if (event.keyCode === 17 ||
+            event.keyCode === 18||
             event.keyCode === 91 ||
             event.keyCode === 92 ||
             event.keyCode === 116 || 
@@ -48,7 +48,7 @@ document.onkeyup = function keydown (event) {
         // Open and focus
         toggleSearchBox();
         searchBox.focus();
-    
+
     } else {
         
         // Backspacing while there's no search query will hide searhbox
