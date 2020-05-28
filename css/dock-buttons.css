@@ -48,30 +48,7 @@
 #buttonImage0 {
 	background-image: url("../assets/buttons/launch.svg");
 }
-#buttonImage1 {
-	background-image: url("../assets/webcons/reddit.svg");
-}
-#buttonImage2 {
-	background-image: url("../assets/webcons/github.svg");
-}
-#buttonImage3 {
-	background-image: url("../assets/webcons/facebook.svg");
-}
-#buttonImage4 {
-	background-image: url("../assets/webcons/gmail.svg");
-}
-#buttonImage5 {
-	background-image: url("../assets/webcons/youtube.svg");
-}
-#buttonImage6 {
-	background-image: url("../assets/webcons/gdrive.svg");
-}
-#buttonImage7 {
-	background-image: url("../assets/webcons/twitter.svg");
-}
-#buttonImage8 {
-	background-image: url("../assets/webcons/instagram.svg");
-}
+
 #buttonImage9 {
 	background-image: url("../assets/buttons/menu.svg");
 }
