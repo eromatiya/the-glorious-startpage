@@ -22,7 +22,6 @@ function toggleSearchBox() {
     if (panelOpen) {
         slideDashboard();
     }
-
 }
 
 // Keypress events
@@ -38,9 +37,14 @@ document.onkeydown = function keydown (evt) {
         // Check if weather settings is open
         if (weatherSettingsVisible) { return; };
 
+        // Don't show searchbox when web menu is open
+        if (webMenuVisible) {
+            return;
+        }
+
     	// Show search box
-	    // toggleSearchBox();
-    	// searchBox.focus();
+	    toggleSearchBox();
+    	searchBox.focus();
 
     } else {
 

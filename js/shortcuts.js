@@ -9,7 +9,7 @@ function openSite(url) {
 
 // Launch search bar
 document.getElementById('button0').onclick = function() {
-    webMenuLaunch();
+    webMenuToggle();
 };
 // Reddit
 document.getElementById('button1').onclick = function() {
@@ -45,5 +45,9 @@ document.getElementById('button8').onclick = function() {
 };
 // Instagram
 document.getElementById('button9').onclick = function() {
+
+    if (webMenuVisible) {
+        webMenuToggle();
+    }
     slideDashboard()
 };

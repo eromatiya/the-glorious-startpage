@@ -2,6 +2,8 @@ var webMenu = document.getElementById("webMenu");
 var webMenuList = document.getElementById("webMenuList");
 var webMenuSearchBox = document.getElementById("webMenuSearchBox");
 
+let webMenuVisible = false;
+
 // Data
 var webSites = [
 { site: 'Reddit', icon: 'reddit', url: 'https://redit.com/'},
@@ -88,9 +90,9 @@ for (i = 0; i < (webSites.length); i++) {
 let firstEntry;
 
 // Search through the list
-webMenuSearchBox.onkeyup = function(event) {
-	// Declare variables
+function filterWebList() {
 	var input, filter, ul, li, a, i, txtValue;
+	
 	input = webMenuSearchBox;
 	filter = input.value.toUpperCase();
 	ul = webMenuList;
@@ -109,17 +111,29 @@ webMenuSearchBox.onkeyup = function(event) {
 			li[i].style.display = "none";
 		}
 	}
-
-
-	scrollList();
 }
 
 
-function webMenuLaunch() {
-	// alert('123');
+
+webMenuSearchBox.onkeyup = function(event) {
+	filterWebList();
+	// scrollList();
+}
+
+
+function webMenuToggle() {
+
 	hideMainContainer();
 	webMenu.classList.toggle("show");
 	rotateProfile();
+
+	if (webMenuVisible) {
+		// Clear searchbox
+		webMenuSearchBox.value = '';
+		filterWebList();
+	}
+
+	webMenuVisible = !webMenuVisible;
 }
 
 
@@ -150,4 +164,16 @@ function webMenuLaunch() {
 //         }
 //     }
 // }
+
+
+// Keypress events
+webMenu.onkeydown = function keydown (evt) { 
+    if (!evt) evt = event; 
+    
+
+    if (webMenuVisible && evt.keyCode === 27) {
+    	webMenuToggle();
+    }
+}
+
 
