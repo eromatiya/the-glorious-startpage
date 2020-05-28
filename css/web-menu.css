@@ -89,6 +89,13 @@
 	display: inline-block;
 }
 
+#webMenuList li.selected {
+	background: var(--base-active-bg);
+	border-radius: var(--rounded-radius);
+	transition: transform 500ms;
+}
+
+
 /*Children of li*/
 .webItem {
 	width: 128px;

@@ -56,7 +56,7 @@ for (i = 0; i < (webSites.length); i++) {
 	// Create an outer div, child of li
 	let webItemDiv = document.createElement('div')
 	webItemDiv.className = 'webItem';
-	webItemDiv.tabIndex = '0';
+	// webItemDiv.tabIndex = '1';
 	webItemDiv.id = "id" + site;
 	
 	// Add mouseup event
@@ -100,8 +100,7 @@ function filterWebList() {
 	
 	input = webMenuSearchBox;
 	filter = input.value.toUpperCase();
-	ul = webMenuList;
-	li = ul.getElementsByTagName('li');
+	li = webMenuList.getElementsByTagName('li');
 	
 	// Loop through all list items, and hide those who don't match the search query
 	for (i = 0; i < li.length; i++) {
@@ -122,7 +121,10 @@ function filterWebList() {
 
 webMenuSearchBox.onkeyup = function(event) {
 	filterWebList();
-	// scrollList();
+
+	// if (webMenuVisible) {
+	// 	scrollList();
+	// }
 }
 
 
@@ -138,49 +140,142 @@ function webMenuToggle() {
 		filterWebList();
 	} else {
 		webMenuSearchBox.focus();
+		// scrollList();
 	}
 
 	webMenuVisible = !webMenuVisible;
 }
 
-
-
-
 // function scrollList() {
 // 	var list = document.getElementById('webMenuList');
-     
-//      // Get first child
-//      var first = list.firstChild;
 
+//     // Get first child
+//     var first = list.firstChild;
+//     alert(first.firstChild);
 
-//      var maininput = webMenuSearchBox;  // targets the input, which triggers the functions populating the list
-//      document.onkeydown = function(e) { // listen to keyboard events
-//      switch (e.keyCode) {
+//     var maininput = webMenuSearchBox;  // targets the input, which triggers the functions populating the list
+//     webMenu.onkeydown = function(e) { // listen to keyboard events
+//     switch (e.keyCode) {
 
 //      	// Up key
 //         case 38:
-//         	if (document.activeElement == (maininput || first)) { break; } // stop the script if the focus is on the input or first element
-//             else { document.activeElement.parentNode.previousSibling.firstChild.focus(); } // select the element before the current, and focus it
-//             break;
+//         	if (document.activeElement == (maininput || first)) {
+//         		// Stop if the focus is on the input or first element
+//         		break;
+//         	} else {
+//         		// Select the element before the current, and focus it
+//         		document.activeElement.parentNode.previousSibling.firstChild.focus();
+//         	}
+//         	alert('up');
+
+//         	break;
 
 //         // Down key
 //         case 40:
-//             if (document.activeElement == maininput) { first.firstChild.focus(); } // if the currently focused element is the main input --> focus the first <li>
-//             else { document.activeElement.parentNode.nextSibling.firstChild.focus(); } // target the currently focused element -> <a>, go up a node -> <li>, select the next node, go down a node and focus it
+//             // If the currently focused element is the main input --> focus the first <li>
+//             if (document.activeElement == maininput) { 
+//             	if (first.firstChild) { first.firstChild.focus(); }; 
+//             } else {
+//             	// Target the currently focused element -> <a>, go up a node -> <li>, select the next node, go down a node and focus it
+//             	document.activeElement.parentNode.nextSibling.firstChild.focus();
+//             }
+//             alert('down');
+
 //             break;
 //         }
 //     }
 // }
 
+var liSelected;
+var index = -1;
+let ul = document.getElementById("webMenuList");
+
+function removeClass(el, className) {
+	if(el.classList) {
+		el.classList.remove(className);
+	} else {
+		el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+	}
+};
+
+function addClass(el, className) {
+	if(el.classList) {
+		el.classList.add(className);
+	} else {
+		el.className += ' ' + className;
+	}
+};
+
+webMenu.addEventListener(
+	'keydown',
+	function(event) {
+
+		if (!webMenuVisible) { return; };
+
+		var len = webMenuList.getElementsByTagName('li').length-1;
+
+		if(event.which === 40) {
+			// alert('40');
+			index++;
+			//down 
+			if (liSelected) {
+				removeClass(liSelected, 'selected');
+				next = webMenuList.getElementsByTagName('li')[index];
+				
+				if(typeof next !== undefined && index <= len) {
+					liSelected = next;
+				} else {
+					index = 0;
+					liSelected = webMenuList.getElementsByTagName('li')[0];
+				}
+
+				addClass(liSelected, 'selected');
+
+	            // Scroll into view
+	            liSelected.scrollIntoView();
+	            console.log(index);
+	        } else {
+	        	index = 0;
+
+	        	liSelected = webMenuList.getElementsByTagName('li')[0];
+	        	addClass(liSelected, 'selected');
+	        }
+	    } else if (event.which === 38) {
+	    	if (liSelected) {
+	    		removeClass(liSelected, 'selected');
+	    		index--;
+	    		console.log(index);
+	    		next = webMenuList.getElementsByTagName('li')[index];
+
+	    		if(typeof next !== undefined && index >= 0) {
+	    			liSelected = next;
+	    		} else {
+	    			index = len;
+	    			liSelected = webMenuList.getElementsByTagName('li')[len];
+	    		}
+
+				// Scroll into view
+				liSelected.scrollIntoView();
+				addClass(liSelected, 'selected');
+			} else {
+				index = 0;
+				liSelected = webMenuList.getElementsByTagName('li')[len];
+				addClass(liSelected, 'selected');
+			}
+		}
+	}
+);
+
+
 
 // Keypress events
 webMenu.onkeydown = function keydown (evt) { 
-    if (!evt) evt = event; 
-    
+	if (!evt) evt = event; 
 
-    if (webMenuVisible && evt.keyCode === 27) {
-    	webMenuToggle();
-    }
+
+	if (webMenuVisible && evt.keyCode === 27) {
+		webMenuToggle();
+	}
 }
 
 
