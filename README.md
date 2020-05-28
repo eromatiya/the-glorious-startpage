@@ -48,7 +48,7 @@
 	- Register, log-in, and then go [here](https://home.openweathermap.org/api_keys) to generate your very own API keys. 
 	- Put your credentials in the settings in weather forecast.
 
-+ You can easily add a button on the dock and web menu by just adding your website in an array. Open `js/sites-list.js`. Make sure to put an icon with `.svg` extenstion for that website in `assets/webcons/`.
++ You can easily add a button on the dock and web menu by just adding `website name`, `icon name`, and `website url` in an array. Open `js/sites-list.js`. Make sure to put an icon with `.svg` extension for that website in `assets/webcons/`.
 
 + The code could be better, this is my first time writing a startpage from the ground up. I will improve this from time to time.
 + If you discovered a bug or error in the logs, please open an issue so I can fix it.
