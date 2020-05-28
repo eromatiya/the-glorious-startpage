@@ -146,46 +146,6 @@ function webMenuToggle() {
 	webMenuVisible = !webMenuVisible;
 }
 
-// function scrollList() {
-// 	var list = document.getElementById('webMenuList');
-
-//     // Get first child
-//     var first = list.firstChild;
-//     alert(first.firstChild);
-
-//     var maininput = webMenuSearchBox;  // targets the input, which triggers the functions populating the list
-//     webMenu.onkeydown = function(e) { // listen to keyboard events
-//     switch (e.keyCode) {
-
-//      	// Up key
-//         case 38:
-//         	if (document.activeElement == (maininput || first)) {
-//         		// Stop if the focus is on the input or first element
-//         		break;
-//         	} else {
-//         		// Select the element before the current, and focus it
-//         		document.activeElement.parentNode.previousSibling.firstChild.focus();
-//         	}
-//         	alert('up');
-
-//         	break;
-
-//         // Down key
-//         case 40:
-//             // If the currently focused element is the main input --> focus the first <li>
-//             if (document.activeElement == maininput) { 
-//             	if (first.firstChild) { first.firstChild.focus(); }; 
-//             } else {
-//             	// Target the currently focused element -> <a>, go up a node -> <li>, select the next node, go down a node and focus it
-//             	document.activeElement.parentNode.nextSibling.firstChild.focus();
-//             }
-//             alert('down');
-
-//             break;
-//         }
-//     }
-// }
-
 var liSelected;
 var index = -1;
 let ul = document.getElementById("webMenuList");
