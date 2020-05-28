@@ -96,3 +96,10 @@ select::-ms-expand {
 #searchEngineAsDefault:active {
 	background: var(--base-active-bg);
 }
+
+@media screen and (max-width: 450px) {
+	.searchEngine {
+		width: 96vw;
+		box-sizing: border-box;
+	}
+}
