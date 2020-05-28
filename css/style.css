@@ -98,6 +98,20 @@ body {
 	width: 100%;
 }
 
+/*#panelBottom {
+	position: absolute;
+	padding: 5px;
+	margin: 10px;
+	bottom: 0;
+	height: auto;
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: var(--rounded-radius);
+    overflow: hidden;
+    display:flex;
+}*/
+
 #panelBottom {
 	position: absolute;
 	padding: 5px;
@@ -110,6 +124,10 @@ body {
     border-radius: var(--rounded-radius);
     overflow: hidden;
     display:flex;
+}
+
+#panelBottomContainer {
+	display: flex;
 }
 
 #clock {
