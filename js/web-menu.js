@@ -145,13 +145,13 @@ function webMenuToggle() {
 }
 
 // Keypress events
-webMenu.onkeydown = function keydown (evt) { 
-	if (!evt) evt = event; 
+// webMenu.onkeydown = function keydown (evt) { 
+// 	if (!evt) evt = event; 
 
 
-	if (webMenuVisible && evt.keyCode === 27) {
-		webMenuToggle();
-	}
-}
+// 	if (webMenuVisible && evt.keyCode === 27) {
+// 		webMenuToggle();
+// 	}
+// }
 
 

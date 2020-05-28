@@ -30,12 +30,14 @@
 
 
 	/*Transitions*/
+	opacity: 0;
 	transform: scale(0);
-	transition: transform 500ms;
+	transition: transform 500ms, opacity 500ms;
 }
 
 #webMenu.show {
 	transform: scale(1);
+	opacity: 1;
 }
 
 #webMenuContainer {
