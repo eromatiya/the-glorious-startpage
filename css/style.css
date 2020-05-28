@@ -1,5 +1,6 @@
 
 @import url('normalize.css');
+@import url('panels.css');
 @import url('dock-buttons.css');
 @import url('searchbox.css');
 @import url('blur-overlay.css');
@@ -86,71 +87,6 @@ body {
 	background-position: center center;
 	background-attachment: fixed;
 	background-size: cover;
-}
-
-.panel {
-	position: absolute;
-	background: var(--panel-bg);
-	backdrop-filter: blur(var(--blur-strength));
-	z-index: 1 !important;
-}
-
-#panelTop {
-	height: 32px;
-	width: 100%;
-}
-
-#dockBody {
-	position: absolute;
-	background: transparent;
-
-    margin: 0 auto;
-    bottom: 0;
-
-	/*On bottom, center horizontally*/
-	left: 50%;
-	-ms-transform: translateX(-50%);
-	transform: translateX(-50%);
-}
-
-#dockContainer {
-	display: flex;
-	position: relative;
-	
-	background: var(--panel-bg);
-
-	height: auto;
-	width: auto;
-	
-	padding: 5px;
-	margin: 10px;
-
-
-    border-radius: var(--rounded-radius);
-}
-
-
-@media screen and (max-width: 450px) {
-
-	#dockBody {
-    	position: relative;
-
-		margin:0  auto;
-    	top: 50%;
-    	left: 0;
-    	bottom: 0;
-    	right: 0;
-		display: inline-block;
-    	
-    	transition: translateY(-50%);
-    	-webkit-transform: translateY(-50%);
-	}
-
-	#dockContainer {
-		display: inline-block;
-    	width: auto;
-    	height: auto;
-	}
 }
 
 #clock {

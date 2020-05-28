@@ -1,5 +1,5 @@
 var dashboard = document.getElementById("rightDashboard");
-var dashboardHider = document.getElementById("overlayHider");
+var dashboardHider = document.getElementById("dashboardHider");
 
 var floatPanelVisible = false;
 

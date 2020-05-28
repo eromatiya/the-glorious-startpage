@@ -1,19 +1,5 @@
 var dockContainer = document.getElementById('dockContainer');
 
-
-var dockSites = [
-{ site: 'Reddit', icon: 'reddit', url: 'https://reddit.com/'},
-{ site: 'Github', icon: 'github', url: 'https://github.com/'},
-{ site: 'Facebook', icon: 'facebook', url: 'https://facebook.com/'},
-{ site: 'Gmail', icon: 'gmail', url: 'https://mail.google.com/'},
-{ site: 'Youtube', icon: 'youtube', url: 'https://youtube.com/'},
-{ site: 'GDrive', icon: 'gdrive', url: 'https://drive.google.com/'},
-{ site: 'Twitter', icon: 'twitter', url: 'https://twitter.com/'},
-{ site: 'Unsplash', icon: 'unsplash', url: 'https://unsplash.com/'},
-{ site: 'Material.io', icon: 'materialio', url: 'https://material.io/'}
-];
-
-
 // Create mouse event for passed div
 function addMouseUpEvent(li, url) {
     li.onmouseup = function() {
