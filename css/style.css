@@ -8,6 +8,7 @@
 @import url('greeter.css');
 @import url('weather.css');
 @import url('search-engine-select.css');
+@import url('web-menu.css');
 
 :root {
 	/* Colors */
@@ -26,13 +27,37 @@
 	--rounded-radius: 12px;
 }
 
-input:focus, textarea:focus, select:focus{
+/*Hide focus elements*/
+input:focus,
+textarea:focus,
+select:focus{
     outline: none;
 }
 
+/*Placeholder*/
 ::placeholder {
   color: var(--base-color);
   opacity: 0.75;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--base-container);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--base-active-bg);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--base-hover-bg);
 }
 
 select {
@@ -62,8 +87,10 @@ body {
 }
 
 .panel {
+	position: absolute;
 	background: var(--panel-bg);
 	backdrop-filter: blur(var(--blur-strength));
+	z-index: 1 !important;
 }
 
 #panelTop {
@@ -71,18 +98,57 @@ body {
 	width: 100%;
 }
 
-#panelBottom {
+#dockBody {
 	position: absolute;
+	background: transparent;
+
+    margin: 0 auto;
+    bottom: 0;
+
+	/*On bottom, center horizontally*/
+	left: 50%;
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+#dockContainer {
+	display: flex;
+	position: relative;
+	
+	background: var(--panel-bg);
+
+	height: auto;
+	width: auto;
+	
 	padding: 5px;
 	margin: 10px;
-	bottom: 0;
-	height: auto;
-    width: auto;
-    left: 50%;
-    transform: translateX(-50%);
+
+
     border-radius: var(--rounded-radius);
-    overflow: hidden;
-    display:flex;
+}
+
+
+@media screen and (max-width: 450px) {
+
+	#dockBody {
+    	position: relative;
+
+		margin:0  auto;
+    	top: 50%;
+    	left: 0;
+    	bottom: 0;
+    	right: 0;
+		display: inline-block;
+    	
+    	transition: translateY(-50%);
+    	-webkit-transform: translateY(-50%);
+	}
+
+	#dockContainer {
+		display: inline-block;
+    	width: auto;
+    	height: auto;
+	}
 }
 
 #clock {

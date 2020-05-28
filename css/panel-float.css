@@ -30,6 +30,17 @@
 	transition: width 500ms; 
 }
 
+#rightDashboard.show {
+	width: 350px;
+}
+
+@media screen and (max-width: 450px) {
+	#rightDashboard.show {
+		width: 100vw;
+		margin-right: 0;
+	}
+}
+
 .hideFloat {
 	background: transparent;
 	position: absolute;

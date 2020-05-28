@@ -232,3 +232,11 @@
 	opacity: 1;
 	pointer-events: auto;
 }
+
+
+@media screen and (max-width: 450px) {
+	.weather {
+		width: 96vw;
+		box-sizing: border-box;
+	}
+}
