@@ -56,7 +56,7 @@ for (i = 0; i < (webSites.length); i++) {
 	// Create an outer div, child of li
 	let webItemDiv = document.createElement('div')
 	webItemDiv.className = 'webItem';
-	// webItemDiv.tabIndex = '1';
+	// webItemDiv.tabitemIndex = '1';
 	webItemDiv.id = "id" + site;
 	
 	// Add mouseup event
@@ -100,7 +100,8 @@ function filterWebList() {
 	
 	input = webMenuSearchBox;
 	filter = input.value.toUpperCase();
-	li = webMenuList.getElementsByTagName('li');
+	ul = webMenuList;
+	li = ul.getElementsByTagName('li');
 	
 	// Loop through all list items, and hide those who don't match the search query
 	for (i = 0; i < li.length; i++) {
@@ -117,16 +118,13 @@ function filterWebList() {
 	}
 }
 
-
-
 webMenuSearchBox.onkeyup = function(event) {
+
+	if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 65 && event.keyCode <= 90)) {
+
+	}
 	filterWebList();
-
-	// if (webMenuVisible) {
-	// 	scrollList();
-	// }
 }
-
 
 function webMenuToggle() {
 
@@ -140,15 +138,13 @@ function webMenuToggle() {
 		filterWebList();
 	} else {
 		webMenuSearchBox.focus();
-		// scrollList();
 	}
 
 	webMenuVisible = !webMenuVisible;
 }
 
-var liSelected;
-var index = -1;
-let ul = document.getElementById("webMenuList");
+var selectedItem;
+var itemIndex = -1;
 
 function removeClass(el, className) {
 	if(el.classList) {
@@ -165,68 +161,6 @@ function addClass(el, className) {
 		el.className += ' ' + className;
 	}
 };
-
-webMenu.addEventListener(
-	'keydown',
-	function(event) {
-
-		if (!webMenuVisible) { return; };
-
-		var len = webMenuList.getElementsByTagName('li').length-1;
-
-		if(event.which === 40) {
-			// alert('40');
-			index++;
-			//down 
-			if (liSelected) {
-				removeClass(liSelected, 'selected');
-				next = webMenuList.getElementsByTagName('li')[index];
-				
-				if(typeof next !== undefined && index <= len) {
-					liSelected = next;
-				} else {
-					index = 0;
-					liSelected = webMenuList.getElementsByTagName('li')[0];
-				}
-
-				addClass(liSelected, 'selected');
-
-	            // Scroll into view
-	            liSelected.scrollIntoView();
-	            console.log(index);
-	        } else {
-	        	index = 0;
-
-	        	liSelected = webMenuList.getElementsByTagName('li')[0];
-	        	addClass(liSelected, 'selected');
-	        }
-	    } else if (event.which === 38) {
-	    	if (liSelected) {
-	    		removeClass(liSelected, 'selected');
-	    		index--;
-	    		console.log(index);
-	    		next = webMenuList.getElementsByTagName('li')[index];
-
-	    		if(typeof next !== undefined && index >= 0) {
-	    			liSelected = next;
-	    		} else {
-	    			index = len;
-	    			liSelected = webMenuList.getElementsByTagName('li')[len];
-	    		}
-
-				// Scroll into view
-				liSelected.scrollIntoView();
-				addClass(liSelected, 'selected');
-			} else {
-				index = 0;
-				liSelected = webMenuList.getElementsByTagName('li')[len];
-				addClass(liSelected, 'selected');
-			}
-		}
-	}
-);
-
-
 
 // Keypress events
 webMenu.onkeydown = function keydown (evt) { 
