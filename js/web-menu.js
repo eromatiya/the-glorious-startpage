@@ -116,8 +116,10 @@ webMenuSearchBox.onkeyup = function(event) {
 
 
 function webMenuLaunch() {
-	rotateProfile();
+	// alert('123');
+	hideMainContainer();
 	webMenu.classList.toggle("show");
+	rotateProfile();
 }
 
 

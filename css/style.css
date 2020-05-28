@@ -87,8 +87,10 @@ body {
 }
 
 .panel {
+	position: absolute;
 	background: var(--panel-bg);
 	backdrop-filter: blur(var(--blur-strength));
+	z-index: 1 !important;
 }
 
 #panelTop {

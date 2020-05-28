@@ -1,6 +1,7 @@
 "use strict";
 
 var profileContainer = document.getElementById("profileContainer");
+var mainBody = document.getElementById("mainBody");
 
 let profileRotating = false;
 
@@ -23,8 +24,8 @@ function rotateProfile() {
     profileRotating = true;
 }
 
-function scaleProfile() {
-
+function hideMainContainer() {
+    mainBody.classList.toggle('hide');
 }
 
 // Reenable animation after death

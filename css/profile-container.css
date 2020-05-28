@@ -7,6 +7,23 @@
     margin: 0 auto;
     margin-bottom: 90px;
     position: relative;
+
+}
+
+#mainBody {
+	opacity: 1;
+	z-index: 1;
+    transition: opacity 500ms, z-index 500ms;
+}
+
+#mainBody.hide {
+	opacity: 0;
+	z-index: -999999;
+}
+
+#profileContainer.hide {
+	opacity: 0 !important;
+	visibility: none !important;
 }
 
 .rotateProfile {
