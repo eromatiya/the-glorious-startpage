@@ -27,7 +27,7 @@
 	margin: 10px;
 	position: absolute;
 	overflow: hidden;
-	transition: width 500ms; 
+	transition: width var(--transition-speed); 
 }
 
 #rightDashboard.show {
@@ -52,7 +52,7 @@
 	padding: 0;
 	z-index: 99998;
 	visibility: hidden;
-	transition: visibility 500ms;
+	transition: visibility var(--transition-speed);
 	filter: blur(var(--blur-strength)) brightness(70%);
 }
 

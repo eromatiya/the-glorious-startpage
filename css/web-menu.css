@@ -32,7 +32,7 @@
 	/*Transitions*/
 	opacity: 0;
 	transform: scale(0);
-	transition: transform 500ms, opacity 500ms;
+	transition: transform var(--transition-speed), opacity var(--transition-speed);
 }
 
 #webMenu.show {
@@ -100,7 +100,7 @@
 #webMenuList li.selected {
 	background: var(--base-active-bg);
 	border-radius: var(--rounded-radius);
-	transition: transform 500ms;
+	transition: transform var(--transition-speed);
 }
 
 

@@ -24,6 +24,8 @@
 	--panel-bg: var(--base-bg);
 	--panel-color: var(--base-color);
 
+	--transition-speed: 300ms;
+
 	--rounded-radius: 12px;
 }
 

@@ -7,13 +7,13 @@
 	margin: 0;
 	padding: 0;
 	background: inherit;
-	transition: opacity 500ms;
+	transition: opacity var(--transition-speed);
 	opacity: 0; 
 	z-index: -1;
 	filter: blur(var(--blur-strength)) brightness(70%);
 }
 
 #blurOverlay.show {
-	transition: opacity 0.5s;
+	transition: opacity var(--transition-speed);
 	opacity: 1;
 }

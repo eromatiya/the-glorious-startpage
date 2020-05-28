@@ -139,7 +139,7 @@
   	align-items: center;
 
   	opacity: 0.5;
-  	transition: opacity 500ms;
+  	transition: opacity var(--transition-speed);
 }
 
 #weatherSettingsIcon:hover {
@@ -224,7 +224,7 @@
 	max-height: 0;
 	opacity: 0;
 	pointer-events: none;
-	transition: max-height 500ms, opacity 500ms, pointer-events 500ms;
+	transition: max-height var(--transition-speed), opacity var(--transition-speed), pointer-events var(--transition-speed);
 }
 
 #weatherSettingsContainer.show {

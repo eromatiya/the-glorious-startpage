@@ -21,7 +21,7 @@
 	
 	pointer-events: none;
 	
-	transition: opacity 500ms, top 500ms, visibility 500ms, pointer-events 500ms ; 
+	transition: opacity var(--transition-speed), top var(--transition-speed), visibility var(--transition-speed), pointer-events var(--transition-speed) ; 
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
