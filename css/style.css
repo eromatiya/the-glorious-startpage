@@ -112,23 +112,37 @@ body {
     display:flex;
 }*/
 
-#panelBottom {
+#dockBody {
 	position: absolute;
-	padding: 5px;
-	margin: 10px;
-	bottom: 0;
-	height: auto;
-    width: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: var(--rounded-radius);
-    overflow: hidden;
-    display:flex;
+	background: transparent;
+
+    margin: 0 auto;
+    bottom: 0;
+
+	/*On bottom, center horizontally*/
+	left: 50%;
+	-ms-transform: translate(-50%);
+	transform: translate(-50%);
 }
 
 #panelBottomContainer {
 	display: flex;
+	position: relative;
+	
+	background: var(--panel-bg);
+
+	height: auto;
+	width: auto;
+	
+	padding: 5px;
+	margin: 10px;
+
+
+    border-radius: var(--rounded-radius);
 }
+
+
+
 
 #clock {
 	color: var(--base-color);
