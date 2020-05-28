@@ -98,20 +98,6 @@ body {
 	width: 100%;
 }
 
-/*#panelBottom {
-	position: absolute;
-	padding: 5px;
-	margin: 10px;
-	bottom: 0;
-	height: auto;
-    width: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: var(--rounded-radius);
-    overflow: hidden;
-    display:flex;
-}*/
-
 #dockBody {
 	position: absolute;
 	background: transparent;
@@ -163,11 +149,7 @@ body {
     	width: auto;
     	height: auto;
 	}
-
 }
-
-
-
 
 #clock {
 	color: var(--base-color);

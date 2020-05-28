@@ -60,7 +60,13 @@
 	height: 36px;
 	margin: 0;
 	
+}
 
+@media screen and (max-width: 450px) {
+	#webMenuSearchBox {
+
+		width: 50vw;
+	}
 }
 
 #webMenuSearchBoxContainer {
