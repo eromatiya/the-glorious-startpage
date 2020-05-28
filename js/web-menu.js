@@ -136,6 +136,8 @@ function webMenuToggle() {
 		// Clear searchbox
 		webMenuSearchBox.value = '';
 		filterWebList();
+	} else {
+		webMenuSearchBox.focus();
 	}
 
 	webMenuVisible = !webMenuVisible;
