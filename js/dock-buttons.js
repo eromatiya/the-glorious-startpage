@@ -1,6 +1,5 @@
 var dockContainer = document.getElementById('dockContainer');
 
-// Button click events
 
 var dockSites = [
 { site: 'Reddit', icon: 'reddit', url: 'https://reddit.com/'},
@@ -22,40 +21,78 @@ function addMouseUpEvent(li, url) {
     }
 }
 
-// Generate a list
-for (i = 0; i < (dockSites.length); i++) {
+// Generate button from user
+function generateFromManual(id, icon,callback) {
 
-    var site = dockSites[i].site;
-    var icon = dockSites[i].icon;
-    var url = dockSites[i].url;
+    var customButtonCallback;
 
     var buttonContainer = document.createElement('div');
-    buttonContainer.id = 'button' + i;
+    buttonContainer.id = 'button' + id;
     buttonContainer.className = 'buttonContainer';
-    addMouseUpEvent(buttonContainer, url);
-
+    
+    buttonContainer.onmouseup = callback;
+    
     var buttonImage = document.createElement('div');
-    buttonImage.id = 'buttonImage' + i;
+    buttonImage.id = 'buttonImage' + id;
     buttonImage.className = 'bottomButton';
-    buttonImage.style.background = "url('assets/webcons/" + icon + ".svg')";
+    buttonImage.style.background = "url('assets/buttons/" + icon + ".svg')";
     buttonImage.style.backgroundSize = 'cover';
 
-    // Append divs
     buttonContainer.appendChild(buttonImage);
     dockContainer.appendChild(buttonContainer);
 }
 
+// Create callback event for onmouse up
+function addCallbackEvent(element, callback) {
+    element.onmouseup = callback;
+}
 
-// Launch search bar
-document.getElementById('button0').onclick = function() {
-    webMenuToggle();
-};
+// Generate buttons from array
+function generateFromList() {
 
+    // Create launcher button
+    generateFromManual(
+        'Launch',
+        'launch', 
+        function() {
+            webMenuToggle();
+        }
+    );
 
-document.getElementById('button9').onclick = function() {
+    for (i = 0; i < (dockSites.length); i++) {
 
-    if (webMenuVisible) {
-        webMenuToggle();
-    }
-    slideDashboard()
-};
+        var site = dockSites[i].site;
+        var icon = dockSites[i].icon;
+        var url = dockSites[i].url;
+
+        var buttonContainer = document.createElement('div');
+        buttonContainer.id = 'button' + i;
+        buttonContainer.className = 'buttonContainer';
+        addMouseUpEvent(buttonContainer, url);
+
+        var buttonImage = document.createElement('div');
+        buttonImage.id = 'buttonImage' + i;
+        buttonImage.className = 'bottomButton';
+        buttonImage.style.background = "url('assets/webcons/" + icon + ".svg')";
+        buttonImage.style.backgroundSize = 'cover';
+
+        // Append divs
+        buttonContainer.appendChild(buttonImage);
+        dockContainer.appendChild(buttonContainer);
+    };
+
+    // Create menu button
+    generateFromManual(
+        'Menu',
+        'menu', 
+        function() {
+            if (webMenuVisible) {
+                webMenuToggle();
+            }
+            slideDashboard()
+        }
+    );
+}
+
+window.onload =  generateFromList();
+
