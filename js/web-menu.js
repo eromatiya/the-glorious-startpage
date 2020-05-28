@@ -127,13 +127,14 @@ webMenuSearchBox.onkeydown = function(event) {
 function webMenuToggle() {
 
 	hideMainContainer();
-	webMenu.classList.toggle("show");
 	rotateProfile();
+	webMenu.classList.toggle("show");
+	webMenuVisible = !webMenuVisible;
 
-	// Clear searchbox
-	if (webMenuVisible) {
-		
+	// Clear and unfocus searchbox
+	if (!webMenuVisible) {
 		webMenuSearchBox.value = '';
+		webMenuSearchBox.blur();
 		filterWebList();
 	} else {
 
@@ -141,7 +142,6 @@ function webMenuToggle() {
 		webMenuSearchBox.focus();
 	}
 
-	webMenuVisible = !webMenuVisible;
 }
 
 // Keypress events

@@ -38,7 +38,7 @@ document.onkeyup = function keydown (event) {
             event.keyCode === 91 ||
             event.keyCode === 92 ||
             event.keyCode === 116 || 
-            event.keyCode === 13) 
+            event.keyCode === 13)
             { return; };
 
 
