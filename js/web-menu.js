@@ -29,7 +29,12 @@ var webSites = [
 { site: 'Pornhub', icon: 'pornhub', url: 'https://pornhub.com/'},
 { site: 'Material.io', icon: 'materialio', url: 'https://material.io/'},
 { site: 'Netflix', icon: 'netflix', url: 'https://netflix.com/'},
-{ site: 'Office 365', icon: 'office365', url: 'https://office.com/'}
+{ site: 'Office 365', icon: 'office365', url: 'https://office.com/'},
+
+{ site: '4chan', icon: '4chan', url: 'https://4chan.org/'},
+{ site: 'Discord', icon: 'discord', url: 'https://discord.com/'},
+{ site: 'Spotify', icon: 'spotify', url: 'https://spotify.com/'},
+{ site: 'Ebay', icon: 'ebay', url: 'https://ebay.com/'}
 ];
 
 // Create mouse event on passed div
