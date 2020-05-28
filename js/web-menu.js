@@ -34,7 +34,7 @@ var webSites = [
 { site: 'Ebay', icon: 'ebay', url: 'https://ebay.com/'}
 ];
 
-// Create mouse event on passed div
+// Create mouse event for passed div
 function addMouseUpEvent(li, url) {
 	li.onmouseup = function() {
 		window.location.href = encodeURI(url);
