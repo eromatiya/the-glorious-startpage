@@ -9,7 +9,6 @@
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	transform: scale(1.03);
 	color: var(--foreground);
 }
 
