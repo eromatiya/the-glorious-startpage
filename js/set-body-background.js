@@ -1,26 +1,3 @@
-// var date = new Date();
-// var hour = date.getHours();
-
-// var wallName;
-
-// if (hour >= 6 && hour < 12) {
-// 	wallName = "morning";
-
-// } else if (hour >= 12 && hour < 18 ) {
-// 	wallName = "noon";
-
-// } else {
-// 	wallName = "evening";
-
-// }
-
-// document.body.style.background = "url('assets/backgrounds/" + wallName + ".webp')";
-// document.body.style.backgroundSize = "cover";
-// document.body.style.backgroundRepeat =  "no-repeat";
-// document.body.style.backgroundPosition = "center";
-// document.body.style.backgroundAttachment = "fixed";
-
-
 // High quality background, we'll lazy load this
 var hqBG = document.createElement("img");
 
@@ -37,27 +14,38 @@ function lazyLoad(fileName) {
 	document.body.style.background = "url('assets/backgrounds/" + 
 	fileName + "-low" + ".webp')";
 	styleBodyBackground();
-
-	hqBG.src = "url('assets/backgrounds/" + 
-	fileName + ".webp')";
+	document.body.className = "blurBody";
 
 	hqBG.onload = function() {
 		// After downloading the HQ image, set it as bg
 		document.body.style.background = "url("+ hqBG.src; + ")";
 		styleBodyBackground();
+		document.body.className = "noBlurBody";
+	}
+
+	// Add a delay when to fetch background
+	setTimeout(
+		function() {
+			hqBG.src = "assets/backgrounds/" + 
+			fileName + ".webp";
+		},
+		50
+	);
+}
+
+function initBG() {
+	var date = new Date();
+	var hour = date.getHours();
+
+	if (hour >= 6 && hour < 12) {
+		lazyLoad("morning");
+
+	} else if (hour >= 12 && hour < 18 ) {
+		lazyLoad("noon");
+
+	} else {
+		lazyLoad("evening");
 	}
 }
 
-var date = new Date();
-var hour = date.getHours();
-
-if (hour >= 6 && hour < 12) {
-	lazyLoad("morning");
-
-} else if (hour >= 12 && hour < 18 ) {
-	lazyLoad("noon");
-
-} else {
-	lazyLoad("evening");
-
-}
+window.onload = initBG();

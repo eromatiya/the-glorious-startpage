@@ -1,0 +1,10 @@
+/*Filter for body's lazy loaded background */
+
+.blurBody {
+	backdrop-filter: blur(5px);
+	transition: all 1s;
+}
+
+.noBlurBody {
+	transition: all 1s;
+}

@@ -1,5 +1,6 @@
 
 @import url('normalize.css');
+@import url('set-body-background.css');
 @import url('panels.css');
 @import url('dock-buttons.css');
 @import url('searchbox.css');
@@ -80,13 +81,8 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	transition: background 0.4s;
+	/*transition: background 0.4s;*/
 	color: var(--foreground);
-/*	background: url("../assets/backgrounds/morning.webp");
-	background-repeat:no-repeat;
-	background-position: center center;
-	background-attachment: fixed;
-	background-size: cover;*/
 }
 
 #clock {
