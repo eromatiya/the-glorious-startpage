@@ -1,26 +1,27 @@
 // High quality background, we'll lazy load this
 var hqBG = document.createElement("img");
+var backgroundImage = document.getElementById('backgroundBody') 
 
 function styleBodyBackground() {
-	document.body.style.backgroundSize = 'cover';
-	document.body.style.backgroundRepeat =  "no-repeat";
-	document.body.style.backgroundPosition = "center";
-	document.body.style.backgroundAttachment = "fixed";
+	backgroundBody.style.backgroundSize = 'cover';
+	backgroundBody.style.backgroundRepeat =  "no-repeat";
+	backgroundBody.style.backgroundPosition = "center";
+	backgroundBody.style.backgroundAttachment = "fixed";
 } 
 
 function lazyLoad(fileName) {
 
 	// Set a low quality background image 
-	document.body.style.background = "url('assets/backgrounds/" + 
+	backgroundBody.style.background = "url('assets/backgrounds/" + 
 	fileName + "-low" + ".webp')";
 	styleBodyBackground();
-	document.body.className = "blurBody";
+	backgroundBody.className = "blurBody";
 
 	hqBG.onload = function() {
 		// After downloading the HQ image, set it as bg
-		document.body.style.background = "url("+ hqBG.src; + ")";
+		backgroundBody.style.background = "url("+ hqBG.src; + ")";
 		styleBodyBackground();
-		document.body.className = "noBlurBody";
+		backgroundBody.className = "noBlurBody";
 	}
 
 	// Add a delay when to fetch background

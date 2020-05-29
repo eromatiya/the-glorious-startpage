@@ -81,7 +81,8 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	/*transition: background 0.4s;*/
+	overflow: hidden;
+	background: #1a1a1a;
 	color: var(--foreground);
 }
 

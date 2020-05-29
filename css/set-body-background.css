@@ -1,8 +1,21 @@
 /*Filter for body's lazy loaded background */
 
+#backgroundBody {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	transform: scale(1.03);
+	color: var(--foreground);
+}
+
 .blurBody {
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
+	filter: blur(5px);
+	-webkit-filter: blur(5px);
 	transition: all 1s;
 }
 
