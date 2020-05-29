@@ -1,6 +1,9 @@
+var searchBox = document.getElementById("searchBox");
+
 var webMenu = document.getElementById("webMenu");
 var webMenuList = document.getElementById("webMenuList");
 var webMenuSearchBox = document.getElementById("webMenuSearchBox");
+
 
 let webMenuVisible = false;
 
@@ -106,6 +109,9 @@ function webMenuToggle() {
 		webMenuSearchBox.value = '';
 		webMenuSearchBox.blur();
 		filterWebList();
+
+		// Focus on search box
+		searchBox.focus();
 	} else {
 
 		// Focus
