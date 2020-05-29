@@ -12,7 +12,7 @@
 
 #mainBody {
 	opacity: 1;
-	z-index: 1;
+	z-index: 0;
     transition: opacity var(--transition-speed), z-index var(--transition-speed);
 }
 
