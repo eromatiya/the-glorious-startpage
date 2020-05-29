@@ -54,7 +54,7 @@
     	bottom: 0;
     	right: 0;
 		display: inline-block;
-    	
+
     	transition: translateY(-50%);
     	-webkit-transform: translateY(-50%);
 	}
@@ -63,5 +63,7 @@
 		display: inline-block;
     	width: auto;
     	height: auto;
+		transform: scale(0.85);
+		margin: 5px;
 	}
 }
