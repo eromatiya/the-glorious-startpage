@@ -9,6 +9,8 @@
 #panelTop {
 	height: 32px;
 	width: 100%;
+	position: absolute;
+	z-index: 3 !important;
 }
 
 #dockBody {
