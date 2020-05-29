@@ -14,7 +14,7 @@ if (hour >= 6 && hour < 12) {
 
 }
 
-document.body.style.background = "url('assets/backgrounds/" + wallName + ".jpg')";
+document.body.style.background = "url('assets/backgrounds/" + wallName + ".webp')";
 document.body.style.backgroundSize = "cover";
 document.body.style.backgroundRepeat =  "no-repeat";
 document.body.style.backgroundPosition = "center";
