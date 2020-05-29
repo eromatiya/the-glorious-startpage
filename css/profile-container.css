@@ -1,13 +1,18 @@
 #profileContainer {
 	background: var(--base-bg);
+	backdrop-filter: blur(var(--blur-strength));
 	height: 138px;
 	width: 138px;
 	border-radius: 50%;
-	backdrop-filter: blur(var(--blur-strength));
+    
     margin: 0 auto;
     margin-bottom: 90px;
     position: relative;
 
+   	flex-flow: column wrap;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
 }
 
 #mainBody {
@@ -43,8 +48,9 @@
 	width: 128px;
 	border-radius: 50%;
 	background-size: cover;
-	margin:0  auto;
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
+	
+   	flex-flow: column wrap;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
 }
