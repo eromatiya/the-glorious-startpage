@@ -35,6 +35,15 @@
 	transition: transform var(--transition-speed), opacity var(--transition-speed);
 }
 
+@media screen and (max-width: 450px) {
+	#webMenu {
+		padding-top: 6vh;
+		padding-bottom: 0vh;
+		padding-left: 6vw;
+		padding-right: 6vw;
+	}
+}
+
 #webMenu.show {
 	transform: scale(1);
 	opacity: 1;
