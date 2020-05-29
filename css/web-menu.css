@@ -32,7 +32,9 @@
 	/*Transitions*/
 	opacity: 0;
 	transform: scale(0);
-	transition: transform var(--transition-speed), opacity var(--transition-speed);
+	transition: transform var(--transition-speed),
+		opacity var(--transition-speed),
+		z-index var(--transition-speed);
 }
 
 @media screen and (max-width: 450px) {
@@ -47,6 +49,7 @@
 #webMenu.show {
 	transform: scale(1);
 	opacity: 1;
+	z-index: 9999;
 }
 
 #webMenuContainer {
