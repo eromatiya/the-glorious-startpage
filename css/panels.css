@@ -14,7 +14,7 @@
 #dockBody {
 	position: absolute;
 	background: transparent;
-
+	z-index: 3;
     margin: 0 auto;
     bottom: 0;
 

@@ -32,6 +32,7 @@
 
 #rightDashboard.show {
 	width: 350px;
+	z-index: 4;
 }
 
 @media screen and (max-width: 450px) {
@@ -50,12 +51,13 @@
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	z-index: 99998;
-	visibility: hidden;
-	transition: visibility var(--transition-speed);
+	z-index: -2;
+	visibility: none;
+	transition: visibility var(--transition-speed), z-index var(--transition-speed);
 	filter: blur(var(--blur-strength)) brightness(70%);
 }
 
 #dashboardHider.show {
 	visibility: visible;
+	z-index: 3;
 }
