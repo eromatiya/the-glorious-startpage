@@ -18,6 +18,12 @@ function toggleSearchBox() {
 
     searchBoxVisible = !searchBoxVisible;
 
+    if (searchBoxVisible) {
+        searchBox.focus();
+    } else {
+        searchBox.blur();
+    }
+
     // If float panel is visible, hide
     if (floatPanelVisible) {
         slideDashboard();

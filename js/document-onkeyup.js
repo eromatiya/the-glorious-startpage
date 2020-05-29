@@ -45,9 +45,8 @@ document.onkeyup = function keydown (event) {
         // Check if weather settings is open
         if (weatherSettingsVisible) { return; };
 
-        // Open and focus
+        // Open searchbox
         toggleSearchBox();
-        searchBox.focus();
 
     } else {
         
