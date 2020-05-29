@@ -92,9 +92,15 @@
 }
 
 /*List*/
-#webMenuList li  {
+#webMenuList li {
 	/*Align list horizontally*/
 	display: inline-block;
+}
+
+@media screen and (max-width: 450px) {
+	#webMenuList li {
+		display: inline;
+	}
 }
 
 #webMenuList li.selected {
@@ -102,7 +108,6 @@
 	border-radius: var(--rounded-radius);
 	transition: transform var(--transition-speed);
 }
-
 
 /*Children of li*/
 .webItem {
@@ -160,4 +165,7 @@
 	background: transparent;
 	overflow-y: auto;
 	max-height: 70vh;
+
+	display: flex;
+  	justify-content: center;
 }
