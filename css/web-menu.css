@@ -37,7 +37,7 @@
 		z-index var(--transition-speed);
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 580px) {
 	#webMenu {
 		padding-top: 6vh;
 		padding-bottom: 0vh;
@@ -74,7 +74,7 @@
 	
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 580px) {
 	#webMenuSearchBox {
 
 		width: 50vw;
@@ -109,7 +109,7 @@
 	display: inline-block;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 580px) {
 	#webMenuList li {
 		display: inline;
 	}
