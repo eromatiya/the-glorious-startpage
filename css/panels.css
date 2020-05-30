@@ -28,6 +28,13 @@
 	transition: transform 500ms, left 500ms, opacity 500ms;
 }
 
+.dockButtons {
+	position: absolute;
+	background: var(--panel-bg);
+	backdrop-filter: blur(var(--blur-strength));
+	z-index: 1 !important;
+}
+
 #dockContainer {
 	display: flex;
 	position: relative;
@@ -43,12 +50,6 @@
     border-radius: var(--rounded-radius);
 }
 
-.dockButtons {
-	position: absolute;
-	background: var(--panel-bg);
-	backdrop-filter: blur(var(--blur-strength));
-	z-index: 1 !important;
-}
 
 /*Translate dock to left side if width <= 580 and height >= 540*/
 @media screen and (max-width: 580px) and (min-height: 540px) {
@@ -78,7 +79,7 @@
 	}
 }
 
-
+/*Hide dock if screen height is less then 560px*/
 @media screen and (max-width: 580px) and (max-height: 539px) {
 
 	.dock {
