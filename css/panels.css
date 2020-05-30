@@ -24,6 +24,9 @@
 	left: 50%;
 	-ms-transform: translateX(-50%);
 	transform: translateX(-50%);
+
+	/*Add transition*/
+	transition: transform 500ms, left 500ms;
 }
 
 #dockContainer {
@@ -55,8 +58,9 @@
     	right: 0;
 		display: inline-block;
 
-    	transition: translateY(-50%);
     	-webkit-transform: translateY(-50%);
+
+    	transition: transform 500ms, left 500ms;
 	}
 
 	#dockContainer {
