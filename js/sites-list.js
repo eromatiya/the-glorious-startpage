@@ -28,7 +28,10 @@ let webSites = [
 	{ site: '4chan', icon: '4chan', url: 'https://4chan.org/'},
 	{ site: 'Discord', icon: 'discord', url: 'https://discord.com/'},
 	{ site: 'Spotify', icon: 'spotify', url: 'https://spotify.com/'},
-	{ site: 'Ebay', icon: 'ebay', url: 'https://ebay.com/'}
+	{ site: 'Ebay', icon: 'ebay', url: 'https://ebay.com/'},
+	{ site: 'JSFiddle', icon: 'jsfiddle', url: 'https://jsfiddle.net/'},
+	{ site: 'ArchWiki', icon: 'archwiki', url: 'https://wiki.archlinux.org/'},
+	{ site: 'Figma', icon: 'figma', url: 'https://figma.com/'}
 ];
 
 
