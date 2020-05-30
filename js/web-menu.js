@@ -1,5 +1,3 @@
-var searchBox = document.getElementById("searchBox");
-
 var webMenu = document.getElementById("webMenu");
 var webMenuList = document.getElementById("webMenuList");
 var webMenuListContainer = document.getElementById("webMenuListContainer");
@@ -125,11 +123,7 @@ function webMenuToggle() {
 		webMenuSearchBox.blur();
 		filterWebList();
 		webMenuListContainer.scrollTop = 0;
-
-		// Focus on search box
-		searchBox.focus();
 	} else {
-
 		// Focus
 		webMenuSearchBox.focus();
 	}
