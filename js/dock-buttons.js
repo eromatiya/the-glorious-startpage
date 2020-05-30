@@ -1,4 +1,4 @@
-var dockContainer = document.getElementById('dockContainer');
+var dockContainer = document.getElementById('dockButtonsContainer');
 
 // Create mouse event for passed div
 function addMouseUpEvent(li, url) {

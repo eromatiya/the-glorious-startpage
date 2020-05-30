@@ -28,14 +28,14 @@
 	transition: opacity var(--transition-speed);
 }
 
-.dockButtons {
+#dockButtonsContainer {
 	position: absolute;
 	background: var(--panel-bg);
 	backdrop-filter: blur(var(--blur-strength));
 	z-index: 1 !important;
 }
 
-#dockContainer {
+#dockButtonsContainer {
 	display: flex;
 	position: relative;
 	
@@ -48,6 +48,7 @@
 	margin: 10px;
 
     border-radius: var(--rounded-radius);
+    transition: transform var(--transition-speed);
 }
 
 
@@ -70,7 +71,7 @@
     	transition: opacity var(--transition-speed);
 	}
 
-	#dockContainer {
+	#dockButtonsContainer {
 		display: inline-block;
     	width: auto;
     	height: auto;
@@ -102,7 +103,7 @@
 	}
 
 
-	#dockContainer {
+	#dockButtonsContainer {
 		display: flex;
     	width: auto;
     	height: auto;
@@ -133,7 +134,7 @@
 	}
 
 
-	#dockContainer {
+	#dockButtonsContainer {
 		display: flex;
     	width: auto;
     	height: auto;
@@ -164,7 +165,7 @@
 	}
 
 
-	#dockContainer {
+	#dockButtonsContainer {
 		display: flex;
     	width: auto;
     	height: auto;
@@ -195,7 +196,7 @@
 	}
 
 
-	#dockContainer {
+	#dockButtonsContainer {
 		display: flex;
     	width: auto;
     	height: auto;
