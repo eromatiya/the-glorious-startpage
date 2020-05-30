@@ -44,7 +44,6 @@
     border-radius: var(--rounded-radius);
 }
 
-
 /*Translate dock to left side if width <= 580 and height >= 540*/
 @media screen and (max-width: 580px) and (min-height: 540px) {
 
