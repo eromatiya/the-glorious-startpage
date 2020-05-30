@@ -25,7 +25,7 @@
 	transform: translateX(-50%);
 
 	/*Add transition*/
-	transition: transform 500ms, left 500ms, opacity 500ms;
+	transition: opacity var(--transition-speed);
 }
 
 .dockButtons {
@@ -67,7 +67,7 @@
     	right: 0;
 
     	-webkit-transform: translateY(-50%);
-    	transition: transform 500ms, left 500ms, opacity 500ms;
+    	transition: opacity var(--transition-speed);
 	}
 
 	#dockContainer {
@@ -95,7 +95,7 @@
     	right: 0;
 
     	-webkit-transform: translateY(-50%);
-    	transition: transform 500ms, left 500ms, opacity 500ms;
+    	transition: opacity var(--transition-speed);
 	}
 
 	#dockContainer {
