@@ -86,6 +86,11 @@ body {
 	color: var(--foreground);
 }
 
+html, body {
+	height: 100% !important;
+	position: fixed !important;
+}
+
 #clock {
 	color: var(--base-color);
 	font-size: 11pt;
