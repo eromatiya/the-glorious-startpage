@@ -23,6 +23,10 @@ function selectQueryString() {
 	} else if (defaultEngine === "ecosia") {
 		searchQueryPrefix = 'https://www.ecosia.org/search?q=';
 		searchBox.placeholder = "Search with Ecosia";
+
+	} else if (defaultEngine === "yahoo") {
+		searchQueryPrefix = 'http://search.yahoo.com/search?p=';
+		searchBox.placeholder = "Search with Yahoo";
 	
 	} else {
 		searchQueryPrefix = 'http://www.google.com/search?q=';
