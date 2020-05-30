@@ -74,40 +74,135 @@
 		display: inline-block;
     	width: auto;
     	height: auto;
-		transform: scale(0.85);
 		margin: 5px;
+		transform: scale(0.85);
+		transition: transform var(--transition-speed);
 	}
 }
 
-/*Hide dock if screen height is less then 560px*/
-@media screen and (max-width: 580px) and (max-height: 539px) {
+/*If there's no  enough height, move dock to bottom then scale up to 320px*/
+
+/*Decrease scale to 0.85 if width is less than 580px*/
+@media screen and (max-width: 579px) and (max-height: 539px) {
 
 	.dock {
-		display: inline-block;
-		opacity: 0;
+		position: absolute;
+		background: transparent;
+		z-index: 5;
+	    margin: 0 auto;
+	    bottom: 0;
 
-    	position: relative;
-		margin:0  auto;
+		/*On bottom, center horizontally*/
+		left: 50%;
+		-ms-transform: translateX(-50%);
+		transform: translateX(-50%);
 
-    	top: 50%;
-    	left: 0;
-    	bottom: 0;
-    	right: 0;
-
-    	-webkit-transform: translateY(-50%);
-    	transition: opacity var(--transition-speed);
+		/*Add transition*/
+		transition: opacity var(--transition-speed);
 	}
+
 
 	#dockContainer {
-		display: inline-block;
+		display: flex;
     	width: auto;
     	height: auto;
-		transform: scale(0.85);
 		margin: 5px;
+		transform: scale(0.85);
+		transition: transform var(--transition-speed);
 	}
+
 }
 
+/*Decrease scale to 0.65 if width is less than 490px*/
+@media screen and (max-width: 490px) and (max-height: 539px) {
+
+	.dock {
+		position: absolute;
+		background: transparent;
+		z-index: 5;
+	    margin: 0 auto;
+	    bottom: 0;
+
+		/*On bottom, center horizontally*/
+		left: 50%;
+		-ms-transform: translateX(-50%);
+		transform: translateX(-50%);
+
+		/*Add transition*/
+		transition: opacity var(--transition-speed);
+	}
 
 
+	#dockContainer {
+		display: flex;
+    	width: auto;
+    	height: auto;
+		margin: 5px;
+		transform: scale(0.65);
+		transition: transform var(--transition-speed);
+	}
+
+}
+
+/*Decrease scale to 0.55 if width is less than or equal to 374px and greater than or equal to 320px*/
+@media screen and (max-width: 375px) and (min-width: 320px) and (max-height: 539px) {
+
+	.dock {
+		position: absolute;
+		background: transparent;
+		z-index: 5;
+	    margin: 0 auto;
+	    bottom: 0;
+
+		/*On bottom, center horizontally*/
+		left: 50%;
+		-ms-transform: translateX(-50%);
+		transform: translateX(-50%);
+
+		/*Add transition*/
+		transition: opacity var(--transition-speed);
+	}
 
 
+	#dockContainer {
+		display: flex;
+    	width: auto;
+    	height: auto;
+		margin: 5px;
+		transform: scale(0.55);
+		transition: transform var(--transition-speed);
+	}
+
+}
+
+/*Scale to 0 if less than 320px*/
+@media screen and (max-width: 319px) and (max-height: 539px) {
+
+	.dock {
+		position: absolute;
+		background: transparent;
+		z-index: 5;
+	    margin: 0 auto;
+	    bottom: 0;
+
+		/*On bottom, center horizontally*/
+		left: 50%;
+		-ms-transform: translateX(-50%);
+		transform: translateX(-50%);
+
+		/*Add transition*/
+		transition: opacity var(--transition-speed);
+	}
+
+
+	#dockContainer {
+		display: flex;
+    	width: auto;
+    	height: auto;
+    	opacity: 0;
+		margin: 5px;
+		transform: scale(0.0);
+		transition: transform var(--transition-speed), opacity var(--transition-speed);
+	}
+
+}
