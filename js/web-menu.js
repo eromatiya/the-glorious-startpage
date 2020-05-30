@@ -114,7 +114,6 @@ webMenuSearchBox.onkeydown = function(event) {
 
 // Show/Hide web menu
 function webMenuToggle() {
-
 	hideMainContainer();
 	rotateProfile();
 	webMenu.classList.toggle("show");

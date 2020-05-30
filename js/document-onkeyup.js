@@ -2,9 +2,12 @@ var searchBox = document.getElementById("searchBox");
 
 // Keypress events
 document.onkeyup = function keydown (event) { 
+    
 
     if (event.keyCode === 27) {
 
+        event.preventDefault();
+        
         // If searchbox is visible, hide and clear input field
         if (searchBoxVisible) {
             // Hide searchbox
