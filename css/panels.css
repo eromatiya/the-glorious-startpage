@@ -26,7 +26,7 @@
 	transform: translateX(-50%);
 
 	/*Add transition*/
-	transition: transform 500ms, left 500ms;
+	transition: transform 500ms, left 500ms, opacity 500ms;
 }
 
 #dockContainer {
@@ -41,26 +41,27 @@
 	padding: 5px;
 	margin: 10px;
 
-
     border-radius: var(--rounded-radius);
 }
 
 
-@media screen and (max-width: 580px) {
+/*Translate dock to left side if width <= 580 and height >= 540*/
+@media screen and (max-width: 580px) and (min-height: 540px) {
 
 	#dockBody {
-    	position: relative;
+		display: inline-block;
+		opacity: 1;
 
+    	position: relative;
 		margin:0  auto;
+
     	top: 50%;
     	left: 0;
     	bottom: 0;
     	right: 0;
-		display: inline-block;
 
     	-webkit-transform: translateY(-50%);
-
-    	transition: transform 500ms, left 500ms;
+    	transition: transform 500ms, left 500ms, opacity 500ms;
 	}
 
 	#dockContainer {
@@ -71,3 +72,12 @@
 		margin: 5px;
 	}
 }
+
+/*Set opacity to 0 if width < 580 and height < 540*/
+@media screen and (max-width: 579px) and (max-height: 539px) {
+	#dockBody {
+    	opacity: 0;
+    	transition: opacity 500ms;
+	}
+}
+
