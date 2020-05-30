@@ -102,7 +102,6 @@
 		transition: opacity var(--transition-speed);
 	}
 
-
 	#dockButtonsContainer {
 		display: flex;
     	width: auto;
@@ -132,7 +131,6 @@
 		/*Add transition*/
 		transition: opacity var(--transition-speed);
 	}
-
 
 	#dockButtonsContainer {
 		display: flex;
@@ -164,7 +162,6 @@
 		transition: opacity var(--transition-speed);
 	}
 
-
 	#dockButtonsContainer {
 		display: flex;
     	width: auto;
@@ -194,7 +191,6 @@
 		/*Add transition*/
 		transition: opacity var(--transition-speed);
 	}
-
 
 	#dockButtonsContainer {
 		display: flex;
