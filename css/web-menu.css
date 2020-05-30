@@ -46,6 +46,12 @@
 	}
 }
 
+@media screen and (max-height: 799px) {
+	#webMenu {
+		padding-top: 40px;
+	}
+}
+
 #webMenu.show {
 	transform: scale(1);
 	opacity: 1;
@@ -76,7 +82,6 @@
 
 @media screen and (max-width: 580px) {
 	#webMenuSearchBox {
-
 		width: 50vw;
 	}
 }
