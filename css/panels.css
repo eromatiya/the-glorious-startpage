@@ -10,13 +10,13 @@
 	height: 32px;
 	width: 100%;
 	position: absolute;
-	z-index: 3 !important;
+	z-index: 5 !important;
 }
 
 #dockBody {
 	position: absolute;
 	background: transparent;
-	z-index: 3;
+	z-index: 5;
     margin: 0 auto;
     bottom: 0;
 
