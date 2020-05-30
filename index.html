@@ -3,8 +3,8 @@
 <meta charset="utf-8">
 <head>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="robots" content="noindex" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex">
 	<link rel="stylesheet" href="css/style.css" class="style">
 	<title>Home</title>
 </head>
@@ -43,6 +43,27 @@
 			<div id="greeterMessage"></div>
 			<div id="dateMessage"></div>
 
+			<!-- Select search engine -->
+			<div class="searchEngine">
+				<div id="searchEnginePadding">
+					<div class="header" id="searchEngineHeader">
+						<div class="headerIcon" id="searchEngineHeaderIcon"></div>
+						<div class="headerLabel" id="searchEngineHeaderLabel">Search Engine</div>
+					</div>
+					<div id="searchEngineContainer">
+						<select id="searchEngineSelect">
+						  <option value="google">Google</option>
+						  <option value="duckduckgo">Duckduckgo</option>
+						  <option value="ecosia">Ecosia</option>
+						  <option value="yahoo">Yahoo</option>
+						  <option value="bing">Bing</option>
+						</select>
+						<div id="searchEngineAsDefault">Set as default</div>
+					</div>
+				</div>
+			</div>
+			
+
 			<!-- Weather forecast -->
 			<div class="weather">
 				<div id="weatherPadding">
@@ -77,7 +98,7 @@
 						</div>
 
 						<div class="weatherSettingsGroups" id="weatherSettingsButtons">
-							<div class="weatherSettingsInputs" id="weatherSettingsReset">Reset Credentials</div>
+							<div class="weatherSettingsInputs" id="weatherSettingsReset">Clear Credentials</div>
 							<div class="weatherSettingsInputs" id="weatherSettingsApply">Apply</div>
 						</div>
 					</div>
@@ -102,24 +123,6 @@
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-			
-			<!-- Select search engine -->
-			<div class="searchEngine">
-				<div id="searchEnginePadding">
-					<div class="header" id="searchEngineHeader">
-						<div class="headerIcon" id="searchEngineHeaderIcon"></div>
-						<div class="headerLabel" id="searchEngineHeaderLabel">Search Engine</div>
-					</div>
-					<div id="searchEngineContainer">
-						<select id="searchEngineSelect">
-						  <option value="google">Google</option>
-						  <option value="duckduckgo">Duckduckgo</option>
-						  <option value="ecosia">Ecosia</option>
-						</select>
-					</div>
-					<div id="searchEngineAsDefault">Set as default</div>
 				</div>
 			</div>
 		</div>
