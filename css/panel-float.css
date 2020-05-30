@@ -2,7 +2,7 @@
 .panelFloat {
 	background: var(--panel-bg);
 	height: auto;
-	z-index: 6;
+	z-index: 7;
 	border-radius: var(--rounded-radius);
 	backdrop-filter: blur(var(--blur-strength));
 
@@ -59,5 +59,5 @@
 
 #dashboardHider.show {
 	visibility: visible;
-	z-index: 4;
+	z-index: 6;
 }
