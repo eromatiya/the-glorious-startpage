@@ -4,7 +4,6 @@ var webMenu = document.getElementById("webMenu");
 var webMenuList = document.getElementById("webMenuList");
 var webMenuSearchBox = document.getElementById("webMenuSearchBox");
 
-
 let webMenuVisible = false;
 
 // Create mouse event for passed div
@@ -14,52 +13,66 @@ function addMouseUpEvent(li, url) {
 	}
 }
 
-// Generate a list
-for (i = 0; i < (webSites.length); i++) {
+// Sort list alphabetically
+function sortList() {
+	Array.from(webMenuList.getElementsByTagName("li"))
+	.sort((a, b) => a.textContent.localeCompare(b.textContent))
+    .forEach(li => webMenuList.appendChild(li));
+}
 
-	var site = webSites[i].site;
-	var icon = webSites[i].icon;
-	var url = webSites[i].url;
+// Populate web menu
+function populateWebMenu() {
 
-	var li = document.createElement('li');
+	// Generate a list
+	for (i = 0; i < (webSites.length); i++) {
 
-	// Add mouseup event
-	addMouseUpEvent(li, url);
+		var site = webSites[i].site;
+		var icon = webSites[i].icon;
+		var url = webSites[i].url;
 
-	// Create an outer div, child of li
-	let webItemDiv = document.createElement('div')
-	webItemDiv.className = 'webItem';
-	// webItemDiv.tabitemIndex = '1';
-	webItemDiv.id = "id" + site;
-	
-	// Create a second div, webItemContainer
-	var webItemContainer = document.createElement('div');
-	webItemContainer.className = 'webItemContainer';
+		var li = document.createElement('li');
 
-	// Create the innermost div, contains icon and label
-	var webItemBody = document.createElement('div');
-	webItemBody.className = 'webItemBody';
+		// Add mouseup event
+		addMouseUpEvent(li, url);
 
-	// Create div for webItemIcon
-	var webItemIcon = document.createElement('div');
-	webItemIcon.className = 'webItemIcon';
-	webItemIcon.style.background = "url('assets/webcons/" + icon + ".svg')";
-	webItemIcon.style.backgroundSize = 'cover';
+		// Create an outer div, child of li
+		let webItemDiv = document.createElement('div')
+		webItemDiv.className = 'webItem';
+		// webItemDiv.tabitemIndex = '1';
+		webItemDiv.id = "id" + site;
+		
+		// Create a second div, webItemContainer
+		var webItemContainer = document.createElement('div');
+		webItemContainer.className = 'webItemContainer';
 
-	// Create webItemName
-	var webItemName = document.createElement('div');
-	webItemName.className = 'webItemName';
-	webItemName.innerHTML = site;
+		// Create the innermost div, contains icon and label
+		var webItemBody = document.createElement('div');
+		webItemBody.className = 'webItemBody';
 
-	// Append divs with heirarchy
-	webItemDiv.appendChild(webItemContainer);
-	webItemContainer.appendChild(webItemBody);
+		// Create div for webItemIcon
+		var webItemIcon = document.createElement('div');
+		webItemIcon.className = 'webItemIcon';
+		webItemIcon.style.background = "url('assets/webcons/" + icon + ".svg')";
+		webItemIcon.style.backgroundSize = 'cover';
 
-	webItemBody.appendChild(webItemIcon);
-	webItemBody.appendChild(webItemName);
+		// Create webItemName
+		var webItemName = document.createElement('div');
+		webItemName.className = 'webItemName';
+		webItemName.innerHTML = site;
 
-	li.appendChild(webItemDiv);
-	webMenuList.appendChild(li);
+		// Append divs with heirarchy
+		webItemDiv.appendChild(webItemContainer);
+		webItemContainer.appendChild(webItemBody);
+
+		webItemBody.appendChild(webItemIcon);
+		webItemBody.appendChild(webItemName);
+
+		li.appendChild(webItemDiv);
+		webMenuList.appendChild(li);
+	}
+
+	// Call to sort list
+	sortList();
 }
 
 let firstEntry;
@@ -88,6 +101,7 @@ function filterWebList() {
 	}
 }
 
+// Type event on web mmenu search box
 webMenuSearchBox.onkeydown = function(event) {
 
 	if (event.keyCode === 13 && firstEntry) {
@@ -97,6 +111,7 @@ webMenuSearchBox.onkeydown = function(event) {
 	filterWebList();
 }
 
+// Show/Hide web menu
 function webMenuToggle() {
 
 	hideMainContainer();
@@ -119,3 +134,6 @@ function webMenuToggle() {
 	}
 
 }
+
+// Populate web menu
+window.onload = populateWebMenu();
