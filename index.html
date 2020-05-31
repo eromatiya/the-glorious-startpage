@@ -134,18 +134,25 @@
 						<div class="headerLabel" id="themeEngineHeaderLabel">Theme Engine</div>
 					</div>
 					<div id="themeEngineContainer">
-						<select id="searchEngineSelect">
-						  <option value="google">Google</option>
-						  <option value="duckduckgo">Duckduckgo</option>
-						  <option value="ecosia">Ecosia</option>
-						  <option value="yahoo">Yahoo</option>
-						  <option value="bing">Bing</option>
-						</select>
-						<div class="colorSetter">
-							<input type="text" class="themeEngineInputs" id="colorSet" autocomplete="off" placeholder="#000000"/>
-							<input type="text" class="themeEngineInputs" id="opacitySet" autocomplete="off" placeholder="66"/>
+						<div class="themeEngineGroups">
+							<div class="themeEngineLabels">
+								Color and Opacity
+							</div>
+								<div class="colorSetter">
+								<input type="text" maxlength="7" class="themeEngineInputs" id="colorSet" autocomplete="off" placeholder="#000000"/>
+								<input type="text" maxlength="2" class="themeEngineInputs" id="opacitySet" autocomplete="off" placeholder="66"/>
+							</div>
 						</div>
-						<div id="themeEngineAsDefault">Set as default</div>
+						<div class="themeEngineGroups">
+							<div class="themeEngineLabels">
+								Blur Strength in Pixels
+							</div>
+								<div class="blurSetter">
+								<input type="text" class="themeEngineInputs" id="blurSet" autocomplete="off" placeholder="10"/>
+							</div>
+						</div>
+							
+						<div id="themeEngineAsDefault">Apply</div>
 					</div>
 				</div>
 			</div>

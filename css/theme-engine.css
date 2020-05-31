@@ -104,11 +104,14 @@ select::-ms-expand {
 	}
 }
 
+.themeEngineGroups {
+	margin-top: 5px;
+}
 
 
 
-
-.colorSetter {
+.colorSetter,
+.blurSetter {
 	/*Align div inside horizontally*/
 	display: flex;
 	flex-direction: row;
@@ -135,6 +138,17 @@ select::-ms-expand {
 	margin-left: 2.5px;
 	height: 32px;
 	width: 25%;
+	box-sizing: border-box;
+	border: none;
+	text-align: center;
+	border-radius: 6px;
+	color: var(--base-color);
+	background: var(--panel-bg);
+}
+
+#blurSet {
+	height: 32px;
+	width: 100%;
 	box-sizing: border-box;
 	border: none;
 	text-align: center;
