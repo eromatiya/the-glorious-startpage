@@ -106,6 +106,8 @@ webMenuSearchBox.onkeydown = function(event) {
 	if (event.keyCode === 13 && firstEntry) {
 		firstEntry.onmouseup();
 		webMenuToggle();
+	} else if (event.keyCode === 8 && webMenuSearchBox.value < 1) {
+		webMenuToggle();
 	}
 	filterWebList();
 }
