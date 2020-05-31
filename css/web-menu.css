@@ -28,7 +28,6 @@
 	-ms-user-select: none;
 	user-select: none;
 
-
 	/*Transitions*/
 	opacity: 0;
 	transform: scale(0);
@@ -80,7 +79,6 @@
 	width: 25%;
 	height: 36px;
 	margin: 0;
-	
 }
 
 @media screen and (max-width: 580px) {
