@@ -37,26 +37,12 @@ function populatePlaces() {
 		if (document.getElementById(categoryIdName) !== null) {
 			
 			// Category already created, just add the item in category
-		
 
-			// var dummy = document.createElement('div');
-			// dummy.innerHTML = '123';
-			// dummy.style.background = '#ff00ff';
-			// dummy.style.overflow = 'auto';
-			// places.style.background = '#ff00ff';
-			// places.appendChild(dummy);
+			var categoryContent = document.getElementById(categoryIdName + 'ContentDropdown');
 
-			// var contentDropdown = document.getElementById(categoryIdName + 'ContentDropdown');
-			// var dummy = document.createElement('div');
-			// dummy.innerHTML = site;
-			// dummy.style.background = '#ff00ff';
-			// dummy.className = 'categoryContent';
-			// contentDropdown.appendChild(dummy);
-
-			// // toggleCategoryEvent(categoryMain, categoryContent);
-			// categoryMain.appendChild(dummyContent);
-
-			// places.appendChild(categoryMain);
+			var content = document.createElement('div');
+			content.innerHTML = site;
+			categoryContent.appendChild(content);
 
 
 
