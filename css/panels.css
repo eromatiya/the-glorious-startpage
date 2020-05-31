@@ -11,9 +11,21 @@
 	width: 100%;
 	position: absolute;
 	z-index: 5 !important;
+
+   /*Make clock unselectable*/
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 #panelTopContainer {
+
+	margin-left: 5px;
+	margin-right: 5px;
+
    	position: relative;
     top: 50%;
     transform: translateY(-50%);
