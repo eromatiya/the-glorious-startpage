@@ -34,7 +34,9 @@ let webSites = [
 	{ site: 'Figma', icon: 'figma', url: 'https://figma.com/'},
 	{ site: 'Stackoverflow', icon: 'stackoverflow', url: 'https://stackoverflow.com/'},
 	{ site: 'Stackexchange', icon: 'stackexchange', url: 'https://stackexchange.com/'},
-	{ site: 'Superuser', icon: 'superuser', url: 'https://superuser.com/'}
+	{ site: 'Superuser', icon: 'superuser', url: 'https://superuser.com/'},
+	{ site: 'Calendar', icon: 'calendar', url: 'https://calendar.google.com/'},
+	{ site: 'Messenger', icon: 'messenger', url: 'https://messenger.com/'}
 ];
 
 
