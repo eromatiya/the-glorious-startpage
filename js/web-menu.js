@@ -103,10 +103,10 @@ function filterWebList() {
 // Type event on web mmenu search box
 webMenuSearchBox.onkeydown = function(event) {
 
-	if (event.keyCode === 13 && firstEntry) {
+	if ((event.keyCode === 13 && firstEntry) && (webMenuSearchBox.value.length  > 0)) {
 		firstEntry.onmouseup();
 		webMenuToggle();
-	} else if (event.keyCode === 8 && webMenuSearchBox.value < 1) {
+	} else if (event.keyCode === 8 && webMenuSearchBox.value.length  < 1) {
 		webMenuToggle();
 	}
 	filterWebList();
