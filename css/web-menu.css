@@ -28,7 +28,6 @@
 	-ms-user-select: none;
 	user-select: none;
 
-
 	/*Transitions*/
 	opacity: 0;
 	transform: scale(0);
@@ -41,8 +40,8 @@
 	#webMenu {
 		padding-top: 6vh;
 		padding-bottom: 0vh;
-		padding-left: 6vw;
-		padding-right: 6vw;
+		padding-left: 18vw;
+		padding-right: 18vw;
 	}
 }
 
@@ -66,18 +65,20 @@
 }
 
 #webMenuSearchBox {
+	background: transparent;
 	backdrop-filter: blur(var(--blur-strength));
+	
 	text-align: center;
 	font-family: sans;
 	font-weight: 500;
 	color: var(--panel-color);
-	background: var(--panel-bg);
+	
 	border: none;
 	border-radius: 6px;
+	
 	width: 25%;
 	height: 36px;
 	margin: 0;
-	
 }
 
 @media screen and (max-width: 580px) {
@@ -126,7 +127,7 @@
 	transition: transform var(--transition-speed);
 }
 
-/*Children of li*/
+/*Child of li*/
 .webItem {
 	width: 128px;
 	height: 128px;
@@ -189,11 +190,23 @@
 	-ms-overflow-style: none !important;*/
 
 	/*Fade transparency*/
-	-webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-	mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+	/*-webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);*/
+	/*mask-image: linear-gradient(to bottom, black 85%, transparent 100%);*/
 }
 
 /*Hide scrollbar*/
 /*#webMenuListContainer::-webkit-scrollbar {
     display: none;
 }*/
+
+/*Stretch list item if screen width < 580px*/
+@media screen and (max-width: 580px) {
+	#webMenuList {
+		flex-grow: 1;
+	}
+
+	/*Child of li*/
+	.webItem {
+		width: auto;
+	}
+}
