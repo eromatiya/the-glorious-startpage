@@ -31,7 +31,10 @@ let webSites = [
 	{ site: 'Ebay', icon: 'ebay', url: 'https://ebay.com/'},
 	{ site: 'JSFiddle', icon: 'jsfiddle', url: 'https://jsfiddle.net/'},
 	{ site: 'ArchWiki', icon: 'archwiki', url: 'https://wiki.archlinux.org/'},
-	{ site: 'Figma', icon: 'figma', url: 'https://figma.com/'}
+	{ site: 'Figma', icon: 'figma', url: 'https://figma.com/'},
+	{ site: 'Stackoverflow', icon: 'stackoverflow', url: 'https://stackoverflow.com/'},
+	{ site: 'Stackexchange', icon: 'stackexchange', url: 'https://stackexchange.com/'},
+	{ site: 'Superuser', icon: 'superuser', url: 'https://superuser.com/'}
 ];
 
 
