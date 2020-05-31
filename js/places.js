@@ -2,6 +2,7 @@
 
 function myFunction() {
 	document.getElementById("dummyCategoryContentDropdown").classList.toggle("dropDownShow");
+	alert('213');
 }
 
 document.getElementById("dummyCategoryButton").onclick = function() {

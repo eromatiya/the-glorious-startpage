@@ -98,6 +98,7 @@ html, body {
 	font-family: sans;
 	font-weight: bold;
 	position: absolute;
+	z-index: -1;
 
 	/*Center lock*/
 	width: 100%;
