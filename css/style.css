@@ -101,10 +101,11 @@ html, body {
 	z-index: -1;
 
 	/*Center lock*/
+	float: right;
 	width: 100%;
 	margin: auto;
 	
-	text-align: center;
+	text-align: right;
 	margin: 0 auto;
 	display: inline-block;
 }

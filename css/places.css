@@ -6,7 +6,7 @@
 	position: relative;
 	display: inline-block;
 	cursor: pointer;
-	padding: 5px;
+	padding: 6px;
 }
 
 .category:hover {
