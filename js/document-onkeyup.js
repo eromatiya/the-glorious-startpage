@@ -45,8 +45,8 @@ document.onkeyup = function keydown (event) {
             { return; };
 
 
-        // Check if weather settings is open
-        if (weatherSettingsVisible) { return; };
+        // Check if float panel is open, return
+        if (floatPanelVisible) { return; };
 
         // Open searchbox
         toggleSearchBox();
