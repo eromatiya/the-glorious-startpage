@@ -23,10 +23,7 @@
 
 #panelTopContainer {
 
-	margin-left: 5px;
-	margin-right: 5px;
-
-   	position: relative;
+  	position: relative;
     top: 50%;
     transform: translateY(-50%);
     width: 100%;
