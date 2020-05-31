@@ -1,3 +1,7 @@
+.places {
+	display: inline-block;
+}
+
 .category {
 	position: relative;
 	display: inline-block;
