@@ -51,7 +51,7 @@ function populatePlaces() {
 			dummy.innerHTML = category;
 			dummy.style.background = '#ff00ff';
 			dummy.className = 'categoryContent';
-			places.appendChild(dummy);
+			contentDropdown.appendChild(dummy);
 
 
 
