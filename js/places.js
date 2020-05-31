@@ -11,7 +11,7 @@ document.getElementById("dummyCategoryButton").onclick = function() {
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
 	if (!event.target.matches('.categoryButton')) {
-		var dropdowns = document.getElementById("dummyCategoryContentDropdown");
+		var dropdowns = document.getElementsByClassName("categoryContent");
 		var i;
 		for (i = 0; i < dropdowns.length; i++) {
 			var openDropdown = dropdowns[i];
