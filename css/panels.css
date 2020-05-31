@@ -6,10 +6,18 @@
 }
 
 #panelTop {
+	top: 0;
 	height: 32px;
 	width: 100%;
 	position: absolute;
 	z-index: 5 !important;
+}
+
+#panelTopContainer {
+   	position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
 }
 
 .dock {
