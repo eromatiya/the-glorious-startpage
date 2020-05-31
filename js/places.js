@@ -8,23 +8,18 @@ function toggleCategoryEvent(button, content) {
 	}
 }
 
-// document.getElementById("dummyCategoryButton").onclick = function() {
-// 	toggleCategoryEvent();
-// }
-
-// // Close the dropdown if the user clicks outside of it
-// window.onclick = function(event) {
-// 	if (!event.target.matches('.categoryButton')) {
-// 		var dropdowns = document.getElementsByClassName("categoryContent");
-// 		var i;
-// 		for (i = 0; i < dropdowns.length; i++) {
-// 			var openDropdown = dropdowns[i];
-// 			if (openDropdown.classList.contains('dropDownShow')) {
-// 				openDropdown.classList.remove('dropDownShow');
-// 			}
-// 		}
-// 	}
-// }
+window.onclick = function(event) {
+	if (!event.target.matches('.categoryButton')) {
+		var dropdowns = document.getElementsByClassName("categoryContent");
+		var i;
+		for (i = 0; i < dropdowns.length; i++) {
+			var openDropdown = dropdowns[i];
+			if (openDropdown.classList.contains('dropDownShow')) {
+				openDropdown.classList.remove('dropDownShow');
+			}
+		}
+	}
+}
 
 
 // Populate web menu
@@ -85,11 +80,10 @@ function populatePlaces() {
 			categoryContent.id = categoryIdName + 'ContentDropdown';
 
 			var content = document.createElement('div');
-			content.innerHTML = category;
+			content.innerHTML = site;
 			categoryContent.appendChild(content);
 
 			toggleCategoryEvent(categoryButton, categoryContent);
-
 			
 			// Appending
 			categoryMain.appendChild(categoryButton);
