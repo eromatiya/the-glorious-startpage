@@ -46,6 +46,15 @@ function populatePlaces() {
 			// places.style.background = '#ff00ff';
 			// places.appendChild(dummy);
 
+			var contentDropdown = document.getElementById(categoryIdName + 'ContentDropdown');
+			var dummy = document.createElement('div');
+			dummy.innerHTML = category;
+			dummy.style.background = '#ff00ff';
+			dummy.className = 'categoryContent';
+			places.appendChild(dummy);
+
+
+
 
 		} else {
 
@@ -58,6 +67,7 @@ function populatePlaces() {
 			var categoryButton = document.createElement('div');
 			categoryButton.className = 'categoryButton';
 			categoryButton.id = categoryIdName + 'Button';
+			categoryButton.innerHTML = category && category[0].toUpperCase() + category.slice(1);
 
 			// Create dropdown content
 			var categoryContent = document.createElement('div');
@@ -71,6 +81,7 @@ function populatePlaces() {
 
 			var dummyContent = document.createElement('div');
 			dummyContent.innerHTML = 'GAGO';
+			dummyContent.className = 'categoryContent';
 
 			categoryMain.appendChild(dummyContent);
 
