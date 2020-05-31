@@ -103,3 +103,42 @@ select::-ms-expand {
 		box-sizing: border-box;
 	}
 }
+
+
+
+
+
+.colorSetter {
+	/*Align div inside horizontally*/
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+
+	margin-top: 5px;
+	box-sizing: border-box;
+}
+
+
+#colorSet {
+	margin-right: 2.5px;
+	height: 32px;
+	width: 100%;
+	box-sizing: border-box;
+	border: none;
+	text-align: center;
+	border-radius: 6px;
+	color: var(--base-color);
+	background: var(--panel-bg);
+}
+
+#opacitySet {
+	margin-left: 2.5px;
+	height: 32px;
+	width: 25%;
+	box-sizing: border-box;
+	border: none;
+	text-align: center;
+	border-radius: 6px;
+	color: var(--base-color);
+	background: var(--panel-bg);
+}
