@@ -6,13 +6,20 @@
 	position: relative;
 	display: inline-block;
 	cursor: pointer;
-	margin-left: 5px;
-	margin-right: 5px;
+	padding: 5px;
+}
+
+.category:hover {
+	background: var(--base-hover-bg);
+}
+
+.category:active {
+	background: var(--base-active-bg);
 }
 
 .categoryButton {
 	color: var(--panel-color);
-	font-weight: bold;
+	font-weight: normal;
 	font-family: sans;
 	font-size: 11pt;
 }
