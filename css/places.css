@@ -25,8 +25,8 @@
 }
 
 .categoryContent {
-	margin-top: 5px;
 	display: none;
+	margin-top: 5px;
 	position: absolute;
 	background-color: #f1f1f1;
 	min-width: 160px;

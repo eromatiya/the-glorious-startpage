@@ -1,27 +1,30 @@
 var places = document.getElementById("places");
 
 /* When the user clicks on the button, toggle between hiding and showing the dropdown content */
-function toggleCategoryDropdown() {
-	document.getElementById("dummyCategoryContentDropdown").classList.toggle("dropDownShow");
-}
-
-document.getElementById("dummyCategoryButton").onclick = function() {
-	toggleCategoryDropdown();
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-	if (!event.target.matches('.categoryButton')) {
-		var dropdowns = document.getElementsByClassName("categoryContent");
-		var i;
-		for (i = 0; i < dropdowns.length; i++) {
-			var openDropdown = dropdowns[i];
-			if (openDropdown.classList.contains('dropDownShow')) {
-				openDropdown.classList.remove('dropDownShow');
-			}
-		}
+function toggleCategoryEvent(button, content) {	
+	button.onclick = function() {
+		content.classList.toggle("dropDownShow");
+		// alert(str);
 	}
 }
+
+// document.getElementById("dummyCategoryButton").onclick = function() {
+// 	toggleCategoryEvent();
+// }
+
+// // Close the dropdown if the user clicks outside of it
+// window.onclick = function(event) {
+// 	if (!event.target.matches('.categoryButton')) {
+// 		var dropdowns = document.getElementsByClassName("categoryContent");
+// 		var i;
+// 		for (i = 0; i < dropdowns.length; i++) {
+// 			var openDropdown = dropdowns[i];
+// 			if (openDropdown.classList.contains('dropDownShow')) {
+// 				openDropdown.classList.remove('dropDownShow');
+// 			}
+// 		}
+// 	}
+// }
 
 
 // Populate web menu
@@ -32,6 +35,8 @@ function populatePlaces() {
 
 
 		var category = webSites[i].category;
+		var site = webSites[i].site;
+
 		var categoryIdName = category + 'Category';
 
 		if (document.getElementById(categoryIdName) !== null) {
@@ -46,12 +51,17 @@ function populatePlaces() {
 			// places.style.background = '#ff00ff';
 			// places.appendChild(dummy);
 
-			var contentDropdown = document.getElementById(categoryIdName + 'ContentDropdown');
-			var dummy = document.createElement('div');
-			dummy.innerHTML = category;
-			dummy.style.background = '#ff00ff';
-			dummy.className = 'categoryContent';
-			contentDropdown.appendChild(dummy);
+			// var contentDropdown = document.getElementById(categoryIdName + 'ContentDropdown');
+			// var dummy = document.createElement('div');
+			// dummy.innerHTML = site;
+			// dummy.style.background = '#ff00ff';
+			// dummy.className = 'categoryContent';
+			// contentDropdown.appendChild(dummy);
+
+			// // toggleCategoryEvent(categoryMain, categoryContent);
+			// categoryMain.appendChild(dummyContent);
+
+			// places.appendChild(categoryMain);
 
 
 
@@ -74,16 +84,18 @@ function populatePlaces() {
 			categoryContent.className = 'categoryContent';
 			categoryContent.id = categoryIdName + 'ContentDropdown';
 
+			var content = document.createElement('div');
+			content.innerHTML = category;
+			categoryContent.appendChild(content);
+
+			toggleCategoryEvent(categoryButton, categoryContent);
+
+			
 			// Appending
 			categoryMain.appendChild(categoryButton);
 			categoryMain.appendChild(categoryContent);
+	
 
-
-			var dummyContent = document.createElement('div');
-			dummyContent.innerHTML = 'GAGO';
-			dummyContent.className = 'categoryContent';
-
-			categoryMain.appendChild(dummyContent);
 
 			places.appendChild(categoryMain);
 
