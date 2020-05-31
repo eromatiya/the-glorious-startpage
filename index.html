@@ -33,33 +33,6 @@
 		</div>
 	</div>
 
-	<script>
-	/* When the user clicks on the button, 
-	toggle between hiding and showing the dropdown content */
-	function myFunction() {
-		document.getElementById("myDropdown").classList.toggle("show");
-	}
-
-	document.getElementById("dropdownbtn").onclick = function() {
-		myFunction();
-	}
-
-	// Close the dropdown if the user clicks outside of it
-	window.onclick = function(event) {
-		if (!event.target.matches('.dropbtn')) {
-			var dropdowns = document.getElementsByClassName("dropdown-content");
-			var i;
-			for (i = 0; i < dropdowns.length; i++) {
-				var openDropdown = dropdowns[i];
-				if (openDropdown.classList.contains('show')) {
-					openDropdown.classList.remove('show');
-				}
-			}
-		}
-	}
-	</script>
-
-
 	<!-- Web menu panel -->
 	<div id="webMenu">
 		<div id="webMenuContainer">
@@ -199,5 +172,6 @@
 	<script src="js/weather-settings.js"></script>
 	<script src="js/web-menu.js"></script>
 	<script src="js/document-onkeyup.js"></script>
+	<script src="js/places.js"></script>
 </body>
 </html>
