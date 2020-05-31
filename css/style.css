@@ -97,9 +97,15 @@ html, body {
 	font-size: 11pt;
 	font-family: sans;
 	font-weight: bold;
+	position: absolute;
 
 	/*Center lock*/
+	width: 100%;
+	margin: auto;
+	
 	text-align: center;
+	margin: 0 auto;
+	display: inline-block;
 }
 
 .mainContainer {

@@ -1,6 +1,14 @@
 .category {
 	position: relative;
 	display: inline-block;
+	cursor: pointer;
+}
+
+.categoryButton {
+	color: var(--panel-color);
+	font-weight: bold;
+	font-family: sans;
+	font-size: 11pt;
 }
 
 .categoryContent {

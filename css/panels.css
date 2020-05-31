@@ -12,7 +12,7 @@
 	position: absolute;
 	z-index: 5 !important;
 
-   /*Make clock unselectable*/
+   /*Make panel unselectable*/
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -26,7 +26,7 @@
   	position: relative;
     top: 50%;
     transform: translateY(-50%);
-    width: 100%;
+    /*width: 100%;*/
 
     display: flex;
 	flex-direction: row;
