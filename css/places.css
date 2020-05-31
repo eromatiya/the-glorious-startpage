@@ -25,23 +25,34 @@
 }
 
 .categoryContent {
-	display: none;
-	margin-top: 5px;
+	background-color: var(--base-bg);
+	color: var(--base-color);
 	position: absolute;
-	background-color: #f1f1f1;
+	display: none;
+
+	margin-top: 7px;
 	min-width: 160px;
-	overflow: auto;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	
 	z-index: 1;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	overflow: auto;
 }
 
 .categoryContent div {
-	color: black;
+	color: var(--base-color);
+	backdrop-filter: blur(--blur-strength);
 	padding: 12px 16px;
 	text-decoration: none;
 	display: block;
 }
 
-.categoryContent div:hover {background-color: #ddd;}
+.categoryContent div:hover {
+	background: var(--base-hover-bg);
+}
+
+.categoryContent div:hover {
+	background: var(--base-active-bg);
+}
 
 .dropDownShow {display: block;}	
