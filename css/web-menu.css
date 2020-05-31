@@ -66,14 +66,17 @@
 }
 
 #webMenuSearchBox {
+	background: transparent;
 	backdrop-filter: blur(var(--blur-strength));
+	
 	text-align: center;
 	font-family: sans;
 	font-weight: 500;
 	color: var(--panel-color);
-	background: var(--panel-bg);
+	
 	border: none;
 	border-radius: 6px;
+	
 	width: 25%;
 	height: 36px;
 	margin: 0;
