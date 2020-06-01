@@ -12,6 +12,9 @@ function slideDashboard() {
 	
 	// Toggle right panel
 	dashboard.classList.toggle('show');
+
+	// Scroll to top
+	rightDashboard.scrollTop = 0;
 	
 	// Enable overlay
 	dashboardHider.classList.toggle('show');

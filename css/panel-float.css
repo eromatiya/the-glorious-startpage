@@ -1,9 +1,9 @@
 
 .panelFloat {
 	background: var(--panel-bg);
-	height: auto;
+	height: 100%;
 	z-index: 7;
-	border-radius: var(--rounded-radius);
+	/*border-radius: var(--rounded-radius);*/
 	backdrop-filter: blur(var(--blur-strength));
 
 	-webkit-touch-callout: none;
@@ -21,13 +21,20 @@
 }
 
 #rightDashboard {
+	/*Start to bottom and add 10px margin*/
+	/*bottom: 0;*/
+	/*margin: 10px;*/
+	
 	width: 0;
-	bottom: 0;
 	right: 0;
-	margin: 10px;
 	position: absolute;
-	overflow: hidden;
+	overflow-y: auto;
 	transition: width var(--transition-speed); 
+}
+
+/*Hide scrollbar*/
+#rightDashboard::-webkit-scrollbar {
+    display: none;
 }
 
 #rightDashboard.show {
