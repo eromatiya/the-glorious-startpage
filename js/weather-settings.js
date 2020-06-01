@@ -1,18 +1,11 @@
 var localStorage = window.localStorage;
 
-var weatherSettingsIconContainer = document.getElementById("weatherSettingsIconContainer");
-var weatherSettingsContainer = document.getElementById("weatherSettingsContainer");
-
-let weatherSettingsVisible = false;
-
 // Apply credentials
 function applyWeatherSettings(key, city, units) {
 	localStorage.setItem('apiKey', key);
 	localStorage.setItem('cityID', city);
 	localStorage.setItem('units', units);
 }
-
-// Update on startup
 
 // Set variable
 let appID;
@@ -52,18 +45,10 @@ function updateWeatherSettings() {
 
 	// Update weather forecast elements
 	getWeatherData(appID, cityID, units);
+	getForecastData(appID, cityID, units);
 
 	deleteWeatherSettingsValue();
 	updateWeatherSettingsPlaceholder();
-}
-
-// Call
-updateWeatherSettings();
-
-// Button events
-weatherSettingsIconContainer.onmouseup = function() {
-	weatherSettingsContainer.classList.toggle('show');
-	weatherSettingsVisible = !weatherSettingsVisible;
 }
 
 // Reset button was pressed
@@ -84,3 +69,5 @@ weatherSettingsApply.onmouseup = function() {
 	updateWeatherSettings();
 	alert('Successfully updated!');
 }
+
+window.onload = updateWeatherSettings();

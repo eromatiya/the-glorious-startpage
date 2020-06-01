@@ -44,7 +44,26 @@
 				Earth, Milky Way
 			</div>
 			<div id="weatherTodayDescription">
-				dust & clouds, -1000 °C
+				dust & clouds, -1000°C
+			</div>
+			<div id="weatherHourDataTodayContainer">
+				<div class="weatherDataHour" id="weatherTodaySunrise">
+					<div class="hourDataIcon" id="sunriseHourDataIcon"></div>
+					<div class="hourDataLabel" id="sunriseTodayHour">00:00</div>
+				</div>
+				<div class="weatherDataHour" id="weatherTodaySunset">
+					<div class="hourDataIcon" id="sunsetHourDataIcon"></div>
+					<div class="hourDataLabel" id="sunsetTodayHour">00:00</div>
+				</div>
+				<div class="weatherDataHour" id="weatherTodayUpdate">
+					<div class="hourDataIcon" id="updateHourDataIcon"></div>
+					<div class="hourDataLabel" id="updateTodayHour">00:00</div>
+				</div>
+			</div>
+			<div class="weatherForecast" id="forecastContainer">
+
+				<!-- Javascript will generate a list here -->
+		
 			</div>
 		</div>
 	</div>
@@ -59,15 +78,14 @@
 			<div id="dateMessage"></div>
 
 			<!-- Weather forecast -->
-			<div class="weather">
-				<div id="weatherPadding">
-					<div class="header" id="weatherHeader">
-						<div class="headerIcon" id="weatherHeaderIcon"></div>
-						<div class="headerLabel" id="weatherHeaderLabel">Weather</div>
-						<div id="weatherSettingsIconContainer">
-							<div class="headerSettingsIcon" id="weatherSettingsIcon"></div>
-						</div>
+			<div class="weatherSettings">
+				<div id="weatherSettingsPadding">
+
+					<div class="header" id="weatherSettingsHeader">
+						<div class="headerIcon" id="weatherSettingsHeaderIcon"></div>
+						<div class="headerLabel" id="weatherSettingsHeaderLabel">Weather Settings</div>
 					</div>
+
 					<div id="weatherSettingsContainer">
 						<div class="weatherSettingsGroups">
 							<div class="weatherSettingsLabels">
@@ -94,27 +112,6 @@
 						<div class="weatherSettingsGroups" id="weatherSettingsButtons">
 							<div class="weatherSettingsInputs" id="weatherSettingsReset">Clear Credentials</div>
 							<div class="weatherSettingsInputs" id="weatherSettingsApply">Apply</div>
-						</div>
-					</div>
-					<div class="weatherDetails">
-						<div id="weatherIcon"></div>
-						<div id="weatherDetailsContainer">
-							<div id="weatherLocation">Earth, Milky Way</div>
-							<div id="weatherDescription">dust and clouds, -1000°C</div>
-							<div id="weatherHoursContainer">
-								<div class="weatherHours" id="weatherSunrise">
-									<div class="hourIcon" id="sunriseHourIcon"></div>
-									<div class="hourLabel" id="sunriseHour">00:00</div>
-								</div>
-								<div class="weatherHours" id="weatherSunset">
-									<div class="hourIcon" id="sunsetHourIcon"></div>
-									<div class="hourLabel" id="sunsetHour">00:00</div>
-								</div>
-								<div class="weatherHours" id="weatherUpdate">
-									<div class="hourIcon" id="updateHourIcon"></div>
-									<div class="hourLabel" id="updateHour">00:00</div>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>

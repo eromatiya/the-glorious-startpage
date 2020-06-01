@@ -72,7 +72,7 @@ function generateFromList() {
         'Weather',
         'weather', 
         function() {
-            alert('open weather');
+            weatherToggle();
         }
     );
 
@@ -84,6 +84,11 @@ function generateFromList() {
             if (webMenuVisible) {
                 webMenuToggle();
             }
+
+            if (weatherVisible) {
+                weatherToggle();
+            }
+            
             slideDashboard()
         }
     );
