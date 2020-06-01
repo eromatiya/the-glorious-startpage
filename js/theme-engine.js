@@ -6,17 +6,7 @@ var foregroundOpacityTextBox = document.getElementById('foregroundOpacitySet');
 
 var blurTextBox = document.getElementById('blurSet');
 
-
 var applyTheme = document.getElementById('themeEngineAsDefault');
-
-// If checkColorValidity failed, check if alpha exist or
-// Check if it's 3-charactered HEX value
-// function checkAlpha(colorStr) {
-// 	if (colorStr.length == 4) {
-// 		return colorStr.replace(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])/, "#$1$1$2$2$3$3");
-// 	};
-// 	return colorStr;
-// }
 
 // Must be RGBA
 function checkColorValidity(colorStr) {
@@ -25,7 +15,7 @@ function checkColorValidity(colorStr) {
 
 	if (!colorBool) {
 
-		if (colorStr.value  === 4) {
+		if (colorStr.length  == 4) {
 			if (/^#([0-9A-F]{3}){1,2}$/i.test(colorStr)) {
 				return colorStr.replace(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])/, "#$1$1$2$2$3$3");
 			}
@@ -55,24 +45,8 @@ function checkColorValidity(colorStr) {
 // Remove newline
 // STR.replace(/(\r\n|\n|\r)/gm, "");
 
-function updateCSSVariables() {
-
-	var bgColor = checkColorValidity(backgroundTextBox.value || backgroundTextBox.placeholder) + 
-		(backgroundOpacityTextBox.value + backgroundOpacityTextBox.placeholder);
-	
-	var fgColor = checkColorValidity(foregroundTextBox.value || foregroundTextBox.placeholder) + 
-		(foregroundOpacityTextBox.value + foregroundOpacityTextBox.placeholder);
-
-	var blurPower = (blurTextBox.value || blurTextBox.placeholder);
-
-	// alert(bgColor);
-	document.documentElement.style.setProperty('--base-bg', bgColor);
-	document.documentElement.style.setProperty('--base-color', fgColor);
-	document.documentElement.style.setProperty('--blur-strength', blurPower);
-}
 
 function updateTextBoxValues() {
-
 
 	var baseBG = window.getComputedStyle(document.documentElement).getPropertyValue('--base-bg');
 	var baseColor = window.getComputedStyle(document.documentElement).getPropertyValue('--base-color');	
@@ -102,22 +76,50 @@ function updateTextBoxValues() {
 
 
 	// Set placeholders
+	backgroundTextBox.value = '';
 	backgroundTextBox.placeholder = backgroundColor;
+
+	backgroundOpacityTextBox.value = '';
 	backgroundOpacityTextBox.placeholder = backgroundOpacity;
 
+	foregroundTextBox.value = '';
 	foregroundTextBox.placeholder = foregroundColor;
+	foregroundOpacityTextBox.value = '';
 	foregroundOpacityTextBox.placeholder = foregroundOpacity;
 
 	blurTextBox.placeholder = blurStrength;
 
+}
+
+
+function updateCSSVariables() {
+
+	var bgColor = checkColorValidity(backgroundTextBox.value || backgroundTextBox.placeholder) + 
+		(backgroundOpacityTextBox.value || backgroundOpacityTextBox.placeholder);
+
+	var fgColor = checkColorValidity(foregroundTextBox.value || foregroundTextBox.placeholder) + 
+		(foregroundOpacityTextBox.value || foregroundOpacityTextBox.placeholder);
+
+	var blurPower = (blurTextBox.value || blurTextBox.placeholder);
+
+	document.documentElement.style.setProperty('--base-bg', bgColor);
+	document.documentElement.style.setProperty('--base-color', fgColor);
+	document.documentElement.style.setProperty('--blur-strength', blurPower);
+
+
+	updateTextBoxValues();
+}
+
+function updateOnStartUp() {
+
+	updateTextBoxValues();
 
 	// Update settings
 	updateCSSVariables();
-
 }
 
 applyTheme.onmouseup = function() {
 	updateCSSVariables();
 }
 
-window.onload = updateTextBoxValues();
+window.onload = updateOnStartUp();
