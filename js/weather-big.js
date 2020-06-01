@@ -128,8 +128,19 @@ function  processForecastData(data) {
 
 	var forecast = data.list;
 	for (var i = 0; i < forecast.length; i+=8) {
+		
+		var temp_symbol = (units === "metric") ? "°C" : "°F";
 
- 		// alert(forecast[i].dt_txt);
+		var foreIcon = forecast[i].weather[0].icon;
+		var minimumTemp = forecast[i].main.temp_min;
+		var maximumTemp = forecast[i].main.temp_max;
+		var foreDescription = forecast[i].weather[0].description;
+		var dateTime = forecast[i].dt_txt;
+
+		var fIcon = getIcon(foreIcon);
+		var minTemp = Math.floor(minimumTemp);
+		var maxTemp = Math.floor(maximumTemp);
+		var forecastTemp = minTemp + ' ~ ' + maxTemp + temp_symbol;
 
  		// Main Div
  		var forecastDay = document.createElement('div');
@@ -138,8 +149,8 @@ function  processForecastData(data) {
  		// Icon Div
  		var forecastIcon = document.createElement('div');
  		forecastIcon.className = 'weatherForecastDayIcon';
- 		forecastIcon.background = "url('assets/weather-icons/" + 'weather-error' + ".svg')";
- 		forecastIcon.backgroundSize = 'cover';
+ 		forecastIcon.style.background = "url('assets/weather-icons/" + fIcon + "')";
+ 		forecastIcon.style.backgroundSize = 'cover';
 
  		// Details Div
  		var forecastDetails = document.createElement('div');
@@ -147,11 +158,11 @@ function  processForecastData(data) {
 
  		var forecastTemperature = document.createElement('div');
  		forecastTemperature.className = 'weatherForecastDayDetailsTemperature';
- 		forecastTemperature.innerHTML = '10degrees';
+ 		forecastTemperature.innerHTML = forecastTemp;
 
  		var forecastDescription = document.createElement('div');
  		forecastDescription.className = 'weatherForecastDayDetailsDescription';
- 		forecastDescription.innerHTML = 'dust and shits';
+ 		forecastDescription.innerHTML = foreDescription;
 
  		// Append details to div container
  		forecastDetails.appendChild(forecastTemperature);
