@@ -26,6 +26,13 @@ function checkColorValidity(colorStr) {
 
 			return colorStr.replace(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])/, "#$1$1$2$2$3$3");
 
+		} else if (colorStr.length == 6) {
+
+			var bg = colorStr.slice(0, -2);
+			var op = colorStr.slice(-2);
+
+			return bg.replace(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])/, "#$1$1$2$2$3$3") + op;
+
 		} else {
 
 			alert('Invalid color');
@@ -33,6 +40,7 @@ function checkColorValidity(colorStr) {
 		}
 
 	}
+	// It's RGBA and a valid color so just return it
 	return colorStr;
 }
 
@@ -105,13 +113,16 @@ function updateTextBoxValues() {
 
 function updateCSSVariables() {
 
-	var bgColor = checkColorValidity(backgroundTextBox.value || backgroundTextBox.placeholder) + 
-		(backgroundOpacityTextBox.value || backgroundOpacityTextBox.placeholder);
+	var background = (backgroundTextBox.value || backgroundTextBox.placeholder) + (backgroundOpacityTextBox.value || backgroundOpacityTextBox.placeholder);
 
-	var fgColor = checkColorValidity(foregroundTextBox.value || foregroundTextBox.placeholder) + 
+	var bgColor = checkColorValidity(background);
+
+	var fgColor = (foregroundTextBox.value || foregroundTextBox.placeholder) +
 		(foregroundOpacityTextBox.value || foregroundOpacityTextBox.placeholder);
-
+	
 	var blurPower = (blurTextBox.value || blurTextBox.placeholder);
+
+	// alert('bg color: ' + bgColor, 'fg color: ' + fgColor);
 
 	document.documentElement.style.setProperty('--base-bg', bgColor);
 	document.documentElement.style.setProperty('--base-color', fgColor);
