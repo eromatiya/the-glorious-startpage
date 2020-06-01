@@ -65,11 +65,15 @@
 }
 
 #weatherScreenContainer {
-	background: transparent;
-	max-height: 82vh;
 	overflow: hidden;
     position: relative;
 
+    /*Align vertically center*/
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
 }
 
 #weatherTodayIcon {
@@ -88,7 +92,7 @@
 	color: var(--base-color);
 	font-family: sans;
 	font-size: 16pt;
-	font-weight: 300;
+	font-weight: normal;
 	text-align: center;
 	position: relative;
 }
