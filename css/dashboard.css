@@ -40,6 +40,7 @@
 #rightDashboard.show {
 	width: 350px;
 	z-index: 7;
+	scrollbar-width: none;
 }
 
 @media screen and (max-width: 580px) {
