@@ -120,7 +120,7 @@
 
 
 @media screen and (max-width: 580px) {
-	.weather {
+	.weatherSettings {
 		width: 96vw;
 		box-sizing: border-box;
 	}
