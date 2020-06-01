@@ -6,16 +6,17 @@ var foregroundOpacityTextBox = document.getElementById('foregroundOpacitySet');
 
 var blurTextBox = document.getElementById('blurSet');
 
+
+var applyTheme = document.getElementById('themeEngineAsDefault');
+
 // If checkColorValidity failed, check if alpha exist or
 // Check if it's 3-charactered HEX value
-function checkAlpha(colorStr) {
-	if (colorStr.length == 7) {
-		return colorStr + 'FF';
-	} else if (colorStr.length == 4) {
-		return colorStr.replace(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])/, "#$1$1$2$2$3$3") + 'FF';
-	};
-	return colorStr;
-}
+// function checkAlpha(colorStr) {
+// 	if (colorStr.length == 4) {
+// 		return colorStr.replace(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])/, "#$1$1$2$2$3$3");
+// 	};
+// 	return colorStr;
+// }
 
 // Must be RGBA
 function checkColorValidity(colorStr) {
@@ -23,8 +24,13 @@ function checkColorValidity(colorStr) {
 	var colorBool = /^#[0-9A-F]{8}$/i.test(colorStr);
 
 	if (!colorBool) {
-		var checkedColor = checkAlpha(colorStr);
-		return checkedColor;
+
+		if (colorStr.value  === 4) {
+			if (/^#([0-9A-F]{3}){1,2}$/i.test(colorStr)) {
+				return colorStr.replace(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])/, "#$1$1$2$2$3$3");
+			}
+		}
+
 	}
 	return colorStr;
 }
@@ -49,12 +55,27 @@ function checkColorValidity(colorStr) {
 // Remove newline
 // STR.replace(/(\r\n|\n|\r)/gm, "");
 
+function updateCSSVariables() {
+
+	var bgColor = checkColorValidity(backgroundTextBox.value || backgroundTextBox.placeholder) + 
+		(backgroundOpacityTextBox.value + backgroundOpacityTextBox.placeholder);
+	
+	var fgColor = checkColorValidity(foregroundTextBox.value || foregroundTextBox.placeholder) + 
+		(foregroundOpacityTextBox.value + foregroundOpacityTextBox.placeholder);
+
+	var blurPower = (blurTextBox.value || blurTextBox.placeholder);
+
+	// alert(bgColor);
+	document.documentElement.style.setProperty('--base-bg', bgColor);
+	document.documentElement.style.setProperty('--base-color', fgColor);
+	document.documentElement.style.setProperty('--blur-strength', blurPower);
+}
+
 function updateTextBoxValues() {
 
 
 	var baseBG = window.getComputedStyle(document.documentElement).getPropertyValue('--base-bg');
 	var baseColor = window.getComputedStyle(document.documentElement).getPropertyValue('--base-color');	
-
 	var blurStrength = window.getComputedStyle(document.documentElement).getPropertyValue('--blur-strength');
 
 	// Remove whitespace
@@ -87,11 +108,16 @@ function updateTextBoxValues() {
 	foregroundTextBox.placeholder = foregroundColor;
 	foregroundOpacityTextBox.placeholder = foregroundOpacity;
 
+	blurTextBox.placeholder = blurStrength;
 
-	// Slice to remove px in blur strength
-	var blur = blurStrength.slice(0, -2);
-	blurTextBox.placeholder = blur;
+
+	// Update settings
+	updateCSSVariables();
+
 }
 
+applyTheme.onmouseup = function() {
+	updateCSSVariables();
+}
 
 window.onload = updateTextBoxValues();
