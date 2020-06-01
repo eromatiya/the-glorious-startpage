@@ -67,6 +67,15 @@ function generateFromList() {
         dockContainer.appendChild(buttonContainer);
     };
 
+    // Create weather button
+    generateFromManual(
+        'Weather',
+        'weather', 
+        function() {
+            alert('open weather');
+        }
+    );
+
     // Create menu button
     generateFromManual(
         'Menu',

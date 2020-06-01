@@ -50,6 +50,5 @@ let dockSites = [
 	{ site: 'Youtube', icon: 'youtube', url: 'https://youtube.com/'},
 	{ site: 'GDrive', icon: 'gdrive', url: 'https://drive.google.com/'},
 	{ site: 'Twitter', icon: 'twitter', url: 'https://twitter.com/'},
-	{ site: 'Unsplash', icon: 'unsplash', url: 'https://unsplash.com/'},
 	{ site: 'Material.io', icon: 'materialio', url: 'https://material.io/'}
 ];
