@@ -9,6 +9,20 @@ var foregroundOpacityTextBox = document.getElementById('foregroundOpacitySet');
 var blurTextBox = document.getElementById('blurSet');
 
 var applyTheme = document.getElementById('themeEngineAsDefault');
+var resetTheme = document.getElementById('themeEngineReset');
+
+function saveDefaultCSS() {
+
+	var origBaseBG = localStorage.getItem('origBaseBG');
+	var origBaseColor = localStorage.getItem('origBaseColor');
+	var origBlurStrength = localStorage.getItem('origBlurStrength');
+	
+	if ((origBaseBG === null) || (origBaseColor === null) || (origBlurStrength) === null) {
+		localStorage.setItem('origBaseBG', window.getComputedStyle(document.documentElement).getPropertyValue('--base-bg'));
+		localStorage.setItem('origBaseColor', window.getComputedStyle(document.documentElement).getPropertyValue('--base-color'));
+		localStorage.setItem('origBlurStrength', window.getComputedStyle(document.documentElement).getPropertyValue('--blur-strength'));
+	}
+}
 
 // Must be RGBA
 function checkColorValidity(colorStr) {
@@ -80,15 +94,15 @@ function updateTextBoxValues() {
 
 	// If custom color doesn't exist, use the value in CSS
 	if (baseBG === null) {
-		baseBG = window.getComputedStyle(document.documentElement).getPropertyValue('--base-bg');
+		baseBG = localStorage.getItem('origBaseBG');
 	}
 
 	if (baseColor === null) {
-		baseColor = window.getComputedStyle(document.documentElement).getPropertyValue('--base-color');
+		baseColor = localStorage.getItem('origBaseColor');
 	}
 
 	if (blurStrength === null) {
-		blurStrength = window.getComputedStyle(document.documentElement).getPropertyValue('--blur-strength');
+		blurStrength = localStorage.getItem('origBlurStrength');
 	}
 
 	// Remove whitespace
@@ -173,4 +187,21 @@ applyTheme.onmouseup = function() {
 	updateCSSVariables();
 }
 
-window.onload = updateOnStartUp();
+// Reset button event handler
+resetTheme.onmouseup = function() {
+	localStorage.removeItem('baseBG');
+	localStorage.removeItem('baseColor');
+	localStorage.removeItem('blurStrength');
+
+	updateTextBoxValues();
+	updateCSSVariables();
+}
+
+function onStartUp() {
+	saveDefaultCSS();
+
+	updateOnStartUp();
+
+}
+
+window.onload = onStartUp();

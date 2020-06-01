@@ -73,6 +73,7 @@ select::-ms-expand {
   display: none;
 }
 
+#themeEngineReset,
 #themeEngineAsDefault {
 	background: var(--base-container);
 	color: var(--base-color);
@@ -89,10 +90,12 @@ select::-ms-expand {
   	align-items: center;
 }
 
+#themeEngineReset:hover,
 #themeEngineAsDefault:hover {
 	background: var(--base-hover-bg);
 }
 
+#themeEngineReset:active,
 #themeEngineAsDefault:active {
 	background: var(--base-active-bg);
 }
