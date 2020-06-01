@@ -61,12 +61,6 @@ function updateWeatherSettings() {
 // Call
 updateWeatherSettings();
 
-// Button events
-weatherSettingsIconContainer.onmouseup = function() {
-	weatherSettingsContainer.classList.toggle('show');
-	weatherSettingsVisible = !weatherSettingsVisible;
-}
-
 // Reset button was pressed
 weatherSettingsReset.onmouseup = function() {
 	// Reset keys

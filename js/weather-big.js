@@ -119,23 +119,6 @@ function setErrValue() {
 	setWeatherValue(wLoc, wDesc, wIcon, time, time, time);
 }
 
-// This will be called in weather-settings
-function getWeatherData(appID, cityID, units) {
-
-	requestString = "https://api.openweathermap.org/data/2.5/weather?APPID=" + appID + "&id=" + cityID + "&units=" + units;
-
-	request = new XMLHttpRequest();
-	request.open("GET", requestString, true);
-	request.onload = e => {
-		if (request.readyState === 4 && request.status === 200 && request.status < 400) {
-			processWeatherData(JSON.parse(request.response));
-		} else {
-			setErrValue();
-		};
-	};
-	request.send();
-};
-
 // Process weather data
 function processWeatherData(data) {
 
@@ -162,6 +145,23 @@ function processWeatherData(data) {
 	setWeatherValue(wLoc, wDesc, wIcon, rise, set, upd);		
 }
 
+// This will be called in weather-settings
+function getWeatherData(appID, cityID, units) {
+
+	requestString = "https://api.openweathermap.org/data/2.5/weather?APPID=" + appID + "&id=" + cityID + "&units=" + units;
+
+	var request = new XMLHttpRequest();
+	request.open("GET", requestString, true);
+	request.onload = e => {
+		if (request.readyState === 4 && request.status === 200 && request.status < 400) {
+			processWeatherData(JSON.parse(request.response));
+		} else {
+			setErrValue();
+		};
+	};
+	request.send();
+};
+
 // Fetch forecast
 function getForecastData(appID, cityID, units) {
 	requestString = "https://api.openweathermap.org/data/2.5/forecast?APPID=" + appID + "&id=" + cityID + "&units=" + units;
@@ -183,7 +183,7 @@ function  processForecastData(data) {
 	
 	var forecast = data.list;
 
-	for (var i = 0; i < forecast.length; i+=8) {
+	for (var i = 8; i < forecast.length; i+=8) {
 		
 		var temp_symbol = (units === "metric") ? "°C" : "°F";
 

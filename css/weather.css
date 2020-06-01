@@ -39,112 +39,8 @@
 	margin-bottom: auto;
 }
 
-.weatherDetails {
-	height: auto;
-	width: 100%;
-	margin-top: 5px;
-
-	display: flex;
-	flex-direction: row;
-	justify-content: left;
-}
-
-#weatherIcon {
-	width: 64px;
-	height: 64px;
-	background: url("../assets/weather-icons/weather-error.svg");
-	background-size: cover;
-	position: relative;
-}
-
-#weatherDetailsContainer {
-	margin-left: 5px;
-}
-
-#weatherLocation {
-	font-weight: normal;
-	font-size: 12pt;
-}
-
-#weatherDescription {
-	font-weight: bold;
-	font-size: 14pt;
-}
-
-#weatherHoursContainer,
-.weatherHours {
-	display: flex;
-	flex-direction: row;
-	justify-content: left;
-}
-
-.hourIcon {
-	height: 18px;
-	width: 18px;
-	background-size: cover;
-}
-
-#sunriseHourIcon {
-	background: url("../assets/weather-icons/sunrise.svg");
-	background-size: cover;
-
-}
-
-#sunsetHourIcon {
-	background: url("../assets/weather-icons/sunset.svg");
-	background-size: cover;
-	margin-left: 5px
-}
-
-#updateHourIcon {
-	background: url("../assets/weather-icons/refresh.svg");
-	background-size: cover;
-	margin-left: 5px
-}
-
-.hourLabel {
-	margin: auto;
-	font-size: 11pt;
-}
 
 /*Weather Settings*/
-
-#weatherSettingsIconContainer {
-	background: transparent;
-	margin-left: auto;
-	width: 28px;
-	height: 28px;
-	border-radius: 6px;
-
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
-}
-
-#weatherSettingsIconContainer:hover {
-	background-size: cover;
-	margin-left: auto;
-	background: var(--base-hover-bg);
-	cursor: pointer;
-}
-
-#weatherSettingsIcon {
-	background: url('../assets/settings.svg');
-	background-size: cover;
-	width: 24px;
-	height: 24px;
-
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
-
-  	opacity: 0.5;
-  	transition: opacity var(--transition-speed);
-}
-
-#weatherSettingsIcon:hover {
-	opacity: 1;
-}
 
 .weatherSettingsGroups {
 	height: auto;
@@ -221,16 +117,7 @@
 }
 
 #weatherSettingsContainer {
-	max-height: 0;
-	opacity: 0;
-	pointer-events: none;
-	transition: max-height var(--transition-speed), opacity var(--transition-speed), pointer-events var(--transition-speed);
-}
-
-#weatherSettingsContainer.show {
-	max-height: 217px;
-	opacity: 1;
-	pointer-events: auto;
+	height: auto;
 }
 
 
