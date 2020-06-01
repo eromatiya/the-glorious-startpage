@@ -10,7 +10,11 @@
 	z-index: 3;
 	overflow: hidden;
 	backdrop-filter: blur(var(--blur-strength));
-	
+
+	display:flex;
+    justify-content:center;
+    align-items:center;
+
 	padding-top: 6vh;
 	padding-bottom: 6vh;
 	padding-left: 12vw;
@@ -63,6 +67,37 @@
 #weatherScreenContainer {
 	background: transparent;
 	max-height: 82vh;
-
 	overflow: hidden;
+    position: relative;
+
+}
+
+#weatherTodayIcon {
+	background: url('../assets/weather-icons/d_rain.svg');
+	background-size: cover;
+	width: 128px;
+	height: 128px;
+
+	position: relative;
+	left: 50%;
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+#weatherTodayLocation {
+	color: var(--base-color);
+	font-family: sans;
+	font-size: 16pt;
+	font-weight: 300;
+	text-align: center;
+	position: relative;
+}
+
+#weatherTodayDescription {
+	color: var(--base-color);
+	font-family: sans;
+	font-size: 20pt;
+	font-weight: 500;
+	text-align: center;
+	position: relative;
 }
