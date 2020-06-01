@@ -1,4 +1,3 @@
-
 .panelFloat {
 	background: var(--panel-bg);
 	height: 100%;
@@ -67,4 +66,37 @@
 #dashboardHider.show {
 	visibility: visible;
 	z-index: 6;
+}
+
+#closeDashboard {
+	background: var(--base-container);
+	border-radius: 6px;
+	box-sizing: border-box; 
+	width: 24px;
+	height: 24px;
+	padding: 5px;
+	display: none;
+	transition: display var(--transition-speed);
+}
+
+#closeDashboard:hover {
+	background: var(--base-hover-bg);
+}
+
+#closeDashboard:active {
+	background: var(--base-active-bg);
+}
+
+#closeDashboardImage {
+	background: url('../assets/close.svg');
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+@media screen and (max-width: 580px) {
+	#closeDashboard {
+		display: block;
+	}
 }
