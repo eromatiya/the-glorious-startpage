@@ -32,8 +32,8 @@
 	opacity: 0;
 	transform: scale(0);
 	transition: transform var(--transition-speed),
-		opacity var(--transition-speed),
-		z-index var(--transition-speed);
+	opacity var(--transition-speed),
+	z-index var(--transition-speed);
 }
 
 @media screen and (max-width: 580px) {

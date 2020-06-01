@@ -1,3 +1,6 @@
+var weatherScreen = document.getElementById("weatherScreen");
+let weatherVisible = false;
+
 var weatherIcon = document.getElementById("weatherTodayIcon");
 var weatherLocation = document.getElementById("weatherTodayLocation");
 var weatherDescription = document.getElementById("weatherTodayDescription");
@@ -6,7 +9,7 @@ var sunriseHour = document.getElementById("sunriseTodayHour");
 var sunsetHour = document.getElementById("sunsetTodayHour");
 var updateHour = document.getElementById("updateTodayHour")
 
-var weatherDockButton = document.getElementById("buttonImageWeather");
+var weatherDockImageButton = document.getElementById("buttonImageWeather");
 var forecastContainer = document.getElementById("forecastContainer");
 
 function formatUnixTime(unix) {
@@ -43,8 +46,8 @@ function getIcon(code) {
 }
 
 function updateWeatherDockButton(icon) {
-	weatherDockButton.style.background = "url('assets/weather-icons/" + icon + "')";
-	weatherDockButton.style.backgroundSize = "cover";
+	weatherDockImageButton.style.background = "url('assets/weather-icons/" + icon + "')";
+	weatherDockImageButton.style.backgroundSize = "cover";
 }
 
 function setWeatherValue(loc, desc, icon, sunr, suns, updt) {
@@ -197,6 +200,9 @@ function getForecastData(appID, cityID, units) {
 // Process forecast data
 function  processForecastData(data) {
 	
+	// Empty forecast container to avoid duplication
+	forecastContainer.innerHTML = '';
+
 	var forecast = data.list;
 
 	for (var i = 8; i < forecast.length; i+=8) {
@@ -217,5 +223,17 @@ function  processForecastData(data) {
 		var fDate = dateTime.substr(0, dateTime.indexOf(' '));
 
 		createForecastBody(fIcon, forecastTemp, foreDescription, fHour, fDate);
+	}
+}
+
+// Show/Hide web menu
+function weatherToggle() {
+	hideMainContainer();
+	rotateProfile();
+	weatherScreen.classList.toggle("show");
+	weatherVisible = !weatherVisible;
+
+	if (webMenuVisible) {
+		webMenuToggle();
 	}
 }

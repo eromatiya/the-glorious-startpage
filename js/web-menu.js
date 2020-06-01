@@ -130,6 +130,10 @@ function webMenuToggle() {
 		webMenuSearchBox.focus();
 	}
 
+	if(weatherVisible) {
+		weatherToggle();
+	}
+
 }
 
 // Populate web menu

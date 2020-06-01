@@ -33,8 +33,8 @@
 	-ms-user-select: none;
 	user-select: none;
 
-	opacity: 1;
-	transform: scale(1);
+	opacity: 0;
+	transform: scale(0);
 	transition: transform var(--transition-speed),
 	opacity var(--transition-speed),
 	z-index var(--transition-speed);
