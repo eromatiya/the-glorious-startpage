@@ -1,10 +1,13 @@
-var weatherIcon = document.getElementById("weatherIcon");
-var weatherLocation = document.getElementById("weatherLocation");
-var weatherDescription = document.getElementById("weatherDescription");
+var weatherIcon = document.getElementById("weatherTodayIcon");
+var weatherLocation = document.getElementById("weatherTodayLocation");
+var weatherDescription = document.getElementById("weatherTodayDescription");
 
-var sunriseHour = document.getElementById("sunriseHour");
-var sunsetHour = document.getElementById("sunsetHour");
-var updateHour = document.getElementById("updateHour")
+var sunriseHour = document.getElementById("sunriseTodayHour");
+var sunsetHour = document.getElementById("sunsetTodayHour");
+var updateHour = document.getElementById("updateTodayHour")
+
+var weatherDockButton = document.getElementById("buttonImageWeather");
+var forecastContainer = document.getElementById("forecastContainer");
 
 function formatUnixTime(unix) {
 	var date = new Date(unix*1000);
@@ -39,7 +42,12 @@ function getIcon(code) {
 	return icon_tbl[code];
 }
 
-function setValue(loc, desc, icon, sunr, suns, updt) {
+function updateWeatherDockButton(icon) {
+	weatherDockButton.style.background = "url('assets/weather-icons/" + icon + "')";
+	weatherDockButton.style.backgroundSize = "cover";
+}
+
+function setWeatherValue(loc, desc, icon, sunr, suns, updt) {
 
 	var temp_symbol = (units === "metric") ? "°C" : "°F";
 
@@ -52,6 +60,62 @@ function setValue(loc, desc, icon, sunr, suns, updt) {
 	sunriseHour.innerHTML = sunr;
 	sunsetHour.innerHTML = suns;
 	updateHour.innerHTML = updt;
+
+	// Update weather button on dock
+	updateWeatherDockButton(icon);
+}
+
+function createForecastBody(fIcon, forecastTemp, foreDescription, fHour, fDate) {
+
+	// Main Div
+ 	var forecastDay = document.createElement('div');
+ 	forecastDay.className = 'weatherForecastDay';
+
+ 	// Icon Div
+ 	var forecastIcon = document.createElement('div');
+ 	forecastIcon.className = 'weatherForecastDayIcon';
+ 	forecastIcon.style.background = "url('assets/weather-icons/" + fIcon + "')";
+ 	forecastIcon.style.backgroundSize = 'cover';
+
+ 	// Details Div
+ 	var forecastDetails = document.createElement('div');
+ 	forecastDetails.className = 'weatherForecastDayDetails';
+
+ 	var forecastTemperature = document.createElement('div');
+ 	forecastTemperature.className = 'weatherForecastDayDetailsTemperature';
+ 	forecastTemperature.innerHTML = forecastTemp;
+
+ 	var forecastDescription = document.createElement('div');
+ 	forecastDescription.className = 'weatherForecastDayDetailsDescription';
+ 	forecastDescription.innerHTML = foreDescription;
+
+ 	// Append details to div container
+ 	forecastDetails.appendChild(forecastTemperature);
+ 	forecastDetails.appendChild(forecastDescription);
+
+ 	// Date Div
+ 	var forecastDayDate = document.createElement('div');
+ 	forecastDayDate.className = 'weatherForecastDayDate';
+
+ 	var forecastHour = document.createElement('div');
+ 	forecastHour.className = 'weatherForecastDayDateHour';
+ 	forecastHour.innerHTML = fHour;
+
+ 	var forecastDate = document.createElement('div');
+ 	forecastDate.className = 'weatherForecastDayDateDate';
+ 	forecastDate.innerHTML = fDate;
+
+ 	// Append details to div container
+ 	forecastDayDate.appendChild(forecastHour);
+ 	forecastDayDate.appendChild(forecastDate);
+
+	// Append to main div
+	forecastDay.appendChild(forecastIcon);
+	forecastDay.appendChild(forecastDetails);
+	forecastDay.appendChild(forecastDayDate);
+
+	// Append to the main container
+ 	forecastContainer.appendChild(forecastDay);
 }
 
 function setErrValue() {
@@ -61,27 +125,11 @@ function setErrValue() {
 
 	var time = "00:00";
 
-	setValue(wLoc, wDesc, wIcon, time, time, time);
+	setWeatherValue(wLoc, wDesc, wIcon, time, time, time);
 }
 
-// This will be called in weather-settings
-function getWeatherData(appID, cityID, units) {
-
-	requestString = "https://api.openweathermap.org/data/2.5/weather?APPID=" + appID + "&id=" + cityID + "&units=" + units;
-
-	request = new XMLHttpRequest();
-	request.open("GET", requestString, true);
-	request.onload = e => {
-		if (request.readyState === 4 && request.status === 200 && request.status < 400) {
-			processData(JSON.parse(request.response));
-		} else {
-			setErrValue();
-		};
-	};
-	request.send();
-};
-
-function  processData(data) {
+// Process weather data
+function processWeatherData(data) {
 
 	var cityName = data.name;
 	var countryName = data.sys.country;
@@ -103,5 +151,64 @@ function  processData(data) {
 	var set = formatUnixTime(sunSet);
 	var upd = formatUnixTime(update);
 
-	setValue(wLoc, wDesc, wIcon, rise, set, upd);		
+	setWeatherValue(wLoc, wDesc, wIcon, rise, set, upd);		
+}
+
+// This will be called in weather-settings
+function getWeatherData(appID, cityID, units) {
+
+	requestString = "https://api.openweathermap.org/data/2.5/weather?APPID=" + appID + "&id=" + cityID + "&units=" + units;
+
+	var request = new XMLHttpRequest();
+	request.open("GET", requestString, true);
+	request.onload = e => {
+		if (request.readyState === 4 && request.status === 200 && request.status < 400) {
+			processWeatherData(JSON.parse(request.response));
+		} else {
+			setErrValue();
+		};
+	};
+	request.send();
+};
+
+// Fetch forecast
+function getForecastData(appID, cityID, units) {
+	requestString = "https://api.openweathermap.org/data/2.5/forecast?APPID=" + appID + "&id=" + cityID + "&units=" + units;
+
+	request = new XMLHttpRequest();
+	request.open("GET", requestString, true);
+	request.onload = e => {
+		if (request.readyState === 4 && request.status === 200 && request.status < 400) {
+			processForecastData(JSON.parse(request.response));
+		} else {
+			setErrValue();
+		};
+	};
+	request.send();
+}
+
+// Process forecast data
+function  processForecastData(data) {
+	
+	var forecast = data.list;
+
+	for (var i = 8; i < forecast.length; i+=8) {
+		
+		var temp_symbol = (units === "metric") ? "°C" : "°F";
+
+		var foreIcon = forecast[i].weather[0].icon;
+		var minimumTemp = forecast[i].main.temp_min;
+		var maximumTemp = forecast[i].main.temp_max;
+		var foreDescription = forecast[i].weather[0].description;
+		var dateTime = forecast[i].dt_txt;
+
+		var fIcon = getIcon(foreIcon);
+		var minTemp = Math.floor(minimumTemp);
+		var maxTemp = Math.floor(maximumTemp);
+		var forecastTemp = minTemp + ' ~ ' + maxTemp + temp_symbol;
+		var fHour = dateTime.substr(dateTime.indexOf(' ') + 1).slice(0, -3);;
+		var fDate = dateTime.substr(0, dateTime.indexOf(' '));
+
+		createForecastBody(fIcon, forecastTemp, foreDescription, fHour, fDate);
+	}
 }
