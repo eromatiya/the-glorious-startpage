@@ -64,27 +64,8 @@ function checkColorValidity(colorStr) {
 	return colorStr;
 }
 
-// Get root var value
-// window.getComputedStyle(document.documentElement).getPropertyValue('--color-font-general');
 
-// Set root var value
-// document.documentElement.style.setProperty('--color-font-general', '#000');
-
-// Six-charactered HEX Color(R,G,B,A)
-// alert(/^#[0-9A-F]{8}$/i.test('#AABBCCDD'));
-
-
-// Three-charactered HEX Color
-// alert(/^#([0-9A-F]{3}){1,2}$/i.test('#ABC'));
-
-// var tester = '#abc';
-// alert(tester.replace(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])/, "#$1$1$2$2$3$3"));
-
-
-// Remove newline
-// STR.replace(/(\r\n|\n|\r)/gm, "");
-
-
+// Update textboxes
 function updateTextBoxValues() {
 
 	// Retrieve custom colors
@@ -145,6 +126,7 @@ function updateTextBoxValues() {
 
 }
 
+// Update colors
 function updateCSSVariables() {
 
 	// Get value from input fields
@@ -193,6 +175,7 @@ resetTheme.onmouseup = function() {
 	localStorage.removeItem('baseColor');
 	localStorage.removeItem('blurStrength');
 
+	saveDefaultCSS();
 	updateTextBoxValues();
 	updateCSSVariables();
 }
