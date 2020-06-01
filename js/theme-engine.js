@@ -11,21 +11,25 @@ var applyTheme = document.getElementById('themeEngineAsDefault');
 // Must be RGBA
 function checkColorValidity(colorStr) {
 
-	// Check if RGBA 
+	// Check if RGBA - (#RRGGBBAA)
 	var colorRGBA = /^#[0-9A-F]{8}$/i.test(colorStr);
 
+	// If not RGBA
 	if (!colorRGBA) {
 
-		// If RGB
+		// If RGB - (#RRGGBB)
 		if (/^#([0-9A-F]{3}){1,2}$/i.test(colorStr)) {
 			
+			// Add completely opaque alpha
 			return colorStr + 'FF';
 		
-		// If three-charactered HEX color
+		// If three-charactered HEX color - (#RGB)
 		} else if (/^#([0-9A-F]{3}){1,2}$/i.test(colorStr)) {
 
+			// Convert it to RRGGBB
 			return colorStr.replace(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])/, "#$1$1$2$2$3$3");
 
+		// If three-charactered HEX Color(#RGB) with AA - (#RGBAA)
 		} else if (colorStr.length == 6) {
 
 			var bg = colorStr.slice(0, -2);
@@ -114,20 +118,16 @@ function updateTextBoxValues() {
 function updateCSSVariables() {
 
 	var background = (backgroundTextBox.value || backgroundTextBox.placeholder) + (backgroundOpacityTextBox.value || backgroundOpacityTextBox.placeholder);
-
+	var foreground = (foregroundTextBox.value || foregroundTextBox.placeholder) + (foregroundOpacityTextBox.value || foregroundOpacityTextBox.placeholder);
+	
 	var bgColor = checkColorValidity(background);
-
-	var fgColor = (foregroundTextBox.value || foregroundTextBox.placeholder) +
-		(foregroundOpacityTextBox.value || foregroundOpacityTextBox.placeholder);
+	var fgColor = checkColorValidity(foreground);
 	
 	var blurPower = (blurTextBox.value || blurTextBox.placeholder);
-
-	// alert('bg color: ' + bgColor, 'fg color: ' + fgColor);
 
 	document.documentElement.style.setProperty('--base-bg', bgColor);
 	document.documentElement.style.setProperty('--base-color', fgColor);
 	document.documentElement.style.setProperty('--blur-strength', blurPower);
-
 
 	updateTextBoxValues();
 }
@@ -137,7 +137,7 @@ function updateOnStartUp() {
 	updateTextBoxValues();
 
 	// Update settings
-	// updateCSSVariables();
+	updateCSSVariables();
 }
 
 applyTheme.onmouseup = function() {
