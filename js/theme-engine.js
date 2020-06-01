@@ -11,23 +11,21 @@ var applyTheme = document.getElementById('themeEngineAsDefault');
 // Must be RGBA
 function checkColorValidity(colorStr) {
 
+	// Check if RGBA 
 	var colorRGBA = /^#[0-9A-F]{8}$/i.test(colorStr);
 
 	if (!colorRGBA) {
 
+		// If RGB
 		if (/^#([0-9A-F]{3}){1,2}$/i.test(colorStr)) {
 			
-			alert("RGB: " + colorStr);
 			return colorStr + 'FF';
 		
+		// If three-charactered HEX color
 		} else if (/^#([0-9A-F]{3}){1,2}$/i.test(colorStr)) {
 
-			if (/^#([0-9A-F]{3}){1,2}$/i.test(colorStr)) {
-				
-				alert('3 charred hex');
+			return colorStr.replace(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])/, "#$1$1$2$2$3$3");
 
-				return colorStr.replace(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])/, "#$1$1$2$2$3$3");
-			}
 		} else {
 
 			alert('Invalid color');
