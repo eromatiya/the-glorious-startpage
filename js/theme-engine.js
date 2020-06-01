@@ -6,16 +6,20 @@ var foregroundOpacityTextBox = document.getElementById('foregroundOpacitySet');
 
 var blurTextBox = document.getElementById('blurSet');
 
-
+// If checkColorValidity failed, check if alpha exist or
+// Check if it's 3-charactered HEX value
 function checkAlpha(colorStr) {
-	if (colorStr.length <= 7) {
+	if (colorStr.length == 7) {
 		return colorStr + 'FF';
+	} else if (colorStr.length == 4) {
+		return colorStr.replace(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])/, "#$1$1$2$2$3$3") + 'FF';
 	};
 	return colorStr;
 }
 
 // Must be RGBA
 function checkColorValidity(colorStr) {
+
 	var colorBool = /^#[0-9A-F]{8}$/i.test(colorStr);
 
 	if (!colorBool) {
@@ -24,8 +28,6 @@ function checkColorValidity(colorStr) {
 	}
 	return colorStr;
 }
-
-alert(checkColorValidity("#ff00ff20"))
 
 // Get root var value
 // window.getComputedStyle(document.documentElement).getPropertyValue('--color-font-general');
@@ -40,6 +42,9 @@ alert(checkColorValidity("#ff00ff20"))
 // Three-charactered HEX Color
 // alert(/^#([0-9A-F]{3}){1,2}$/i.test('#ABC'));
 
+// var tester = '#abc';
+// alert(tester.replace(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])/, "#$1$1$2$2$3$3"));
+
 
 // Remove newline
 // STR.replace(/(\r\n|\n|\r)/gm, "");
@@ -48,7 +53,8 @@ function updateTextBoxValues() {
 
 
 	var baseBG = window.getComputedStyle(document.documentElement).getPropertyValue('--base-bg');
-	var baseColor = window.getComputedStyle(document.documentElement).getPropertyValue('--base-color');
+	var baseColor = window.getComputedStyle(document.documentElement).getPropertyValue('--base-color');	
+
 	var blurStrength = window.getComputedStyle(document.documentElement).getPropertyValue('--blur-strength');
 
 	// Remove whitespace
@@ -56,42 +62,30 @@ function updateTextBoxValues() {
 	baseColor = baseColor.replace(/ /g,'');
 	blurStrength = blurStrength.replace(/ /g,'');
 
-	baseBG = baseBG;
+	// Check validity
+	baseBG = checkColorValidity(baseBG);
+	baseColor = checkColorValidity(baseColor);
 
-	var backgroundColor;
-	var backgroundOpacity;
+	// Slice to separate RGB and A of background color
+	// Slice alpha out
+	var backgroundColor = baseBG.slice(0, -2);
+	// Get alpha
+	var backgroundOpacity = baseBG.slice(-2);
 
-	// var foregroundColor;
-	// var foregroundOpacity;
 
-	// Check BG validity
-	if (baseBG) {
-		// Slice to separate RGB and A of background color
-		
-		// Slice alpha out
-		backgroundColor = baseBG.slice(0, -2);
+	// Slice to separate RGB and A of foreground color		
+	// Slice alpha out
+	var foregroundColor = baseColor.slice(0, -2);
+	// Get alpha
+	var foregroundOpacity = baseColor.slice(-2);
 
-		// Get alpha
-		backgroundOpacity = baseBG.slice(-2);
-	}
-
-	// Check FG validity
-	// if (checkColorValidity(baseColor)) {
-	// 	// Slice to separate RGB and A of background color
-		
-	// 	// Slice alpha out
-	// 	foregroundColor = baseColor.slice(0, -2);
-
-	// 	// Get alpha
-	// 	foregroundOpacity = baseColor.slice(-2);
-	// }
 
 	// Set placeholders
 	backgroundTextBox.placeholder = backgroundColor;
 	backgroundOpacityTextBox.placeholder = backgroundOpacity;
 
-	// foregroundTextBox.placeholder = foregroundColor;
-	// foregroundOpacityTextBox.placeholder = foregroundOpacity;
+	foregroundTextBox.placeholder = foregroundColor;
+	foregroundOpacityTextBox.placeholder = foregroundOpacity;
 
 
 	// Slice to remove px in blur strength
