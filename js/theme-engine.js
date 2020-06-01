@@ -2,7 +2,6 @@ var localStorage = window.localStorage;
 
 var backgroundTextBox = document.getElementById('backgroundSet');
 var backgroundOpacityTextBox = document.getElementById('backgroundOpacitySet');
-
 var foregroundTextBox = document.getElementById('foregroundSet');
 var foregroundOpacityTextBox = document.getElementById('foregroundOpacitySet');
 
@@ -64,9 +63,26 @@ function checkColorValidity(colorStr) {
 	return colorStr;
 }
 
-
 // Update textboxes
-function updateTextBoxValues() {
+function updateTextBoxValues(bgColor, bgOpacity, fgColor, fgOpacity, blurPower) {
+	// Set placeholders
+	backgroundTextBox.value = '';
+	backgroundTextBox.placeholder = bgColor;
+
+	backgroundOpacityTextBox.value = '';
+	backgroundOpacityTextBox.placeholder = bgOpacity;
+
+	foregroundTextBox.value = '';
+	foregroundTextBox.placeholder = fgColor;
+	foregroundOpacityTextBox.value = '';
+	foregroundOpacityTextBox.placeholder = fgOpacity;
+
+	blurTextBox.value = '';
+	blurTextBox.placeholder = blurPower;
+}
+
+// Theme processing
+function processTheme() {
 
 	// Retrieve custom colors
 	var baseBG = localStorage.getItem('baseBG');
@@ -108,21 +124,14 @@ function updateTextBoxValues() {
 	// Get alpha
 	var foregroundOpacity = baseColor.slice(-2);
 
+	updateTextBoxValues(
+		backgroundColor,
+		backgroundOpacity,
+		foregroundColor,
+		foregroundOpacity,
+		blurStrength
+	)
 
-	// Set placeholders
-	backgroundTextBox.value = '';
-	backgroundTextBox.placeholder = backgroundColor;
-
-	backgroundOpacityTextBox.value = '';
-	backgroundOpacityTextBox.placeholder = backgroundOpacity;
-
-	foregroundTextBox.value = '';
-	foregroundTextBox.placeholder = foregroundColor;
-	foregroundOpacityTextBox.value = '';
-	foregroundOpacityTextBox.placeholder = foregroundOpacity;
-
-	blurTextBox.value = '';
-	blurTextBox.placeholder = blurStrength;
 
 }
 
@@ -152,13 +161,13 @@ function updateCSSVariables() {
 	localStorage.setItem('baseColor', fgColor);
 	localStorage.setItem('blurStrength', blurPower);
 
-	updateTextBoxValues();
+	processTheme();
 }
 
 // Run on window onload
 function updateOnStartUp() {
 	// Update
-	updateTextBoxValues();
+	processTheme();
 
 	// Update settings
 	updateCSSVariables();
@@ -176,7 +185,7 @@ resetTheme.onmouseup = function() {
 	localStorage.removeItem('blurStrength');
 
 	saveDefaultCSS();
-	updateTextBoxValues();
+	processTheme();
 	updateCSSVariables();
 }
 
