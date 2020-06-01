@@ -6,15 +6,17 @@
 @import url('searchbox.css');
 @import url('blur-overlay.css');
 @import url('profile-container.css');
-@import url('panel-float.css');
+@import url('dashboard.css');
 @import url('greeter.css');
+@import url('weather-settings.css');
 @import url('weather.css');
 @import url('search-engine-select.css');
 @import url('web-menu.css');
+@import url('theme-engine.css');
 
 :root {
 	/* Colors */
-	--base-bg: #00000066;
+	--base-bg: #00000060;
 	--base-color: #f2f2f2;
 	--base-container: #f2f2f220;
 

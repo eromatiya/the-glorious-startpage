@@ -67,6 +67,15 @@ function generateFromList() {
         dockContainer.appendChild(buttonContainer);
     };
 
+    // Create weather button
+    generateFromManual(
+        'Weather',
+        'weather', 
+        function() {
+            weatherToggle();
+        }
+    );
+
     // Create menu button
     generateFromManual(
         'Menu',
@@ -75,6 +84,11 @@ function generateFromList() {
             if (webMenuVisible) {
                 webMenuToggle();
             }
+
+            if (weatherVisible) {
+                weatherToggle();
+            }
+            
             slideDashboard()
         }
     );

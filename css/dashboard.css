@@ -1,9 +1,8 @@
-
 .panelFloat {
 	background: var(--panel-bg);
-	height: auto;
+	height: 100%;
 	z-index: 7;
-	border-radius: var(--rounded-radius);
+	/*border-radius: var(--rounded-radius);*/
 	backdrop-filter: blur(var(--blur-strength));
 
 	-webkit-touch-callout: none;
@@ -21,13 +20,21 @@
 }
 
 #rightDashboard {
+	/*Start to bottom and add 10px margin*/
+	/*bottom: 0;*/
+	/*margin: 10px;*/
+	
 	width: 0;
-	bottom: 0;
 	right: 0;
-	margin: 10px;
 	position: absolute;
-	overflow: hidden;
+	overflow-y: auto;
+	box-sizing: border-box;
 	transition: width var(--transition-speed); 
+}
+
+/*Hide scrollbar*/
+#rightDashboard::-webkit-scrollbar {
+    display: none;
 }
 
 #rightDashboard.show {
@@ -60,4 +67,37 @@
 #dashboardHider.show {
 	visibility: visible;
 	z-index: 6;
+}
+
+#closeDashboard {
+	background: var(--base-container);
+	border-radius: 50%;
+	box-sizing: border-box;
+	width: 24px;
+	height: 24px;
+	padding: 5px;
+	display: none;
+	transition: display var(--transition-speed);
+}
+
+#closeDashboard:hover {
+	background: var(--base-hover-bg);
+}
+
+#closeDashboard:active {
+	background: var(--base-active-bg);
+}
+
+#closeDashboardImage {
+	background: url('../assets/close.svg');
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+@media screen and (max-width: 580px) {
+	#closeDashboard {
+		display: block;
+	}
 }

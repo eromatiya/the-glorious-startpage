@@ -1,5 +1,6 @@
 var dashboard = document.getElementById("rightDashboard");
 var dashboardHider = document.getElementById("dashboardHider");
+var dashboardCloseButton = document.getElementById("closeDashboard");
 
 var floatPanelVisible = false;
 
@@ -12,6 +13,9 @@ function slideDashboard() {
 	
 	// Toggle right panel
 	dashboard.classList.toggle('show');
+
+	// Scroll to top
+	rightDashboard.scrollTop = 0;
 	
 	// Enable overlay
 	dashboardHider.classList.toggle('show');
@@ -27,3 +31,7 @@ dashboardHider.addEventListener(
 		}
 	}
 );
+
+dashboardCloseButton.onmouseup = function() {
+	slideDashboard();
+}
