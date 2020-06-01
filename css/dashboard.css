@@ -28,6 +28,7 @@
 	right: 0;
 	position: absolute;
 	overflow-y: auto;
+	box-sizing: border-box;
 	transition: width var(--transition-speed); 
 }
 
@@ -70,8 +71,8 @@
 
 #closeDashboard {
 	background: var(--base-container);
-	border-radius: 6px;
-	box-sizing: border-box; 
+	border-radius: 50%;
+	box-sizing: border-box;
 	width: 24px;
 	height: 24px;
 	padding: 5px;

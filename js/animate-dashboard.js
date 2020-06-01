@@ -1,5 +1,6 @@
 var dashboard = document.getElementById("rightDashboard");
 var dashboardHider = document.getElementById("dashboardHider");
+var dashboardCloseButton = document.getElementById("closeDashboard");
 
 var floatPanelVisible = false;
 
@@ -30,3 +31,7 @@ dashboardHider.addEventListener(
 		}
 	}
 );
+
+dashboardCloseButton.onmouseup = function() {
+	slideDashboard();
+}

@@ -176,6 +176,7 @@ function updateOnStartUp() {
 // Apply button event handler
 applyTheme.onmouseup = function() {
 	updateCSSVariables();
+	alert('Success!');
 }
 
 // Reset button event handler
@@ -187,6 +188,8 @@ resetTheme.onmouseup = function() {
 	saveDefaultCSS();
 	processTheme();
 	updateCSSVariables();
+	
+	alert('Success!');
 }
 
 function onStartUp() {
