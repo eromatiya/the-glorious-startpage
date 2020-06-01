@@ -110,7 +110,8 @@ select::-ms-expand {
 
 
 
-.colorSetter,
+.backgroundColorSetter,
+.foregroundColorSetter,
 .blurSetter {
 	/*Align div inside horizontally*/
 	display: flex;
@@ -121,8 +122,8 @@ select::-ms-expand {
 	box-sizing: border-box;
 }
 
-
-#backgroundSet {
+#backgroundSet,
+#foregroundSet {
 	margin-right: 2.5px;
 	height: 32px;
 	width: 100%;
@@ -134,7 +135,8 @@ select::-ms-expand {
 	background: var(--panel-bg);
 }
 
-#opacitySet {
+#backgroundOpacitySet,
+#foregroundOpacitySet {
 	margin-left: 2.5px;
 	height: 32px;
 	width: 25%;
