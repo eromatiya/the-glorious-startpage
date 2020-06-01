@@ -141,7 +141,9 @@ function  processForecastData(data) {
 		var minTemp = Math.floor(minimumTemp);
 		var maxTemp = Math.floor(maximumTemp);
 		var forecastTemp = minTemp + ' ~ ' + maxTemp + temp_symbol;
-
+		var fHour = dateTime.substr(dateTime.indexOf(' ') + 1);
+		var fDate = dateTime.substr(0, dateTime.indexOf(' '));
+	
  		// Main Div
  		var forecastDay = document.createElement('div');
  		forecastDay.className = 'weatherForecastDay';
@@ -174,11 +176,11 @@ function  processForecastData(data) {
 
  		var forecastHour = document.createElement('div');
  		forecastHour.className = 'weatherForecastDayDateHour';
- 		forecastHour.innerHTML = '08:00';
+ 		forecastHour.innerHTML = fHour;
 
  		var forecastDate = document.createElement('div');
  		forecastDate.className = 'weatherForecastDayDateDate';
- 		forecastDate.innerHTML = '012';
+ 		forecastDate.innerHTML = fDate;
 
  		// Append details to div container
  		forecastDayDate.appendChild(forecastHour);
