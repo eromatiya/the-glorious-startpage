@@ -71,6 +71,10 @@ function createForecastBody(fIcon, forecastTemp, foreDescription, fHour, fDate) 
  	var forecastDay = document.createElement('div');
  	forecastDay.className = 'weatherForecastDay';
 
+ 	// Icon Container Div
+ 	var forecastIconContainer = document.createElement('div');
+ 	forecastIconContainer.className = 'weatherForecastDayIconContainer';
+
  	// Icon Div
  	var forecastIcon = document.createElement('div');
  	forecastIcon.className = 'weatherForecastDayIcon';
@@ -105,12 +109,15 @@ function createForecastBody(fIcon, forecastTemp, foreDescription, fHour, fDate) 
  	forecastDate.className = 'weatherForecastDayDateDate';
  	forecastDate.innerHTML = fDate;
 
+ 	// Append icon image to div container
+ 	forecastIconContainer.appendChild(forecastIcon);
+
  	// Append details to div container
  	forecastDayDate.appendChild(forecastHour);
  	forecastDayDate.appendChild(forecastDate);
 
 	// Append to main div
-	forecastDay.appendChild(forecastIcon);
+	forecastDay.appendChild(forecastIconContainer);
 	forecastDay.appendChild(forecastDetails);
 	forecastDay.appendChild(forecastDayDate);
 

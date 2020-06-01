@@ -148,44 +148,51 @@
 	margin-left: 5px
 }
 
+/*Forecast Container*/
 .weatherForecastDay {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-
 	text-align: center;
-	margin-top: 10px;
-
+	margin-top: 20px;
 }
 
+/*Add fixed geometry to weatherForecastDay children*/
+.weatherForecastDay > div {
+	width: 100px;
+	height: 50px;
+}
+
+.weatherForecastDayIconContainer {
+	float: left;
+}
 
 .weatherForecastDayIcon {
 	background: url('../assets/weather-icons/weather-error.svg');
 	background-size: cover;
-	width: 36px;
-	height: 36px;
-	margin-left: 30px;
+	width: 56px;
+	height: 56px;
+
+	position: relative;
+	left: 50%;
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
 }
 
+/*Center*/
+.weatherForecastDayDetails {
+	display: inline-block;
+	margin: 0 auto;
+}
 
 .weatherForecastDayDetailsTemperature,
 .weatherForecastDayDetailsDescription,
 .weatherForecastDayDate {
 	color: var(--base-color);
 	font-family: sans;
-	font-size: 10pt;
+	font-size: 12pt;
 	font-weight: normal;
 	text-align: center;
-	position: relative;
 }
 
-.weatherForecastDayDetails {
-	margin:0 auto;
-	display:inline-block;
-	position: relative;
-}
-
+/*Right side*/
 .weatherForecastDayDate {
-	/*float: right;*/
-	/*position: relative;*/
+	float: right;
 }
