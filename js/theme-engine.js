@@ -15,10 +15,23 @@ function checkColorValidity(colorStr) {
 
 	if (!colorRGBA) {
 
-		if (colorStr.length  == 4) {
+		if (/^#([0-9A-F]{3}){1,2}$/i.test(colorStr)) {
+			
+			alert("RGB: " + colorStr);
+			return colorStr + 'FF';
+		
+		} else if (/^#([0-9A-F]{3}){1,2}$/i.test(colorStr)) {
+
 			if (/^#([0-9A-F]{3}){1,2}$/i.test(colorStr)) {
+				
+				alert('3 charred hex');
+
 				return colorStr.replace(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])/, "#$1$1$2$2$3$3");
 			}
+		} else {
+
+			alert('Invalid color');
+
 		}
 
 	}
@@ -115,7 +128,7 @@ function updateOnStartUp() {
 	updateTextBoxValues();
 
 	// Update settings
-	updateCSSVariables();
+	// updateCSSVariables();
 }
 
 applyTheme.onmouseup = function() {
