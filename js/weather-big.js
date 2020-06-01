@@ -105,3 +105,29 @@ function  processData(data) {
 
 	setValue(wLoc, wDesc, wIcon, rise, set, upd);		
 }
+
+
+function getForecastData(appID, cityID, units) {
+	requestString = "https://api.openweathermap.org/data/2.5/forecast?APPID=" + appID + "&id=" + cityID + "&units=" + units;
+
+	request = new XMLHttpRequest();
+	request.open("GET", requestString, true);
+	request.onload = e => {
+		if (request.readyState === 4 && request.status === 200 && request.status < 400) {
+			processForecastData(JSON.parse(request.response));
+		} else {
+			setErrValue();
+		};
+	};
+	request.send();
+}
+
+function  processForecastData(data) {
+
+	var forecast = data.list;
+	for (var i = 0; i < forecast.length; i+=8) {
+
+ 		alert(forecast[i].dt_txt);
+
+	}
+}

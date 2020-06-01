@@ -52,6 +52,7 @@ function updateWeatherSettings() {
 
 	// Update weather forecast elements
 	getWeatherData(appID, cityID, units);
+	getForecastData(appID, cityID, units);
 
 	deleteWeatherSettingsValue();
 	updateWeatherSettingsPlaceholder();

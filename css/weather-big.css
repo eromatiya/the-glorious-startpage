@@ -149,10 +149,11 @@
 }
 
 .weatherForecastDay {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
+	/*display: flex;*/
+	/*flex-direction: row;*/
+	/*justify-content: center;*/
 
+	text-align: center;
 	margin-top: 10px;
 
 }
@@ -163,13 +164,8 @@
 	background-size: cover;
 	width: 36px;
 	height: 36px;
-	margin-left: 10px;
-	margin-right: 10px;
-
-	/*position: relative;*/
-	/*left: 50%;*/
-	/*-ms-transform: translateX(-50%);*/
-	/*transform: translateX(-50%);*/
+	position: relative;
+	float: left;
 }
 
 
@@ -182,8 +178,15 @@
 	font-weight: normal;
 	text-align: center;
 	position: relative;
+}
 
-	margin-left: 10px;
-	margin-right: 10px;
+.weatherForecastDayDetails {
+	margin:0 auto;
+	display:inline-block;
+	position: relative;
+}
 
+.weatherForecastDayDate {
+	float: right;
+	position: relative;
 }
