@@ -6,6 +6,8 @@ var sunriseHour = document.getElementById("sunriseTodayHour");
 var sunsetHour = document.getElementById("sunsetTodayHour");
 var updateHour = document.getElementById("updateTodayHour")
 
+var forecastContainer = document.getElementById("forecastContainer");
+
 function formatUnixTime(unix) {
 	var date = new Date(unix*1000);
 	var hour = date.getHours();
@@ -127,7 +129,58 @@ function  processForecastData(data) {
 	var forecast = data.list;
 	for (var i = 0; i < forecast.length; i+=8) {
 
- 		alert(forecast[i].dt_txt);
+ 		// alert(forecast[i].dt_txt);
+
+ 		// Main Div
+ 		var forecastDay = document.createElement('div');
+ 		forecastDay.className = 'weatherForecastDay';
+
+ 		// Icon Div
+ 		var forecastIcon = document.createElement('div');
+ 		forecastIcon.className = 'weatherForecastDayIcon';
+ 		forecastIcon.background = "url('assets/weather-icons/" + 'weather-error' + ".svg')";
+ 		forecastIcon.backgroundSize = 'cover';
+
+ 		// Details Div
+ 		var forecastDetails = document.createElement('div');
+ 		forecastDetails.className = 'weatherForecastDayDetails';
+
+ 		var forecastTemperature = document.createElement('div');
+ 		forecastTemperature.className = 'weatherForecastDayDetailsTemperature';
+ 		forecastTemperature.innerHTML = '10degrees';
+
+ 		var forecastDescription = document.createElement('div');
+ 		forecastDescription.className = 'weatherForecastDayDetailsDescription';
+ 		forecastDescription.innerHTML = 'dust and shits';
+
+ 		// Append details to div container
+ 		forecastDetails.appendChild(forecastTemperature);
+ 		forecastDetails.appendChild(forecastDescription);
+
+ 		// Date Div
+ 		var forecastDayDate = document.createElement('div');
+ 		forecastDayDate.className = 'weatherForecastDayDate';
+
+ 		var forecastHour = document.createElement('div');
+ 		forecastHour.className = 'weatherForecastDayDateHour';
+ 		forecastHour.innerHTML = '08:00';
+
+ 		var forecastDate = document.createElement('div');
+ 		forecastDate.className = 'weatherForecastDayDateDate';
+ 		forecastDate.innerHTML = '012';
+
+ 		// Append details to div container
+ 		forecastDayDate.appendChild(forecastHour);
+ 		forecastDayDate.appendChild(forecastDate);
+
+
+ 		// Append to main div
+ 		forecastDay.appendChild(forecastIcon);
+ 		forecastDay.appendChild(forecastDetails);
+ 		forecastDay.appendChild(forecastDayDate);
+
+ 		// Append to the main container
+ 		forecastContainer.appendChild(forecastDay);
 
 	}
 }
