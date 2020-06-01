@@ -1,4 +1,4 @@
-.weather {
+.weatherSettings {
 	font-family: sans;
 	width: 100%;
 	height: auto;
@@ -9,12 +9,12 @@
 	margin-top: 10px;
 }
 
-#weatherPadding {
+#weatherSettingsPadding {
 	padding: 5px;
 	height: auto;
 }
 
-#weatherHeader {
+#weatherSettingsHeader {
 	height: 32px;
 	width: 100%;
 
@@ -23,7 +23,7 @@
 	justify-content: left;
 }
 
-#weatherHeaderIcon {
+#weatherSettingsHeaderIcon {
 	background: url('../assets/weather.svg');
 	background-size: cover;
 	margin-right: 10px;
@@ -31,7 +31,7 @@
 	height: 28px;
 }
 
-#weatherHeaderLabel {
+#weatherSettingsHeaderLabel {
 	text-align: left;
 	font-weight: bold;
 	font-size: 14pt;
@@ -39,9 +39,7 @@
 	margin-bottom: auto;
 }
 
-
-/*Weather Settings*/
-
+/*Main settings*/
 .weatherSettingsGroups {
 	height: auto;
 	width: 100%;

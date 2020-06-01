@@ -1,18 +1,11 @@
 var localStorage = window.localStorage;
 
-var weatherSettingsIconContainer = document.getElementById("weatherSettingsIconContainer");
-var weatherSettingsContainer = document.getElementById("weatherSettingsContainer");
-
-let weatherSettingsVisible = false;
-
 // Apply credentials
 function applyWeatherSettings(key, city, units) {
 	localStorage.setItem('apiKey', key);
 	localStorage.setItem('cityID', city);
 	localStorage.setItem('units', units);
 }
-
-// Update on startup
 
 // Set variable
 let appID;
@@ -58,9 +51,6 @@ function updateWeatherSettings() {
 	updateWeatherSettingsPlaceholder();
 }
 
-// Call
-updateWeatherSettings();
-
 // Reset button was pressed
 weatherSettingsReset.onmouseup = function() {
 	// Reset keys
@@ -79,3 +69,5 @@ weatherSettingsApply.onmouseup = function() {
 	updateWeatherSettings();
 	alert('Successfully updated!');
 }
+
+window.onload = updateWeatherSettings();
