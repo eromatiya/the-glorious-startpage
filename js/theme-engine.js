@@ -1,3 +1,5 @@
+var localStorage = window.localStorage;
+
 var backgroundTextBox = document.getElementById('backgroundSet');
 var backgroundOpacityTextBox = document.getElementById('backgroundOpacitySet');
 
@@ -71,9 +73,21 @@ function checkColorValidity(colorStr) {
 
 function updateTextBoxValues() {
 
-	var baseBG = window.getComputedStyle(document.documentElement).getPropertyValue('--base-bg');
-	var baseColor = window.getComputedStyle(document.documentElement).getPropertyValue('--base-color');	
-	var blurStrength = window.getComputedStyle(document.documentElement).getPropertyValue('--blur-strength');
+	var baseBG = localStorage.getItem('baseBG');
+	var baseColor = localStorage.getItem('baseColor');
+	var blurStrength = localStorage.getItem('blurStrength');
+
+	if (baseBG === null) {
+		baseBG = window.getComputedStyle(document.documentElement).getPropertyValue('--base-bg');
+	}
+
+	if (baseColor === null) {
+		baseColor = window.getComputedStyle(document.documentElement).getPropertyValue('--base-color');
+	}
+
+	if (blurStrength === null) {
+		blurStrength = window.getComputedStyle(document.documentElement).getPropertyValue('--blur-strength');
+	}
 
 	// Remove whitespace
 	baseBG = baseBG.replace(/ /g,'');
@@ -122,12 +136,15 @@ function updateCSSVariables() {
 	
 	var bgColor = checkColorValidity(background);
 	var fgColor = checkColorValidity(foreground);
-	
 	var blurPower = (blurTextBox.value || blurTextBox.placeholder);
 
 	document.documentElement.style.setProperty('--base-bg', bgColor);
 	document.documentElement.style.setProperty('--base-color', fgColor);
 	document.documentElement.style.setProperty('--blur-strength', blurPower);
+
+	localStorage.setItem('baseBG', bgColor);
+	localStorage.setItem('baseColor', fgColor);
+	localStorage.setItem('blurStrength', blurPower);
 
 	updateTextBoxValues();
 }
