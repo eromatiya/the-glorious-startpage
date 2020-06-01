@@ -1,8 +1,9 @@
 ## a modern looking startpage
 [![maintained](https://img.shields.io/maintenance/yes/2020?label=maintained&style=flat-square)](https://github.com/manilarome/the-glorious-startpage/commits/master) [![contributions](https://img.shields.io/badge/contribution-welcome-brightgreen&?style=flat-square)](https://github.com/manilarome/the-glorious-startpage/pulls) [![HitCount](http://hits.dwyl.com/manilarome/the-glorious-startpage.svg)](http://hits.dwyl.com/manilarome/the-glorious-startpage)
 
+### A feature-rich modern-looking startpage and pretty much work in progress
 
-### A feature-rich modern-looking startpage
+## [Live Preview](https://manilarome.github.io/the-glorious-startpage/)
 
 ## Gallery
 
@@ -16,15 +17,15 @@
 	<img src="https://i.imgur.com/Ejoaz83.png">
 </kbd>
 
-## [Live Preview](https://manilarome.github.io/the-glorious-startpage/)
-
 ## Features
 
 + Responsive UI
++ Mobile Support
++ Theme Settings
 + Weather Forecast
 + Safe configuration settings
 + Dynamic Background
-+ iOS-looking dock
++ Pure JS
 + And many bugs!
 
 ### TODO
@@ -34,6 +35,7 @@
 - [x] Dynamic Background   
 - [x] Cleaner code<sup>WIP</sup>  
 - [x] More items on the dashboard<sup>WIP</sup>  
+- [ ] Keyboard driven
 
 ### Important Note
 
