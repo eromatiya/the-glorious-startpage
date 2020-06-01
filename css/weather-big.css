@@ -149,9 +149,9 @@
 }
 
 .weatherForecastDay {
-	/*display: flex;*/
-	/*flex-direction: row;*/
-	/*justify-content: center;*/
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 
 	text-align: center;
 	margin-top: 10px;
@@ -164,8 +164,7 @@
 	background-size: cover;
 	width: 36px;
 	height: 36px;
-	position: relative;
-	float: left;
+	margin-left: 30px;
 }
 
 
@@ -187,6 +186,6 @@
 }
 
 .weatherForecastDayDate {
-	float: right;
-	position: relative;
+	/*float: right;*/
+	/*position: relative;*/
 }
