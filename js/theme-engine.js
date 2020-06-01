@@ -73,10 +73,12 @@ function checkColorValidity(colorStr) {
 
 function updateTextBoxValues() {
 
+	// Retrieve custom colors
 	var baseBG = localStorage.getItem('baseBG');
 	var baseColor = localStorage.getItem('baseColor');
 	var blurStrength = localStorage.getItem('blurStrength');
 
+	// If custom color doesn't exist, use the value in CSS
 	if (baseBG === null) {
 		baseBG = window.getComputedStyle(document.documentElement).getPropertyValue('--base-bg');
 	}
@@ -124,24 +126,32 @@ function updateTextBoxValues() {
 	foregroundOpacityTextBox.value = '';
 	foregroundOpacityTextBox.placeholder = foregroundOpacity;
 
+	blurTextBox.value = '';
 	blurTextBox.placeholder = blurStrength;
 
 }
 
-
 function updateCSSVariables() {
 
-	var background = (backgroundTextBox.value || backgroundTextBox.placeholder) + (backgroundOpacityTextBox.value || backgroundOpacityTextBox.placeholder);
-	var foreground = (foregroundTextBox.value || foregroundTextBox.placeholder) + (foregroundOpacityTextBox.value || foregroundOpacityTextBox.placeholder);
+	// Get value from input fields
+	var background = (backgroundTextBox.value || backgroundTextBox.placeholder) +
+		(backgroundOpacityTextBox.value || backgroundOpacityTextBox.placeholder);
+
+	var foreground = (foregroundTextBox.value || foregroundTextBox.placeholder) +
+		(foregroundOpacityTextBox.value || foregroundOpacityTextBox.placeholder);
 	
-	var bgColor = checkColorValidity(background);
-	var fgColor = checkColorValidity(foreground);
 	var blurPower = (blurTextBox.value || blurTextBox.placeholder);
 
+	// Check color validity
+	var bgColor = checkColorValidity(background);
+	var fgColor = checkColorValidity(foreground);
+
+	// Change CSS colors
 	document.documentElement.style.setProperty('--base-bg', bgColor);
 	document.documentElement.style.setProperty('--base-color', fgColor);
 	document.documentElement.style.setProperty('--blur-strength', blurPower);
 
+	// Save custom color
 	localStorage.setItem('baseBG', bgColor);
 	localStorage.setItem('baseColor', fgColor);
 	localStorage.setItem('blurStrength', blurPower);
@@ -149,14 +159,16 @@ function updateCSSVariables() {
 	updateTextBoxValues();
 }
 
+// Run on window onload
 function updateOnStartUp() {
-
+	// Update
 	updateTextBoxValues();
 
 	// Update settings
 	updateCSSVariables();
 }
 
+// Apply button event handler
 applyTheme.onmouseup = function() {
 	updateCSSVariables();
 }
