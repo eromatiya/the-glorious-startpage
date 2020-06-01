@@ -19,6 +19,7 @@ document.onkeyup = function keydown (event) {
         // If dashboard is visible, hide
         if (floatPanelVisible) {
             slideDashboard();
+            return;
         }
 
         // Show web menu
