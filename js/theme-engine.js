@@ -11,9 +11,9 @@ var applyTheme = document.getElementById('themeEngineAsDefault');
 // Must be RGBA
 function checkColorValidity(colorStr) {
 
-	var colorBool = /^#[0-9A-F]{8}$/i.test(colorStr);
+	var colorRGBA = /^#[0-9A-F]{8}$/i.test(colorStr);
 
-	if (!colorBool) {
+	if (!colorRGBA) {
 
 		if (colorStr.length  == 4) {
 			if (/^#([0-9A-F]{3}){1,2}$/i.test(colorStr)) {
