@@ -6,6 +6,7 @@ var sunriseHour = document.getElementById("sunriseTodayHour");
 var sunsetHour = document.getElementById("sunsetTodayHour");
 var updateHour = document.getElementById("updateTodayHour")
 
+var weatherDockButton = document.getElementById("buttonImageWeather");
 var forecastContainer = document.getElementById("forecastContainer");
 
 function formatUnixTime(unix) {
@@ -41,6 +42,11 @@ function getIcon(code) {
 	return icon_tbl[code];
 }
 
+function updateWeatherDockButton(icon) {
+	weatherDockButton.style.background = "url('assets/weather-icons/" + icon + "')";
+	weatherDockButton.style.backgroundSize = "cover";
+}
+
 function setWeatherValue(loc, desc, icon, sunr, suns, updt) {
 
 	var temp_symbol = (units === "metric") ? "°C" : "°F";
@@ -54,6 +60,9 @@ function setWeatherValue(loc, desc, icon, sunr, suns, updt) {
 	sunriseHour.innerHTML = sunr;
 	sunsetHour.innerHTML = suns;
 	updateHour.innerHTML = updt;
+
+	// Update weather button on dock
+	updateWeatherDockButton(icon);
 }
 
 function createForecastBody(fIcon, forecastTemp, foreDescription, fHour, fDate) {
