@@ -5,6 +5,10 @@ var webMenuSearchBox = document.getElementById("webMenuSearchBox");
 
 let webMenuVisible = false;
 
+let webItemFocus;
+let webListIndex = 0;
+
+
 // Create mouse event for passed div
 function addMouseUpEvent(li, url) {
 	li.onmouseup = function() {
@@ -78,10 +82,9 @@ function populateWebMenu() {
 	sortList();
 }
 
-let firstEntry;
-
 // Search through the list
 function filterWebList() {
+
 	var input, filter, ul, li, a, i, txtValue;
 	
 	input = webMenuSearchBox;
@@ -89,26 +92,42 @@ function filterWebList() {
 	ul = webMenuList;
 	li = ul.getElementsByTagName('li');
 	
-	// Loop through all list items, and hide those who don't match the search query
+	// Loop through all list items, and focus if matches the search query
 	for (i = 0; i < li.length; i++) {
+
 		a = li[i].getElementsByClassName("webItem")[0];
 		txtValue = a.innerHTML || a.textContent || a.innerText;
-		if (txtValue.toUpperCase().indexOf(filter) > -1) {
-			// Filtered tile/s
-			li[i].style.display = "";
-			firstEntry = li[i];
-		} else {
-			// Hidden tile/s
-			li[i].style.display = "none";
+
+		// If an item match, hightlight it and focus
+		if (txtValue.toUpperCase().indexOf(filter) === 158) {
+			
+			// Unselect/Unhightlight old active
+			var oldWebItemFocus = webItemFocus;
+			var oldWebItemFocusChild = oldWebItemFocus.querySelector('.webItem');
+			oldWebItemFocusChild.classList.remove('webItemFocus');
+
+			// Update webItemFocus
+			webItemFocus = li[i];
+
+			// Update weblistindex
+			webListIndex = i;
+
+			// Get child
+			var webItemFocusChild = webItemFocus.querySelector('.webItem');
+			// Add webItemFocus class to child
+			webItemFocusChild.classList.add('webItemFocus');
+
+			// Scroll focus into active
+			webItemFocus.scrollIntoView();
+
 		}
 	}
 }
 
 // Type event on web mmenu search box
 webMenuSearchBox.onkeydown = function(event) {
-
-	if ((event.keyCode === 13 && firstEntry) && (webMenuSearchBox.value.length  > 0)) {
-		firstEntry.onmouseup();
+	if (event.keyCode === 13 && webItemFocus) {
+		webItemFocus.onmouseup();
 		webMenuToggle();
 	} else if (event.keyCode === 8 && webMenuSearchBox.value.length  < 1) {
 		webMenuToggle();
@@ -116,8 +135,33 @@ webMenuSearchBox.onkeydown = function(event) {
 	filterWebList();
 }
 
+// Reset focus on web menu close
+function focusReset() {
+	var oldWebItemFocus = webItemFocus;
+	var oldWebItemFocusChild = oldWebItemFocus.querySelector('.webItem');
+	oldWebItemFocusChild.classList.remove('webItemFocus');
+	webListIndex = 0;
+}
+
+// Get first item of ul
+function getFirstItem() {
+	var ul = webMenuList;
+	var li = ul.getElementsByTagName('li');
+
+	// Focus on first item
+	webItemFocus = li[0];
+
+	// Get child
+	var webItemFocusChildren = webItemFocus.querySelector('.webItem');
+
+	// Add webItemFocus class
+	webItemFocusChildren.classList.add('webItemFocus');
+}
+
+
 // Show/Hide web menu
 function webMenuToggle() {
+
 	hideMainContainer();
 	rotateProfile();
 	webMenu.classList.toggle("show");
@@ -129,6 +173,9 @@ function webMenuToggle() {
 		webMenuSearchBox.blur();
 		filterWebList();
 		webMenuListContainer.scrollTop = 0;
+		
+		focusReset();
+		getFirstItem();
 	} else {
 		// Focus
 		webMenuSearchBox.focus();
@@ -137,8 +184,86 @@ function webMenuToggle() {
 	if(weatherVisible) {
 		weatherToggle();
 	}
+}
 
+// Remove class to focused item
+function removeClass(el, className) {
+	// Remove webItemFocus class
+	var oldWebItemFocus = el.querySelector('.webItem');
+	oldWebItemFocus.classList.remove('webItemFocus');
+};
+
+// Add class to focused item
+function addClass(el, className) {
+	var webItemFocusChild = el.querySelector('.webItem');
+
+	// Add webItemFocus class to child
+	webItemFocusChild.classList.add('webItemFocus');
+
+	// Scroll focus into active
+	webItemFocusChild.scrollIntoView();
+};
+
+// Keyboard navigation
+webMenu.addEventListener(
+	'keydown',
+	function(event) {
+		var len = webMenuList.getElementsByTagName('li').length - 1;
+		// Right and Down 
+		if((event.which === 39) || (event.which === 40)) {
+
+			// Clear web menu searchbox
+			webMenuSearchBox.value = '';
+			webListIndex++;
+			if (webItemFocus) {
+				removeClass(webItemFocus, 'webItemFocus');
+				next = webMenuList.getElementsByTagName('li')[webListIndex];
+				if(typeof next !== undefined && webListIndex <= len) {			
+					webItemFocus = next;
+				} else {
+					webListIndex = 0;
+					webItemFocus = webMenuList.getElementsByTagName('li')[0];
+				}
+				addClass(webItemFocus, 'webItemFocus');
+				// console.log(webListIndex);
+			} else {
+				webListIndex = 0;
+				webItemFocus = webMenuList.getElementsByTagName('li')[0];
+				addClass(webItemFocus, 'webItemFocus');
+			}
+		}
+		// Up and left
+		else if ((event.which === 37) || (event.which === 38)) {
+
+			// Clear web menu searchbox
+			webMenuSearchBox.value = '';
+			if (webItemFocus) {
+				removeClass(webItemFocus, 'webItemFocus');
+				webListIndex--;
+				// console.log(webListIndex);
+				next = webMenuList.getElementsByTagName('li')[webListIndex];
+				if(typeof next !== undefined && webListIndex >= 0) {
+					webItemFocus = next;
+				} else {
+					webListIndex = len;
+					webItemFocus = webMenuList.getElementsByTagName('li')[len];
+				}
+				addClass(webItemFocus, 'webItemFocus');
+			} else {
+				webListIndex = 0;
+				webItemFocus = webMenuList.getElementsByTagName('li')[len];
+				addClass(webItemFocus, 'webItemFocus');
+			}
+		}
+	},
+	false
+);
+
+// Startup
+function initWebMenu() {
+	populateWebMenu();
+	getFirstItem();
 }
 
 // Populate web menu
-window.onload = populateWebMenu();
+window.onload = initWebMenu();
