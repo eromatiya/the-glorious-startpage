@@ -38,5 +38,5 @@ profileContainer.addEventListener(
 
 // Animate/Show searchbox if profile container was clicked
 profileContainer.onclick = function() {
-	toggleSearchBox()
+	toggleSearchBox();
 };
