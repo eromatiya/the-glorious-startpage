@@ -91,7 +91,7 @@
 }
 
 #closeDashboardImage {
-	background: url('../assets/close.svg');
+	background: url('../assets/ui-icons/close.svg');
 	background-size: cover;
 	width: 100%;
 	height: 100%;
