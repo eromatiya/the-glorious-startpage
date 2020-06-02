@@ -4,6 +4,7 @@ var webMenuListContainer = document.getElementById("webMenuListContainer");
 var webMenuSearchBox = document.getElementById("webMenuSearchBox");
 
 let webMenuVisible = false;
+let webItemMatch;
 
 // Create mouse event for passed div
 function addMouseUpEvent(li, url) {
@@ -78,10 +79,9 @@ function populateWebMenu() {
 	sortList();
 }
 
-let firstEntry;
-
 // Search through the list
 function filterWebList() {
+
 	var input, filter, ul, li, a, i, txtValue;
 	
 	input = webMenuSearchBox;
@@ -89,17 +89,33 @@ function filterWebList() {
 	ul = webMenuList;
 	li = ul.getElementsByTagName('li');
 	
-	// Loop through all list items, and hide those who don't match the search query
+	// Loop through all list items, and focus if matches the search query
 	for (i = 0; i < li.length; i++) {
+
 		a = li[i].getElementsByClassName("webItem")[0];
 		txtValue = a.innerHTML || a.textContent || a.innerText;
-		if (txtValue.toUpperCase().indexOf(filter) > -1) {
-			// Filtered tile/s
-			li[i].style.display = "";
-			firstEntry = li[i];
+
+		// If an item match, hightlight it and focus
+		if (txtValue.toUpperCase().indexOf(filter) === 158) {
+
+			// Get color from CSS
+			var selectedColor = window.getComputedStyle(document.documentElement)
+				.getPropertyValue('--base-active-bg').replace(/ /g,'');
+			
+			// Focus on matched item and hightlight it
+			li[i].querySelector('.webItem').style.background = selectedColor;
+			li[i].scrollIntoView();
+			
+			webItemMatch = li[i];
+
 		} else {
-			// Hidden tile/s
-			li[i].style.display = "none";
+
+			// Get color from CSS
+			var normalColor = window.getComputedStyle(document.documentElement)
+				.getPropertyValue('--base-container').replace(/ /g,'');
+			
+			// Unselected items
+			li[i].querySelector('.webItem').style.background = normalColor;
 		}
 	}
 }
@@ -107,8 +123,8 @@ function filterWebList() {
 // Type event on web mmenu search box
 webMenuSearchBox.onkeydown = function(event) {
 
-	if ((event.keyCode === 13 && firstEntry) && (webMenuSearchBox.value.length  > 0)) {
-		firstEntry.onmouseup();
+	if ((event.keyCode === 13 && webItemMatch) && (webMenuSearchBox.value.length  > 0)) {
+		webItemMatch.onmouseup();
 		webMenuToggle();
 	} else if (event.keyCode === 8 && webMenuSearchBox.value.length  < 1) {
 		webMenuToggle();

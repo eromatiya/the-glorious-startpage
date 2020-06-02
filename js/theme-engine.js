@@ -131,8 +131,6 @@ function processTheme() {
 		foregroundOpacity,
 		blurStrength
 	)
-
-
 }
 
 // Update colors
