@@ -6,6 +6,8 @@ var webMenuSearchBox = document.getElementById("webMenuSearchBox");
 let webMenuVisible = false;
 let webItemFocus;
 
+var webListIndex = -1;
+
 // Create mouse event for passed div
 function addMouseUpEvent(li, url) {
 	li.onmouseup = function() {
@@ -106,6 +108,9 @@ function filterWebList() {
 			// Update webItemFocus
 			webItemFocus = li[i];
 
+			// Update weblistindex
+			webListIndex = i;
+
 			// Get child
 			var webItemFocusChild = webItemFocus.querySelector('.webItem');
 			// Add webItemFocus class to child
@@ -181,6 +186,106 @@ function initWebMenu() {
 	populateWebMenu();
 	getFirstItem();
 }
+
+
+
+
+
+
+
+
+function removeClass(el, className) {
+
+	var oldWebItemFocus = el.querySelector('.webItem');
+	oldWebItemFocus.classList.remove('webItemFocus');
+
+
+};
+
+function addClass(el, className) {
+
+	// el.classList.add(className);
+
+	// el.style.background = '#ff00ff20';
+	var webItemFocusChild = el.querySelector('.webItem');
+	// Add webItemFocus class to child
+	webItemFocusChild.classList.add('webItemFocus');
+
+	// Scroll focus into active
+	webItemFocusChild.scrollIntoView();
+};
+
+
+
+var ul = document.getElementById('webMenuList');
+
+
+webMenu.addEventListener(
+	'keydown',
+	function(event) {
+
+
+		var len = ul.getElementsByTagName('li').length-1;
+		// Right and Down 
+		if((event.which === 39) || (event.which === 40)) {
+			webMenuSearchBox.value = '';
+			webListIndex++;
+			if (webItemFocus) {
+				removeClass(webItemFocus, 'webItemFocus');
+				next = ul.getElementsByTagName('li')[webListIndex];
+				if(typeof next !== undefined && webListIndex <= len) {			
+					webItemFocus = next;
+				} else {
+					webListIndex = 0;
+					webItemFocus = ul.getElementsByTagName('li')[0];
+				}
+				addClass(webItemFocus, 'webItemFocus');
+				console.log(webListIndex);
+			} else {
+				webListIndex = 0;
+				webItemFocus = ul.getElementsByTagName('li')[0];
+				addClass(webItemFocus, 'webItemFocus');
+			}
+
+		}
+		// Up and left
+		else if ((event.which === 37) || (event.which === 38)) {
+			webMenuSearchBox.value = '';
+			if (webItemFocus) {
+				removeClass(webItemFocus, 'webItemFocus');
+				webListIndex--;
+				console.log(webListIndex);
+				next = ul.getElementsByTagName('li')[webListIndex];
+				if(typeof next !== undefined && webListIndex >= 0) {
+					webItemFocus = next;
+				} else {
+					webListIndex = len;
+					webItemFocus = ul.getElementsByTagName('li')[len];
+				}
+				addClass(webItemFocus, 'webItemFocus');
+			} else {
+				webListIndex = 0;
+				webItemFocus = ul.getElementsByTagName('li')[len];
+				addClass(webItemFocus, 'webItemFocus');
+			}
+		}
+	},
+	false
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Populate web menu
 window.onload = initWebMenu();
