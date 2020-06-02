@@ -143,6 +143,7 @@ function focusReset() {
 	webListIndex = 0;
 }
 
+// Get first item of ul
 function getFirstItem() {
 	var ul = webMenuList;
 	var li = ul.getElementsByTagName('li');
@@ -157,10 +158,6 @@ function getFirstItem() {
 	webItemFocusChildren.classList.add('webItemFocus');
 }
 
-function initWebMenu() {
-	populateWebMenu();
-	getFirstItem();
-}
 
 // Show/Hide web menu
 function webMenuToggle() {
@@ -189,14 +186,15 @@ function webMenuToggle() {
 	}
 }
 
+// Remove class to focused item
 function removeClass(el, className) {
 	// Remove webItemFocus class
 	var oldWebItemFocus = el.querySelector('.webItem');
 	oldWebItemFocus.classList.remove('webItemFocus');
 };
 
+// Add class to focused item
 function addClass(el, className) {
-
 	var webItemFocusChild = el.querySelector('.webItem');
 
 	// Add webItemFocus class to child
@@ -206,12 +204,15 @@ function addClass(el, className) {
 	webItemFocusChild.scrollIntoView();
 };
 
+// Keyboard navigation
 webMenu.addEventListener(
 	'keydown',
 	function(event) {
-		var len = webMenuList.getElementsByTagName('li').length-1;
+		var len = webMenuList.getElementsByTagName('li').length - 1;
 		// Right and Down 
 		if((event.which === 39) || (event.which === 40)) {
+
+			// Clear web menu searchbox
 			webMenuSearchBox.value = '';
 			webListIndex++;
 			if (webItemFocus) {
@@ -224,21 +225,22 @@ webMenu.addEventListener(
 					webItemFocus = webMenuList.getElementsByTagName('li')[0];
 				}
 				addClass(webItemFocus, 'webItemFocus');
-				console.log(webListIndex);
+				// console.log(webListIndex);
 			} else {
 				webListIndex = 0;
 				webItemFocus = webMenuList.getElementsByTagName('li')[0];
 				addClass(webItemFocus, 'webItemFocus');
 			}
-
 		}
 		// Up and left
 		else if ((event.which === 37) || (event.which === 38)) {
+
+			// Clear web menu searchbox
 			webMenuSearchBox.value = '';
 			if (webItemFocus) {
 				removeClass(webItemFocus, 'webItemFocus');
 				webListIndex--;
-				console.log(webListIndex);
+				// console.log(webListIndex);
 				next = webMenuList.getElementsByTagName('li')[webListIndex];
 				if(typeof next !== undefined && webListIndex >= 0) {
 					webItemFocus = next;
@@ -257,10 +259,11 @@ webMenu.addEventListener(
 	false
 );
 
-
-
-
-
+// Startup
+function initWebMenu() {
+	populateWebMenu();
+	getFirstItem();
+}
 
 // Populate web menu
 window.onload = initWebMenu();
