@@ -20,7 +20,7 @@
 ## Features
 
 + Responsive UI
-+ Mobile Support
++ Mobile Support with swipe gestures
 + Theme Settings
 + Weather Forecast
 + Safe configuration settings
@@ -36,6 +36,7 @@
 - [x] Cleaner code<sup>WIP</sup>  
 - [x] More items on the dashboard<sup>WIP</sup>  
 - [ ] Keyboard driven
+- [x] Swipe gestures for mobile
 
 ### Important Note
 
@@ -48,7 +49,7 @@
 
 	- OpenWeatherMap is the weather provider, so go to OpenWeatherMap's [website](https://home.openweathermap.org/).
 	- Register, log-in, and then go [here](https://home.openweathermap.org/api_keys) to generate your very own API keys. 
-	- Put your credentials in the settings in weather forecast.
+	- Put your credentials in the settings in settings panel.
 
 + You can easily add a button on the dock and web menu by just adding `website name`, `icon name`, and `website url` in an array. Open `js/sites-list.js`. Make sure to put an icon with `.svg` extension for that website in `assets/webcons/`.
 

@@ -31,7 +31,3 @@ dashboardHider.addEventListener(
 		}
 	}
 );
-
-dashboardCloseButton.onmouseup = function() {
-	slideDashboard();
-}
