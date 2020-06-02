@@ -132,8 +132,22 @@
 	width: 128px;
 	height: 128px;
 	margin: 5px;
+	transition: transform var(--transition-speed);
 	border-radius: var(--rounded-radius);
 	background: var(--base-container);
+}
+
+.webItem:hover {
+	background: var(--base-hover-bg);
+	cursor: pointer;
+
+	-ms-transform: scale(1.10);
+	-webkit-transform: scale(1.10);
+	transform: scale(1.10); 
+}
+
+.webItem:active {
+	background: var(--base-active-bg);
 }
 
 .webItemFocus {
@@ -141,15 +155,18 @@
 	height: 128px;
 	margin: 5px;
 	border-radius: var(--rounded-radius);
-	background: var(--base-active-bg);
-}
-
-.webItem:hover {
 	background: var(--base-hover-bg);
-	cursor: pointer;
+
+	-ms-transform: scale(1.10);
+	-webkit-transform: scale(1.10);
+	transform: scale(1.10); 
 }
 
-.webItem:active {
+.webItemFocus:hover {
+	background: var(--base-hover-bg);
+}
+
+.webItemFocus:active {
 	background: var(--base-active-bg);
 }
 

@@ -4,9 +4,10 @@ var webMenuListContainer = document.getElementById("webMenuListContainer");
 var webMenuSearchBox = document.getElementById("webMenuSearchBox");
 
 let webMenuVisible = false;
-let webItemFocus;
 
-var webListIndex = -1;
+let webItemFocus;
+let webListIndex = 0;
+
 
 // Create mouse event for passed div
 function addMouseUpEvent(li, url) {
@@ -119,15 +120,6 @@ function filterWebList() {
 			// Scroll focus into active
 			webItemFocus.scrollIntoView();
 
-		} else {
-			// Remove this if keyboard control is implemented
-
-			// Get color from CSS
-			// var normalColor = window.getComputedStyle(document.documentElement)
-				// .getPropertyValue('--base-container').replace(/ /g,'');
-			
-			// Unselected items
-			// li[i].querySelector('.webItem').style.background = normalColor;
 		}
 	}
 }
@@ -135,7 +127,7 @@ function filterWebList() {
 // Type event on web mmenu search box
 webMenuSearchBox.onkeydown = function(event) {
 
-	if ((event.keyCode === 13 && webItemFocus) && (webMenuSearchBox.value.length  > 0)) {
+	if (event.keyCode === 13 && webItemFocus) {
 		webItemFocus.onmouseup();
 		webMenuToggle();
 	} else if (event.keyCode === 8 && webMenuSearchBox.value.length  < 1) {
@@ -146,6 +138,7 @@ webMenuSearchBox.onkeydown = function(event) {
 
 // Show/Hide web menu
 function webMenuToggle() {
+
 	hideMainContainer();
 	rotateProfile();
 	webMenu.classList.toggle("show");
@@ -181,33 +174,21 @@ function getFirstItem() {
 	webItemFocusChildren.classList.add('webItemFocus');
 }
 
-
 function initWebMenu() {
 	populateWebMenu();
 	getFirstItem();
 }
 
-
-
-
-
-
-
-
 function removeClass(el, className) {
-
+	// Remove webItemFocus class
 	var oldWebItemFocus = el.querySelector('.webItem');
 	oldWebItemFocus.classList.remove('webItemFocus');
-
-
 };
 
 function addClass(el, className) {
 
-	// el.classList.add(className);
-
-	// el.style.background = '#ff00ff20';
 	var webItemFocusChild = el.querySelector('.webItem');
+
 	// Add webItemFocus class to child
 	webItemFocusChild.classList.add('webItemFocus');
 
@@ -215,35 +196,28 @@ function addClass(el, className) {
 	webItemFocusChild.scrollIntoView();
 };
 
-
-
-var ul = document.getElementById('webMenuList');
-
-
 webMenu.addEventListener(
 	'keydown',
 	function(event) {
-
-
-		var len = ul.getElementsByTagName('li').length-1;
+		var len = webMenuList.getElementsByTagName('li').length-1;
 		// Right and Down 
 		if((event.which === 39) || (event.which === 40)) {
 			webMenuSearchBox.value = '';
 			webListIndex++;
 			if (webItemFocus) {
 				removeClass(webItemFocus, 'webItemFocus');
-				next = ul.getElementsByTagName('li')[webListIndex];
+				next = webMenuList.getElementsByTagName('li')[webListIndex];
 				if(typeof next !== undefined && webListIndex <= len) {			
 					webItemFocus = next;
 				} else {
 					webListIndex = 0;
-					webItemFocus = ul.getElementsByTagName('li')[0];
+					webItemFocus = webMenuList.getElementsByTagName('li')[0];
 				}
 				addClass(webItemFocus, 'webItemFocus');
 				console.log(webListIndex);
 			} else {
 				webListIndex = 0;
-				webItemFocus = ul.getElementsByTagName('li')[0];
+				webItemFocus = webMenuList.getElementsByTagName('li')[0];
 				addClass(webItemFocus, 'webItemFocus');
 			}
 
@@ -255,32 +229,23 @@ webMenu.addEventListener(
 				removeClass(webItemFocus, 'webItemFocus');
 				webListIndex--;
 				console.log(webListIndex);
-				next = ul.getElementsByTagName('li')[webListIndex];
+				next = webMenuList.getElementsByTagName('li')[webListIndex];
 				if(typeof next !== undefined && webListIndex >= 0) {
 					webItemFocus = next;
 				} else {
 					webListIndex = len;
-					webItemFocus = ul.getElementsByTagName('li')[len];
+					webItemFocus = webMenuList.getElementsByTagName('li')[len];
 				}
 				addClass(webItemFocus, 'webItemFocus');
 			} else {
 				webListIndex = 0;
-				webItemFocus = ul.getElementsByTagName('li')[len];
+				webItemFocus = webMenuList.getElementsByTagName('li')[len];
 				addClass(webItemFocus, 'webItemFocus');
 			}
 		}
 	},
 	false
 );
-
-
-
-
-
-
-
-
-
 
 
 
