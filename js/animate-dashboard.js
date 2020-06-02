@@ -35,3 +35,13 @@ dashboardHider.addEventListener(
 dashboardCloseButton.onmouseup = function() {
 	slideDashboard();
 }
+
+// Swipe event
+function rightDashboardSwipeEvent(el,d) {
+
+	if (d ==="r"){
+		slideDashboard();
+	}
+}
+
+detectswipe('rightDashboard', rightDashboardSwipeEvent);
