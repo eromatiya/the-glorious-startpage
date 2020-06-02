@@ -1,61 +1,61 @@
-function detectswipe(el,func) {
-	
-	swipe_det = new Object();
-	swipe_det.sX = 0; swipe_det.sY = 0; swipe_det.eX = 0; swipe_det.eY = 0;
-  	var min_x = 30;  //min x swipe for horizontal swipe
-	var max_x = 30;  //max x difference for vertical swipe
-	var min_y = 50;  //min y swipe for vertical swipe
-	var max_y = 60;  //max y difference for horizontal swipe
-	var direc = "";
+function swipeEvent(elementID, callback) {
 
-	ele = document.getElementById(el);
-	ele.addEventListener(
+	var el = document.getElementById(elementID);
+	var dir;
+
+	el.addEventListener(
 		'touchstart',
-		function(e) {
-		  	var t = e.touches[0];
-		  	swipe_det.sX = t.screenX; 
-		  	swipe_det.sY = t.screenY;
+		function(event) {
+			// event.preventDefault();
+			xDown = event.touches[0].clientX;
+    		yDown = event.touches[0].clientY;
 		},
-		false
+		{ passive: true }
 	);
 
-	ele.addEventListener(
+	el.addEventListener(
 		'touchmove',
-		function(e) {
-		  	e.preventDefault();
-		  	var t = e.touches[0];
-		  	swipe_det.eX = t.screenX; 
-		  	swipe_det.eY = t.screenY;    
+		function(event) {
+			// event.preventDefault();
+		    if ( ! xDown || ! yDown ) {
+		        return;
+		    }
+
+		    var xUp = event.touches[0].clientX;
+		    var yUp = event.touches[0].clientY;
+		    var xDiff = xDown - xUp;
+		    var yDiff = yDown - yUp;
+
+		    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
+		        if ( xDiff > 0 ) {
+		        	// Left Swipe
+		        	dir = 'left'
+		        } else {
+		        	// Right Swipe
+		        	dir = 'right';
+		        }                       
+		    } else {
+
+		        if ( yDiff > 0 ) {
+		        	// Up Swipe
+		        	dir = 'up';
+		        } else { 
+		        	// Down Swipe
+		        	dir = 'down';
+		        }
+		    }
+		    
+		    /* Reset values */
+		    xDown = null;
+		    yDown = null;
+
+		    if (dir !== ""){
+			    if (typeof callback == "function") {
+			    	callback(el, dir);
+			    }
+		    }
+
 		},
-		false
-	);
-  	
-  	ele.addEventListener(
-  		'touchend',
-  		function(e) {
-
-			//horizontal detection
-			if ((((swipe_det.eX - min_x > swipe_det.sX) || (swipe_det.eX + min_x < swipe_det.sX)) &&
-					((swipe_det.eY < swipe_det.sY + max_y) && (swipe_det.sY > swipe_det.eY - max_y) && (swipe_det.eX > 0)))) {
-				
-				if (swipe_det.eX > swipe_det.sX) direc = "r";
-				else direc = "l";
-			}
-			//vertical detection
-			else if ((((swipe_det.eY - min_y > swipe_det.sY) || (swipe_det.eY + min_y < swipe_det.sY)) &&
-				((swipe_det.eX < swipe_det.sX + max_x) && (swipe_det.sX > swipe_det.eX - max_x) && (swipe_det.eY > 0)))) {
-				
-				if (swipe_det.eY > swipe_det.sY) direc = "d";
-				else direc = "u";
-			}
-
-			if (direc != "") {
-				if(typeof func == 'function') func(el,direc);
-			}
-
-			direc = "";
-			swipe_det.sX = 0; swipe_det.sY = 0; swipe_det.eX = 0; swipe_det.eY = 0;
-		},
-		false
+		{ passive: true }
 	);
 }

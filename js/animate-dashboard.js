@@ -39,9 +39,9 @@ dashboardCloseButton.onmouseup = function() {
 // Swipe event
 function rightDashboardSwipeEvent(el,d) {
 
-	if (d ==="r"){
+	if (d ==="right"){
 		slideDashboard();
 	}
 }
 
-detectswipe('rightDashboard', rightDashboardSwipeEvent);
+swipeEvent('rightDashboard', rightDashboardSwipeEvent);
