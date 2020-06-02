@@ -29,6 +29,7 @@
 	position: absolute;
 	overflow-y: auto;
 	box-sizing: border-box;
+	scrollbar-width: none;
 	transition: width var(--transition-speed); 
 }
 
