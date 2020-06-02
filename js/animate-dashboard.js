@@ -32,10 +32,6 @@ dashboardHider.addEventListener(
 	}
 );
 
-dashboardCloseButton.onmouseup = function() {
-	slideDashboard();
-}
-
 // Swipe event
 function rightDashboardSwipeEvent(el,d) {
 
