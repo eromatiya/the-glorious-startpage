@@ -4,7 +4,7 @@ var webMenuListContainer = document.getElementById("webMenuListContainer");
 var webMenuSearchBox = document.getElementById("webMenuSearchBox");
 
 let webMenuVisible = false;
-let webItemMatch;
+let webItemFocus;
 
 // Create mouse event for passed div
 function addMouseUpEvent(li, url) {
@@ -97,26 +97,32 @@ function filterWebList() {
 
 		// If an item match, hightlight it and focus
 		if (txtValue.toUpperCase().indexOf(filter) === 158) {
+			
+			// Unselect/Unhightlight old active
+			var oldWebItemFocus = webItemFocus;
+			var oldWebItemFocusChild = oldWebItemFocus.querySelector('.webItem');
+			oldWebItemFocusChild.classList.remove('webItemFocus');
 
-			// Get color from CSS
-			var selectedColor = window.getComputedStyle(document.documentElement)
-				.getPropertyValue('--base-active-bg').replace(/ /g,'');
-			
-			// Focus on matched item and hightlight it
-			li[i].querySelector('.webItem').style.background = selectedColor;
-			li[i].scrollIntoView();
-			
-			webItemMatch = li[i];
+			// Update webItemFocus
+			webItemFocus = li[i];
+
+			// Get child
+			var webItemFocusChild = webItemFocus.querySelector('.webItem');
+			// Add webItemFocus class to child
+			webItemFocusChild.classList.add('webItemFocus');
+
+			// Scroll focus into active
+			webItemFocus.scrollIntoView();
 
 		} else {
 			// Remove this if keyboard control is implemented
 
 			// Get color from CSS
-			var normalColor = window.getComputedStyle(document.documentElement)
-				.getPropertyValue('--base-container').replace(/ /g,'');
+			// var normalColor = window.getComputedStyle(document.documentElement)
+				// .getPropertyValue('--base-container').replace(/ /g,'');
 			
 			// Unselected items
-			li[i].querySelector('.webItem').style.background = normalColor;
+			// li[i].querySelector('.webItem').style.background = normalColor;
 		}
 	}
 }
@@ -124,8 +130,8 @@ function filterWebList() {
 // Type event on web mmenu search box
 webMenuSearchBox.onkeydown = function(event) {
 
-	if ((event.keyCode === 13 && webItemMatch) && (webMenuSearchBox.value.length  > 0)) {
-		webItemMatch.onmouseup();
+	if ((event.keyCode === 13 && webItemFocus) && (webMenuSearchBox.value.length  > 0)) {
+		webItemFocus.onmouseup();
 		webMenuToggle();
 	} else if (event.keyCode === 8 && webMenuSearchBox.value.length  < 1) {
 		webMenuToggle();
@@ -154,8 +160,27 @@ function webMenuToggle() {
 	if(weatherVisible) {
 		weatherToggle();
 	}
+}
 
+function getFirstItem() {
+	var ul = webMenuList;
+	var li = ul.getElementsByTagName('li');
+
+	// Focus on first item
+	webItemFocus = li[0];
+
+	// Get child
+	var webItemFocusChildren = webItemFocus.querySelector('.webItem');
+
+	// Add webItemFocus class
+	webItemFocusChildren.classList.add('webItemFocus');
+}
+
+
+function initWebMenu() {
+	populateWebMenu();
+	getFirstItem();
 }
 
 // Populate web menu
-window.onload = populateWebMenu();
+window.onload = initWebMenu();
