@@ -153,18 +153,25 @@
 	top: 50%;
 	-webkit-transform: translateY(-50%);
 
-
 	/*Align horizontally*/
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+
+	padding: 5px;
 }
 
-/*Web icon*/
+/*Web icon container*/
+.webItemIconContainer {
+	position: relative;
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+}
+
 .webItemIcon {
-	background: #ff000060;
-	height: 96px;
-	width: 96px;
+	height: 64px;
+	width: 64px;
 	margin-bottom: 0;
 }
 
@@ -174,7 +181,8 @@
 	font-size: 10pt;
 	font-weight: 500;
 	font-family: sans;
-	color: #ffffff;
+	word-wrap: break-word;
+	color: var(--base-color);
 
 }
 

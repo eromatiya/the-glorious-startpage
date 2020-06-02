@@ -49,6 +49,9 @@ function populateWebMenu() {
 		webItemBody.className = 'webItemBody';
 
 		// Create div for webItemIcon
+		var webItemIconContainer = document.createElement('div');
+		webItemIconContainer.className = 'webItemIconContainer';
+
 		var webItemIcon = document.createElement('div');
 		webItemIcon.className = 'webItemIcon';
 		webItemIcon.style.background = "url('assets/webcons/" + icon + ".svg')";
@@ -63,7 +66,8 @@ function populateWebMenu() {
 		webItemDiv.appendChild(webItemContainer);
 		webItemContainer.appendChild(webItemBody);
 
-		webItemBody.appendChild(webItemIcon);
+		webItemIconContainer.appendChild(webItemIcon);
+		webItemBody.appendChild(webItemIconContainer);
 		webItemBody.appendChild(webItemName);
 
 		li.appendChild(webItemDiv);

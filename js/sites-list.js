@@ -36,7 +36,12 @@ let webSites = [
 	{ site: 'Stackexchange', icon: 'stackexchange', url: 'https://stackexchange.com/', category: 'development'},
 	{ site: 'Superuser', icon: 'superuser', url: 'https://superuser.com/', category: 'development'},
 	{ site: 'Calendar', icon: 'calendar', url: 'https://calendar.google.com/', category: 'social'},
-	{ site: 'Messenger', icon: 'messenger', url: 'https://messenger.com/', category: 'social'}
+	{ site: 'Messenger', icon: 'messenger', url: 'https://messenger.com/', category: 'social'},
+	{ site: 'Icons8', icon: 'icons8', url: 'https://icons8.com/', category: 'design'},
+	{ site: 'Markdown Cheatsheet', icon: 'markdown', url: 'https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet/', category: 'development'},
+	{ site: 'Interneting is Hard', icon: 'interneting-is-hard', url: 'https://internetingishard.com/', category: 'development'},
+	{ site: 'Keycode', icon: 'keycode', url: 'https://keycode.info/', category: 'development'},
+	{ site: 'Soundcloud', icon: 'soundcloud', url: 'https://soundcloud.com/', category: 'media'}
 ];
 
 
