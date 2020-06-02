@@ -18,6 +18,9 @@ function backgroundBodySwipeEvent(el, d) {
 	} else if (d === 'down') {
 		// Swiping down will open search box
 		toggleSearchBox();
+	} else if (d == 'right') {
+		// Swiping right will open web menu
+		webMenuToggle();
 	}
 }
 
@@ -30,8 +33,19 @@ function blurOverlaySwipeEvent(el, d) {
 	}
 }
 
+// Web menu swipe event
+function webMenuSwipeEvent(el, d) {
+
+	// Swiping left will close web menu
+	if (d == 'left') {
+		webMenuToggle();
+	}
+}
+
 swipeEvent('rightDashboard', rightDashboardSwipeEvent);
 
 swipeEvent('backgroundBody', backgroundBodySwipeEvent);
 
 swipeEvent('blurOverlay', blurOverlaySwipeEvent);
+
+swipeEvent('webMenu', webMenuSwipeEvent);
