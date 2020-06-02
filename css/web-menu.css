@@ -237,9 +237,20 @@
 	#webMenuList {
 		flex-grow: 1;
 	}
-
-	/*Child of li*/
+	
 	.webItem {
 		width: auto;
+	}
+
+	.webItem:hover {
+		-ms-transform: scale(1);
+		-webkit-transform: scale(1);
+		transform: scale(1); 
+	}
+
+	.webItemFocus {
+		-ms-transform: scale(1);
+		-webkit-transform: scale(1);
+		transform: scale(1); 
 	}
 }
