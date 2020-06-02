@@ -31,13 +31,3 @@ dashboardHider.addEventListener(
 		}
 	}
 );
-
-// Swipe event
-function rightDashboardSwipeEvent(el,d) {
-
-	if (d ==="right"){
-		slideDashboard();
-	}
-}
-
-swipeEvent('rightDashboard', rightDashboardSwipeEvent);

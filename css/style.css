@@ -118,6 +118,7 @@ html, body {
 	width: 100%;
     height: auto;
     border: none;
+    pointer-events: none;
     
     position: absolute;
 	left: 50%;

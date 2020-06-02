@@ -4,6 +4,7 @@
 	height: 138px;
 	width: 138px;
 	border-radius: 50%;
+	pointer-events: initial;
     
     margin: 0 auto;
     margin-bottom: 90px;
