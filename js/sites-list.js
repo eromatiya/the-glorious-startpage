@@ -226,7 +226,7 @@ let webSites = [
 		category: 'development'
 	},
 	{
-		site: 'Javascript Keycode',
+		site: 'Keycode',
 		icon: 'keycode',
 		url: 'https://keycode.info/',
 		category: 'development'

@@ -109,6 +109,7 @@ function filterWebList() {
 			webItemMatch = li[i];
 
 		} else {
+			// Remove this if keyboard control is implemented
 
 			// Get color from CSS
 			var normalColor = window.getComputedStyle(document.documentElement)
