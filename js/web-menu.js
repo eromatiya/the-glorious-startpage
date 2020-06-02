@@ -126,7 +126,6 @@ function filterWebList() {
 
 // Type event on web mmenu search box
 webMenuSearchBox.onkeydown = function(event) {
-
 	if (event.keyCode === 13 && webItemFocus) {
 		webItemFocus.onmouseup();
 		webMenuToggle();
@@ -136,28 +135,12 @@ webMenuSearchBox.onkeydown = function(event) {
 	filterWebList();
 }
 
-// Show/Hide web menu
-function webMenuToggle() {
-
-	hideMainContainer();
-	rotateProfile();
-	webMenu.classList.toggle("show");
-	webMenuVisible = !webMenuVisible;
-
-	// Clear and unfocus searchbox
-	if (!webMenuVisible) {
-		webMenuSearchBox.value = '';
-		webMenuSearchBox.blur();
-		filterWebList();
-		webMenuListContainer.scrollTop = 0;
-	} else {
-		// Focus
-		webMenuSearchBox.focus();
-	}
-
-	if(weatherVisible) {
-		weatherToggle();
-	}
+// Reset focus on web menu close
+function focusReset() {
+	var oldWebItemFocus = webItemFocus;
+	var oldWebItemFocusChild = oldWebItemFocus.querySelector('.webItem');
+	oldWebItemFocusChild.classList.remove('webItemFocus');
+	webListIndex = 0;
 }
 
 function getFirstItem() {
@@ -177,6 +160,33 @@ function getFirstItem() {
 function initWebMenu() {
 	populateWebMenu();
 	getFirstItem();
+}
+
+// Show/Hide web menu
+function webMenuToggle() {
+
+	hideMainContainer();
+	rotateProfile();
+	webMenu.classList.toggle("show");
+	webMenuVisible = !webMenuVisible;
+
+	// Clear and unfocus searchbox
+	if (!webMenuVisible) {
+		webMenuSearchBox.value = '';
+		webMenuSearchBox.blur();
+		filterWebList();
+		webMenuListContainer.scrollTop = 0;
+		
+		focusReset();
+		getFirstItem();
+	} else {
+		// Focus
+		webMenuSearchBox.focus();
+	}
+
+	if(weatherVisible) {
+		weatherToggle();
+	}
 }
 
 function removeClass(el, className) {
