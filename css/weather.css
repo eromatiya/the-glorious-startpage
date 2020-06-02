@@ -145,20 +145,32 @@
 	margin-left: 5px
 }
 
+
+.weatherForecast {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+
 /*Forecast Container*/
 .weatherForecastDay {
 	text-align: center;
 	margin-top: 20px;
+
+	float: left;
+	clear: both;
+	margin-left: 10px;
 }
 
 /*Add fixed geometry to weatherForecastDay children*/
 .weatherForecastDay > div {
-	width: 75px;
-	height: 50px;
+	width: 100px;
+	height: 60px;
 }
 
 .weatherForecastDayIconContainer {
-	float: left;
+	clear:both;
 }
 
 .weatherForecastDayIcon {
@@ -175,8 +187,8 @@
 
 /*Center*/
 .weatherForecastDayDetails {
-	display: inline-block;
-	margin: 0 auto;
+
+	clear:both;
 }
 
 .weatherForecastDayDetailsTemperature,
@@ -191,5 +203,49 @@
 
 /*Right side*/
 .weatherForecastDayDate {
-	float: right;
+	clear:both;
+}
+
+@media screen and (max-width: 580px) {
+
+	.weatherForecast {
+		display: inline-block;
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	/*Forecast Container*/
+	.weatherForecastDay {
+		text-align: center;
+		margin-top: 20px;
+
+		float: none;
+		clear: none;
+		margin-left : 0px;
+	}
+
+	/*Add fixed geometry to weatherForecastDay children*/
+	.weatherForecastDay > div {
+		width: 75px;
+		height: 50px;
+	}
+
+	.weatherForecastDayIconContainer {
+		float: left;
+		clear: none;
+	}
+
+	/*Center*/
+	.weatherForecastDayDetails {
+		display: inline-block;
+		margin: 0 auto;
+		clear: none;
+	}
+
+	/*Right side*/
+	.weatherForecastDayDate {
+		float: right;
+		clear: none;
+	}
+
 }
