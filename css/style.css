@@ -75,6 +75,14 @@ option {
 	text-align: left;
 }
 
+* {
+	/*Font rendering*/
+	-webkit-font-smoothing: antialiased !important;
+	-moz-osx-font-smoothing: grayscale !important;
+	text-rendering: optimizeLegibility !important;
+	font-variant-ligatures: none;
+}
+
 body {
 	position: absolute;
 	top: 0;
@@ -86,12 +94,6 @@ body {
 	overflow: hidden;
 	background: #1a1a1a;
 	color: var(--foreground);
-
-	/*Font rendering*/
-	-webkit-font-smoothing: antialiased !important;
-	-moz-osx-font-smoothing: grayscale !important;
-	text-rendering: optimizeLegibility !important;
-
 }
 
 html, body {
