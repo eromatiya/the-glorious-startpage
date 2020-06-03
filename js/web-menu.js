@@ -82,6 +82,19 @@ function populateWebMenu() {
 	sortList();
 }
 
+String.prototype.fuzzy = function(term, ratio) {
+    var string = this.toLowerCase();
+    var compare = term.toLowerCase();
+    var matches = 0;
+    if (string.indexOf(compare) > -1) return true; // covers basic partial matches
+    for (var i = 0; i < compare.length; i++) {
+        string.indexOf(compare[i]) > -1 ? matches += 1 : matches -=1;
+    }
+    return (matches/this.length >= ratio || term == "")
+};
+
+
+
 // Search through the list
 function filterWebList() {
 
@@ -99,7 +112,8 @@ function filterWebList() {
 		txtValue = a.innerHTML || a.textContent || a.innerText;
 
 		// If an item match, hightlight it and focus
-		if (txtValue.toUpperCase().indexOf(filter) === 158) {
+		// if (txtValue.toUpperCase().indexOf(filter) !== -1) {
+		if (txtValue.toUpperCase().fuzzy(filter, 1)) {
 			
 			// Unselect/Unhightlight old active
 			var oldWebItemFocus = webItemFocus;
