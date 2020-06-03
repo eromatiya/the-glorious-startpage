@@ -93,8 +93,6 @@ String.prototype.fuzzy = function(term, ratio) {
     return (matches/this.length >= ratio || term == "")
 };
 
-
-
 // Search through the list
 function filterWebList() {
 
@@ -145,6 +143,8 @@ webMenuSearchBox.onkeydown = function(event) {
 		webMenuToggle();
 	} else if (event.keyCode === 8 && webMenuSearchBox.value.length  < 1) {
 		webMenuToggle();
+	} else if (event.keyCode === 27) {
+		return;
 	}
 	filterWebList();
 }
