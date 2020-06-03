@@ -1,0 +1,23 @@
+/*Filter for body's lazy loaded background */
+
+#backgroundBody {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	color: var(--foreground);
+}
+
+.blurBody {
+	filter: blur(5px);
+	-webkit-filter: blur(5px);
+	transition: all 1s;
+}
+
+.noBlurBody {
+	transition: all 1s;
+}
