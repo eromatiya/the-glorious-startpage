@@ -1,6 +1,6 @@
 var clock = document.getElementById("clock")
 
-/* Append 0 before time elements if less hour's than 10 */
+// Append 0 before time elements if less hour's than 10
 function appendZero(k) {
 	if (k < 10) {
 		return "0" + k;

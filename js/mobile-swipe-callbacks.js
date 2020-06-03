@@ -42,6 +42,15 @@ function webMenuSwipeEvent(el, d) {
 	}
 }
 
+// Weather screen swipe event
+function weatherScreenSwipeEvent(el, d) {
+
+	// Swiping left will the weather screem
+	if (d == 'left') {
+		weatherToggle();
+	}
+}
+
 swipeEvent('rightDashboard', rightDashboardSwipeEvent);
 
 swipeEvent('backgroundBody', backgroundBodySwipeEvent);
@@ -49,3 +58,5 @@ swipeEvent('backgroundBody', backgroundBodySwipeEvent);
 swipeEvent('blurOverlay', blurOverlaySwipeEvent);
 
 swipeEvent('webMenu', webMenuSwipeEvent);
+
+swipeEvent('weatherScreen', weatherScreenSwipeEvent);

@@ -20,12 +20,11 @@ function slideDashboard() {
 	// Enable overlay
 	dashboardHider.classList.toggle('show');
 	floatPanelVisible = !floatPanelVisible;
-
 }
 
-
 dashboardHider.addEventListener(
-	"mouseup", function() {
+	"mouseup",
+	function() {
 		if (floatPanelVisible) {
 			slideDashboard();
 		}

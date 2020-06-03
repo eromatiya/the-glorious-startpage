@@ -2,7 +2,6 @@ var searchBox = document.getElementById("searchBox");
 
 // Keypress events
 document.onkeyup = function keydown (event) { 
-    
 
     if (event.keyCode === 27) {
 

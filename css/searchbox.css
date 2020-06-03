@@ -1,4 +1,3 @@
-
 #searchBox {
 	text-align: center;
 	font-family: sans;
@@ -31,8 +30,6 @@
 	top: 100%;
 	pointer-events: initial;
 }
-
-
 
 @media screen and (max-width: 580px) {
 
