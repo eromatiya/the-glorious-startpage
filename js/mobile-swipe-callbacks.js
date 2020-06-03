@@ -21,6 +21,9 @@ function backgroundBodySwipeEvent(el, d) {
 	} else if (d == 'right') {
 		// Swiping right will open web menu
 		webMenuToggle();
+	} else if (d == 'up') {
+		// Swiping up will open weather screen
+		weatherToggle();
 	}
 }
 
