@@ -1,0 +1,4 @@
+.bar {
+	z-index: 5;
+	backdrop-filter: blur(var(--blur-strength));
+}

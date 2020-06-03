@@ -1,0 +1,6 @@
+#topPanel {
+	background: var(--panel-bg);
+	width: 100vw;
+	height: 32px;
+	position: absolute;
+}
