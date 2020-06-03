@@ -1,7 +1,7 @@
 var clock = document.getElementById("clock")
 
 // Append 0 before time elements if less hour's than 10
-function appendZero(k) {
+const appendZero = (k) => {
 	if (k < 10) {
 		return "0" + k;
 	} else {
@@ -9,7 +9,8 @@ function appendZero(k) {
 	}
 }
 
-function currentTime() {
+// Update/Set clock
+const currentTime = () => {
 	// Date object
 	var date = new Date();
 
@@ -33,6 +34,6 @@ function currentTime() {
 	var t = setTimeout(currentTime, 1000);
 }
 
-// Start
+// Start clock
 window.onload = currentTime();
 
