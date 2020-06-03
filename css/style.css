@@ -2,6 +2,8 @@
 @import url('normalize.css');
 @import url('set-body-background.css');
 @import url('panels.css');
+@import url('main-container.css');
+@import url('clock.css');
 @import url('dock-buttons.css');
 @import url('searchbox.css');
 @import url('blur-overlay.css');
@@ -119,37 +121,4 @@ html, body {
 @font-face {
   font-family: roboto-thin;
   src: url(../assets/font/Roboto-Thin.ttf);
-}
-
-#clock {
-	color: var(--base-color);
-	font-size: 11pt;
-	font-family: roboto-bold;
-
-	/*Center lock*/
-	text-align: center;
-   	position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-
-    /*Make clock unselectable*/
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
-.mainContainer {
-	width: 100%;
-    height: auto;
-    border: none;
-    pointer-events: none;
-    
-    position: absolute;
-	left: 50%;
-	top: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
 }
