@@ -86,6 +86,12 @@ body {
 	overflow: hidden;
 	background: #1a1a1a;
 	color: var(--foreground);
+
+	/*Font rendering*/
+	-webkit-font-smoothing: antialiased !important;
+	-moz-osx-font-smoothing: grayscale !important;
+	text-rendering: optimizeLegibility !important;
+
 }
 
 html, body {
@@ -93,11 +99,30 @@ html, body {
 	position: fixed !important;
 }
 
+@font-face {
+  font-family: roboto;
+  src: url(../assets/font/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: roboto-bold;
+  src: url(../assets/font/Roboto-Bold.ttf);
+}
+
+@font-face {
+  font-family: roboto-light;
+  src: url(../assets/font/Roboto-Light.ttf);
+}
+
+@font-face {
+  font-family: roboto-thin;
+  src: url(../assets/font/Roboto-Thin.ttf);
+}
+
 #clock {
 	color: var(--base-color);
 	font-size: 11pt;
-	font-family: sans;
-	font-weight: bold;
+	font-family: roboto-bold;
 
 	/*Center lock*/
 	text-align: center;

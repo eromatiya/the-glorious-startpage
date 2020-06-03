@@ -1,15 +1,13 @@
 #greeterMessage {
 	color: var(--base-color);
-	font-weight: 300;
 	font-size: 32pt;
-	font-family: sans;
+	font-family: roboto-light;
 	margin: 5px;
 }
 
 #dateMessage {
 	color: #f2f2f2;
-	font-weight: normal;
 	font-size: 12pt;
-	font-family:  sans;
+	font-family:  roboto;
 	margin: 5px;
 }

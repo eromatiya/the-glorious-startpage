@@ -69,8 +69,7 @@
 	backdrop-filter: blur(var(--blur-strength));
 	
 	text-align: center;
-	font-family: sans;
-	font-weight: 500;
+	font-family: roboto-bold;
 	color: var(--panel-color);
 	
 	border: none;
@@ -203,9 +202,8 @@
 /*Web label/name*/
 .webItemName {
 	text-align: center;
-	font-size: 10pt;
-	font-weight: 500;
-	font-family: sans;
+	font-size: 11pt;
+	font-family: roboto;
 	word-wrap: break-word;
 	color: var(--base-color);
 
