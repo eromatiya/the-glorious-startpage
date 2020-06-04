@@ -24,13 +24,6 @@ const hideDashboard = () => {
 
 const toggleDashboard = () => {
 
-    // If profile anim is still running,
-    // Return to avoid spam
-	if (profileAnimRunning) return;
-
-	// Rotate profile
-    rotateProfile();
-
     if (rightDashboardVisibility) {
     	// Hide search box
     	hideDashboard();  	
