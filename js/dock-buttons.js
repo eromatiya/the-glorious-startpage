@@ -36,15 +36,6 @@ const addCallbackEvent = (element, callback) => {
 // Generate buttons from array
 const generateFromList = () => {
 
-    // Create launcher button
-    generateFromManual(
-        'Launch',
-        'launch', 
-        () => {
-            // Toggle site pad
-        }
-    );
-
     for (i = 0; i < (dockSites.length); i++) {
 
         var site = dockSites[i].site;
@@ -66,13 +57,29 @@ const generateFromList = () => {
         dockButton.appendChild(buttonImage);
         dock.appendChild(dockButton);
     };
+}
+
+const populateDock = () => {
+    
+    // Create launcher button
+    generateFromManual(
+        'Launch',
+        'launch', 
+        () => {
+            // Toggle web pad
+            alert('toggle web pad');
+        }
+    );
+
+    // Create dock buttons fetched from sites-list.js
+    generateFromList();
 
     // Create weather button
     generateFromManual(
         'Weather',
         'weather', 
         () => {
-            weatherToggle();
+            alert('toggle weather creen');
         }
     );
 
@@ -81,11 +88,13 @@ const generateFromList = () => {
         'Dashboard',
         'dashboard', 
         () => {
-
             // Toggle dashboard
+            alert('toggle dashboard');
         }
     );
+
 }
 
-window.onload =  generateFromList();
+// Populate dock
+window.onload =  populateDock();
 
