@@ -1,12 +1,5 @@
 var dock = document.getElementById('dock');
 
-// Create mouse event for passed div
-const addMouseUpEvent = (li, url) => {
-    li.onmouseup = () => {
-        window.location.href = encodeURI(url);
-    }
-}
-
 // Generate button from user
 const generateFromManual = (id, icon, callback) => {
 
@@ -28,10 +21,6 @@ const generateFromManual = (id, icon, callback) => {
     dock.appendChild(dockButton);
 }
 
-// Create callback event for onmouse up
-const addCallbackEvent = (element, callback) => {
-    element.onmouseup = callback;
-}
 
 // Generate buttons from array
 const generateFromList = () => {
@@ -42,10 +31,13 @@ const generateFromList = () => {
         var icon = dockSites[i].icon;
         var url = dockSites[i].url;
 
+        var aDock = document.createElement('a');
+        aDock.className = 'dockLink';
+        aDock.href = url;
+
         var dockButton = document.createElement('div');
         dockButton.id = 'button' + i;
         dockButton.className = 'dockButton';
-        addMouseUpEvent(dockButton, url);
 
         var buttonImage = document.createElement('div');
         buttonImage.id = 'buttonImage' + i;
@@ -55,7 +47,8 @@ const generateFromList = () => {
 
         // Append divs
         dockButton.appendChild(buttonImage);
-        dock.appendChild(dockButton);
+        aDock.appendChild(dockButton);
+        dock.appendChild(aDock);
     };
 }
 

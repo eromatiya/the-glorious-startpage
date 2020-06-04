@@ -22,6 +22,4 @@ const toggleCenteredBox = () => {
     	// Show Web menu
     	showCenteredBox();
     }
-   
-	console.log('toggle web menu');
 }

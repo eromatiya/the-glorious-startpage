@@ -9,15 +9,10 @@ let webItemFocus;
 let webListIndex = 0;
 
 // Create mouse event for passed li
-const createMouseUpEvent = (li, url) => {
+const createCallback = (li, url) => {
 	// Create a callback property for the passed li
 	li.callback = () => {
 		window.location.href = encodeURI(url);
-	}
-
-	// Create onmouseup event for the li
-	li.onmouseup = () => {
-		li.callback();
 	}
 }
 
@@ -41,7 +36,11 @@ const populateWebMenu = () => {
 		var li = document.createElement('li');
 
 		// Add mouseup event
-		createMouseUpEvent(li, url);
+		createCallback(li, url);
+
+		var aWebLink = document.createElement('a');
+		aWebLink.className = 'webMenuLink';
+		aWebLink.href = url;
 
 		// Create an outer div, child of li
 		let webItemDiv = document.createElement('div')
@@ -79,7 +78,9 @@ const populateWebMenu = () => {
 		webItemBody.appendChild(webItemIconContainer);
 		webItemBody.appendChild(webItemName);
 
-		li.appendChild(webItemDiv);
+		aWebLink.appendChild(webItemDiv);
+
+		li.appendChild(aWebLink);
 		webMenuList.appendChild(li);
 	}
 

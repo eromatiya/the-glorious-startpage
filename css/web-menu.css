@@ -243,3 +243,20 @@
 		transform: scale(1); 
 	}
 }
+
+/*The a href container/main web menu button container*/
+.webMenuLink {
+	/*Act as div*/
+	display: block;
+
+	/*Remove outlines*/
+	text-decoration: none;
+	outline: 0;
+	border: none;
+	-moz-outline-style: none;
+
+	/*Disable dragging*/
+	user-select: none;
+	user-drag: none;
+	-webkit-user-drag: none;
+}
