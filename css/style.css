@@ -4,6 +4,7 @@
 @import url('top-panel.css');
 @import url('clock.css');
 @import url('dock.css');
+@import url('dock-buttons.css');
 
 :root {
 	/* Colors */
