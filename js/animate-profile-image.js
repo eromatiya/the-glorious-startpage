@@ -33,5 +33,11 @@ profileContainer.addEventListener(
 
 // Animate/Show searchbox if profile container was clicked
 profileContainer.onclick = () => {
-	rotateProfile();
+    if (profileAnimRunning) return;
+
+    // Rotate profile
+	// rotateProfile();
+
+    // Toggle search box
+    toggleSearchBox();
 };

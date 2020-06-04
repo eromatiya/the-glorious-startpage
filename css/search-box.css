@@ -23,14 +23,13 @@
 	
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
-	transition: opacity var(--transition-speed), 
-				top var(--transition-speed), 
-				visibility var(--transition-speed), 
-				pointer-events var(--transition-speed) ; 
+	transition: opacity var(--transition-speed),
+				top var(--transition-speed),
+				pointer-events var(--transition-speed);
 }
 
-#searchBox.show {
-	opacity: 1;
-	top: 100%;
-	pointer-events: initial;
+.showSearchBox {
+	opacity: 1 !important;
+	top: 100% !important;
+	pointer-events: initial !important;
 }
