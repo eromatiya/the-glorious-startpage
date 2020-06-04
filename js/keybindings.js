@@ -23,13 +23,19 @@ document.addEventListener(
 
         if (event.key === 'Escape') {
             
-            // If searchbox is visible, hide and clear input field
+            // If any of this are open, close it
             if (searchBoxVisility) {
                 // Hide searchbox
                 toggleSearchBox();
                 searchBox.value = '';
                 return;
-            };
+            } else if (weatherScreenVisibility) {
+                toggleWeatherScreen();
+                return;
+            } else if (rightDashboardVisibility) {
+                toggleDashboard();
+                return;
+            }
 
             // Show web menu
             toggleWebMenu();
