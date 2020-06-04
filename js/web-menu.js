@@ -155,11 +155,11 @@ webMenuSearchBox.onkeydown = (event) => {
 		webItemFocus.callback();
 
 		// Hide web menu
-		// webMenuToggle();
+		toggleWebMenu();
 
 	} else if (event.key === 'Backspace' && webMenuSearchBox.value.length  < 1) {
 		// Hide web menu if backspace is pressed and searchbox value is 0
-		// webMenuToggle();
+		toggleWebMenu();
 
 	} else if ((event.key === 'Escape') || (event.key === 'Alt')) {
 		// Ignore escape and alt key
