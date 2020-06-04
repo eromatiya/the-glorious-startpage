@@ -23,7 +23,7 @@
 
 | Web Menu | Weather Forecast |
 | --- | --- |
-| ![screenshot](/scrots/mobile-webmenu.jpg) | ![screenshot](/mobile-scrots/weather.jpg) |
+| ![screenshot](/scrots/mobile-webmenu.jpg) | ![screenshot](/scrots/mobile-weather.jpg) |
 
 ## Features
 
