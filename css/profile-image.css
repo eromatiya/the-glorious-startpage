@@ -29,3 +29,14 @@
   	justify-content: center;
   	align-items: center;
 }
+
+.rotateProfileAnim {
+	animation: rotate var(--transition-speed) 1;
+	animation-iteration-count: 1;
+	animation-play-state: paused;
+}
+
+@keyframes rotate {
+    from { -webkit-transform: rotate(0deg) } 
+    to { -webkit-transform: rotate(360deg) } 
+}
