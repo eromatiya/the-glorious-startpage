@@ -40,3 +40,27 @@
 	z-index: 7 !important;
 	scrollbar-width: none !important;
 }
+
+/*Overlay*/
+.dashboardOverlay {
+	position: absolute;
+	visibility: none;
+	
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	
+	margin: 0;
+	padding: 0;
+	
+	z-index: -2;
+	filter: blur(var(--blur-strength)) brightness(70%);
+	transition: visibility var(--transition-speed),
+				z-index var(--transition-speed);
+}
+
+.showDashboardOverlay {
+	visibility: visible !important;
+	z-index: 6 !important;
+}
