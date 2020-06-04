@@ -31,14 +31,17 @@ const generateFromList = () => {
         var icon = dockSites[i].icon;
         var url = dockSites[i].url;
 
+        // Create a href
         var aDock = document.createElement('a');
         aDock.className = 'dockLink';
         aDock.href = url;
 
+        // Create div container
         var dockButton = document.createElement('div');
         dockButton.id = 'button' + i;
         dockButton.className = 'dockButton';
 
+        // Create div container for button icon
         var buttonImage = document.createElement('div');
         buttonImage.id = 'buttonImage' + i;
         buttonImage.className = 'dockButtonImage';

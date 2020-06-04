@@ -38,6 +38,7 @@ const populateWebMenu = () => {
 		// Add mouseup event
 		createCallback(li, url);
 
+		// Create a href
 		var aWebLink = document.createElement('a');
 		aWebLink.className = 'webMenuLink';
 		aWebLink.href = url;
