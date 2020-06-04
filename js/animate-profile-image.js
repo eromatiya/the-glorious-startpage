@@ -18,6 +18,7 @@ const rotateProfile = () => {
     // Re-add animation class
     profileContainer.classList.add('rotateProfileAnim');
 
+    // Start rotation animation
     profileContainer.style.webkitAnimationPlayState = "running";
     profileAnimRunning = true;
 }
