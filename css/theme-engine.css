@@ -99,13 +99,6 @@ select::-ms-expand {
 	background: var(--base-active-bg);
 }
 
-@media screen and (max-width: 580px) {
-	.themeEngine {
-		width: 96vw;
-		box-sizing: border-box;
-	}
-}
-
 .themeEngineGroups {
 	margin-top: 5px;
 }
@@ -157,4 +150,11 @@ select::-ms-expand {
 	border-radius: 6px;
 	color: var(--base-color);
 	background: var(--panel-bg);
+}
+
+@media screen and (max-width: 580px) {
+	.themeEngine {
+		width: 96vw;
+		box-sizing: border-box;
+	}
 }

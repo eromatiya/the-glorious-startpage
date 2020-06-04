@@ -40,21 +40,6 @@
 	z-index var(--transition-speed);
 }
 
-@media screen and (max-width: 580px) {
-	#weatherScreen {
-		padding-top: 6vh;
-		padding-bottom: 0vh;
-		padding-left: 18vw;
-		padding-right: 18vw;
-	}
-}
-
-@media screen and (max-height: 799px) {
-	#weatherScreen {
-		padding-top: 40px;
-	}
-}
-
 .showWeatherScreen{
 	transform: scale(1) !important;
 	opacity: 1 !important;
@@ -200,6 +185,21 @@
 /*Right side*/
 .weatherForecastDayDate {
 	clear:both;
+}
+
+@media screen and (max-width: 580px) {
+	#weatherScreen {
+		padding-top: 6vh;
+		padding-bottom: 0vh;
+		padding-left: 18vw;
+		padding-right: 18vw;
+	}
+}
+
+@media screen and (max-height: 799px) {
+	#weatherScreen {
+		padding-top: 40px;
+	}
 }
 
 @media screen and (max-width: 580px) {

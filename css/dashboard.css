@@ -21,6 +21,7 @@
 
 #rightDashboard {
 	width: 0;
+	top: 0;
 	right: 0;
 	position: absolute;
 	overflow-x: hidden;
@@ -63,4 +64,11 @@
 .showDashboardOverlay {
 	visibility: visible !important;
 	z-index: 6 !important;
+}
+
+@media screen and (max-width: 580px) {
+	.showRightDashboard {
+		width: 100vw !important;
+		margin-right: 0 !important;
+	}
 }

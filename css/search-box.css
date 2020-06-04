@@ -33,3 +33,10 @@
 	top: 100% !important;
 	pointer-events: initial !important;
 }
+
+@media screen and (max-width: 580px) {
+	#searchBox {
+    	width: 50vw;
+	}
+}
+
