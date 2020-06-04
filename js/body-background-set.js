@@ -1,34 +1,43 @@
-// High quality background, we'll lazy load this
-var hqBG = document.createElement("img");
 var backgroundBody = document.getElementById('bodyBackground') 
 
+// High quality background, we'll lazy load this
+var hqBackground = document.createElement("img");
+
 // Style body background
-const styleBodyBackground = () => {
-	backgroundBody.style.backgroundSize = 'cover';
-	backgroundBody.style.backgroundRepeat =  "no-repeat";
-	backgroundBody.style.backgroundPosition = "center";
-	backgroundBody.style.backgroundAttachment = "fixed";
+const styleBodyBackground = (bgBodyStyle) => {
+	bgBodyStyle.backgroundSize = 'cover';
+	bgBodyStyle.backgroundRepeat =  "no-repeat";
+	bgBodyStyle.backgroundPosition = "center";
+	bgBodyStyle.backgroundAttachment = "fixed";
 } 
 
 const lazyLoadBackground = (fileName) => {
 
-	// Set a low quality background image 
-	backgroundBody.style.background = "url('assets/backgrounds/" + 
-	fileName + "-low" + ".webp')";
-	styleBodyBackground();
-	backgroundBody.className = "blurredBodyBackground";
+	// Shorten backgroundBody.style or alias it
+	var bgBodyStyle = backgroundBody.style;
 
-	hqBG.onload = function() {
+	// Set a low quality background image 
+	bgBodyStyle.background = "url('assets/backgrounds/" + 
+	fileName + "-low" + ".webp')";
+	styleBodyBackground(bgBodyStyle);
+
+	// Add a class to blur it
+	backgroundBody.classList.add("blurFiltered");
+
+	hqBackground.onload = () => {
+		
 		// After downloading the HQ image, set it as bg
-		backgroundBody.style.background = "url("+ hqBG.src; + ")";
-		styleBodyBackground();
-		backgroundBody.className = "unblurredBodyBackground";
+		backgroundBody.style.background = "url("+ hqBackground.src; + ")";
+		styleBodyBackground(bgBodyStyle);
+
+		// Remove class to unblur
+		backgroundBody.classList.remove("blurFiltered");
 	}
 
 	// Add a delay when to fetch background
 	setTimeout(
-		function() {
-			hqBG.src = "assets/backgrounds/" + 
+		() => {
+			hqBackground.src = "assets/backgrounds/" + 
 			fileName + ".webp";
 		},
 		50

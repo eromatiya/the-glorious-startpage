@@ -9,15 +9,11 @@
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
+	transition: all 3s;
 	color: var(--foreground);
 }
 
-.blurredBodyBackground {
+.blurFiltered {
 	filter: blur(5px);
 	-webkit-filter: blur(5px);
-	transition: all 1s;
-}
-
-.unblurredBodyBackground {
-	transition: all 1s;
 }
