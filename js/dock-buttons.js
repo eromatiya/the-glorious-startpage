@@ -12,20 +12,20 @@ const generateFromManual = (id, icon, callback) => {
 
     var customButtonCallback;
 
-    var buttonContainer = document.createElement('div');
-    buttonContainer.id = 'button' + id;
-    buttonContainer.className = 'buttonContainer';
+    var dockButton = document.createElement('div');
+    dockButton.id = 'button' + id;
+    dockButton.className = 'dockButton';
     
-    buttonContainer.onmouseup = callback;
+    dockButton.onmouseup = callback;
     
     var buttonImage = document.createElement('div');
     buttonImage.id = 'buttonImage' + id;
-    buttonImage.className = 'bottomButton';
+    buttonImage.className = 'dockButtonImage';
     buttonImage.style.background = "url('assets/buttons/" + icon + ".svg')";
     buttonImage.style.backgroundSize = 'cover';
 
-    buttonContainer.appendChild(buttonImage);
-    dock.appendChild(buttonContainer);
+    dockButton.appendChild(buttonImage);
+    dock.appendChild(dockButton);
 }
 
 // Create callback event for onmouse up
@@ -51,20 +51,20 @@ const generateFromList = () => {
         var icon = dockSites[i].icon;
         var url = dockSites[i].url;
 
-        var buttonContainer = document.createElement('div');
-        buttonContainer.id = 'button' + i;
-        buttonContainer.className = 'buttonContainer';
-        addMouseUpEvent(buttonContainer, url);
+        var dockButton = document.createElement('div');
+        dockButton.id = 'button' + i;
+        dockButton.className = 'dockButton';
+        addMouseUpEvent(dockButton, url);
 
         var buttonImage = document.createElement('div');
         buttonImage.id = 'buttonImage' + i;
-        buttonImage.className = 'bottomButton';
+        buttonImage.className = 'dockButtonImage';
         buttonImage.style.background = "url('assets/webcons/" + icon + ".svg')";
         buttonImage.style.backgroundSize = 'cover';
 
         // Append divs
-        buttonContainer.appendChild(buttonImage);
-        dock.appendChild(buttonContainer);
+        dockButton.appendChild(buttonImage);
+        dock.appendChild(dockButton);
     };
 
     // Create weather button
