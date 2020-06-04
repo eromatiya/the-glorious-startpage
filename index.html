@@ -61,6 +61,48 @@
 			<div id="dateMessage"></div>
 
 
+			<!-- Weather Settings -->
+			<div class="weatherSettings">
+				<div id="weatherSettingsPadding">
+
+					<div class="header" id="weatherSettingsHeader">
+						<div class="headerIcon" id="weatherSettingsHeaderIcon"></div>
+						<div class="headerLabel" id="weatherSettingsHeaderLabel">Weather Settings</div>
+					</div>
+
+					<div id="weatherSettingsContainer">
+						<div class="weatherSettingsGroups">
+							<div class="weatherSettingsLabels">
+								API Key
+							</div>
+							<input type="text" class="weatherSettingsInputs" id="apiBox" autocomplete="off" placeholder="API KEY"/>
+						</div>
+						<div class="weatherSettingsGroups">
+							<div class="weatherSettingsLabels">
+								City ID
+							</div>
+							<input type="text" class="weatherSettingsInputs" id="cityBox" autocomplete="off" placeholder="City ID"/>
+						</div>
+						<div class="weatherSettingsGroups">
+							<div class="weatherSettingsLabels">
+								Units
+							</div>
+							<select class="weatherSettingsInputs" id="weatherSelectUnits">
+								<option value="metric">Metric</option>
+							  	<option value="imperial">Imperial</option>
+							</select>
+						</div>
+
+						<div class="weatherSettingsGroups" id="weatherSettingsButtons">
+							<div class="weatherSettingsInputs" id="weatherSettingsReset">Clear Credentials</div>
+							<div class="weatherSettingsInputs" id="weatherSettingsApply">Apply</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
 			<!-- Select search engine -->
 			<div class="searchEngine">
 				<div id="searchEnginePadding">

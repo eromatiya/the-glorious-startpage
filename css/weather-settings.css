@@ -1,0 +1,126 @@
+.weatherSettings {
+	font-family: roboto;
+	width: 100%;
+	height: auto;
+	position: relative;;
+	border-radius: 6px;
+	color: var(--base-color);
+	background: var(--base-container);
+	margin-top: 10px;
+}
+
+#weatherSettingsPadding {
+	padding: 5px;
+	height: auto;
+}
+
+#weatherSettingsHeader {
+	height: 32px;
+	width: 100%;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+}
+
+#weatherSettingsHeaderIcon {
+	background: url('../assets/ui-icons/weather.svg');
+	background-size: cover;
+	margin-right: 10px;
+	width: 28px;
+	height: 28px;
+}
+
+#weatherSettingsHeaderLabel {
+	text-align: left;
+	font-weight: bold;
+	font-size: 14pt;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+/*Main settings*/
+.weatherSettingsGroups {
+	height: auto;
+	width: 100%;
+	margin-top: 5px;
+}
+
+.weatherSettingsLabels {
+	font-size: 12pt;
+	text-align: left;
+}
+
+.weatherSettingsInputs {
+	height: 32px;
+	width: 100%;
+	box-sizing: border-box;
+	margin-top: 5px;
+	border: none;
+	text-align: center;
+	border-radius: 6px;
+	color: var(--base-color);
+	background: var(--panel-bg);
+
+	/*Center vertically*/
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+#weatherSelectUnits {
+	background: var(--base-container);
+	color: var(--base-color);
+
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+#weatherSelectUnits:hover {
+	cursor: pointer;
+}
+
+#weatherSelectUnits option {
+	color: initial;
+	border: none;
+}
+
+#weatherSettingsApply, #weatherSettingsReset {
+	margin-top: 0;
+	background: var(--base-container) !important;
+}
+
+#weatherSettingsApply {
+	margin-left: 2.5px;
+}
+
+#weatherSettingsReset {
+	margin-right: 2.5px;
+}
+
+#weatherSettingsApply:hover, #weatherSettingsReset:hover {
+	background: var(--base-hover-bg) !important;
+	cursor: pointer;
+}
+
+#weatherSettingsApply:active, #weatherSettingsReset:active {
+	background: var(--base-active-bg) !important;
+}
+
+#weatherSettingsButtons {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+}
+
+#weatherSettingsContainer {
+	height: auto;
+}
+
+@media screen and (max-width: 580px) {
+	.weatherSettings {
+		width: 96vw;
+		box-sizing: border-box;
+	}
+}
