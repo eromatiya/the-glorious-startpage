@@ -10,6 +10,7 @@
 @import url('profile-image.css');
 @import url('search-box.css');
 @import url('dashboard.css');
+@import url('greeter-date-message.css');
 
 :root {
 	/* Colors */
