@@ -1,0 +1,31 @@
+.dockContainer {
+	background: transparent;
+	position: absolute;
+	z-index: 5;
+    margin: 0 auto;
+    bottom: 0;
+
+	/*On bottom, center horizontally*/
+	left: 50%;
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+
+	/*Add transition*/
+	transition: opacity var(--transition-speed);
+}
+
+#dock {
+	background: var(--panel-bg);
+    border-radius: var(--rounded-radius);
+    
+	display: flex;
+	position: relative;
+	height: auto;
+	width: auto;
+	
+	padding: 5px;
+	margin: 10px;
+
+    transition: transform var(--transition-speed);
+	z-index: 1 !important;
+}

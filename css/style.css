@@ -3,6 +3,7 @@
 @import url('bar.css');
 @import url('top-panel.css');
 @import url('clock.css');
+@import url('dock.css');
 
 :root {
 	/* Colors */

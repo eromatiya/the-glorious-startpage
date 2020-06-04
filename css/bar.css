@@ -1,4 +1,5 @@
 .bar {
-	z-index: 5;
+	background: var(--panel-bg);
 	backdrop-filter: blur(var(--blur-strength));
+	z-index: 5;
 }
