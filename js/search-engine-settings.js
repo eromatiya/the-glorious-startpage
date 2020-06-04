@@ -52,7 +52,6 @@ selectEngine.onchange = () => {
 	var selectedEngine = selectEngine.options[selectEngine.selectedIndex].value;
 	defaultEngine = selectedEngine;
 	selectTheEngine()
-
 }
 
 searchEngineAsDefault.onmouseup = () => {

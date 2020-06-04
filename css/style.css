@@ -12,6 +12,7 @@
 @import url('dashboard.css');
 @import url('greeter-date-message.css');
 @import url('search-engine-settings.css');
+@import url('theme-engine.css');
 
 :root {
 	/* Colors */
