@@ -1,0 +1,42 @@
+.dashboard {
+	background: var(--panel-bg);
+	height: 100%;
+	z-index: 7;
+	/*border-radius: var(--rounded-radius);*/
+	backdrop-filter: blur(var(--blur-strength));
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.rightDashboardBody {
+	margin: 10px;
+	height: auto;
+    width: 330px;
+}
+
+#rightDashboard {
+	width: 0;
+	right: 0;
+	position: absolute;
+	overflow-x: hidden;
+	overflow-y: auto;
+	box-sizing: border-box;
+	scrollbar-width: none;
+	transition: width var(--transition-speed); 
+}
+
+/*Hide scrollbar*/
+#rightDashboard::-webkit-scrollbar {
+    display: none;
+}
+
+.showRightDashboard {
+	width: 350px !important;
+	z-index: 7 !important;
+	scrollbar-width: none !important;
+}

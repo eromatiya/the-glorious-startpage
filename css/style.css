@@ -9,6 +9,7 @@
 @import url('centered-box-overlay.css');
 @import url('profile-image.css');
 @import url('search-box.css');
+@import url('dashboard.css');
 
 :root {
 	/* Colors */

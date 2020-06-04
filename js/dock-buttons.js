@@ -89,7 +89,7 @@ const populateDock = () => {
         'dashboard', 
         () => {
             // Toggle dashboard
-            alert('toggle dashboard');
+            toggleDashboard();
         }
     );
 
