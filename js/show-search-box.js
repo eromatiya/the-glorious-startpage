@@ -1,4 +1,5 @@
 var searchBox = document.getElementById('searchBox');
+var centeredBoxOverlay = document.getElementById('centeredBoxOverlay');
 
 let searchBoxVisility = false;
 
@@ -34,6 +35,9 @@ const toggleSearchBox = () => {
     	// Show search box
     	showSearchBox();  	
     }
+
+    // Show overlay
+    centeredBoxOverlay.classList.toggle('showOverlay');
 
 	console.log('toggle searchbox');
 }
