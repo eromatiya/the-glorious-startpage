@@ -15,6 +15,7 @@
 @import url('theme-engine.css');
 @import url('weather-screen.css');
 @import url('weather-settings.css');
+@import url('web-menu.css');
 
 :root {
 	/* Colors */

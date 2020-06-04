@@ -66,8 +66,8 @@ const populateDock = () => {
         'Launch',
         'launch', 
         () => {
-            // Toggle web pad
-            alert('toggle web pad');
+            // Toggle web menu
+            toggleWebMenu();
         }
     );
 

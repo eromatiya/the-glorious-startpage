@@ -25,11 +25,11 @@ const hideDashboard = () => {
 const toggleDashboard = () => {
 
     if (rightDashboardVisibility) {
-    	// Hide search box
+    	// Hide dashboard
     	hideDashboard();  	
 
     } else {
-    	// Show search box
+    	// Show dashboard
     	showDashboard();
     }
 

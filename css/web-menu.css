@@ -1,0 +1,245 @@
+#webMenu {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background: var(--panel-bg);
+	z-index: 0;
+	overflow: hidden;
+	backdrop-filter: blur(var(--blur-strength));
+	
+	padding-top: 6vh;
+	padding-bottom: 6vh;
+	padding-left: 12vw;
+	padding-right: 12vw;
+
+	/*Dont increase the geometry by using padding*/
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	/*Disable user touch/select on text elements*/
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	/*Transitions*/
+	opacity: 0;
+	transform: scale(0);
+	transition: transform var(--transition-speed),
+	opacity var(--transition-speed),
+	z-index var(--transition-speed);
+}
+
+@media screen and (max-width: 580px) {
+	#webMenu {
+		padding-top: 6vh;
+		padding-bottom: 0vh;
+		padding-left: 18vw;
+		padding-right: 18vw;
+	}
+}
+
+@media screen and (max-height: 799px) {
+	#webMenu {
+		padding-top: 40px;
+	}
+}
+
+/*Show web menu*/
+.showWebMenu {
+	transform: scale(1) !important;
+	opacity: 1 !important;
+	z-index: 3 !important;
+}
+
+#webMenuContainer {
+	background: transparent;
+	max-height: 100%;
+
+	overflow: hidden;
+}
+
+#webMenuSearchBox {
+	background: var(--base-container);
+	
+	text-align: center;
+	font-family: roboto-bold;
+	color: var(--panel-color);
+	
+	border: none;
+	border-radius: 6px;
+	
+	width: 25%;
+	height: 36px;
+	margin: 0;
+}
+
+@media screen and (max-width: 580px) {
+	#webMenuSearchBox {
+		width: 50vw;
+	}
+}
+
+#webMenuSearchBoxContainer {
+	/*Center horizontally*/
+	position: relative;
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+
+	margin-bottom: 20px;
+}
+
+/*Web menu list*/
+
+/*UL*/
+#webMenuList {
+	list-style-type: none;
+	padding: 0;
+	margin: 0 auto;
+	text-align: justify;
+
+	background: transparent;
+}
+
+/*List*/
+#webMenuList li {
+	/*Align list horizontally*/
+	display: inline-block;
+}
+
+@media screen and (max-width: 580px) {
+	#webMenuList li {
+		display: inline;
+	}
+}
+
+#webMenuList li.selected {
+	background: var(--base-active-bg);
+	border-radius: var(--rounded-radius);
+	transition: transform var(--transition-speed);
+}
+
+/*Child of li*/
+.webItem {
+	background: transparent;
+	width: 128px;
+	height: 128px;
+	margin: 5px;
+	cursor: pointer;
+	border-radius: var(--rounded-radius);
+}
+
+.webItem:hover {
+	background: var(--base-hover-bg);
+}
+
+.webItem:active {
+	background: var(--base-active-bg);
+}
+
+.webItemFocus {
+	width: 128px;
+	height: 128px;
+	margin: 5px;
+	border-radius: var(--rounded-radius);
+	background: var(--base-hover-bg);
+}
+
+.webItemFocus:hover {
+	background: var(--base-hover-bg);
+}
+
+.webItemFocus:active {
+	background: var(--base-active-bg);
+}
+
+/*Contains web icon and label*/
+.webItemContainer {
+	/*Align vertically*/
+	margin:0  auto;
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+
+	/*Align horizontally*/
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+
+	padding: 5px;
+}
+
+/*Web icon container*/
+.webItemIconContainer {
+	position: relative;
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+}
+
+.webItemIcon {
+	height: 64px;
+	width: 64px;
+	margin-bottom: 0;
+}
+
+/*Web label/name*/
+.webItemName {
+	text-align: center;
+	font-size: 11pt;
+	font-family: roboto;
+	word-wrap: break-word;
+	color: var(--base-color);
+
+}
+
+#webMenuListContainer {
+	position: relative;
+	max-height: 70vh;
+
+	display: flex;
+  	justify-content: center;
+
+	overflow-y: scroll;
+	/*scrollbar-width: none !important;
+	-ms-overflow-style: none !important;*/
+
+	/*Fade transparency*/
+	/*-webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);*/
+	/*mask-image: linear-gradient(to bottom, black 85%, transparent 100%);*/
+}
+
+/*Hide scrollbar*/
+/*#webMenuListContainer::-webkit-scrollbar {
+    display: none;
+}*/
+
+/*Stretch list item if screen width < 580px*/
+@media screen and (max-width: 580px) {
+	#webMenuList {
+		flex-grow: 1;
+	}
+	
+	.webItem {
+		width: auto;
+	}
+
+	.webItem:hover {
+		-ms-transform: scale(1);
+		-webkit-transform: scale(1);
+		transform: scale(1); 
+	}
+
+	.webItemFocus {
+		-ms-transform: scale(1);
+		-webkit-transform: scale(1);
+		transform: scale(1); 
+	}
+}
