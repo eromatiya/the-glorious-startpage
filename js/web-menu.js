@@ -200,6 +200,8 @@ const hideWebMenu = () => {
 
 const toggleWebMenu = () => {
 
+	console.log('toggle web menu');
+
     // If profile anim is still running,
     // Return to avoid spam
 	if (profileAnimRunning) return;
@@ -216,10 +218,19 @@ const toggleWebMenu = () => {
     	showWebMenu();
     }
 
+    // Check if any of these are open, if yes, close it
+    if (weatherScreen.classList.contains('showWeatherScreen')) {
+    	console.log('weather screen is open, closing...');
+    	hideWeatherScreen();
+    	return
+    } else if (dashboard.classList.contains('showRightDashboard')) {
+    	console.log('dashboard is open, closing...');
+    	hideDashboard();
+    	return;
+    }
+
     // Toggle center box
-    toggleCenteredBox();
-    
-	console.log('toggle web menu');
+    toggleCenteredBox();   
 }
 
 // Remove class to focused item
