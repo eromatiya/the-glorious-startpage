@@ -79,7 +79,8 @@ const populateDock = () => {
         'Weather',
         'weather', 
         () => {
-            alert('toggle weather creen');
+            // Toggle weather screen
+            toggleWeatherScreen();
         }
     );
 

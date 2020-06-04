@@ -13,6 +13,7 @@
 @import url('greeter-date-message.css');
 @import url('search-engine-settings.css');
 @import url('theme-engine.css');
+@import url('weather-screen.css');
 
 :root {
 	/* Colors */

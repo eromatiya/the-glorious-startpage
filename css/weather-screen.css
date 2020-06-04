@@ -1,0 +1,247 @@
+#weatherScreen {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background: var(--panel-bg);
+	/*z-index: 0;*/
+	z-index: 3;
+	overflow: hidden;
+	backdrop-filter: blur(var(--blur-strength));
+
+	display:flex;
+    justify-content:center;
+    align-items:center;
+
+	padding-top: 6vh;
+	padding-bottom: 6vh;
+	padding-left: 12vw;
+	padding-right: 12vw;
+
+	/*Dont increase the geometry by using padding*/
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	/*Disable user touch/select on text elements*/
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	opacity: 0;
+	transform: scale(0);
+	transition: transform var(--transition-speed),
+	opacity var(--transition-speed),
+	z-index var(--transition-speed);
+}
+
+@media screen and (max-width: 580px) {
+	#weatherScreen {
+		padding-top: 6vh;
+		padding-bottom: 0vh;
+		padding-left: 18vw;
+		padding-right: 18vw;
+	}
+}
+
+@media screen and (max-height: 799px) {
+	#weatherScreen {
+		padding-top: 40px;
+	}
+}
+
+.showWeatherScreen{
+	transform: scale(1) !important;
+	opacity: 1 !important;
+	z-index: 3 !important;
+}
+
+#weatherScreenContainer {
+	overflow: hidden;
+    position: relative;
+
+    /*Align vertically center*/
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+#weatherTodayIcon {
+	background: url('../assets/weather-icons/weather-error.svg');
+	background-size: cover;
+	width: 128px;
+	height: 128px;
+
+	position: relative;
+	left: 50%;
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+#weatherTodayLocation {
+	color: var(--base-color);
+	font-family: roboto;
+	font-size: 16pt;
+	text-align: center;
+	position: relative;
+}
+
+#weatherTodayDescription {
+	color: var(--base-color);
+	font-family: roboto-bold;
+	font-size: 20pt;
+	text-align: center;
+	position: relative;
+}
+
+#weatherHourDataTodayContainer,
+.weatherDataHour {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.hourDataIcon {
+	height: 22px;
+	width: 22px;
+	background-size: cover;
+}
+
+.hourDataLabel {
+	color: var(--base-color);
+	font-family: roboto;
+	font-size: 14pt;
+	text-align: center;
+}
+
+#sunriseHourDataIcon {
+	background: url("../assets/weather-icons/sunrise.svg");
+	background-size: cover;
+
+}
+
+#sunsetHourDataIcon {
+	background: url("../assets/weather-icons/sunset.svg");
+	background-size: cover;
+	margin-left: 5px
+}
+
+#updateHourDataIcon {
+	background: url("../assets/weather-icons/refresh.svg");
+	background-size: cover;
+	margin-left: 5px
+}
+
+
+.weatherForecast {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+
+/*Forecast Container*/
+.weatherForecastDay {
+	text-align: center;
+	margin-top: 20px;
+
+	float: left;
+	clear: both;
+	margin-left: 10px;
+}
+
+/*Add fixed geometry to weatherForecastDay children*/
+.weatherForecastDay > div {
+	width: 100px;
+	height: 60px;
+}
+
+.weatherForecastDayIconContainer {
+	clear:both;
+}
+
+.weatherForecastDayIcon {
+	background: url('../assets/weather-icons/weather-error.svg');
+	background-size: cover;
+	width: 48px;
+	height: 48px;
+
+	position: relative;
+	left: 50%;
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+/*Center*/
+.weatherForecastDayDetails {
+
+	clear:both;
+}
+
+.weatherForecastDayDetailsTemperature,
+.weatherForecastDayDetailsDescription,
+.weatherForecastDayDate {
+	color: var(--base-color);
+	font-family: roboto;
+	font-size: 11pt;
+	text-align: center;
+}
+
+/*Right side*/
+.weatherForecastDayDate {
+	clear:both;
+}
+
+@media screen and (max-width: 580px) {
+
+	.weatherForecast {
+		display: inline-block;
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	/*Forecast Container*/
+	.weatherForecastDay {
+		text-align: center;
+		margin-top: 20px;
+
+		float: none;
+		clear: none;
+		margin-left : 0px;
+	}
+
+	/*Add fixed geometry to weatherForecastDay children*/
+	.weatherForecastDay > div {
+		width: 75px;
+		height: 50px;
+	}
+
+	.weatherForecastDayIconContainer {
+		float: left;
+		clear: none;
+	}
+
+	/*Center*/
+	.weatherForecastDayDetails {
+		display: inline-block;
+		margin: 0 auto;
+		clear: none;
+	}
+
+	/*Right side*/
+	.weatherForecastDayDate {
+		float: right;
+		clear: none;
+	}
+
+}

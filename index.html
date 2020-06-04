@@ -81,8 +81,6 @@
 				</div>
 			</div>
 
-
-
 			<!-- Theme engine -->
 			<div class="themeEngine">
 				<div id="themeEnginePadding">
@@ -128,6 +126,44 @@
 	<div class="dashboardOverlay" id="dashboardOverlay"></div>
 
 
+
+
+	<!-- Weather screen -->
+	<div id="weatherScreen">
+		<div id="weatherScreenContainer">
+			<div id="weatherTodayIcon"></div>
+			<div id="weatherTodayLocation">
+				Earth, Milky Way
+			</div>
+			<div id="weatherTodayDescription">
+				dust & clouds, -1000°C
+			</div>
+			<div id="weatherHourDataTodayContainer">
+				<div class="weatherDataHour" id="weatherTodaySunrise">
+					<div class="hourDataIcon" id="sunriseHourDataIcon"></div>
+					<div class="hourDataLabel" id="sunriseTodayHour">00:00</div>
+				</div>
+				<div class="weatherDataHour" id="weatherTodaySunset">
+					<div class="hourDataIcon" id="sunsetHourDataIcon"></div>
+					<div class="hourDataLabel" id="sunsetTodayHour">00:00</div>
+				</div>
+				<div class="weatherDataHour" id="weatherTodayUpdate">
+					<div class="hourDataIcon" id="updateHourDataIcon"></div>
+					<div class="hourDataLabel" id="updateTodayHour">00:00</div>
+				</div>
+			</div>
+			<div class="weatherForecast" id="forecastContainer">
+
+				<!-- Javascript will generate a list here -->
+		
+			</div>
+		</div>
+	</div>
+
+
+
+
+
 	<script src="js/body-background-set.js"></script>
 	<script src="js/clock.js"></script>
 	<script src="js/sites-list.js"></script>
@@ -139,5 +175,6 @@
 	<script src="js/search-engine-settings.js"></script>
 	<script src="js/search-query-send.js"></script>
 	<script src="js/theme-engine.js"></script>
+	<script src="js/weather-screen.js"></script>
 </body>
 </html>
