@@ -1,7 +1,5 @@
 let keysPressed = {};
 
-
-
 document.addEventListener(
     'keydown', 
     (event) => {
@@ -44,7 +42,6 @@ document.addEventListener(
             // and weather screen is open
             if (webMenuVisibility || weatherScreenVisibility ||
             	rightDashboardVisibility) return;
-            
 
             // Dont accept ctrl, alt,
             // left window key, f5, f12, return
@@ -67,8 +64,6 @@ document.addEventListener(
             if ((event.key === 'Backspace' || event.key === 'Enter') && 
                 searchBox.value < 1) { toggleSearchBox(); return; };
         }
-
-
     }
 );
 
