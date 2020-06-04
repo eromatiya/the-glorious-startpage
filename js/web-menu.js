@@ -226,7 +226,6 @@ const toggleWebMenu = () => {
     } else if (dashboard.classList.contains('showRightDashboard')) {
     	console.log('dashboard is open, closing...');
     	hideDashboard();
-    	return;
     }
 
     // Toggle center box

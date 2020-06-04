@@ -265,7 +265,7 @@ const toggleWeatherScreen = () => {
     } else if (dashboard.classList.contains('showRightDashboard')) {
     	console.log('dashboard is open, closing...');
     	hideDashboard();
-    	return;
+    	// return;
     }
 
     // Toggle center box
