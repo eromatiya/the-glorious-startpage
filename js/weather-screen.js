@@ -255,5 +255,8 @@ const toggleWeatherScreen = () => {
     	showWeatherScreen();  	
     }
 
+    // Toggle center box
+    toggleCenteredBox();
+
 	console.log('toggle weather screen');
 }

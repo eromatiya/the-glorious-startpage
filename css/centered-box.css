@@ -11,3 +11,15 @@
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
+
+#centeredBox {
+	opacity: 1;
+	z-index: 2;
+    transition: opacity var(--transition-speed),
+    			z-index var(--transition-speed);
+}
+
+#centeredBox.hiddenBox {
+	opacity: 0 !important;
+	z-index: 0 !important;
+}

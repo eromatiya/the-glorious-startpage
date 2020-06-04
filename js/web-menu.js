@@ -215,6 +215,10 @@ const toggleWebMenu = () => {
     	// Show Web menu
     	showWebMenu();
     }
+
+    // Toggle center box
+    toggleCenteredBox();
+    
 	console.log('toggle web menu');
 }
 
