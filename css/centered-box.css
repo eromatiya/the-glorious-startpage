@@ -19,7 +19,7 @@
     			z-index var(--transition-speed);
 }
 
-#centeredBox.hiddenBox {
+.hiddenBox {
 	opacity: 0 !important;
 	z-index: 0 !important;
 }

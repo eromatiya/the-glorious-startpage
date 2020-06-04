@@ -1,6 +1,27 @@
 var centeredBox = document.getElementById("centeredBox");
 
+let centeredBoxVisibility = true;
+
+const showCenteredBox = () => {
+	centeredBox.classList.remove('hiddenBox');
+    centeredBoxVisibility = !centeredBoxVisibility;
+}
+
+const hideCenteredBox = () => {
+	centeredBox.classList.add('hiddenBox');
+    centeredBoxVisibility = !centeredBoxVisibility;
+}
+
 const toggleCenteredBox = () => {
-    centeredBox.classList.toggle('hiddenBox');
-    console.log('toggle center box');
+
+    if (centeredBoxVisibility) {
+    	// Hide web menu
+    	hideCenteredBox();  	
+
+    } else {
+    	// Show Web menu
+    	showCenteredBox();
+    }
+   
+	console.log('toggle web menu');
 }
