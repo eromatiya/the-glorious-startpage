@@ -88,7 +88,7 @@ const populateWebMenu = () => {
 }
 
 // Fuzzy search
-String.prototype.fuzzy = (term, ratio) => {
+String.prototype.fuzzy = function(term, ratio) {
     var string = this.toLowerCase();
     var compare = term.toLowerCase();
     var matches = 0;
@@ -143,37 +143,11 @@ const filterWebList = () => {
 	}
 }
 
-// Type event on web mmenu search box
-webMenuSearchBox.onkeydown = (event) => {
-
-	// Don't hijack keyboard navigation buttons (up, down, left, right)
-	if ((event.key === 'ArrowRight') || (event.key === 'ArrowDown') || 
-		(event.key === 'ArrowLeft') || (event.key === 'ArrowUp')) return;
-
-	if (event.key === 'Enter' && webItemFocus) {
-		// Run the focused li's callback
-		webItemFocus.callback();
-
-		// Hide web menu
-		toggleWebMenu();
-
-	} else if (event.key === 'Backspace' && webMenuSearchBox.value.length  < 1) {
-		// Hide web menu if backspace is pressed and searchbox value is 0
-		toggleWebMenu();
-
-	} else if ((event.key === 'Escape') || (event.key === 'Alt')) {
-		// Ignore escape and alt key
-		return;
-	}
-
-	// Filter
-	filterWebList();
-}
-
 // Reset focus on web menu close
 const focusReset = () => {
 	var oldWebItemFocus = webItemFocus;
 	var oldWebItemFocusChild = oldWebItemFocus.querySelector('.webItem');
+	
 	oldWebItemFocusChild.classList.remove('webItemFocus');
 	webListIndex = 0;
 }
@@ -193,45 +167,33 @@ const getFirstItem = () => {
 	webItemFocusChildren.classList.add('webItemFocus');
 }
 
-// Show/Hide web menu
-// const webMenuToggle = () => {
-
-// 	webMenuVisible = !webMenuVisible;
-
-// 	hideCenterContainer();
-// 	rotateProfile();
-// 	webMenu.classList.toggle("show");
-
-// 	// Clear and unfocus searchbox
-// 	if (!webMenuVisible) {
-// 		webMenuSearchBox.value = '';
-// 		webMenuSearchBox.blur();
-// 		filterWebList();
-// 		webMenuListContainer.scrollTop = 0;
-		
-// 		focusReset();
-// 		getFirstItem();
-// 	} else {
-// 		// Focus
-// 		webMenuSearchBox.focus();
-// 	}
-
-// 	if(weatherVisible && webMenuVisible) {
-// 		weatherToggle();
-// 	} else if (floatPanelVisible && webMenuVisible) {
-// 		slideDashboard();
-// 		return;
-// 	}
-
-// }
-
-
 const showWebMenu = () => {
 	webMenu.classList.add('showWebMenu');
     webMenuVisibility = !webMenuVisibility;
+
+    // Focus to input field
+    webMenuSearchBox.focus();
 }
 
 const hideWebMenu = () => {
+    // Clear input field
+    webMenuSearchBox.value = '';
+
+    // Unfocus input field
+    webMenuSearchBox.blur();
+
+    // Refilter web list
+    filterWebList();
+	
+	// Scroll to top
+	webMenuListContainer.scrollTop = 0;
+
+	// Reset focus item
+	focusReset();
+
+	// Get first item
+	getFirstItem();
+	
 	webMenu.classList.remove('showWebMenu');
     webMenuVisibility = !webMenuVisibility;
 }
@@ -255,8 +217,6 @@ const toggleWebMenu = () => {
     }
 	console.log('toggle web menu');
 }
-
-
 
 // Remove class to focused item
 const removeClass = (el, className) => {
@@ -330,6 +290,34 @@ webMenu.addEventListener(
 	},
 	false
 );
+
+// Type event on web mmenu search box
+webMenuSearchBox.onkeydown = (event) => {
+
+	// Don't hijack keyboard navigation buttons (up, down, left, right)
+	if ((event.key === 'ArrowRight') || (event.key === 'ArrowDown') || 
+		(event.key === 'ArrowLeft') || (event.key === 'ArrowUp')) return;
+
+	if (event.key === 'Enter' && webItemFocus) {
+		// Run the focused li's callback
+		webItemFocus.callback();
+
+		// Hide web menu
+		toggleWebMenu();
+
+	} else if (event.key === 'Backspace' && webMenuSearchBox.value.length  < 1) {
+		// Hide web menu if backspace is pressed and searchbox value is 0
+		toggleWebMenu();
+		return;
+
+	} else if ((event.key === 'Escape') || (event.key === 'Alt')) {
+		// Ignore escape and alt key
+		return;
+	}
+
+	// Filter
+	filterWebList();
+}
 
 // Populate and get first child
 const initWebMenu = () => {
