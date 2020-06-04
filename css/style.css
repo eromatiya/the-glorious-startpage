@@ -6,6 +6,7 @@
 @import url('dock.css');
 @import url('dock-buttons.css');
 @import url('centered-box.css');
+@import url('profile-image.css');
 
 :root {
 	/* Colors */

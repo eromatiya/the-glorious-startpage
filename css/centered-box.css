@@ -1,7 +1,8 @@
 .centeredBar {
-	background: #ff00ff;
+	background: #ff00ff60;
 	width: 100%;
     height: auto;
+    
     border: none;
     pointer-events: none;
     
