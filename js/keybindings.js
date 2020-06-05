@@ -22,19 +22,27 @@ document.addEventListener(
         }
 
         if (event.key === 'Escape') {
+
+            event.preventDefault();
             
             // If any of this are open, close it
             if (searchBoxVisility) {
+                
                 // Hide searchbox
                 toggleSearchBox();
                 searchBox.value = '';
                 return;
+
             } else if (weatherScreenVisibility) {
+                
                 toggleWeatherScreen();
                 return;
+
             } else if (rightDashboardVisibility) {
+                
                 toggleDashboard();
                 return;
+                
             }
 
             // Show web menu
@@ -49,16 +57,8 @@ document.addEventListener(
             if (webMenuVisibility || weatherScreenVisibility ||
             	rightDashboardVisibility) return;
 
-            // Dont accept ctrl, alt,
-            // left window key, f5, f12, return
-            if (event.key === 'Control' ||
-                event.key === 'Alt' ||
-                event.key === 'Shift' ||
-                event.key === 'Meta' ||
-                event.key === 'F5' ||
-                event.key === 'F12' ||
-                event.key === 'Enter')
-                return;
+            // Only accept single charactered key and backspace to open search box
+            if ((event.key.length > 1) && (event.key !== 'Backspace')) return;
 
             // Open searchbox
             toggleSearchBox();
