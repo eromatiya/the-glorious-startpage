@@ -254,9 +254,14 @@ let webSites = [
 		icon: 'mega',
 		url: 'https://mega.nz/',
 		category: 'cloud'
+	},
+	{
+		site: 'MDN Web Docs',
+		icon: 'mdn',
+		url: 'https://developer.mozilla.org/',
+		category: 'development'
 	}
 ];
-
 
 // Dock
 // A list of websites that will be generated and put on the dock
