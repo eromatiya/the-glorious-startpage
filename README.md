@@ -46,7 +46,7 @@
 + <kbd>Escape</kbd> - close panels/toggles web menu
 + <kbd>Backspace</kbd> - toggles search box
 
-### Customization and Settings
+## Customization and Settings
 
 #### Changing the colors and blur strength on-the-fly
 
@@ -137,3 +137,8 @@ Google is the default search engine of the search bar, if you want to change it 
 - [x] Cleaner code<sup>WIP</sup>    
 - [x] Keyboard navigation
 - [x] Swipe gestures for mobile
+
+
+### License
+
+[Feel free to use or modify this however you like!](https://github.com/manilarome/the-glorious-startpage/blob/master/LICENSE)
