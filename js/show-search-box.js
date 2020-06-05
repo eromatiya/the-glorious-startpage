@@ -1,10 +1,12 @@
+var searchBoxContainer = document.getElementById('searchBoxContainer');
+
 var searchBox = document.getElementById('searchBox');
 var centeredBoxOverlay = document.getElementById('centeredBoxOverlay');
 
 let searchBoxVisility = false;
 
 const showSearchBox = () => {
-	searchBox.classList.add('showSearchBox');
+	searchBoxContainer.classList.add('showSearchBox');
 
 	// Focus
     searchBox.focus();
@@ -13,7 +15,7 @@ const showSearchBox = () => {
 }
 
 const hideSearchBox = () => {
-	searchBox.classList.remove('showSearchBox');
+	searchBoxContainer.classList.remove('showSearchBox');
 
     searchBoxVisility = !searchBoxVisility;
 }
