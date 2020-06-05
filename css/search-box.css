@@ -28,6 +28,10 @@
 				pointer-events var(--transition-speed);
 }
 
+#searchBox::placeholder {
+	font-family: roboto-bold, fantasque-sans-mono;
+}
+
 .showSearchBox {
 	opacity: 1 !important;
 	top: 100% !important;

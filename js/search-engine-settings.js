@@ -9,32 +9,34 @@ var defaultEngine = localStorage.getItem('searchEngine') || 'google';
 
 let searchQueryPrefix;
 
+var placeholderPrefix = "  Search with ";
+
 // Update query string and placeholder
 const selectQueryString = () => {
 
 	if (defaultEngine === "google") {
 		searchQueryPrefix = 'http://www.google.com/search?q=';
-		searchBox.placeholder = "Search with Google";
+		searchBox.placeholder = placeholderPrefix + "Google";
 
 	} else if (defaultEngine === "duckduckgo") {
 		searchQueryPrefix = 'https://duckduckgo.com/?q=';
-		searchBox.placeholder = "Search with Duckduckgo";
+		searchBox.placeholder = placeholderPrefix + "Duckduckgo";
 
 	} else if (defaultEngine === "ecosia") {
 		searchQueryPrefix = 'https://www.ecosia.org/search?q=';
-		searchBox.placeholder = "Search with Ecosia";
+		searchBox.placeholder = placeholderPrefix + "Ecosia";
 
 	} else if (defaultEngine === "yahoo") {
 		searchQueryPrefix = 'http://search.yahoo.com/search?p=';
-		searchBox.placeholder = "Search with Yahoo";
+		searchBox.placeholder = placeholderPrefix + "Yahoo";
 
 	} else if (defaultEngine === "bing") {
 		searchQueryPrefix = 'https://www.bing.com/search?q=';
-		searchBox.placeholder = "Search with Bing";
+		searchBox.placeholder = placeholderPrefix + "Bing";
 	
 	} else {
 		searchQueryPrefix = 'http://www.google.com/search?q=';
-		searchBox.placeholder = "Search with Google";
+		searchBox.placeholder = placeholderPrefix + "Google";
 	}
 
 }

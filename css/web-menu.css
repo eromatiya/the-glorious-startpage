@@ -80,6 +80,10 @@
 	margin: 0;
 }
 
+#webMenuSearchBox::placeholder {
+	font-family: roboto-bold, fantasque-sans-mono;
+}
+
 @media screen and (max-width: 580px) {
 	#webMenuSearchBox {
 		width: 50vw;

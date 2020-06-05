@@ -107,6 +107,12 @@ html, body {
        url('../fonts/roboto-v20-latin-700.svg#Roboto') format('svg'); /* Legacy iOS */
 }
 
+@font-face {
+	font-family: 'fantasque-sans-mono';
+	font-style: normal;
+	src: url('../fonts/fantasque-sans-mono-bold-italic-nerd-font-complete.ttf');
+}
+
 /*Scrollbar*/
 
 /*Placeholder*/
