@@ -37,7 +37,7 @@ let webSites = [
 		site: 'GDrive',
 		icon: 'gdrive',
 		url: 'https://drive.google.com/',
-		category: 'storage'
+		category: 'cloud'
 	},
 	{
 		site: 'Twitter',
@@ -112,12 +112,6 @@ let webSites = [
 		category: 'social'
 	},
 	{
-		site: 'Pornhub',
-		icon: 'pornhub',
-		url: 'https://pornhub.com/',
-		category: 'media'
-	},
-	{
 		site: 'Material.io',
 		icon: 'materialio',
 		url: 'https://material.io/',
@@ -157,7 +151,7 @@ let webSites = [
 		site: 'Ebay',
 		icon: 'ebay',
 		url: 'https://ebay.com/',
-		category: 'shopping'
+		category: 'shop'
 	},
 	{
 		site: 'JSFiddle',
@@ -236,6 +230,30 @@ let webSites = [
 		icon: 'soundcloud',
 		url: 'https://soundcloud.com/',
 		category: 'media'
+	},
+	{
+		site: 'Amazon',
+		icon: 'amazon',
+		url: 'https://amazon.com/',
+		category: 'shop'
+	},
+	{
+		site: 'Flaticon',
+		icon: 'flaticon',
+		url: 'https://flaticon.com/',
+		category: 'design'
+	},
+	{
+		site: 'Wikimedia Commons',
+		icon: 'commons',
+		url: 'https://commons.wikimedia.org/',
+		category: 'design'
+	},
+	{
+		site: 'MEGA',
+		icon: 'mega',
+		url: 'https://mega.nz/',
+		category: 'cloud'
 	}
 ];
 
