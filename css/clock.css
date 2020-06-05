@@ -1,7 +1,7 @@
 #clock {
 	color: var(--base-color);
 	font-size: 11pt;
-	font-family: roboto-bold;
+	font-family: roboto-bold, sans-serif;
 
 	/*Center lock*/
 	text-align: center;

@@ -69,7 +69,7 @@
 	background: var(--base-container);
 	
 	text-align: center;
-	font-family: roboto-bold;
+	font-family: roboto-bold, sans-serif;
 	color: var(--panel-color);
 	
 	border: none;
@@ -81,7 +81,7 @@
 }
 
 #webMenuSearchBox::placeholder {
-	font-family: roboto-bold, fantasque-sans-mono;
+	font-family: roboto-bold, fantasque-sans-mono, sans-serif;
 }
 
 @media screen and (max-width: 580px) {
@@ -200,7 +200,7 @@
 .webItemName {
 	text-align: center;
 	font-size: 11pt;
-	font-family: roboto;
+	font-family: roboto, sans-serif;
 	word-wrap: break-word;
 	color: var(--base-color);
 

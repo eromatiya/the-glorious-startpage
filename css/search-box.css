@@ -2,7 +2,7 @@
 	background: var(--base-bg);
 	color: var(--base-color);
 	text-align: center;
-	font-family: roboto-bold;
+	font-family: roboto-bold, sans-serif;
 
 	width: 30vw;
 	height: 48px;
@@ -29,7 +29,7 @@
 }
 
 #searchBox::placeholder {
-	font-family: roboto-bold, fantasque-sans-mono;
+	font-family: roboto-bold, fantasque-sans-mono, sans-serif;
 }
 
 .showSearchBox {
