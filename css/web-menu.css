@@ -137,11 +137,13 @@
 }
 
 .webItem:hover {
-	background: var(--base-hover-bg);
+	box-shadow: 0 0 0 1px var(--base-hover-bg) inset;
 }
 
 .webItem:active {
 	background: var(--base-active-bg);
+	box-shadow: 0 0 0 1px var(--base-hover-bg) inset;
+	border-radius: var(--rounded-radius);
 }
 
 .webItemFocus {
