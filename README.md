@@ -46,6 +46,89 @@
 + <kbd>Escape</kbd> - close panels/toggles web menu
 + <kbd>Backspace</kbd> - toggles search box
 
+### Customization and Settings
+
+#### Changing the colors and blur strength on-the-fly
+
++ Open the dashboard by clicking the settings button on the dock.
++ Change the color and blur strength by setting it on the `Theme Engine` section.
++ Supports #RGB, #RRGGBBAA, and #RRGGBB.
+
+#### Adding more buttons on the web menu
+
+Add more buttons or web shortcuts in web menu by editing the `webSites` array in `js/sites-list.js`. Make sure to put an icon with `svg` format for the shortcut in `assets/webcons/` folder. 
+
+```js
+let webSites = [
+	{
+		site: 'Reddit',
+		icon: 'reddit',
+		url: 'https://reddit.com/',
+		category: 'social'
+	},
+	...
+]
+```
+
+#### Adding more buttons on the dock
+
+To add more web shortcuts/buttons in the dock, you have to edit the `dockSites` array in `js/sites-list.js`. Make sure to put an icon with `svg` format for the shortcut in `assets/webcons/` folder.
+
+```js
+let dockSites = [
+	{
+		site: 'Reddit',
+		icon: 'reddit',
+		url: 'https://reddit.com/'
+	},
+	...
+]
+```
+
+#### Set your OpenWeatherMap API key
+
+Setting your OpenWeatherMap credential is a breeze. 
+
++ If you don't have an API key, follow this guide:
+
+	How to get a credentials for the weather forecast?
+
+	- OpenWeatherMap is the weather provider, so go to OpenWeatherMap's [website](https://home.openweathermap.org/).
+	- Register, log-in, and then go [here](https://home.openweathermap.org/api_keys) to generate your very own API keys.
+
++ After getting you API key, you have to get your City ID.
++ Put your API key and City ID in the `Weather Settings`.
++ Apply.
+
+#### Changing the default search engine
+
+Google is the default search engine of the search bar, if you want to change it DuckDuckGo or something:
+
++ Open the dashboard by clicking the settings button on the dock.
++ Find the `Search Engine` section and select your preferred search engine.
++ Set it as default.
+
+
+#### Changing the profile picture
+
++ Replace the `user.png` image file in `/assets/`.
+
+
+#### Keybindings
+
++ You can add, replace, or remove a keybinding by editing `js/keybindings.js`.
+
+### Important Note
+
++ If you're using firefox and blur effect is not enabled, open `about:config`, accept the risks, find `layout.css.backdrop-filter.enabled` set it to true to enable it. Refresh the startpage.
+
++ The code could be better, this is my first time writing a startpage from the ground up. I will improve this from time to time.
+
++ Found a bug, error or do you have a suggestion? Feel free to open an issue or pull request.
+
++ Tested only on Firefox and Google Chrome.
+
+
 ### TODO
 
 - [x] GUI Settings
@@ -54,28 +137,3 @@
 - [x] Cleaner code<sup>WIP</sup>    
 - [x] Keyboard navigation
 - [x] Swipe gestures for mobile
-
-
-### Important Note
-
-+ I'm using the `backdrop-filter` property to have the blur effect for the panels. If you're using Firefox, find `layout.css.backdrop-filter.enabled` then enable it.
-
-+ You can now set your default search engine and OpenWeatherMap credentials using the GUI. It uses the `window.localStorage` so it's completely safe. I also provided a button that will allow you to delete/clear your credentials.
-
-+ Openweather map API key is not included!
-
-	How to get a credentials for the weather forecast?
-
-	- OpenWeatherMap is the weather provider, so go to OpenWeatherMap's [website](https://home.openweathermap.org/).
-	- Register, log-in, and then go [here](https://home.openweathermap.org/api_keys) to generate your very own API keys. 
-	- Put your credentials in the settings in settings panel.
-
-+ You can easily add a button on the dock and web menu by just adding `website name`, `icon name`, and `website url` in an array. Open `js/sites-list.js`. Make sure to put an icon with `.svg` extension for that website in `assets/webcons/`.
-
-+ Add your own keyboard bindings in `js/keybindings.js`.
-
-+ The code could be better, this is my first time writing a startpage from the ground up. I will improve this from time to time.
-
-+ Found a bug, error or do you have a suggestion, feel free to open an issue or pull request.
-
-+ Tested only on Firefox and Google Chrome.
