@@ -1,6 +1,5 @@
-var searchBoxContainer = document.getElementById('searchBoxContainer');
-
 var searchBox = document.getElementById('searchBox');
+var searchBoxContainer = document.getElementById('searchBoxContainer');
 var centeredBoxOverlay = document.getElementById('centeredBoxOverlay');
 
 let searchBoxVisility = false;
@@ -12,10 +11,18 @@ const showSearchBox = () => {
     searchBox.focus();
 
     searchBoxVisility = !searchBoxVisility;
+
+    // Toggle overlay
+    centeredBoxOverlay.classList.toggle('showOverlay');
 }
 
 const hideSearchBox = () => {
 	searchBoxContainer.classList.remove('showSearchBox');
+
+    // Toggle overlay
+    centeredBoxOverlay.classList.toggle('showOverlay');
+
+    searchBox.value = '';
 
     searchBoxVisility = !searchBoxVisility;
 }
@@ -37,9 +44,6 @@ const toggleSearchBox = () => {
     	// Show search box
     	showSearchBox();  	
     }
-
-    // Show overlay
-    centeredBoxOverlay.classList.toggle('showOverlay');
 
 	console.log('toggle searchbox');
 }

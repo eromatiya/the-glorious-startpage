@@ -262,6 +262,11 @@ const toggleWeatherScreen = () => {
     	console.log('web menu is open, closing...');
     	hideWebMenu();
     	return;
+
+    } else if (searchBoxContainer.classList.contains('showSearchBox')) {
+    	console.log('searchbox is open, closing...');
+    	hideSearchBox();
+    	
     } else if (dashboard.classList.contains('showRightDashboard')) {
     	console.log('dashboard is open, closing...');
     	hideDashboard();

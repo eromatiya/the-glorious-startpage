@@ -53,7 +53,12 @@ const toggleDashboard = () => {
     if (weatherScreen.classList.contains('showWeatherScreen')) {
         console.log('weather screen is open, closing...');
         hideWeatherScreen();
-        return
+        return;
+
+    } else if (searchBoxContainer.classList.contains('showSearchBox')) {
+        console.log('searchbox is open, closing...');
+        hideSearchBox();
+        
     } else if (webMenu.classList.contains('showWebMenu')) {
         console.log('web menu is open, closing...');
         hideWebMenu();

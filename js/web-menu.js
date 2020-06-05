@@ -224,14 +224,19 @@ const toggleWebMenu = () => {
     if (weatherScreen.classList.contains('showWeatherScreen')) {
     	console.log('weather screen is open, closing...');
     	hideWeatherScreen();
-    	return
+    	return;
+    	
+    } else if (searchBoxContainer.classList.contains('showSearchBox')) {
+    	console.log('searchbox is open, closing...');
+    	hideSearchBox();
+
     } else if (dashboard.classList.contains('showRightDashboard')) {
     	console.log('dashboard is open, closing...');
     	hideDashboard();
-    }
+    } 
 
     // Toggle center box
-    toggleCenteredBox();   
+    toggleCenteredBox();
 }
 
 // Remove class to focused item
