@@ -242,6 +242,15 @@
 		-webkit-transform: scale(1);
 		transform: scale(1); 
 	}
+
+	#webMenuListContainer {
+		scrollbar-width: none !important;
+		-ms-overflow-style: none !important;
+	}
+
+	#webMenuListContainer::-webkit-scrollbar {
+    	display: none;
+	}
 }
 
 /*The a href container/main web menu button container*/
