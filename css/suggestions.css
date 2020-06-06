@@ -8,6 +8,9 @@
 	display: table;
 	margin: 0 auto;
 
+	opacity: 0;
+	transition: opacity var(--transition-speed);
+
 	/*Disable user touch/select on text elements*/
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -15,6 +18,10 @@
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
+
+.suggestionsShow {
+	opacity: 1 !important;
 }
 
 /*The UL*/
@@ -39,15 +46,13 @@
 /*The Li*/
 #phrase {
 	/*Align list horizontally*/
-  	display: inline-block;
 	justify-content: center;
 
-	width: auto;
 	height: auto;
 
 	/*Always center horizontally*/
 	display: table-cell;
-  	width: auto;
+	width: auto;
   	text-align: center;
 }
 
