@@ -42,6 +42,7 @@ const populateWebMenu = () => {
 		var aWebLink = document.createElement('a');
 		aWebLink.className = 'webMenuLink';
 		aWebLink.href = url;
+		aWebLink.tabIndex = '-1';
 
 		// Create an outer div, child of li
 		let webItemDiv = document.createElement('div')
@@ -318,6 +319,8 @@ webMenuSearchBox.onkeydown = (event) => {
 	// Don't hijack keyboard navigation buttons (up, down, left, right)
 	if ((event.key === 'ArrowRight') || (event.key === 'ArrowDown') || 
 		(event.key === 'ArrowLeft') || (event.key === 'ArrowUp')) return;
+
+	if (event.key === 'Tab') return;
 
 	if (event.key === 'Enter' && webItemFocus) {
 		// Run the focused li's callback
