@@ -88,12 +88,23 @@
 	background: var(--base-active-bg);
 }
 
-@media screen and (max-height: 650px) {
+@media screen and (max-height: 539px) {
+
+	#suggestions {	
+		height: auto;
+		width: 100vw;
+	}
+
 	/*The Li*/
 	#phrase {
 			/*Always stack and center horizontally*/
-		display: table-cell !important;
+		display: inline-block !important;
 		width: auto !important;
 	  	text-align: center !important;
+
+	  	justify-content: space-between !important;
+	  	
+	  	padding: 0;
+	  	width: 20px;
 	}
 }
