@@ -276,57 +276,80 @@ const addClass = (el, className) => {
 	webItemFocusChild.scrollIntoView();
 };
 
+const navigateWithArrows = (key, len) => {
+	// assign variables to key codes
+	const [right, left, down, up] = [39, 37, 40, 38];
+
+	const getIndexByWindowWidth = () => {
+		if (window.innerWidth <= 580) { return 1 }
+		// width of elements in pixels
+		const menuItemWidth = 138;
+		const scrollBarWidth = 10;
+		// viewport width
+		const vw = (unit) => window.innerWidth * (unit / 100);
+		
+		// Gets the number of columns by dividing the screen width minus the padding, scroll width and average of menu item width by the menu item width
+		const containerWindow = ((window.innerWidth - (menuItemWidth / 2) - scrollBarWidth - vw(24)) / menuItemWidth);
+		// Get rounded result
+		return Math.round(containerWindow);
+	}
+
+	// Determine the index position by key
+	const changeWebListIndex = () => {
+		switch (key) {
+			case right:
+				webListIndex++;
+				break;
+			case left:
+				webListIndex--;
+				break;
+			case up:
+				webListIndex = webListIndex - getIndexByWindowWidth();
+				break;
+			case down:
+				webListIndex = webListIndex + getIndexByWindowWidth();
+				break;
+		}
+	}
+
+	const changeItemFocus = (condition, overFlowIndex) => {
+		const next = webMenuList.getElementsByTagName('li')[webListIndex];
+		if(typeof next !== undefined && condition) {			
+			webItemFocus = next;
+		} else {
+			webListIndex = overFlowIndex;
+			webItemFocus = webMenuList.getElementsByTagName('li')[overFlowIndex];
+		}
+	}
+
+	const changeItemFocusByKey = () => {
+		if (key === right) { return changeItemFocus((webListIndex <= len), 0) }
+		if (key === left) { return changeItemFocus((webListIndex >= 0), len) }
+		if (key === up) { return changeItemFocus((webListIndex >= 0), len) }
+		if (key === down) { return changeItemFocus((webListIndex <= len), 0) }
+	}
+
+	// Clear web menu searchbox
+	webMenuSearchBox.value = '';
+	changeWebListIndex();
+	if (webItemFocus) {
+		removeClass(webItemFocus, 'webItemFocus');
+		changeItemFocusByKey();
+		addClass(webItemFocus, 'webItemFocus');
+		// console.log(webListIndex);
+	} else {
+		webListIndex = 0;
+		webItemFocus = webMenuList.getElementsByTagName('li')[0];
+		addClass(webItemFocus, 'webItemFocus');
+	}
+}
+
 // Keyboard navigation
 webMenu.addEventListener(
 	'keydown',
 	(event) => {
 		var len = webMenuList.getElementsByTagName('li').length - 1;
-		// Right and Down 
-		if((event.which === 39) || (event.which === 40)) {
-
-			// Clear web menu searchbox
-			webMenuSearchBox.value = '';
-			webListIndex++;
-			if (webItemFocus) {
-				removeClass(webItemFocus, 'webItemFocus');
-				next = webMenuList.getElementsByTagName('li')[webListIndex];
-				if(typeof next !== undefined && webListIndex <= len) {			
-					webItemFocus = next;
-				} else {
-					webListIndex = 0;
-					webItemFocus = webMenuList.getElementsByTagName('li')[0];
-				}
-				addClass(webItemFocus, 'webItemFocus');
-				// console.log(webListIndex);
-			} else {
-				webListIndex = 0;
-				webItemFocus = webMenuList.getElementsByTagName('li')[0];
-				addClass(webItemFocus, 'webItemFocus');
-			}
-		}
-		// Up and left
-		else if ((event.which === 37) || (event.which === 38)) {
-
-			// Clear web menu searchbox
-			webMenuSearchBox.value = '';
-			if (webItemFocus) {
-				removeClass(webItemFocus, 'webItemFocus');
-				webListIndex--;
-				// console.log(webListIndex);
-				next = webMenuList.getElementsByTagName('li')[webListIndex];
-				if(typeof next !== undefined && webListIndex >= 0) {
-					webItemFocus = next;
-				} else {
-					webListIndex = len;
-					webItemFocus = webMenuList.getElementsByTagName('li')[len];
-				}
-				addClass(webItemFocus, 'webItemFocus');
-			} else {
-				webListIndex = 0;
-				webItemFocus = webMenuList.getElementsByTagName('li')[len];
-				addClass(webItemFocus, 'webItemFocus');
-			}
-		}
+		navigateWithArrows(event.which, len);
 	},
 	false
 );
