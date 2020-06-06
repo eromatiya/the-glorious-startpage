@@ -288,7 +288,8 @@ const navigateWithArrows = (key, len) => {
 		// viewport width
 		const vw = (unit) => window.innerWidth * (unit / 100);
 		
-		// Gets the number of columns by dividing the screen width minus the padding, scroll width and average of menu item width by the menu item width
+		// Gets the number of columns by dividing the screen width minus the padding, scroll width and 
+		// average of menu item width by the menu item width
 		const containerWindow = ((window.innerWidth - (menuItemWidth / 2) - scrollBarWidth - vw(24)) / menuItemWidth);
 		// Get rounded result
 		return Math.round(containerWindow);
@@ -299,15 +300,23 @@ const navigateWithArrows = (key, len) => {
 		switch (key) {
 			case right:
 				webListIndex++;
+				// Clear web menu searchbox
+				webMenuSearchBox.value = '';
 				break;
 			case left:
 				webListIndex--;
+				// Clear web menu searchbox
+				webMenuSearchBox.value = '';
 				break;
 			case up:
 				webListIndex = webListIndex - getIndexByWindowWidth();
+				// Clear web menu searchbox
+				webMenuSearchBox.value = '';
 				break;
 			case down:
 				webListIndex = webListIndex + getIndexByWindowWidth();
+				// Clear web menu searchbox
+				webMenuSearchBox.value = '';
 				break;
 		}
 	}
@@ -329,8 +338,7 @@ const navigateWithArrows = (key, len) => {
 		if (key === down) { return changeItemFocus((webListIndex <= len), 0) }
 	}
 
-	// Clear web menu searchbox
-	webMenuSearchBox.value = '';
+	
 	changeWebListIndex();
 	if (webItemFocus) {
 		removeClass(webItemFocus, 'webItemFocus');
