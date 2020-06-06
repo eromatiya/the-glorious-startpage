@@ -51,8 +51,12 @@
 	height: auto;
 
 	/*Always center horizontally*/
-	display: table-cell;
-	width: auto;
+	/*display: table-cell;*/
+	/*width: auto;*/
+  	/*text-align: center;*/
+
+  	display: inline-flex;
+  	width: 100%;
   	text-align: center;
 }
 
@@ -81,4 +85,13 @@
 
 .phraseButton:active {
 	background: var(--base-active-bg);
+}
+
+@media screen and (max-width: 580px) {
+	/*The Li*/
+	#phrase {
+		display: inline-flex !important;
+		width: 100% !important;
+  		text-align: center !important;
+	}
 }

@@ -2,10 +2,10 @@ var searchBox = document.getElementById('searchBox');
 var suggestionsUL = document.getElementById('suggestions');
 var suggestionsContainer = document.getElementById('suggestionsContainer');
 
+// Create input events
+const phraseEvents = button => {
 
-// Update searchbox on enter key
-const phraseButtonCallback = button => {
-
+	// Update searchbox on enter key and mouse click
 	button.onkeyup = event => {
 
 		if (event.key === 'Enter') {
@@ -13,8 +13,17 @@ const phraseButtonCallback = button => {
 			searchBox.value = button.innerText;
 			searchBox.focus();
 
+		} else if (event.key === 'Backspace') {
+
+			searchBox.focus();
 		}
 
+	}
+
+	// Onmouseup event
+	button.onmouseup = event => {
+		searchBox.value = button.innerText;
+		searchBox.focus();
 	}
 
 }
@@ -22,6 +31,7 @@ const phraseButtonCallback = button => {
 // Generate and parse suggestions
 const autocompleteCallback = phrase => {
 
+	// Filter/parse the object
 	var suggestion = phrase.map(i => i.phrase)
 					.filter(s => !(s.toLowerCase() === String(searchBox.value).toLowerCase()))
 					.slice(0, 4);
@@ -33,6 +43,7 @@ const autocompleteCallback = phrase => {
 	// Generate list elements
 	for (i = 0; i < (suggestion.length); i++) {
 
+		// Create html elements
 		var li = document.createElement('li');
 		li.id = 'phrase';
 
@@ -41,8 +52,12 @@ const autocompleteCallback = phrase => {
 		button.className = 'phraseButton';
 		button.innerHTML = suggestion[i];
 
-		phraseButtonCallback(button);
 
+		// Create input events
+		phraseEvents(button);
+
+
+		// Appent to ul
 		li.appendChild(button);
 		suggestionsUL.appendChild(li);
 	}
@@ -64,6 +79,7 @@ searchBox.onkeyup = event => {
 		return;
 	}
 
+	// Fetch from duckduckgo
 	var script = document.createElement('script');
 	script.type = "text/javascript";
 	script.src = "https://duckduckgo.com/ac/?callback=autocompleteCallback&q="+String(searchBox.value);

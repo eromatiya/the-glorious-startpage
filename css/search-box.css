@@ -2,7 +2,7 @@
 
 	width: 100%;
 	height: auto;
-	top: 60%;
+	top: 40%;
 
 	opacity: 0;
 	position: absolute;
@@ -45,7 +45,7 @@
 
 .showSearchBox {
 	opacity: 1 !important;
-	top: 90% !important;
+	top: 70% !important;
 	pointer-events: initial !important;
 }
 
@@ -56,7 +56,7 @@
 
 	.showSearchBox {
 		opacity: 1 !important;
-		top: 70% !important;
+		top: 65% !important;
 		pointer-events: initial !important;
 	}
 }
