@@ -9,7 +9,7 @@ let webItemFocus;
 let webListIndex = 0;
 
 // Disable/Enable inputs
-var disableAllInputs = (status) => {
+var disableWebMenuInputs = (status) => {
     var elems = webMenu.getElementsByTagName('input');
     var len = elems.length;
 
@@ -184,7 +184,7 @@ const showWebMenu = () => {
 	webMenu.classList.add('showWebMenu');
 
 	// Enable inputs
-	disableAllInputs(false);
+	disableWebMenuInputs(false);
 
     webMenuVisibility = !webMenuVisibility;
 
@@ -214,7 +214,7 @@ const hideWebMenu = () => {
 	webMenu.classList.remove('showWebMenu');
 
 	// Disable inputs
-	disableAllInputs(true);
+	disableWebMenuInputs(true);
 
     webMenuVisibility = !webMenuVisibility;
 }
@@ -367,7 +367,7 @@ const initWebMenu = () => {
 	getFirstItem();
 
 	// Disable inputs
-	disableAllInputs(true);
+	disableWebMenuInputs(true);
 }
 
 // Initialize web menu

@@ -4,7 +4,7 @@ var dashboardOverlay = document.getElementById("dashboardOverlay");
 let rightDashboardVisibility = false;
 
 // Disable/Enable inputs
-var disableAllInputs = (status) => {
+var disableDashboardInputs = (status) => {
     var elems = dashboard.getElementsByTagName('input');
     var len = elems.length;
 
@@ -20,7 +20,7 @@ const showDashboard = () => {
     dashboardOverlay.classList.add('showDashboardOverlay');
 
     // Enable Inputs
-    disableAllInputs(false);
+    disableDashboardInputs(false);
 
     rightDashboardVisibility = !rightDashboardVisibility;
 }
@@ -30,7 +30,7 @@ const hideDashboard = () => {
 	dashboard.scrollTop = 0;
 
     // Disable Inputs
-    disableAllInputs(true);
+    disableDashboardInputs(true);
 
 	// Hide overlay
     dashboardOverlay.classList.remove('showDashboardOverlay');
@@ -93,4 +93,4 @@ dashboardOverlay.addEventListener(
 
 
 // Disable dashboard inputs on startup
-window.onload = disableAllInputs(true);
+window.onload = disableDashboardInputs(true);
