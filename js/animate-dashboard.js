@@ -3,11 +3,24 @@ var dashboardOverlay = document.getElementById("dashboardOverlay");
 
 let rightDashboardVisibility = false;
 
+// Disable/Enable inputs
+var disableAllInputs = (status) => {
+    var elems = dashboard.getElementsByTagName('input');
+    var len = elems.length;
+
+    for (var i = 0; i < len; i++) {
+        elems[i].disabled = status;
+    }
+}
+
 const showDashboard = () => {
 	dashboard.classList.add('showRightDashboard');
 
 	// Show overlay
     dashboardOverlay.classList.add('showDashboardOverlay');
+
+    // Enable Inputs
+    disableAllInputs(false);
 
     rightDashboardVisibility = !rightDashboardVisibility;
 }
@@ -15,6 +28,9 @@ const showDashboard = () => {
 const hideDashboard = () => {
 	dashboard.classList.remove('showRightDashboard');
 	dashboard.scrollTop = 0;
+
+    // Disable Inputs
+    disableAllInputs(true);
 
 	// Hide overlay
     dashboardOverlay.classList.remove('showDashboardOverlay');
@@ -74,3 +90,7 @@ dashboardOverlay.addEventListener(
 		}
 	}
 );
+
+
+// Disable dashboard inputs on startup
+window.onload = disableAllInputs(true);

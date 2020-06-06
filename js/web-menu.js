@@ -8,6 +8,16 @@ let webMenuVisibility = false;
 let webItemFocus;
 let webListIndex = 0;
 
+// Disable/Enable inputs
+var disableAllInputs = (status) => {
+    var elems = webMenu.getElementsByTagName('input');
+    var len = elems.length;
+
+    for (var i = 0; i < len; i++) {
+        elems[i].disabled = status;
+    }
+}
+
 // Create mouse event for passed li
 const createCallback = (li, url) => {
 	// Create a callback property for the passed li
@@ -172,6 +182,10 @@ const getFirstItem = () => {
 
 const showWebMenu = () => {
 	webMenu.classList.add('showWebMenu');
+
+	// Enable inputs
+	disableAllInputs(false);
+
     webMenuVisibility = !webMenuVisibility;
 
     // Focus to input field
@@ -198,6 +212,10 @@ const hideWebMenu = () => {
 	getFirstItem();
 	
 	webMenu.classList.remove('showWebMenu');
+
+	// Disable inputs
+	disableAllInputs(true);
+
     webMenuVisibility = !webMenuVisibility;
 }
 
@@ -347,6 +365,9 @@ webMenuSearchBox.onkeydown = (event) => {
 const initWebMenu = () => {
 	populateWebMenu();
 	getFirstItem();
+
+	// Disable inputs
+	disableAllInputs(true);
 }
 
 // Initialize web menu
