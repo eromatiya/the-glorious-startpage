@@ -2,6 +2,18 @@ var searchBox = document.getElementById('searchBox');
 var suggestionsUL = document.getElementById('suggestions');
 var suggestionsContainer = document.getElementById('suggestionsContainer');
 
+
+const hideSuggestions = () => {
+	// Hide suggestions
+	suggestionsContainer.classList.remove('suggestionsShow');
+}
+
+const showSuggestions = () => {
+	// Show suggestions
+	suggestionsContainer.classList.add('suggestionsShow');
+}
+
+
 // Create input events
 const phraseEvents = button => {
 
@@ -16,6 +28,30 @@ const phraseEvents = button => {
 		} else if (event.key === 'Backspace') {
 
 			searchBox.focus();
+
+		} else if ((event.key == 'ArrowDown') || event.key == 'ArrowRight') {
+
+			event.preventDefault();
+
+			const phraseButtons = Array.prototype.slice.call(document.querySelectorAll('button'));
+			const phraseIndex = (phraseButtons.indexOf(document.activeElement) + 1) % phraseButtons.length;
+       		const phraseButton = phraseButtons[phraseIndex];
+       		phraseButton.focus();
+
+		} else if ((event.key == 'ArrowUp') || event.key == 'ArrowLeft') {
+
+			event.preventDefault();
+
+			const phraseButtons = Array.prototype.slice.call(document.querySelectorAll('button'));
+			var phraseIndex = (phraseButtons.indexOf(document.activeElement) - 1) % phraseButtons.length;
+
+			if (phraseIndex < 0) { 
+				phraseIndex = phraseButtons.length - 1;
+			};
+
+			const phraseButton = phraseButtons[phraseIndex];
+       		phraseButton.focus();
+
 		}
 
 	}
@@ -63,7 +99,7 @@ const autocompleteCallback = phrase => {
 	}
 
 	// Show suggestions
-	suggestionsContainer.classList.add('suggestionsShow');
+	showSuggestions();
 }
 
 // Update every keyup
@@ -72,10 +108,9 @@ searchBox.onkeyup = event => {
 	if (event.key === 'Tab') return;
 
 	if (searchBox.value < 1) {
-		
-		// Hide suggestions
-		suggestionsContainer.classList.remove('suggestionsShow');
 
+		// Hide suggestions
+		hideSuggestions();
 		return;
 	}
 

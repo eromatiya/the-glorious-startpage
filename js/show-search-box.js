@@ -24,6 +24,9 @@ const hideSearchBox = () => {
 
     searchBox.value = '';
 
+    // Hide suggestions
+    hideSuggestions();
+
     searchBoxVisility = !searchBoxVisility;
 }
 

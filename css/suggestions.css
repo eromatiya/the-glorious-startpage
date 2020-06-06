@@ -50,11 +50,12 @@
 
 	height: auto;
 
-	/*Always center horizontally*/
+	/*Always stack and center horizontally*/
 	/*display: table-cell;*/
 	/*width: auto;*/
   	/*text-align: center;*/
 
+  	/*Always stack and center vertically*/
   	display: inline-flex;
   	width: 100%;
   	text-align: center;
@@ -87,11 +88,12 @@
 	background: var(--base-active-bg);
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-height: 650px) {
 	/*The Li*/
 	#phrase {
-		display: inline-flex !important;
-		width: 100% !important;
-  		text-align: center !important;
+			/*Always stack and center horizontally*/
+		display: table-cell !important;
+		width: auto !important;
+	  	text-align: center !important;
 	}
 }
