@@ -20,11 +20,12 @@
 	user-select: none;
 }
 
+/*Show suggestion*/
 .suggestionsShow {
 	opacity: 1 !important;
 }
 
-/*The UL*/
+/*ul*/
 #suggestions {
 	
 	height: auto;
@@ -43,7 +44,7 @@
   	table-layout: fixed;
 }
 
-/*The Li*/
+/*li*/
 #phrase {
 	/*Align list horizontally*/
 	justify-content: center;
@@ -61,8 +62,7 @@
   	text-align: center;
 }
 
-/*The Li's child*/
-
+/*The li's child*/
 .phraseButton {
 
 	background: transparent;
@@ -81,7 +81,7 @@
 }
 
 .phraseButton:focus {
-	background: var(--base-hover-bg);
+	background: var(--base-bg);
 }
 
 .phraseButton:active {

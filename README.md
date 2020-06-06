@@ -28,6 +28,7 @@
 ## Features
 
 + Responsive UI
++ Web search Suggestions
 + Mobile Support with Swipe Gestures
 + Theme Settings - Change colors on-the-fly
 + Weather Forecast - OpenWeatherMap
@@ -40,11 +41,18 @@
 
 ## Keybindings
 
-+ <kbd>alt + s</kbd> - toggles dashboard
-+ <kbd>alt + e</kbd> - toggles web menu
-+ <kbd>alt + x</kbd> - toggles weather screen
++ <kbd>alt + S</kbd> - toggles dashboard
++ <kbd>alt + E</kbd> - toggles web menu
++ <kbd>alt + X</kbd> - toggles weather screen
 + <kbd>Escape</kbd> - close panels/toggles web menu
 + <kbd>Backspace</kbd> - toggles search box
+
+## Swipe gestures
+
++ <kbd>swipe right</kbd> - opens web menu
++ <kbd>swipe left</kbd> - opens dashboard
++ <kbd>swipe up</kbd> - opens weather screen
++ <kbd>swipe down</kbd> - opens search box
 
 ## Customization and Settings
 

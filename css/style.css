@@ -17,7 +17,7 @@
 @import url('weather-screen.css');
 @import url('weather-settings.css');
 @import url('web-menu.css');
-@import url('suggestions.css');
+@import url('auto-suggestion.css');
 
 :root {
 	/* Colors */

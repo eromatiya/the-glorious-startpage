@@ -12,6 +12,8 @@ searchBox.addEventListener(
 	"keyup",
 	(event) => {
 		
+		if (event.key === 'Tab') return;
+
 		// Number 13 is the "Enter" key on the keyboard
 	  	if (event.key === 'Enter') {
 
