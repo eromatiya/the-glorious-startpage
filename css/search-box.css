@@ -1,18 +1,14 @@
 #searchBoxContainer {
-	
-	width: auto;
-	height: auto;
 
-	margin: 0;
+	width: 100%;
+	height: auto;
+	top: 60%;
+
 	opacity: 0;
 	position: absolute;
 
 	pointer-events: none;
-	left: 50%;
-	top: 60%;
 
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
 	transition: opacity var(--transition-speed),
 				top var(--transition-speed),
 				pointer-events var(--transition-speed);
@@ -25,6 +21,13 @@
 	padding-left: 10px;
 	padding-right: 10px;
 
+	margin-bottom: 10px;
+
+	/*Center horizontally*/
+	position: relative; 
+	left: 50%;
+	transform: translateX(-50%);
+
 	background: var(--base-bg);
 	color: var(--base-color);
 	text-align: center;
@@ -34,7 +37,6 @@
 	border-radius: 24px;
 	
 	backdrop-filter: blur(var(--blur-strength));
-	
 }
 
 #searchBox::placeholder {
@@ -43,13 +45,19 @@
 
 .showSearchBox {
 	opacity: 1 !important;
-	top: 100% !important;
+	top: 90% !important;
 	pointer-events: initial !important;
 }
 
 @media screen and (max-width: 580px) {
 	#searchBox {
     	width: 50vw;
+	}
+
+	.showSearchBox {
+		opacity: 1 !important;
+		top: 70% !important;
+		pointer-events: initial !important;
 	}
 }
 

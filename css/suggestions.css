@@ -1,0 +1,79 @@
+/*Container*/
+#suggestionsContainer {
+	position: absolute;
+	
+	width: 100vw;
+	height: auto;
+
+	display: table;
+	margin: 0 auto;
+
+	/*Disable user touch/select on text elements*/
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/*The UL*/
+#suggestions {
+	
+	height: auto;
+	width: 50vw;
+
+	/*Center ul horizontally*/
+	margin: 0 auto;
+	list-style: none;
+
+	/*Remove the fucking padding*/
+	/*It took me an hour to fix this piece of shit*/
+	padding: 0;
+
+	/*Allow centering of children*/
+	display: table;
+  	table-layout: fixed;
+}
+
+/*The Li*/
+#phrase {
+	/*Align list horizontally*/
+  	display: inline-block;
+	justify-content: center;
+
+	width: auto;
+	height: auto;
+
+	/*Always center horizontally*/
+	display: table-cell;
+  	width: auto;
+  	text-align: center;
+}
+
+/*The Li's child*/
+
+.phraseButton {
+
+	background: transparent;
+	border: none;
+	outline: none;
+
+	color: var(--base-color);
+	font-size: 12pt;
+	font-family: roboto-bold;
+	text-align: center;
+
+	border-radius: 6px;
+	vertical-align: middle;
+	padding: 10px;
+
+}
+
+.phraseButton:focus {
+	background: var(--base-hover-bg);
+}
+
+.phraseButton:active {
+	background: var(--base-active-bg);
+}
