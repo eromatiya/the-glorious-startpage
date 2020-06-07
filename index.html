@@ -163,7 +163,16 @@
 								<input type='text' maxlength='2' class='themeEngineInputs' id='foregroundOpacitySet' autocomplete='off' placeholder='FF'/>
 							</div>
 						</div>
-
+						<div class='themeEngineGroups'>
+							<div class='themeEngineCheckBoxGroups'>
+								<input type='checkbox' class='themeEngineCheckBox' id='dailyWallpaperCheckbox'/>
+								<div class='themeEngineLabels'>Daily Wallpaper (unsplash.com)</div>
+							</div>
+							<div class='themeEngineGroups' id='dailySettingGroups'>
+								<div class='weatherSettingsLabels'> Search keyword </div>
+								<input type='text' class='themeEngineInputs' id='unsplashKeyword' autocomplete='off' placeholder='Unslash search keyword'/>
+							</div>
+						</div>
 						<div class='themeEngineGroups'>
 							<label for='blurSet' class='themeEngineLabels'>Blur Strength in Pixels</label>
 							<div class='blurSetter'>
@@ -231,6 +240,7 @@
 
 
 	<script src='js/body-background-set.js'></script>
+	<script src='js/daily-background-set.js'></script>
 	<script src='js/clock.js'></script>
 	<script src='js/sites-list.js'></script>
 	<script src='js/dock-buttons.js'></script>

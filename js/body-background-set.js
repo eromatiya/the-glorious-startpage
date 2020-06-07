@@ -60,4 +60,4 @@ const initLazyLoad = () => {
 }
 
 // Initialize
-window.onload = initLazyLoad();
+// window.onload = initLazyLoad();
