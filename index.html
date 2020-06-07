@@ -91,21 +91,15 @@
 
 					<div id="weatherSettingsContainer">
 						<div class="weatherSettingsGroups">
-							<div class="weatherSettingsLabels">
-								API Key
-							</div>
+							<label for="apiBox" class='weatherSettingsLabels'>API Key</label>
 							<input type="text" class="weatherSettingsInputs" id="apiBox" autocomplete="off" placeholder="API KEY"/>
 						</div>
 						<div class="weatherSettingsGroups">
-							<div class="weatherSettingsLabels">
-								City ID
-							</div>
+							<label for="cityBox" class='weatherSettingsLabels'>City ID</label>
 							<input type="text" class="weatherSettingsInputs" id="cityBox" autocomplete="off" placeholder="City ID"/>
 						</div>
 						<div class="weatherSettingsGroups">
-							<div class="weatherSettingsLabels">
-								Units
-							</div>
+							<label for="weatherSelectUnits" class='weatherSettingsLabels'>Units</label>
 							<select class="weatherSettingsInputs" id="weatherSelectUnits">
 								<option value="metric">Metric</option>
 							  	<option value="imperial">Imperial</option>
@@ -151,28 +145,22 @@
 					</div>
 					<div id="themeEngineContainer">
 						<div class="themeEngineGroups">
-							<div class="themeEngineLabels">
-								Background Color and Opacity
-							</div>
-								<div class="backgroundColorSetter">
+							<label for="backgroundSet" class='themeEngineLabels'>Background Color and Opacity</label>
+							<div class="backgroundColorSetter">
 								<input type="text" maxlength="7" class="themeEngineInputs" id="backgroundSet" autocomplete="off" placeholder="000000"/>
 								<input type="text" maxlength="2" class="themeEngineInputs" id="backgroundOpacitySet" autocomplete="off" placeholder="FF"/>
 							</div>
 						</div>
 						<div class="themeEngineGroups">
-							<div class="themeEngineLabels">
-								Foreground Color and Opacity
-							</div>
-								<div class="foregroundColorSetter">
+							<label for="foregroundSet" class='themeEngineLabels'>Foreground Color and Opacity</label>
+							<div class="foregroundColorSetter">
 								<input type="text" maxlength="7" class="themeEngineInputs" id="foregroundSet" autocomplete="off" placeholder="000000"/>
 								<input type="text" maxlength="2" class="themeEngineInputs" id="foregroundOpacitySet" autocomplete="off" placeholder="FF"/>
 							</div>
 						</div>
 						<div class="themeEngineGroups">
-							<div class="themeEngineLabels">
-								Blur Strength in Pixels
-							</div>
-								<div class="blurSetter">
+							<label for="blurSet" class='themeEngineLabels'>Blur Strength in Pixels</label>
+							<div class="blurSetter">
 								<input type="text" class="themeEngineInputs" id="blurSet" autocomplete="off" placeholder="10"/>
 							</div>
 						</div>
