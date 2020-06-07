@@ -60,7 +60,19 @@
 }
 
 #searchEngineSelect:hover {
+	outline: none !important;
 	cursor: pointer;
+	background: var(--base-hover-bg) !important;
+}
+
+#searchEngineSelect:focus {
+	outline: none !important;
+	background: var(--base-focus-bg) !important;
+}
+
+#searchEngineSelect:active {
+	outline: none !important;
+	background: var(--base-active-bg) !important;
 }
 
 #searchEngineSelect option {
@@ -95,6 +107,10 @@ select::-ms-expand {
 
 #searchEngineAsDefault:active {
 	background: var(--base-active-bg);
+}
+
+#searchEngineAsDefault:focus {
+	background: var(--base-focus-bg);
 }
 
 @media screen and (max-width: 580px) {

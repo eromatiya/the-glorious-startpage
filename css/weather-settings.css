@@ -78,7 +78,19 @@
 }
 
 #weatherSelectUnits:hover {
+	outline: none !important;
 	cursor: pointer;
+	background: var(--base-hover-bg) !important;
+}
+
+#weatherSelectUnits:focus {
+	outline: none !important;
+	background: var(--base-focus-bg) !important;
+}
+
+#weatherSelectUnits:active {
+	outline: none !important;
+	background: var(--base-active-bg) !important;
 }
 
 #weatherSelectUnits option {
@@ -102,13 +114,21 @@
 }
 
 #weatherSettingsApply:hover, #weatherSettingsReset:hover {
-	background: var(--base-hover-bg) !important;
+	outline: none;
 	cursor: pointer;
+	background: var(--base-hover-bg) !important;
 }
 
 #weatherSettingsApply:active, #weatherSettingsReset:active {
+	outline: none;
 	background: var(--base-active-bg) !important;
 }
+
+#weatherSettingsApply:focus, #weatherSettingsReset:focus {
+	outline: none;
+	background: var(--base-focus-bg) !important;
+}
+
 
 #weatherSettingsButtons {
 	display: flex;
