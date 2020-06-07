@@ -79,9 +79,47 @@
 			<div id="greeterMessage"></div>
 			<div id="dateMessage"></div>
 
+			<form class="weatherSettings">
+				<div id="weatherSettingsPadding">
+
+					<div class="header" id="weatherSettingsHeader">
+						<div class="headerIcon" id="weatherSettingsHeaderIcon"></div>
+						<label for="apiBox" class='headerLabel' id='weatherSettingsHeaderLabel'>Weather Settings</label>
+					</div>
+
+					<div id="weatherSettingsContainer">
+						<div class="weatherSettingsGroups">
+							<label for="apiBox" class='weatherSettingsLabels'>API Key</label>
+							<input type="text" class="weatherSettingsInputs" id="apiBox" autocomplete="off" placeholder="API KEY"/>
+						</div>
+
+						<div class="weatherSettingsGroups">
+							<label for="cityBox" class='weatherSettingsLabels'>City ID</label>
+							<input type="text" class="weatherSettingsInputs" id="cityBox" autocomplete="off" placeholder="City ID"/>
+						</div>
+
+						<div class="weatherSettingsGroups">
+							<label for="weatherSelectUnits" class='weatherSettingsLabels'>Units</label>
+							<select class="weatherSettingsInputs" id="weatherSelectUnits">
+								<option value="metric">Metric</option>
+							  	<option value="imperial">Imperial</option>
+							</select>
+						</div>
+
+						<div class="weatherSettingsGroups" id="weatherSettingsButtons">
+							<div class="weatherSettingsInputs" id="weatherSettingsReset">Clear Credentials</div>
+							<div class="weatherSettingsInputs" id="weatherSettingsApply">Apply</div>
+						</div>
+
+					</div>
+
+				</div>
+
+			</form>
+
 
 			<!-- Weather Settings -->
-			<div class="weatherSettings">
+<!-- 			<div class="weatherSettings">
 				<div id="weatherSettingsPadding">
 
 					<div class="header" id="weatherSettingsHeader">
@@ -112,7 +150,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
 
 
