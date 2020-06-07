@@ -1,28 +1,28 @@
-var weatherScreen = document.getElementById("weatherScreen");
+const weatherScreen = document.getElementById("weatherScreen");
 
 let weatherScreenVisibility = false;
 
-var weatherIcon = document.getElementById("weatherTodayIcon");
-var weatherLocation = document.getElementById("weatherTodayLocation");
-var weatherDescription = document.getElementById("weatherTodayDescription");
+const weatherIcon = document.getElementById("weatherTodayIcon");
+const weatherLocation = document.getElementById("weatherTodayLocation");
+const weatherDescription = document.getElementById("weatherTodayDescription");
 
-var sunriseHour = document.getElementById("sunriseTodayHour");
-var sunsetHour = document.getElementById("sunsetTodayHour");
-var updateHour = document.getElementById("updateTodayHour")
+const sunriseHour = document.getElementById("sunriseTodayHour");
+const sunsetHour = document.getElementById("sunsetTodayHour");
+const updateHour = document.getElementById("updateTodayHour")
 
-var weatherDockImageButton = document.getElementById("buttonImageWeather");
-var forecastContainer = document.getElementById("forecastContainer");
+const weatherDockImageButton = document.getElementById("buttonImageWeather");
+const forecastContainer = document.getElementById("forecastContainer");
 
-const formatUnixTime = (unix) => {
-	var date = new Date(unix*1000);
-	var hour = date.getHours();
-	var minutes = "0" + date.getMinutes();
-	var formattedTime = hour + ':' + minutes.substr(-2);
+const formatUnixTime = unix => {
+	const date = new Date(unix*1000);
+	const hour = date.getHours();
+	const minutes = "0" + date.getMinutes();
+	const formattedTime = hour + ':' + minutes.substr(-2);
 	return formattedTime;
 }
 
-const getWeatherIcon = (code) => {
-	var icon_tbl = {
+const getWeatherIcon = code => {
+	const icon_tbl = {
 		'01d': 'sun_icon.svg',
 		'01n': 'moon_icon.svg',
 		'02d': 'dfew_clouds.svg',
@@ -46,14 +46,14 @@ const getWeatherIcon = (code) => {
 	return icon_tbl[code];
 }
 
-const updateWeatherDockButton = (icon) => {
+const updateWeatherDockButton = icon => {
 	weatherDockImageButton.style.background = "url('assets/weather-icons/" + icon + "')";
 	weatherDockImageButton.style.backgroundSize = "cover";
 }
 
 const setWeatherValue = (loc, desc, icon, sunr, suns, updt) => {
 
-	var temp_symbol = (units === "metric") ? "°C" : "°F";
+	const temp_symbol = (units === "metric") ? "°C" : "°F";
 
 	weatherLocation.innerHTML = loc;
 	weatherDescription.innerHTML = desc + temp_symbol;
@@ -72,28 +72,28 @@ const setWeatherValue = (loc, desc, icon, sunr, suns, updt) => {
 const createForecastBody = (fIcon, forecastTemp, foreDescription, fHour, fDate) => {
 
 	// Main Div
- 	var forecastDay = document.createElement('div');
+ 	const forecastDay = document.createElement('div');
  	forecastDay.className = 'weatherForecastDay';
 
  	// Icon Container Div
- 	var forecastIconContainer = document.createElement('div');
+ 	const forecastIconContainer = document.createElement('div');
  	forecastIconContainer.className = 'weatherForecastDayIconContainer';
 
  	// Icon Div
- 	var forecastIcon = document.createElement('div');
+ 	const forecastIcon = document.createElement('div');
  	forecastIcon.className = 'weatherForecastDayIcon';
  	forecastIcon.style.background = "url('assets/weather-icons/" + fIcon + "')";
  	forecastIcon.style.backgroundSize = 'cover';
 
  	// Details Div
- 	var forecastDetails = document.createElement('div');
+ 	const forecastDetails = document.createElement('div');
  	forecastDetails.className = 'weatherForecastDayDetails';
 
- 	var forecastTemperature = document.createElement('div');
+ 	const forecastTemperature = document.createElement('div');
  	forecastTemperature.className = 'weatherForecastDayDetailsTemperature';
  	forecastTemperature.innerHTML = forecastTemp;
 
- 	var forecastDescription = document.createElement('div');
+ 	const forecastDescription = document.createElement('div');
  	forecastDescription.className = 'weatherForecastDayDetailsDescription';
  	forecastDescription.innerHTML = foreDescription;
 
@@ -102,14 +102,14 @@ const createForecastBody = (fIcon, forecastTemp, foreDescription, fHour, fDate) 
  	forecastDetails.appendChild(forecastDescription);
 
  	// Date Div
- 	var forecastDayDate = document.createElement('div');
+ 	const forecastDayDate = document.createElement('div');
  	forecastDayDate.className = 'weatherForecastDayDate';
 
- 	var forecastHour = document.createElement('div');
+ 	const forecastHour = document.createElement('div');
  	forecastHour.className = 'weatherForecastDayDateHour';
  	forecastHour.innerHTML = fHour;
 
- 	var forecastDate = document.createElement('div');
+ 	const forecastDate = document.createElement('div');
  	forecastDate.className = 'weatherForecastDayDateDate';
  	forecastDate.innerHTML = fDate;
 
@@ -130,11 +130,11 @@ const createForecastBody = (fIcon, forecastTemp, foreDescription, fHour, fDate) 
 }
 
 const setErrValue = () => {
-	var wLoc = "Earth, Milky Way";
-	var wDesc = "dust & clouds, -1000";
-	var wIcon = "weather-error.svg";
+	const wLoc = "Earth, Milky Way";
+	const wDesc = "dust & clouds, -1000";
+	const wIcon = "weather-error.svg";
 
-	var time = "00:00";
+	const time = "00:00";
 
 	setWeatherValue(wLoc, wDesc, wIcon, time, time, time);
 }
@@ -142,25 +142,25 @@ const setErrValue = () => {
 // Process weather data
 const processWeatherData = (data) => {
 
-	var cityName = data.name;
-	var countryName = data.sys.country;
-	var weatherDescription = data.weather[0].description;
-	var weatherIcon = data.weather[0].icon;
-	var weatherTemp = Math.floor(data.main.temp);
-	var sunRise = data.sys.sunrise;
-	var sunSet = data.sys.sunset;
-	var update = data.dt;
+	const cityName = data.name;
+	const countryName = data.sys.country;
+	const weatherDescription = data.weather[0].description;
+	const weatherIcon = data.weather[0].icon;
+	const weatherTemp = Math.floor(data.main.temp);
+	const sunRise = data.sys.sunrise;
+	const sunSet = data.sys.sunset;
+	const update = data.dt;
 
-	var wLoc = cityName + ", " + countryName;
-	var wDesc = weatherDescription + ", " + weatherTemp;
+	const wLoc = cityName + ", " + countryName;
+	let wDesc = weatherDescription + ", " + weatherTemp;
 
 	// Capitalize first word
 	wDesc = wDesc && wDesc[0].toUpperCase() + wDesc.slice(1)
 
-	var wIcon = getWeatherIcon(weatherIcon);
-	var rise = formatUnixTime(sunRise);
-	var set = formatUnixTime(sunSet);
-	var upd = formatUnixTime(update);
+	const wIcon = getWeatherIcon(weatherIcon);
+	const rise = formatUnixTime(sunRise);
+	const set = formatUnixTime(sunSet);
+	const upd = formatUnixTime(update);
 
 	setWeatherValue(wLoc, wDesc, wIcon, rise, set, upd);		
 }
@@ -170,7 +170,7 @@ const getWeatherData = (appID, cityID, units) => {
 
 	requestString = "https://api.openweathermap.org/data/2.5/weather?APPID=" + appID + "&id=" + cityID + "&units=" + units;
 
-	var request = new XMLHttpRequest();
+	const request = new XMLHttpRequest();
 	request.open("GET", requestString, true);
 	request.onload = e => {
 		if (request.readyState === 4 && request.status === 200 && request.status < 400) {
@@ -204,24 +204,24 @@ const processForecastData = data => {
 	// Empty forecast container to avoid duplication
 	forecastContainer.innerHTML = '';
 
-	var forecast = data.list;
+	const forecast = data.list;
 
-	for (let weatherData of forecast) {	
+	for (let i = 8; i < forecast.length; i+=8) {
 		
-		var temp_symbol = (units === "metric") ? "°C" : "°F";
+		const temp_symbol = (units === "metric") ? "°C" : "°F";
 
-		var foreIcon = weatherData.weather[0].icon;
-		var minimumTemp = weatherData.main.temp_min;
-		var maximumTemp = weatherData.main.temp_max;
-		var foreDescription = weatherData.weather[0].description;
-		var dateTime = weatherData.dt_txt;
+		const foreIcon = forecast[i].weather[0].icon;
+		const minimumTemp = forecast[i].main.temp_min;
+		const maximumTemp = forecast[i].main.temp_max;
+		const foreDescription = forecast[i].weather[0].description;
+		const dateTime = forecast[i].dt_txt;
 
-		var fIcon = getWeatherIcon(foreIcon);
-		var minTemp = Math.floor(minimumTemp);
-		var maxTemp = Math.floor(maximumTemp);
-		var forecastTemp = minTemp + ' ~ ' + maxTemp + temp_symbol;
-		var fHour = dateTime.substr(dateTime.indexOf(' ') + 1).slice(0, -3);;
-		var fDate = dateTime.substr(0, dateTime.indexOf(' '));
+		const fIcon = getWeatherIcon(foreIcon);
+		const minTemp = Math.floor(minimumTemp);
+		const maxTemp = Math.floor(maximumTemp);
+		const forecastTemp = minTemp + ' ~ ' + maxTemp + temp_symbol;
+		const fHour = dateTime.substr(dateTime.indexOf(' ') + 1).slice(0, -3);;
+		const fDate = dateTime.substr(0, dateTime.indexOf(' '));
 
 		createForecastBody(fIcon, forecastTemp, foreDescription, fHour, fDate);
 	}
