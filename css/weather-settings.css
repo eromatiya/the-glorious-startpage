@@ -86,8 +86,10 @@
 	border: none;
 }
 
-#weatherSettingsApply, #weatherSettingsReset {
+#weatherSettingsApply,
+#weatherSettingsReset {
 	margin-top: 0;
+	border: none;
 	background: var(--base-container) !important;
 }
 
