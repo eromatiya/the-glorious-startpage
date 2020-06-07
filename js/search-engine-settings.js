@@ -56,7 +56,7 @@ selectEngine.onchange = () => {
 	selectTheEngine()
 }
 
-searchEngineAsDefault.onmouseup = () => {
+searchEngineAsDefault.onclick = () => {
 	var selectCurrentIndex = selectEngine.options[selectEngine.selectedIndex]
 	alert('Success! ' + selectCurrentIndex.text + 
 		' is now your default search engine!');

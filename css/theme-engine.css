@@ -82,6 +82,7 @@ select::-ms-expand {
 	margin-top: 5px;
 	border-radius: 6px;
 	cursor: pointer;
+	border: none;
 
 	/*Center vertically*/
 	display: flex;
@@ -97,6 +98,12 @@ select::-ms-expand {
 #themeEngineReset:active,
 #themeEngineAsDefault:active {
 	background: var(--base-active-bg);
+}
+
+#themeEngineReset:focus,
+#themeEngineAsDefault:focus {
+	outline: none;
+	background: var(--base-focus-bg);
 }
 
 .themeEngineGroups {

@@ -25,7 +25,8 @@
 	--base-color: #f2f2f2;
 	--base-container: #f2f2f220;
 
-	--base-hover-bg: #f2f2f240;
+	--base-hover-bg: #f2f2f230;
+	--base-focus-bg: #f2f2f245;
 	--base-active-bg: #fefefe60;
 
 	--blur-strength: 6px;
