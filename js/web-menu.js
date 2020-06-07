@@ -104,7 +104,7 @@ const populateWebMenu = () => {
 String.prototype.fuzzy = function(term, ratio) {
     const string = this.toLowerCase();
     const compare = term.toLowerCase();
-    const matches = 0;
+    let matches = 0;
     
     if (string.indexOf(compare) > -1) return true; // covers basic partial matches
     for (let i = 0; i < compare.length; i++) {
