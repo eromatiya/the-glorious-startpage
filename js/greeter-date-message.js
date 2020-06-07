@@ -1,9 +1,9 @@
-var greeterMessage = document.getElementById("greeterMessage");
-var dateMessage = document.getElementById("dateMessage");
+const greeterMessage = document.getElementById("greeterMessage");
+const dateMessage = document.getElementById("dateMessage");
 
-var date = new Date();
-var hour = date.getHours();
-var greeterSuffix;
+const date = new Date();
+const hour = date.getHours();
+let greeterSuffix;
 
 const monthsArr = [
 	"January",

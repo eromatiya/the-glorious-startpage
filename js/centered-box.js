@@ -1,4 +1,4 @@
-var centeredBox = document.getElementById("centeredBox");
+const centeredBox = document.getElementById("centeredBox");
 
 let centeredBoxVisibility = true;
 

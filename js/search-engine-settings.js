@@ -1,15 +1,15 @@
 var localStorage = window.localStorage;
 
 var searchBox = document.getElementById("searchBox");
-var selectEngine = document.getElementById("searchEngineSelect");
-var searchEngineAsDefault = document.getElementById("searchEngineAsDefault");
+const selectEngine = document.getElementById("searchEngineSelect");
+const searchEngineAsDefault = document.getElementById("searchEngineAsDefault");
 
 // Get default search engine
-var defaultEngine = localStorage.getItem('searchEngine') || 'google';
+let defaultEngine = localStorage.getItem('searchEngine') || 'google';
 
 let searchQueryPrefix;
 
-var placeholderPrefix = "  Search with ";
+const placeholderPrefix = "  Search with ";
 
 // Update query string and placeholder
 const selectQueryString = () => {
@@ -51,13 +51,13 @@ const selectTheEngine = () => {
 // Update settings if the value changes
 selectEngine.onchange = () => {
 	// Get Value
-	var selectedEngine = selectEngine.options[selectEngine.selectedIndex].value;
+	const selectedEngine = selectEngine.options[selectEngine.selectedIndex].value;
 	defaultEngine = selectedEngine;
 	selectTheEngine()
 }
 
 searchEngineAsDefault.onclick = () => {
-	var selectCurrentIndex = selectEngine.options[selectEngine.selectedIndex]
+	const selectCurrentIndex = selectEngine.options[selectEngine.selectedIndex]
 	alert('Success! ' + selectCurrentIndex.text + 
 		' is now your default search engine!');
 

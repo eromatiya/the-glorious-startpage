@@ -43,7 +43,7 @@ const phraseEvents = button => {
 			event.preventDefault();
 
 			const phraseButtons = Array.prototype.slice.call(document.querySelectorAll('button'));
-			var phraseIndex = (phraseButtons.indexOf(document.activeElement) - 1) % phraseButtons.length;
+			const phraseIndex = (phraseButtons.indexOf(document.activeElement) - 1) % phraseButtons.length;
 
 			if (phraseIndex < 0) { 
 				phraseIndex = phraseButtons.length - 1;
@@ -68,7 +68,7 @@ const phraseEvents = button => {
 const autocompleteCallback = phrase => {
 
 	// Filter/parse the object
-	var suggestion = phrase.map(i => i.phrase)
+	const suggestion = phrase.map(i => i.phrase)
 					.filter(s => !(s.toLowerCase() === String(searchBox.value).toLowerCase()))
 					.slice(0, 4);
 
@@ -80,10 +80,10 @@ const autocompleteCallback = phrase => {
 	for (let phrases of suggestion ) {
 
 		// Create html elements
-		var li = document.createElement('li');
+		const li = document.createElement('li');
 		li.id = 'phrase';
 
-		var button = document.createElement('button');
+		const button = document.createElement('button');
 		button.type = 'button';
 		button.className = 'phraseButton';
 		button.innerHTML = phrases;
@@ -115,7 +115,7 @@ searchBox.onkeyup = event => {
 	}
 
 	// Fetch from duckduckgo
-	var script = document.createElement('script');
+	const script = document.createElement('script');
 	script.type = "text/javascript";
 	script.src = "https://duckduckgo.com/ac/?callback=autocompleteCallback&q="+String(searchBox.value);
 	document.querySelector('head').appendChild(script);

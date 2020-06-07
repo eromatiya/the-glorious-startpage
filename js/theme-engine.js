@@ -1,22 +1,22 @@
 var localStorage = window.localStorage;
 
-var backgroundTextBox = document.getElementById('backgroundSet');
-var backgroundOpacityTextBox = document.getElementById('backgroundOpacitySet');
-var foregroundTextBox = document.getElementById('foregroundSet');
-var foregroundOpacityTextBox = document.getElementById('foregroundOpacitySet');
+const backgroundTextBox = document.getElementById('backgroundSet');
+const backgroundOpacityTextBox = document.getElementById('backgroundOpacitySet');
+const foregroundTextBox = document.getElementById('foregroundSet');
+const foregroundOpacityTextBox = document.getElementById('foregroundOpacitySet');
 
-var blurTextBox = document.getElementById('blurSet');
+const blurTextBox = document.getElementById('blurSet');
 
-var applyTheme = document.getElementById('themeEngineAsDefault');
-var resetTheme = document.getElementById('themeEngineReset');
+const applyTheme = document.getElementById('themeEngineAsDefault');
+const resetTheme = document.getElementById('themeEngineReset');
 
-// Save CSS color variables default in localStorage
+// Save CSS color constiables default in localStorage
 // Will only save if you visit the webpage for the very first time
 const saveDefaultCSS = () => {
 
-	var origBaseBG = localStorage.getItem('origBaseBG');
-	var origBaseColor = localStorage.getItem('origBaseColor');
-	var origBlurStrength = localStorage.getItem('origBlurStrength');
+	const origBaseBG = localStorage.getItem('origBaseBG');
+	const origBaseColor = localStorage.getItem('origBaseColor');
+	const origBlurStrength = localStorage.getItem('origBlurStrength');
 	
 	if ((origBaseBG === null) || (origBaseColor === null) || (origBlurStrength) === null) {
 
@@ -39,7 +39,7 @@ const saveDefaultCSS = () => {
 const checkColorValidity = (colorStr) => {
 
 	// Check if RGBA - (#RRGGBBAA)
-	var colorRGBA = /^#[0-9A-F]{8}$/i.test(colorStr);
+	const colorRGBA = /^#[0-9A-F]{8}$/i.test(colorStr);
 
 	// If not RGBA
 	if (!colorRGBA) {
@@ -59,8 +59,8 @@ const checkColorValidity = (colorStr) => {
 		// If three-charactered HEX Color(#RGB) with AA - (#RGBAA)
 		} else if (colorStr.length == 6) {
 
-			var bg = colorStr.slice(0, -2);
-			var op = colorStr.slice(-2);
+			const bg = colorStr.slice(0, -2);
+			const op = colorStr.slice(-2);
 
 			return bg.replace(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])/, "#$1$1$2$2$3$3") + op;
 
@@ -95,9 +95,9 @@ const updateTextBoxValues = (bgColor, bgOpacity, fgColor, fgOpacity, blurPower) 
 const processTheme = () => {
 
 	// Retrieve custom colors
-	var baseBG = localStorage.getItem('baseBG');
-	var baseColor = localStorage.getItem('baseColor');
-	var blurStrength = localStorage.getItem('blurStrength');
+	let baseBG = localStorage.getItem('baseBG');
+	let baseColor = localStorage.getItem('baseColor');
+	let blurStrength = localStorage.getItem('blurStrength');
 
 	// If custom color doesn't exist, use the value in CSS
 	if (baseBG === null) {
@@ -123,16 +123,16 @@ const processTheme = () => {
 
 	// Slice to separate RGB and A of background color
 	// Slice alpha out
-	var backgroundColor = baseBG.slice(0, -2);
+	const backgroundColor = baseBG.slice(0, -2);
 	// Get alpha
-	var backgroundOpacity = baseBG.slice(-2);
+	const backgroundOpacity = baseBG.slice(-2);
 
 
 	// Slice to separate RGB and A of foreground color		
 	// Slice alpha out
-	var foregroundColor = baseColor.slice(0, -2);
+	const foregroundColor = baseColor.slice(0, -2);
 	// Get alpha
-	var foregroundOpacity = baseColor.slice(-2);
+	const foregroundOpacity = baseColor.slice(-2);
 
 	updateTextBoxValues(
 		backgroundColor,
@@ -144,20 +144,20 @@ const processTheme = () => {
 }
 
 // Update colors
-const updateCSSVariables = () => {
+const updateCSSconstiables = () => {
 
 	// Get value from input fields
-	var background = (backgroundTextBox.value || backgroundTextBox.placeholder) +
+	const background = (backgroundTextBox.value || backgroundTextBox.placeholder) +
 		(backgroundOpacityTextBox.value || backgroundOpacityTextBox.placeholder);
 
-	var foreground = (foregroundTextBox.value || foregroundTextBox.placeholder) +
+	const foreground = (foregroundTextBox.value || foregroundTextBox.placeholder) +
 		(foregroundOpacityTextBox.value || foregroundOpacityTextBox.placeholder);
 	
-	var blurPower = (blurTextBox.value || blurTextBox.placeholder);
+	const blurPower = (blurTextBox.value || blurTextBox.placeholder);
 
 	// Check color validity
-	var bgColor = checkColorValidity(background);
-	var fgColor = checkColorValidity(foreground);
+	const bgColor = checkColorValidity(background);
+	const fgColor = checkColorValidity(foreground);
 
 	// Change CSS colors
 	document.documentElement.style.setProperty('--base-bg', bgColor);
@@ -178,12 +178,12 @@ const updateOnStartUp = () => {
 	processTheme();
 
 	// Update settings
-	updateCSSVariables();
+	updateCSSconstiables();
 }
 
 // Apply button event handler
 applyTheme.onclick = () => {
-	updateCSSVariables();
+	updateCSSconstiables();
 	alert('Success!');
 }
 
@@ -195,7 +195,7 @@ resetTheme.onclick = () => {
 
 	saveDefaultCSS();
 	processTheme();
-	updateCSSVariables();
+	updateCSSconstiables();
 	
 	alert('Success!');
 }
