@@ -57,7 +57,7 @@ const updateWeatherSettings = () => {
 }
 
 // Reset button was pressed
-weatherSettingsReset.onmouseup = () => {
+weatherSettingsReset.onclick = () => {
 	// Reset keys
 	resetWeatherSettings();
 	updateWeatherSettings();
@@ -65,7 +65,7 @@ weatherSettingsReset.onmouseup = () => {
 }
 
 // Apply settings
-weatherSettingsApply.onmouseup = () => {
+weatherSettingsApply.onclick = () => {
 	applyWeatherSettings(
 		apiBox.value || apiBox.placeholder,
 		cityBox.value || cityBox.placeholder,

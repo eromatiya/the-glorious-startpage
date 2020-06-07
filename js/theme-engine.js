@@ -182,13 +182,13 @@ const updateOnStartUp = () => {
 }
 
 // Apply button event handler
-applyTheme.onmouseup = () => {
+applyTheme.onclick = () => {
 	updateCSSVariables();
 	alert('Success!');
 }
 
 // Reset button event handler
-resetTheme.onmouseup = () => {
+resetTheme.onclick = () => {
 	localStorage.removeItem('baseBG');
 	localStorage.removeItem('baseColor');
 	localStorage.removeItem('blurStrength');
