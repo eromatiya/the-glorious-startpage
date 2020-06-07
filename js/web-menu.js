@@ -37,11 +37,11 @@ const sortList = () => {
 const populateWebMenu = () => {
 
 	// Generate a list
-	for (i = 0; i < (webSites.length); i++) {
+	for (let webData of webSites) {
 
-		var site = webSites[i].site;
-		var icon = webSites[i].icon;
-		var url = webSites[i].url;
+		var site = webData.site;
+		var icon = webData.icon;
+		var url = webData.url;
 
 		var li = document.createElement('li');
 

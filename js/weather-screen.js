@@ -199,22 +199,22 @@ const getForecastData = (appID, cityID, units) => {
 }
 
 // Process forecast data
-const processForecastData = (data) => {
+const processForecastData = data => {
 	
 	// Empty forecast container to avoid duplication
 	forecastContainer.innerHTML = '';
 
 	var forecast = data.list;
 
-	for (var i = 8; i < forecast.length; i+=8) {
+	for (let weatherData of forecast) {	
 		
 		var temp_symbol = (units === "metric") ? "°C" : "°F";
 
-		var foreIcon = forecast[i].weather[0].icon;
-		var minimumTemp = forecast[i].main.temp_min;
-		var maximumTemp = forecast[i].main.temp_max;
-		var foreDescription = forecast[i].weather[0].description;
-		var dateTime = forecast[i].dt_txt;
+		var foreIcon = weatherData.weather[0].icon;
+		var minimumTemp = weatherData.main.temp_min;
+		var maximumTemp = weatherData.main.temp_max;
+		var foreDescription = weatherData.weather[0].description;
+		var dateTime = weatherData.dt_txt;
 
 		var fIcon = getWeatherIcon(foreIcon);
 		var minTemp = Math.floor(minimumTemp);

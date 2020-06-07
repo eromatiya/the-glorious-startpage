@@ -77,7 +77,7 @@ const autocompleteCallback = phrase => {
 
 
 	// Generate list elements
-	for (i = 0; i < (suggestion.length); i++) {
+	for (let phrases of suggestion ) {
 
 		// Create html elements
 		var li = document.createElement('li');
@@ -86,7 +86,7 @@ const autocompleteCallback = phrase => {
 		var button = document.createElement('button');
 		button.type = 'button';
 		button.className = 'phraseButton';
-		button.innerHTML = suggestion[i];
+		button.innerHTML = phrases;
 
 
 		// Create input events
