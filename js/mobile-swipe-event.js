@@ -1,7 +1,7 @@
 const swipeEvent = (elementID, callback) => {
 
-	var el = document.getElementById(elementID);
-	var dir;
+	const el = document.getElementById(elementID);
+	let dir;
 
 	el.addEventListener(
 		'touchstart',
@@ -21,10 +21,10 @@ const swipeEvent = (elementID, callback) => {
 		        return;
 		    }
 
-		    var xUp = event.touches[0].clientX;
-		    var yUp = event.touches[0].clientY;
-		    var xDiff = xDown - xUp;
-		    var yDiff = yDown - yUp;
+		    const xUp = event.touches[0].clientX;
+		    const yUp = event.touches[0].clientY;
+		    const xDiff = xDown - xUp;
+		    const yDiff = yDown - yUp;
 
 		    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
 		        if ( xDiff > 0 ) {

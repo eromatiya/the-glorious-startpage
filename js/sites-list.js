@@ -2,7 +2,7 @@
 
 // Web menu
 // A list of websites that will be generated and put on the web menu
-let webSites = [
+const webSites = [
 	{
 		site: 'Reddit',
 		icon: 'reddit',
@@ -265,7 +265,7 @@ let webSites = [
 
 // Dock
 // A list of websites that will be generated and put on the dock
-let dockSites = [
+const dockSites = [
 	{
 		site: 'Reddit',
 		icon: 'reddit',

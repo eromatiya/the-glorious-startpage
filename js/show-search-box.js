@@ -1,6 +1,6 @@
 var searchBox = document.getElementById('searchBox');
-var searchBoxContainer = document.getElementById('searchBoxContainer');
-var centeredBoxOverlay = document.getElementById('centeredBoxOverlay');
+const searchBoxContainer = document.getElementById('searchBoxContainer');
+const centeredBoxOverlay = document.getElementById('centeredBoxOverlay');
 
 let searchBoxVisility = false;
 

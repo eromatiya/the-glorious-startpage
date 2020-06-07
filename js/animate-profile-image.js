@@ -1,4 +1,4 @@
-var profileContainer = document.getElementById("profileImageContainer");
+const profileContainer = document.getElementById("profileImageContainer");
 
 let profileAnimRunning = false;
 

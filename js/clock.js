@@ -1,4 +1,4 @@
-var clock = document.getElementById("clock")
+const clock = document.getElementById("clock")
 
 // Append 0 before time elements if less hour's than 10
 const appendZero = (k) => {
@@ -12,12 +12,12 @@ const appendZero = (k) => {
 // Update/Set clock
 const currentTime = () => {
 	// Date object
-	var date = new Date();
+	const date = new Date();
 
 	// Set hour, minute
-	var hour = date.getHours();
-	var min = date.getMinutes();
-	var midDay = "AM";
+	let hour = date.getHours();
+	let min = date.getMinutes();
+	let midDay = "AM";
 	
 	// Assigning
 	midDay = (hour >= 12) ? "PM" : "AM";
@@ -31,7 +31,7 @@ const currentTime = () => {
 	// Recursion
 	// Call itself if 1 second has passed.
 	// TOKIWO TOMAREEEE!
-	var t = setTimeout(currentTime, 1000);
+	const t = setTimeout(currentTime, 1000);
 }
 
 // Start clock

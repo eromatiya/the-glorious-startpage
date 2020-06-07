@@ -1,20 +1,18 @@
-var localStorage = window.localStorage;
-
-// Set variable
+// Set constiable
 let appID, cityID, units;
 
 // Input elements
 
 // Textboxes
-var apiBox = document.getElementById("apiBox");
-var cityBox = document.getElementById("cityBox");
+const apiBox = document.getElementById("apiBox");
+const cityBox = document.getElementById("cityBox");
 
 // Select menu
-var weatherSelectUnits = document.getElementById("weatherSelectUnits");
+const weatherSelectUnits = document.getElementById("weatherSelectUnits");
 
 // Div buttons
-var weatherSettingsReset = document.getElementById("weatherSettingsReset");
-var weatherSettingsApply = document.getElementById("weatherSettingsApply");
+const weatherSettingsReset = document.getElementById("weatherSettingsReset");
+const weatherSettingsApply = document.getElementById("weatherSettingsApply");
 
 // Apply credentials
 const applyWeatherSettings = (key, city, units) => {

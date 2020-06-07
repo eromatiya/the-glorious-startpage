@@ -1,7 +1,7 @@
-var backgroundBody = document.getElementById('bodyBackground') 
+const backgroundBody = document.getElementById('bodyBackground') 
 
 // High quality background, we'll lazy load this
-var hqBackground = document.createElement("img");
+const hqBackground = document.createElement("img");
 
 // Style body background
 const styleBodyBackground = (bgBodyStyle) => {
@@ -14,7 +14,7 @@ const styleBodyBackground = (bgBodyStyle) => {
 const lazyLoadBackground = (fileName) => {
 
 	// Shorten backgroundBody.style or alias it
-	var bgBodyStyle = backgroundBody.style;
+	const bgBodyStyle = backgroundBody.style;
 
 	// Set a low quality background image 
 	bgBodyStyle.background = "url('assets/backgrounds/" + 
@@ -45,8 +45,8 @@ const lazyLoadBackground = (fileName) => {
 }
 
 const initLazyLoad = () => {
-	var date = new Date();
-	var hour = date.getHours();
+	const date = new Date();
+	const hour = date.getHours();
 
 	if (hour >= 6 && hour < 12) {
 		lazyLoadBackground("morning");

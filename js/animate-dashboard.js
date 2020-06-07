@@ -1,14 +1,14 @@
-var dashboard = document.getElementById("rightDashboard");
-var dashboardOverlay = document.getElementById("dashboardOverlay");
+const dashboard = document.getElementById("rightDashboard");
+const dashboardOverlay = document.getElementById("dashboardOverlay");
 
 let rightDashboardVisibility = false;
 
 // Disable/Enable inputs
-var disableDashboardInputs = (status) => {
-    var elems = dashboard.getElementsByTagName('input');
-    var len = elems.length;
+const disableDashboardInputs = (status) => {
+    const elems = dashboard.getElementsByTagName('input');
+    const len = elems.length;
 
-    for (var i = 0; i < len; i++) {
+    for (let i = 0; i < len; i++) {
         elems[i].disabled = status;
     }
 }

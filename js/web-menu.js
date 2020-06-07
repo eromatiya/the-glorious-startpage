@@ -1,19 +1,19 @@
-var webMenu = document.getElementById("webMenu");
-var webMenuList = document.getElementById("webMenuList");
-var webMenuListContainer = document.getElementById("webMenuListContainer");
-var webMenuSearchBox = document.getElementById("webMenuSearchBox");
+const webMenu = document.getElementById("webMenu");
+const webMenuList = document.getElementById("webMenuList");
+const webMenuListContainer = document.getElementById("webMenuListContainer");
+const webMenuSearchBox = document.getElementById("webMenuSearchBox");
 
-let webMenuVisibility = false;
+var webMenuVisibility = false;
 
 let webItemFocus;
 let webListIndex = 0;
 
 // Disable/Enable inputs
-var disableWebMenuInputs = (status) => {
-    var elems = webMenu.getElementsByTagName('input');
-    var len = elems.length;
+const disableWebMenuInputs = (status) => {
+    const elems = webMenu.getElementsByTagName('input');
+    const len = elems.length;
 
-    for (var i = 0; i < len; i++) {
+    for (let i = 0; i < len; i++) {
         elems[i].disabled = status;
     }
 }
@@ -39,17 +39,17 @@ const populateWebMenu = () => {
 	// Generate a list
 	for (let webData of webSites) {
 
-		var site = webData.site;
-		var icon = webData.icon;
-		var url = webData.url;
+		const site = webData.site;
+		const icon = webData.icon;
+		const url = webData.url;
 
-		var li = document.createElement('li');
+		const li = document.createElement('li');
 
 		// Add mouseup event
 		createCallback(li, url);
 
 		// Create a href
-		var aWebLink = document.createElement('a');
+		const aWebLink = document.createElement('a');
 		aWebLink.className = 'webMenuLink';
 		aWebLink.href = url;
 		aWebLink.tabIndex = '-1';
@@ -61,24 +61,24 @@ const populateWebMenu = () => {
 		webItemDiv.id = "id" + site;
 		
 		// Create a second div, webItemContainer
-		var webItemContainer = document.createElement('div');
+		const webItemContainer = document.createElement('div');
 		webItemContainer.className = 'webItemContainer';
 
 		// Create the innermost div, contains icon and label
-		var webItemBody = document.createElement('div');
+		const webItemBody = document.createElement('div');
 		webItemBody.className = 'webItemBody';
 
 		// Create div for webItemIcon
-		var webItemIconContainer = document.createElement('div');
+		const webItemIconContainer = document.createElement('div');
 		webItemIconContainer.className = 'webItemIconContainer';
 
-		var webItemIcon = document.createElement('div');
+		const webItemIcon = document.createElement('div');
 		webItemIcon.className = 'webItemIcon';
 		webItemIcon.style.background = "url('assets/webcons/" + icon + ".svg')";
 		webItemIcon.style.backgroundSize = 'cover';
 
 		// Create webItemName
-		var webItemName = document.createElement('div');
+		const webItemName = document.createElement('div');
 		webItemName.className = 'webItemName';
 		webItemName.innerHTML = site;
 
@@ -102,12 +102,12 @@ const populateWebMenu = () => {
 
 // Fuzzy search
 String.prototype.fuzzy = function(term, ratio) {
-    var string = this.toLowerCase();
-    var compare = term.toLowerCase();
-    var matches = 0;
+    const string = this.toLowerCase();
+    const compare = term.toLowerCase();
+    const matches = 0;
     
     if (string.indexOf(compare) > -1) return true; // covers basic partial matches
-    for (var i = 0; i < compare.length; i++) {
+    for (let i = 0; i < compare.length; i++) {
         string.indexOf(compare[i]) > -1 ? matches += 1 : matches -=1;
     }
     return (matches/this.length >= ratio || term == "");
@@ -116,7 +116,7 @@ String.prototype.fuzzy = function(term, ratio) {
 // Search through the list
 const filterWebList = () => {
 
-	var input, filter, ul, li, a, i, txtValue;
+	let input, filter, ul, li, a, i, txtValue;
 	
 	input = webMenuSearchBox;
 	filter = input.value.toUpperCase();
@@ -124,7 +124,7 @@ const filterWebList = () => {
 	li = ul.getElementsByTagName('li');
 	
 	// Loop through all list items, and focus if matches the search query
-	for (i = 0; i < li.length; i++) {
+	for (let i = 0; i < li.length; i++) {
 
 		a = li[i].getElementsByClassName("webItemName")[0];
 		txtValue = a.innerHTML || a.textContent || a.innerText;
@@ -134,8 +134,8 @@ const filterWebList = () => {
 		if (txtValue.toUpperCase().fuzzy(filter, 1) === true) {
 			
 			// Unselect/Unhightlight old active
-			var oldWebItemFocus = webItemFocus;
-			var oldWebItemFocusChild = oldWebItemFocus.querySelector('.webItem');
+			const oldWebItemFocus = webItemFocus;
+			const oldWebItemFocusChild = oldWebItemFocus.querySelector('.webItem');
 			oldWebItemFocusChild.classList.remove('webItemFocus');
 
 			// Update webItemFocus
@@ -145,7 +145,7 @@ const filterWebList = () => {
 			webListIndex = i;
 
 			// Get child
-			var webItemFocusChild = webItemFocus.querySelector('.webItem');
+			const webItemFocusChild = webItemFocus.querySelector('.webItem');
 			// Add webItemFocus class to child
 			webItemFocusChild.classList.add('webItemFocus');
 
@@ -158,8 +158,8 @@ const filterWebList = () => {
 
 // Reset focus on web menu close
 const focusReset = () => {
-	var oldWebItemFocus = webItemFocus;
-	var oldWebItemFocusChild = oldWebItemFocus.querySelector('.webItem');
+	const oldWebItemFocus = webItemFocus;
+	const oldWebItemFocusChild = oldWebItemFocus.querySelector('.webItem');
 	
 	oldWebItemFocusChild.classList.remove('webItemFocus');
 	webListIndex = 0;
@@ -167,14 +167,14 @@ const focusReset = () => {
 
 // Get first item of ul
 const getFirstItem = () => {
-	var ul = webMenuList;
-	var li = ul.getElementsByTagName('li');
+	const ul = webMenuList;
+	const li = ul.getElementsByTagName('li');
 
 	// Focus on first item
 	webItemFocus = li[0];
 
 	// Get child
-	var webItemFocusChildren = webItemFocus.querySelector('.webItem');
+	const webItemFocusChildren = webItemFocus.querySelector('.webItem');
 
 	// Add webItemFocus class
 	webItemFocusChildren.classList.add('webItemFocus');
@@ -261,13 +261,13 @@ const toggleWebMenu = () => {
 // Remove class to focused item
 const removeClass = (el, className) => {
 	// Remove webItemFocus class
-	var oldWebItemFocus = el.querySelector('.webItem');
+	const oldWebItemFocus = el.querySelector('.webItem');
 	oldWebItemFocus.classList.remove('webItemFocus');
 };
 
 // Add class to focused item
 const addClass = (el, className) => {
-	var webItemFocusChild = el.querySelector('.webItem');
+	const webItemFocusChild = el.querySelector('.webItem');
 
 	// Add webItemFocus class to child
 	webItemFocusChild.classList.add('webItemFocus');
@@ -277,7 +277,7 @@ const addClass = (el, className) => {
 };
 
 const navigateWithArrows = (key, len) => {
-	// assign variables to key codes
+	// assign constiables to key codes
 	const [right, left, down, up] = [39, 37, 40, 38];
 
 	const getIndexByWindowWidth = () => {
@@ -356,7 +356,7 @@ const navigateWithArrows = (key, len) => {
 webMenu.addEventListener(
 	'keydown',
 	(event) => {
-		var len = webMenuList.getElementsByTagName('li').length - 1;
+		const len = webMenuList.getElementsByTagName('li').length - 1;
 		navigateWithArrows(event.which, len);
 	},
 	false

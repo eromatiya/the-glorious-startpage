@@ -1,17 +1,17 @@
-var dock = document.getElementById('dock');
+let dock = document.getElementById('dock');
 
 // Generate button from user
 const generateFromManual = (id, icon, callback) => {
 
-    var customButtonCallback;
+    let customButtonCallback;
 
-    var dockButton = document.createElement('div');
+    const dockButton = document.createElement('div');
     dockButton.id = 'button' + id;
     dockButton.className = 'dockButton';
     
     dockButton.onmouseup = callback;
     
-    var buttonImage = document.createElement('div');
+    const buttonImage = document.createElement('div');
     buttonImage.id = 'buttonImage' + id;
     buttonImage.className = 'dockButtonImage';
     buttonImage.style.background = "url('assets/buttons/" + icon + ".svg')";
@@ -25,24 +25,24 @@ const generateFromManual = (id, icon, callback) => {
 // Generate buttons from array
 const generateFromList = () => {
 
-    for (i = 0; i < (dockSites.length); i++) {
+    for (let i = 0; i < (dockSites.length); i++) {
 
-        var site = dockSites[i].site;
-        var icon = dockSites[i].icon;
-        var url = dockSites[i].url;
+        const site = dockSites[i].site;
+        const icon = dockSites[i].icon;
+        const url = dockSites[i].url;
 
         // Create a href
-        var aDock = document.createElement('a');
+        const aDock = document.createElement('a');
         aDock.className = 'dockLink';
         aDock.href = url;
 
         // Create div container
-        var dockButton = document.createElement('div');
+        const dockButton = document.createElement('div');
         dockButton.id = 'button' + i;
         dockButton.className = 'dockButton';
 
         // Create div container for button icon
-        var buttonImage = document.createElement('div');
+        const buttonImage = document.createElement('div');
         buttonImage.id = 'buttonImage' + i;
         buttonImage.className = 'dockButtonImage';
         buttonImage.style.background = "url('assets/webcons/" + icon + ".svg')";
