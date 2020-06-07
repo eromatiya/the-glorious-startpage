@@ -102,14 +102,17 @@ select::-ms-expand {
 }
 
 #searchEngineAsDefault:hover {
+	outline: none;
 	background: var(--base-hover-bg);
 }
 
 #searchEngineAsDefault:active {
+	outline: none;
 	background: var(--base-active-bg);
 }
 
 #searchEngineAsDefault:focus {
+	outline: none;
 	background: var(--base-focus-bg);
 }
 
