@@ -81,6 +81,7 @@ select::-ms-expand {
 	margin-top: 5px;
 	border-radius: 6px;
 	cursor: pointer;
+	border: none;
 
 	/*Center vertically*/
 	display: flex;
