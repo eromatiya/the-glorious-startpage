@@ -1,25 +1,33 @@
-const centeredBox = document.getElementById("centeredBox");
+class CenteredBox {
+    constructor() {
+        this._centeredBox = document.querySelector('#centeredBox');
 
-let centeredBoxVisibility = true;
+        this._centeredBoxVisibility = true;
 
-const showCenteredBox = () => {
-	centeredBox.classList.remove('hiddenBox');
-    centeredBoxVisibility = !centeredBoxVisibility;
-}
+        this.showCenteredBox = this.showCenteredBox.bind(this);
+        this.hideCenteredBox = this.hideCenteredBox.bind(this);
+        this.toggleCenteredBox = this.toggleCenteredBox.bind(this);
+    }
 
-const hideCenteredBox = () => {
-	centeredBox.classList.add('hiddenBox');
-    centeredBoxVisibility = !centeredBoxVisibility;
-}
+    showCenteredBox = () => {
+        this._centeredBox.classList.remove('hiddenBox');
+        this._centeredBoxVisibility = !this._centeredBoxVisibility;
+    }
 
-const toggleCenteredBox = () => {
+    hideCenteredBox = () => {
+        this._centeredBox.classList.add('hiddenBox');
+        this._centeredBoxVisibility = !this._centeredBoxVisibility;
+    }
 
-    if (centeredBoxVisibility) {
-    	// Hide web menu
-    	hideCenteredBox();  	
+    toggleCenteredBox = () => {
 
-    } else {
-    	// Show Web menu
-    	showCenteredBox();
+        if (this._centeredBoxVisibility) {
+            // hide centered box
+            this.hideCenteredBox();      
+
+        } else {
+            // Show centered box
+            this.showCenteredBox();
+        }
     }
 }
