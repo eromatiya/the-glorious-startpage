@@ -182,8 +182,8 @@ class WeatherScreen {
 		request.open('GET', requestString, true);
 		request.onload = e => {
 			if (request.readyState === 4 && request.status === 200 && request.status < 400) {
-				this._processWeatherData(JSON.parse(request.response));
 				this._tempSymbol = (units === 'metric') ? '°C' : '°F';
+				this._processWeatherData(JSON.parse(request.response));
 			} else {
 				this._setErrValue();
 			};
@@ -200,8 +200,8 @@ class WeatherScreen {
 		request.open('GET', requestString, true);
 		request.onload = e => {
 			if (request.readyState === 4 && request.status === 200 && request.status < 400) {
-				this._processForecastData(JSON.parse(request.response));
 				this._tempSymbol = (units === 'metric') ? '°C' : '°F';
+				this._processForecastData(JSON.parse(request.response));
 			} else {
 				this._setErrValue();
 			};
