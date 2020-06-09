@@ -7,9 +7,10 @@ class AutoSuggestion {
 		this._registerSearchBoxOnKeyUpEvent();
 	}
 
-	_hideSuggestions = () => {
+	hideSuggestions = () => {
 		// Hide suggestions
 		this._suggestionsContainer.classList.remove('suggestionsShow');
+		this._suggestionsUL.innerHTML = '';
 	}
 
 	_showSuggestions = () => {
@@ -122,7 +123,7 @@ class AutoSuggestion {
 
 		if (this._searchBox.value < 1) {
 			// Hide suggestions
-			this._hideSuggestions();
+			this.hideSuggestions();
 			return;
 		}
 

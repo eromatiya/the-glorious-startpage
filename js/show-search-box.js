@@ -38,7 +38,7 @@ class SearchBoxShow {
         this._searchBox.value = '';
 
         // Hide suggestions
-        console.warn('hideSuggestions()');
+        autoSuggestion.hideSuggestions();
 
         this._searchBoxVisility = !this._searchBoxVisility;
     }
