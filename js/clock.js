@@ -31,7 +31,7 @@ class Clock {
 		min = this._appendZero(min);
 
 		// Update clock id element
-		this._clockEl.innerHTML = `${hour}:${min}${midDay}` ;
+		this._clockEl.innerHTML = `${hour}:${min} ${midDay}` ;
 	}
 
 	_startClock = () => {
