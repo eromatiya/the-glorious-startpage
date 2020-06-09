@@ -1,5 +1,5 @@
-
 class GreeterDateMessage {
+
 	constructor() {
 		this._greeterMessage = document.querySelector('#greeterMessage');	
 		this._dateMessage = document.querySelector('#dateMessage');	

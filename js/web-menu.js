@@ -15,8 +15,19 @@ class WebMenu {
 		this._webItemFocus;
 		this._webListIndex = 0;
 
-		this._fuzzySearch();
 		this._init();
+	}
+
+	_init = () => {
+		this._fuzzySearch();
+		this._populateWebMenu();
+		this._getFirstItem();
+
+		// Disable inputs
+		this._disableWebMenuInputs(true);
+
+		this._registerWebMenuSearchBoxKeyDownEvent();
+		this._registerWebMenuKeyDownEvent();
 	}
 
 	// Return web menu status
@@ -25,7 +36,7 @@ class WebMenu {
 	}
 
 	// Disable textboxes	
-	_disableWebMenuInputs = (status) => {
+	_disableWebMenuInputs = status => {
 	    const elems = this._webMenu.getElementsByTagName('input');
 	    const len = elems.length;
 
@@ -310,7 +321,7 @@ class WebMenu {
 			const menuItemWidth = 138;
 			const scrollBarWidth = 10;
 			// viewport width
-			const vw = (unit) => window.innerWidth * (unit / 100);
+			const vw = unit => window.innerWidth * (unit / 100);
 			
 			// Gets the number of columns by dividing the screen width minus the padding, scroll width and 
 			// average of menu item width by the menu item width
@@ -420,16 +431,4 @@ class WebMenu {
 	_registerWebMenuSearchBoxKeyDownEvent = () => {
 		this._webMenuSearchBox.onkeydown = this._webMenuSearchBoxKeyDownEvent;
 	}
-
-	_init = () => {
-		this._populateWebMenu();
-		this._getFirstItem();
-
-		// Disable inputs
-		this._disableWebMenuInputs(true);
-
-		this._registerWebMenuSearchBoxKeyDownEvent();
-		this._registerWebMenuKeyDownEvent();
-	}
-
 }

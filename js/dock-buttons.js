@@ -62,6 +62,7 @@ class DockButtons {
             const aDock = document.createElement('a');
             aDock.className = 'dockLink';
             aDock.href = url;
+            aDock.tabIndex = '-1';
     
             // Create div container
             const dockButton = this._buildDockButton(

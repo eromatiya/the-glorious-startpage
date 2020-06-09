@@ -1,4 +1,5 @@
 class ThemeEngine {
+	
 	constructor() {
 		this._localStorage = window.localStorage;
 

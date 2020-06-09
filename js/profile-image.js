@@ -15,6 +15,10 @@ class ProfileImage {
 
         this.getProfileAnimationStatus = this.getProfileAnimationStatus.bind(this);
 
+        this._init();
+    }
+
+    _init = () => {
         this._registerAnimationEndEvent();
         this._registerOnClickEvent();
     }
