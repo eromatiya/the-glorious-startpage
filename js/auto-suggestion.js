@@ -1,4 +1,5 @@
 class AutoSuggestion {
+	
 	constructor() {
 		this._searchBox = document.querySelector('#searchBox');
 		this._suggestionsUL = document.querySelector('#suggestions');

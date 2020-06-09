@@ -13,10 +13,15 @@ class Dashboard {
         this._searchBoxContainer = document.querySelector('#searchBoxContainer');
         this._weatherScreen = document.querySelector('#weatherScreen');
 
-        this._registerOverlayMouseUpEvent();
+        this._init();
     }
 
-    _disableDashboardInputs = (status) => {
+    _init = () => {
+        this._registerOverlayMouseUpEvent();
+        this._disableDashboardInputs(true);
+    }
+
+    _disableDashboardInputs = status => {
         const elems = this._dashboard.getElementsByTagName('input');
         const len = elems.length;
 

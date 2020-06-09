@@ -9,6 +9,10 @@ class KeyBinding {
         this._documentAddKeyDownEvent = this._documentAddKeyDownEvent.bind(this);
         this._documentAddKeyUpEvent = this._documentAddKeyUpEvent.bind(this);
 
+        this._init();
+    }
+
+    _init = () => {
         this._registerDocumentAddKeyDownEvent();
         this._registerDocumentAddKeyUpEvent();
     }

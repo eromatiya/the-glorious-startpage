@@ -1,4 +1,5 @@
 class SearchBoxShow {
+    
     constructor() {
 
         this._searchBox = document.querySelector('#searchBox');
@@ -10,7 +11,6 @@ class SearchBoxShow {
         this.showSearchBox = this.showSearchBox.bind(this);
         this.hideSearchBox = this.hideSearchBox.bind(this);
         this.toggleSearchBox = this.toggleSearchBox.bind(this);
- 
     }
 
     getSearchBoxVisibility = () => {

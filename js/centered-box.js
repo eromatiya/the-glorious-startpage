@@ -1,4 +1,5 @@
 class CenteredBox {
+    
     constructor() {
         this._centeredBox = document.querySelector('#centeredBox');
 

@@ -1,4 +1,5 @@
 class SwipeEventCallbacks extends SwipeEventManager {
+
 	constructor() {
 		super();
 		this.swipeEvent = this.swipeEvent;
