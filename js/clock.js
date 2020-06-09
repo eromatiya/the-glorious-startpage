@@ -36,7 +36,7 @@ class Clock {
 
 	_startClock = () => {
 		this._setTime();
-		setTimeout(this._setTime, 1000);
+		setInterval(this._setTime, 1000);
 	}
 
 }
