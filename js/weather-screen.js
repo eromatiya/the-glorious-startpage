@@ -273,12 +273,11 @@ class WeatherScreen {
 
 	    } else if (this._searchBoxContainer.classList.contains('showSearchBox')) {
 	    	console.log('searchbox is open, closing...');
-	    	hideSearchBox();
+	    	searchBoxShow.hideSearchBox();
 	    	
 	    } else if (this._dashboard.classList.contains('showRightDashboard')) {
 	    	console.log('dashboard is open, closing...');
 	    	dashboard.hideDashboard();
-	    	// return;
 	    }
 
 	    // Toggle center box

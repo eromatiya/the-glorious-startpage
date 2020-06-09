@@ -28,7 +28,7 @@ class SwipeEventCallbacks extends SwipeEventManager {
 	_rightDashboardSwipeEvent = (el, d) => {
 
 		// Swipe right will close dashboard
-		if (d === "right") {
+		if (d === 'right') {
 			dashboard.toggleDashboard();
 		}
 	}

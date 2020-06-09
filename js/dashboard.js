@@ -4,7 +4,7 @@ class Dashboard {
         this._dashboard = document.querySelector('#rightDashboard');
         this._dashboardOverlay = document.querySelector('#dashboardOverlay');
 
-        this.rightDashboardVisibility = false;
+        this._rightDashboardVisibility = false;
 
         this._dashboardOverlayMouseUpEvent = this._dashboardOverlayMouseUpEvent.bind(this);        
 
@@ -26,7 +26,7 @@ class Dashboard {
     }
 
     getRightDashboardVisibility = () => {
-        return this.rightDashboardVisibility;
+        return this._rightDashboardVisibility;
     }
 
     showDashboard = () => {
@@ -38,7 +38,7 @@ class Dashboard {
         // Enable Inputs
         this._disableDashboardInputs(false);
 
-        this.rightDashboardVisibility = !this.rightDashboardVisibility;
+        this._rightDashboardVisibility = !this._rightDashboardVisibility;
     }
 
     hideDashboard = () => {
@@ -51,14 +51,14 @@ class Dashboard {
         // Hide overlay
         this._dashboardOverlay.classList.remove('showDashboardOverlay');
 
-        this.rightDashboardVisibility = !this.rightDashboardVisibility;
+        this._rightDashboardVisibility = !this._rightDashboardVisibility;
     }
 
     toggleDashboard = () => {
 
         console.log('toggle dashboard');
      
-        if (this.rightDashboardVisibility) {
+        if (this._rightDashboardVisibility) {
         
             // Hide dashboard
             this.hideDashboard();
@@ -101,7 +101,7 @@ class Dashboard {
     }
 
     _dashboardOverlayMouseUpEvent = e => {
-        if (this.rightDashboardVisibility) {
+        if (this._rightDashboardVisibility) {
             this.toggleDashboard();
         }
         console.log('dashboard overlay clicked...');
