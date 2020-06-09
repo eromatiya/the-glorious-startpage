@@ -64,7 +64,7 @@
 
 #### Adding more buttons on the web menu
 
-Add more buttons or web shortcuts in web menu by editing the `webSites` array in `js/sites-list.js`. Make sure to put an icon with `svg` format for the shortcut in `assets/webcons/` folder. 
+Add more buttons or web shortcuts in web menu by editing the `webSites` array in `js/config.js`. Make sure to put an icon with `svg` format for the shortcut in `assets/webcons/` folder. 
 
 ```js
 let webSites = [
@@ -80,7 +80,7 @@ let webSites = [
 
 #### Adding more buttons on the dock
 
-To add more web shortcuts/buttons in the dock, you have to edit the `dockSites` array in `js/sites-list.js`. Make sure to put an icon with `svg` format for the shortcut in `assets/webcons/` folder.
+To add more web shortcuts/buttons in the dock, you have to edit the `dockSites` array in `js/config.js`. Make sure to put an icon with `svg` format for the shortcut in `assets/webcons/` folder.
 
 ```js
 let dockSites = [
@@ -121,6 +121,13 @@ Google is the default search engine of the search bar, if you want to change it 
 
 + Replace the `user.png` image file in `/assets/`.
 
+#### Changing the background image
+
+The background image changes based on time.
+
++ Change the background images in `assets/backgrounds/`.
++ Make sure that it is in `webp` format. 
++ A lower resolution of each images are also required.
 
 #### Keybindings
 

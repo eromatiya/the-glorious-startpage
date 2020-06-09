@@ -1,405 +1,435 @@
-const webMenu = document.getElementById("webMenu");
-const webMenuList = document.getElementById("webMenuList");
-const webMenuListContainer = document.getElementById("webMenuListContainer");
-const webMenuSearchBox = document.getElementById("webMenuSearchBox");
+class WebMenu {
 
-var webMenuVisibility = false;
+	constructor() {
+		this._dashboard = document.querySelector('#rightDashboard');
+		this._weatherScreen = document.querySelector('#weatherScreen');
+		this._webSites = config.getWebSites();
 
-let webItemFocus;
-let webListIndex = 0;
+		this._webMenu = document.querySelector('#webMenu');
+		this._webMenuList = document.querySelector('#webMenuList');
+		this._webMenuListContainer = document.querySelector('#webMenuListContainer');
+		this._webMenuSearchBox = document.querySelector('#webMenuSearchBox');
 
-// Disable/Enable inputs
-const disableWebMenuInputs = (status) => {
-    const elems = webMenu.getElementsByTagName('input');
-    const len = elems.length;
+		this._webMenuVisibility = false;
 
-    for (let i = 0; i < len; i++) {
-        elems[i].disabled = status;
-    }
-}
+		this._webItemFocus;
+		this._webListIndex = 0;
 
-// Create mouse event for passed li
-const createCallback = (li, url) => {
-	// Create a callback property for the passed li
-	li.callback = () => {
-		window.location.href = encodeURI(url);
-	}
-}
-
-// Sort list alphabetically
-const sortList = () => {
-	Array.from(webMenuList.getElementsByTagName("li"))
-	.sort((a, b) => a.textContent.localeCompare(b.textContent))
-    .forEach(li => webMenuList.appendChild(li));
-}
-
-// Populate web menu
-const populateWebMenu = () => {
-
-	// Generate a list
-	for (let webData of webSites) {
-
-		const site = webData.site;
-		const icon = webData.icon;
-		const url = webData.url;
-
-		const li = document.createElement('li');
-
-		// Add mouseup event
-		createCallback(li, url);
-
-		// Create a href
-		const aWebLink = document.createElement('a');
-		aWebLink.className = 'webMenuLink';
-		aWebLink.href = url;
-		aWebLink.tabIndex = '-1';
-
-		// Create an outer div, child of li
-		let webItemDiv = document.createElement('div')
-		webItemDiv.className = 'webItem';
-		// webItemDiv.tabitemIndex = '1';
-		webItemDiv.id = "id" + site;
-		
-		// Create a second div, webItemContainer
-		const webItemContainer = document.createElement('div');
-		webItemContainer.className = 'webItemContainer';
-
-		// Create the innermost div, contains icon and label
-		const webItemBody = document.createElement('div');
-		webItemBody.className = 'webItemBody';
-
-		// Create div for webItemIcon
-		const webItemIconContainer = document.createElement('div');
-		webItemIconContainer.className = 'webItemIconContainer';
-
-		const webItemIcon = document.createElement('div');
-		webItemIcon.className = 'webItemIcon';
-		webItemIcon.style.background = "url('assets/webcons/" + icon + ".svg')";
-		webItemIcon.style.backgroundSize = 'cover';
-
-		// Create webItemName
-		const webItemName = document.createElement('div');
-		webItemName.className = 'webItemName';
-		webItemName.innerHTML = site;
-
-		// Append divs with heirarchy
-		webItemDiv.appendChild(webItemContainer);
-		webItemContainer.appendChild(webItemBody);
-
-		webItemIconContainer.appendChild(webItemIcon);
-		webItemBody.appendChild(webItemIconContainer);
-		webItemBody.appendChild(webItemName);
-
-		aWebLink.appendChild(webItemDiv);
-
-		li.appendChild(aWebLink);
-		webMenuList.appendChild(li);
+		this._fuzzySearch();
+		this._init();
 	}
 
-	// Call to sort list
-	sortList();
-}
+	// Return web menu status
+	getwebMenuVisibility = () => {
+		return this._webMenuVisibility;
+	}
 
-// Fuzzy search
-String.prototype.fuzzy = function(term, ratio) {
-    const string = this.toLowerCase();
-    const compare = term.toLowerCase();
-    let matches = 0;
-    
-    if (string.indexOf(compare) > -1) return true; // covers basic partial matches
-    for (let i = 0; i < compare.length; i++) {
-        string.indexOf(compare[i]) > -1 ? matches += 1 : matches -=1;
-    }
-    return (matches/this.length >= ratio || term == "");
-};
+	// Disable textboxes	
+	_disableWebMenuInputs = (status) => {
+	    const elems = this._webMenu.getElementsByTagName('input');
+	    const len = elems.length;
 
-// Search through the list
-const filterWebList = () => {
+	    for (let i = 0; i < len; i++) {
+	        elems[i].disabled = status;
+	    }
+	}
 
-	let input, filter, ul, li, a, i, txtValue;
+	// Create callback property, to be used when enter was pressed while item is focused	
+	_createWebItemCallback = (li, url) => {
+		// Create a callback property for the passed li
+		li.callback = () => {
+			window.location.href = encodeURI(url);
+		}
+	}
 	
-	input = webMenuSearchBox;
-	filter = input.value.toUpperCase();
-	ul = webMenuList;
-	li = ul.getElementsByTagName('li');
-	
-	// Loop through all list items, and focus if matches the search query
-	for (let i = 0; i < li.length; i++) {
+	// Sort list alphabetically
+	_sortList = () => {
+		Array.from(this._webMenuList.getElementsByTagName('li'))
+		.sort((a, b) => a.textContent.localeCompare(b.textContent))
+	    .forEach(li => this._webMenuList.appendChild(li));
+	}
 
-		a = li[i].getElementsByClassName("webItemName")[0];
-		txtValue = a.innerHTML || a.textContent || a.innerText;
+	// Create/generate web items
+	_populateWebMenu = () => {
 
-		// If an item match, hightlight it and focus
-		// if (txtValue.toUpperCase().indexOf(filter) !== -1) {
-		if (txtValue.toUpperCase().fuzzy(filter, 1) === true) {
+		// Generate a list
+		for (let webData of this._webSites) {
+
+			const site = webData.site;
+			const icon = webData.icon;
+			const url = webData.url;
+
+			const li = document.createElement('li');
+
+			// Create callback property
+			this._createWebItemCallback(li, url);
+
+			// Create a href
+			const aWebLink = document.createElement('a');
+			aWebLink.className = 'webMenuLink';
+			aWebLink.href = url;
+			aWebLink.tabIndex = '-1';
+
+			// Create an outer div, child of li
+			let webItemDiv = document.createElement('div')
+			webItemDiv.className = 'webItem';
+			webItemDiv.id = 'id' + site;
 			
-			// Unselect/Unhightlight old active
-			const oldWebItemFocus = webItemFocus;
-			const oldWebItemFocusChild = oldWebItemFocus.querySelector('.webItem');
-			oldWebItemFocusChild.classList.remove('webItemFocus');
+			// Create a second div, webItemContainer
+			const webItemContainer = document.createElement('div');
+			webItemContainer.className = 'webItemContainer';
 
-			// Update webItemFocus
-			webItemFocus = li[i];
+			// Create the innermost div, contains icon and label
+			const webItemBody = document.createElement('div');
+			webItemBody.className = 'webItemBody';
 
-			// Update weblistindex
-			webListIndex = i;
+			// Create div for webItemIcon
+			const webItemIconContainer = document.createElement('div');
+			webItemIconContainer.className = 'webItemIconContainer';
 
-			// Get child
-			const webItemFocusChild = webItemFocus.querySelector('.webItem');
-			// Add webItemFocus class to child
-			webItemFocusChild.classList.add('webItemFocus');
+			const webItemIcon = document.createElement('div');
+			webItemIcon.className = 'webItemIcon';
+			webItemIcon.style.background = `url('assets/webcons/${icon}.svg')`;
+			webItemIcon.style.backgroundSize = 'cover';
 
-			// Scroll focus into active
-			webItemFocus.scrollIntoView();
+			// Create webItemName
+			const webItemName = document.createElement('div');
+			webItemName.className = 'webItemName';
+			webItemName.innerHTML = site;
 
+			// Append divs with heirarchy
+			webItemDiv.appendChild(webItemContainer);
+			webItemContainer.appendChild(webItemBody);
+
+			webItemIconContainer.appendChild(webItemIcon);
+			webItemBody.appendChild(webItemIconContainer);
+			webItemBody.appendChild(webItemName);
+
+			aWebLink.appendChild(webItemDiv);
+
+			li.appendChild(aWebLink);
+			this._webMenuList.appendChild(li);
 		}
+
+		// Call to sort list
+		this._sortList();
 	}
-}
 
-// Reset focus on web menu close
-const focusReset = () => {
-	const oldWebItemFocus = webItemFocus;
-	const oldWebItemFocusChild = oldWebItemFocus.querySelector('.webItem');
-	
-	oldWebItemFocusChild.classList.remove('webItemFocus');
-	webListIndex = 0;
-}
+	// Allow fuzzy searching in web menu
+	_fuzzySearch = () => {
+		String.prototype.fuzzy = function(term, ratio) {
+		    const string = this.toLowerCase();
+		    const compare = term.toLowerCase();
+		    let matches = 0;
+		    
+		    // Covers basic partial matches
+		    if (string.indexOf(compare) > -1) return true; 
+		    
+		    for (let i = 0; i < compare.length; i++) {
+		        string.indexOf(compare[i]) > -1 ? matches += 1 : matches -=1;
+		    }
+		    return ((matches / this.length) >= ratio || term == '');
+		};
+	}
 
-// Get first item of ul
-const getFirstItem = () => {
-	const ul = webMenuList;
-	const li = ul.getElementsByTagName('li');
+	// Focus on searched item
+	_filterWebList = () => {
 
-	// Focus on first item
-	webItemFocus = li[0];
-
-	// Get child
-	const webItemFocusChildren = webItemFocus.querySelector('.webItem');
-
-	// Add webItemFocus class
-	webItemFocusChildren.classList.add('webItemFocus');
-}
-
-const showWebMenu = () => {
-	webMenu.classList.add('showWebMenu');
-
-	// Enable inputs
-	disableWebMenuInputs(false);
-
-    webMenuVisibility = !webMenuVisibility;
-
-    // Focus to input field
-    webMenuSearchBox.focus();
-}
-
-const hideWebMenu = () => {
-    // Clear input field
-    webMenuSearchBox.value = '';
-
-    // Unfocus input field
-    webMenuSearchBox.blur();
-
-    // Refilter web list
-    filterWebList();
-	
-	// Scroll to top
-	webMenuListContainer.scrollTop = 0;
-
-	// Reset focus item
-	focusReset();
-
-	// Get first item
-	getFirstItem();
-	
-	webMenu.classList.remove('showWebMenu');
-
-	// Disable inputs
-	disableWebMenuInputs(true);
-
-    webMenuVisibility = !webMenuVisibility;
-}
-
-const toggleWebMenu = () => {
-
-	console.log('toggle web menu');
-
-    // If profile anim is still running,
-    // Return to avoid spam
-	if (profileAnimRunning) return;
-
-	// Rotate profile
-    rotateProfile();
-
-    if (webMenuVisibility) {
-    	// Hide web menu
-    	hideWebMenu();  	
-
-    } else {
-    	// Show Web menu
-    	showWebMenu();
-    }
-
-    // Check if any of these are open, if yes, close it
-    if (weatherScreen.classList.contains('showWeatherScreen')) {
-    	console.log('weather screen is open, closing...');
-    	hideWeatherScreen();
-    	return;
-    	
-    } else if (searchBoxContainer.classList.contains('showSearchBox')) {
-    	console.log('searchbox is open, closing...');
-    	hideSearchBox();
-
-    } else if (dashboard.classList.contains('showRightDashboard')) {
-    	console.log('dashboard is open, closing...');
-    	hideDashboard();
-    } 
-
-    // Toggle center box
-    toggleCenteredBox();
-}
-
-// Remove class to focused item
-const removeClass = (el, className) => {
-	// Remove webItemFocus class
-	const oldWebItemFocus = el.querySelector('.webItem');
-	oldWebItemFocus.classList.remove('webItemFocus');
-};
-
-// Add class to focused item
-const addClass = (el, className) => {
-	const webItemFocusChild = el.querySelector('.webItem');
-
-	// Add webItemFocus class to child
-	webItemFocusChild.classList.add('webItemFocus');
-
-	// Scroll focus into active
-	webItemFocusChild.scrollIntoView();
-};
-
-const navigateWithArrows = (key, len) => {
-	// assign constiables to key codes
-	const [right, left, down, up] = [39, 37, 40, 38];
-
-	const getIndexByWindowWidth = () => {
-		if (window.innerWidth <= 580) { return 1 }
-		// width of elements in pixels
-		const menuItemWidth = 138;
-		const scrollBarWidth = 10;
-		// viewport width
-		const vw = (unit) => window.innerWidth * (unit / 100);
+		let input, filter, ul, li, a, i, txtValue;
 		
-		// Gets the number of columns by dividing the screen width minus the padding, scroll width and 
-		// average of menu item width by the menu item width
-		const containerWindow = ((window.innerWidth - (menuItemWidth / 2) - scrollBarWidth - vw(24)) / menuItemWidth);
-		// Get rounded result
-		return Math.round(containerWindow);
-	}
+		input = webMenuSearchBox;
+		filter = input.value.toUpperCase();
+		ul = this._webMenuList;
+		li = ul.getElementsByTagName('li');
+		
+		// Loop through all list items, and focus if matches the search query
+		for (let i = 0; i < li.length; i++) {
 
-	// Determine the index position by key
-	const changeWebListIndex = () => {
-		switch (key) {
-			case right:
-				webListIndex++;
-				// Clear web menu searchbox
-				webMenuSearchBox.value = '';
-				break;
-			case left:
-				webListIndex--;
-				// Clear web menu searchbox
-				webMenuSearchBox.value = '';
-				break;
-			case up:
-				webListIndex = webListIndex - getIndexByWindowWidth();
-				// Clear web menu searchbox
-				webMenuSearchBox.value = '';
-				break;
-			case down:
-				webListIndex = webListIndex + getIndexByWindowWidth();
-				// Clear web menu searchbox
-				webMenuSearchBox.value = '';
-				break;
+			a = li[i].getElementsByClassName('webItemName')[0];
+			txtValue = a.innerHTML || a.textContent || a.innerText;
+
+			// If an item match, hightlight it and focus
+			// if (txtValue.toUpperCase().indexOf(filter) !== -1) {
+			if (txtValue.toUpperCase().fuzzy(filter, 1) === true) {
+				
+				// Unselect/Unhightlight old active
+				const oldWebItemFocus = this._webItemFocus;
+				const oldWebItemFocusChild = oldWebItemFocus.querySelector('.webItem');
+				oldWebItemFocusChild.classList.remove('webItemFocus');
+
+				// Update webItemFocus
+				this._webItemFocus = li[i];
+
+				// Update weblistindex
+				this._webListIndex = i;
+
+				// Get child
+				const webItemFocusChild = this._webItemFocus.querySelector('.webItem');
+				// Add webItemFocus class to child
+				webItemFocusChild.classList.add('webItemFocus');
+
+				// Scroll focus into active
+				this._webItemFocus.scrollIntoView();
+
+			}
 		}
 	}
 
-	const changeItemFocus = (condition, overFlowIndex) => {
-		const next = webMenuList.getElementsByTagName('li')[webListIndex];
-		if(typeof next !== undefined && condition) {			
-			webItemFocus = next;
+	// Reset focus/go back to item #1
+	_focusReset = () => {
+		const oldWebItemFocus = this._webItemFocus;
+		const oldWebItemFocusChild = oldWebItemFocus.querySelector('.webItem');
+		
+		oldWebItemFocusChild.classList.remove('webItemFocus');
+		this._webListIndex = 0;
+	}
+
+	// Get item #1
+	_getFirstItem = () => {
+		const ul = this._webMenuList;
+		const li = ul.getElementsByTagName('li');
+
+		// Focus on first item
+		this._webItemFocus = li[0];
+
+		// Get child
+		const webItemFocusChildren = this._webItemFocus.querySelector('.webItem');
+
+		// Add webItemFocus class
+		webItemFocusChildren.classList.add('webItemFocus');
+	}
+
+	// Show web menu screen
+	showWebMenu = () => {
+		this._webMenu.classList.add('showWebMenu');
+
+		// Enable inputs
+		this._disableWebMenuInputs(false);
+
+	    this._webMenuVisibility = !this._webMenuVisibility;
+
+	    // Focus to input field
+	    this._webMenuSearchBox.focus();
+	}
+
+	// Hide web menu screen
+	hideWebMenu = () => {
+	    // Clear input field
+	    this._webMenuSearchBox.value = '';
+
+	    // Unfocus input field
+	    this._webMenuSearchBox.blur();
+
+	    // Refilter web list
+	    this._filterWebList();
+		
+		// Scroll to top
+		this._webMenuListContainer.scrollTop = 0;
+
+		// Reset focus item
+		this._focusReset();
+
+		// Get first item
+		this._getFirstItem();
+		
+		this._webMenu.classList.remove('showWebMenu');
+
+		// Disable inputs
+		this._disableWebMenuInputs(true);
+
+	    this._webMenuVisibility = !this._webMenuVisibility;
+	}
+
+	// Toggle web menu screen
+	toggleWebMenu = () => {
+
+		console.log('toggle web menu');
+
+	    // If profile anim is still running,
+	    // Return to avoid spam
+		if (profileImage.getProfileAnimationStatus()) return;
+
+		// Rotate profile
+	    profileImage.rotateProfile();
+
+	    if (this._webMenuVisibility) {
+	    	// Hide web menu
+	    	this.hideWebMenu();  	
+
+	    } else {
+	    	// Show Web menu
+	    	this.showWebMenu();
+	    }
+
+	    // Check if any of these are open, if yes, close it
+	    if (searchBoxContainer.classList.contains('showSearchBox')) {
+	    	console.log('searchbox is open, closing...');
+	    	searchBoxShow.hideSearchBox();
+
+	    } else if (this._dashboard.classList.contains('showRightDashboard')) {
+	    	console.log('dashboard is open, closing...');
+	    	dashboard.hideDashboard();
+
+	    } else if (this._weatherScreen.classList.contains('showWeatherScreen')) {
+	    	console.log('weather screen is open, closing...');
+	    	weatherScreen.hideWeatherScreen();
+	    	return;
+	    	
+	    }
+	    
+	    // Toggle center box
+	    centeredBox.toggleCenteredBox();
+	}
+
+	// Remove focus class
+	_removeClass = (el, className) => {
+		// Remove webItemFocus class
+		const oldWebItemFocus = el.querySelector('.webItem');
+		oldWebItemFocus.classList.remove('webItemFocus');
+	}
+
+	// Add focus class
+	_addClass = (el, className) => {
+		const webItemFocusChild = el.querySelector('.webItem');
+
+		// Add webItemFocus class to child
+		webItemFocusChild.classList.add('webItemFocus');
+
+		// Scroll focus into active
+		webItemFocusChild.scrollIntoView();
+	}
+
+	// Arrow key navigation
+	_navigateWithArrows = (key, len) => {
+		// assign constiables to key codes
+		const [right, left, down, up] = [39, 37, 40, 38];
+
+		const getIndexByWindowWidth = () => {
+			if (window.innerWidth <= 580) { return 1; }
+			// width of elements in pixels
+			const menuItemWidth = 138;
+			const scrollBarWidth = 10;
+			// viewport width
+			const vw = (unit) => window.innerWidth * (unit / 100);
+			
+			// Gets the number of columns by dividing the screen width minus the padding, scroll width and 
+			// average of menu item width by the menu item width
+			const containerWindow = ((window.innerWidth - (menuItemWidth / 2) - scrollBarWidth - vw(24)) / menuItemWidth);
+			// Get rounded result
+			return Math.round(containerWindow);
+		}
+
+		// Determine the index position by key
+		const changeWebListIndex = () => {
+			switch (key) {
+				case right:
+					this._webListIndex++;
+					// Clear web menu searchbox
+					this._webMenuSearchBox.value = '';
+					break;
+				case left:
+					this._webListIndex--;
+					// Clear web menu searchbox
+					this._webMenuSearchBox.value = '';
+					break;
+				case up:
+					this._webListIndex = this._webListIndex - getIndexByWindowWidth();
+					// Clear web menu searchbox
+					this._webMenuSearchBox.value = '';
+					break;
+				case down:
+					this._webListIndex = this._webListIndex + getIndexByWindowWidth();
+					// Clear web menu searchbox
+					this._webMenuSearchBox.value = '';
+					break;
+			}
+		}
+
+		const changeItemFocus = (condition, overFlowIndex) => {
+			const next = this._webMenuList.getElementsByTagName('li')[this._webListIndex];
+			if(typeof next !== undefined && condition) {			
+				this._webItemFocus = next;
+			} else {
+				this._webListIndex = overFlowIndex;
+				this._webItemFocus = this._webMenuList.getElementsByTagName('li')[overFlowIndex];
+			}
+		}
+
+		const changeItemFocusByKey = () => {
+			if (key === right) { return changeItemFocus((this._webListIndex <= len), 0) }
+			if (key === left) { return changeItemFocus((this._webListIndex >= 0), len) }
+			if (key === up) { return changeItemFocus((this._webListIndex >= 0), len) }
+			if (key === down) { return changeItemFocus((this._webListIndex <= len), 0) }
+		}
+
+		
+		changeWebListIndex();
+		if (this._webItemFocus) {
+			this._removeClass(this._webItemFocus, 'webItemFocus');
+			changeItemFocusByKey();
+			this._addClass(this._webItemFocus, 'webItemFocus');
+			// console.log(webListIndex);
 		} else {
-			webListIndex = overFlowIndex;
-			webItemFocus = webMenuList.getElementsByTagName('li')[overFlowIndex];
+			this._webListIndex = 0;
+			this._webItemFocus = this._webMenuList.getElementsByTagName('li')[0];
+			this._addClass(this._webItemFocus, 'webItemFocus');
 		}
 	}
 
-	const changeItemFocusByKey = () => {
-		if (key === right) { return changeItemFocus((webListIndex <= len), 0) }
-		if (key === left) { return changeItemFocus((webListIndex >= 0), len) }
-		if (key === up) { return changeItemFocus((webListIndex >= 0), len) }
-		if (key === down) { return changeItemFocus((webListIndex <= len), 0) }
+	_webMenuKeyDownEvent = e => {
+		const len = this._webMenuList.getElementsByTagName('li').length - 1;
+		this._navigateWithArrows(e.which, len);
 	}
 
-	
-	changeWebListIndex();
-	if (webItemFocus) {
-		removeClass(webItemFocus, 'webItemFocus');
-		changeItemFocusByKey();
-		addClass(webItemFocus, 'webItemFocus');
-		// console.log(webListIndex);
-	} else {
-		webListIndex = 0;
-		webItemFocus = webMenuList.getElementsByTagName('li')[0];
-		addClass(webItemFocus, 'webItemFocus');
-	}
-}
-
-// Keyboard navigation
-webMenu.addEventListener(
-	'keydown',
-	(event) => {
-		const len = webMenuList.getElementsByTagName('li').length - 1;
-		navigateWithArrows(event.which, len);
-	},
-	false
-);
-
-// Type event on web mmenu search box
-webMenuSearchBox.onkeydown = (event) => {
-
-	// Don't hijack keyboard navigation buttons (up, down, left, right)
-	if ((event.key === 'ArrowRight') || (event.key === 'ArrowDown') || 
-		(event.key === 'ArrowLeft') || (event.key === 'ArrowUp')) return;
-
-	if (event.key === 'Tab') return;
-
-	if (event.key === 'Enter' && webItemFocus) {
-		// Run the focused li's callback
-		webItemFocus.callback();
-
-		// Hide web menu
-		toggleWebMenu();
-
-	} else if (event.key === 'Backspace' && webMenuSearchBox.value.length  < 1) {
-		// Hide web menu if backspace is pressed and searchbox value is 0
-		toggleWebMenu();
-		return;
-
-	} else if ((event.key === 'Escape') || (event.key === 'Alt')) {
-		// Ignore escape and alt key
-		return;
+	_registerWebMenuKeyDownEvent = () => {
+		this._webMenu.addEventListener('keydown', this._webMenuKeyDownEvent, false);
 	}
 
-	// Filter
-	filterWebList();
+
+	_webMenuSearchBoxKeyDownEvent = e => {
+
+		// Don't hijack keyboard navigation buttons (up, down, left, right)
+		if ((e.key === 'ArrowRight') || (e.key === 'ArrowDown') || 
+			(e.key === 'ArrowLeft') || (e.key === 'ArrowUp')) return;
+
+		if (e.key === 'Tab') return;
+
+		if (e.key === 'Enter' && this._webItemFocus) {
+
+			// Run the focused li's callback
+			this._webItemFocus.callback();
+
+			// Hide web menu
+			this.toggleWebMenu();
+
+		} else if (e.key === 'Backspace' && webMenuSearchBox.value.length  < 1) {
+			// Hide web menu if backspace is pressed and searchbox value is 0
+			this.toggleWebMenu();
+			return;
+
+		} else if ((e.key === 'Escape') || (e.key === 'Alt')) {
+			// Ignore escape and alt key
+			return;
+		}
+
+		// Filter
+		this._filterWebList();
+
+	}
+
+	_registerWebMenuSearchBoxKeyDownEvent = () => {
+		this._webMenuSearchBox.onkeydown = this._webMenuSearchBoxKeyDownEvent;
+	}
+
+	_init = () => {
+		this._populateWebMenu();
+		this._getFirstItem();
+
+		// Disable inputs
+		this._disableWebMenuInputs(true);
+
+		this._registerWebMenuSearchBoxKeyDownEvent();
+		this._registerWebMenuKeyDownEvent();
+	}
+
 }
-
-// Populate and get first child
-const initWebMenu = () => {
-	populateWebMenu();
-	getFirstItem();
-
-	// Disable inputs
-	disableWebMenuInputs(true);
-}
-
-// Initialize web menu
-window.onload = initWebMenu();

@@ -1,0 +1,114 @@
+class Dashboard {
+
+    constructor() {
+        this._dashboard = document.querySelector('#rightDashboard');
+        this._dashboardOverlay = document.querySelector('#dashboardOverlay');
+
+        this.rightDashboardVisibility = false;
+
+        this._dashboardOverlayMouseUpEvent = this._dashboardOverlayMouseUpEvent.bind(this);        
+
+        this._centeredBox = document.querySelector('#centeredBox');
+        this._webMenu = document.querySelector('#webMenu');
+        this._searchBoxContainer = document.querySelector('#searchBoxContainer');
+        this._weatherScreen = document.querySelector('#weatherScreen');
+
+        this._registerOverlayMouseUpEvent();
+    }
+
+    _disableDashboardInputs = (status) => {
+        const elems = this._dashboard.getElementsByTagName('input');
+        const len = elems.length;
+
+        for (let i = 0; i < len; i++) {
+            elems[i].disabled = status;
+        }
+    }
+
+    getRightDashboardVisibility = () => {
+        return this.rightDashboardVisibility;
+    }
+
+    showDashboard = () => {
+        this._dashboard.classList.add('showRightDashboard');
+
+        // Show overlay
+        this._dashboardOverlay.classList.add('showDashboardOverlay');
+
+        // Enable Inputs
+        this._disableDashboardInputs(false);
+
+        this.rightDashboardVisibility = !this.rightDashboardVisibility;
+    }
+
+    hideDashboard = () => {
+        this._dashboard.classList.remove('showRightDashboard');
+        this._dashboard.scrollTop = 0;
+
+        // Disable Inputs
+        this._disableDashboardInputs(true);
+
+        // Hide overlay
+        this._dashboardOverlay.classList.remove('showDashboardOverlay');
+
+        this.rightDashboardVisibility = !this.rightDashboardVisibility;
+    }
+
+    toggleDashboard = () => {
+
+        console.log('toggle dashboard');
+     
+        if (this.rightDashboardVisibility) {
+        
+            // Hide dashboard
+            this.hideDashboard();
+        
+        } else {
+
+            // Show dashboard
+            this.showDashboard();
+
+            // If centered box is hidden, open it
+            if (this._centeredBox.classList.contains('hiddenBox')) {
+                
+                console.log('centered box is hidden, reopening...');
+                
+                // Rotate profile container
+                profileImage.rotateProfile();
+                
+                // Toggle center box
+                centeredBox.toggleCenteredBox();
+            }
+        }
+
+        // Check if any of these are open, if yes, close it
+        if (this._searchBoxContainer.classList.contains('showSearchBox')) {
+            console.log('searchbox is open, closing...');
+            searchBoxShow.hideSearchBox();
+
+        } else if (this._webMenu.classList.contains('showWebMenu')) {
+            console.log('web menu is open, closing...');
+            webMenu.hideWebMenu();
+            return;
+        
+        } else if (this._weatherScreen.classList.contains('showWeatherScreen')) {
+            console.log('weather screen is open, closing...');
+            weatherScreen.hideWeatherScreen();
+            return;
+
+        }
+
+    }
+
+    _dashboardOverlayMouseUpEvent = e => {
+        if (this.rightDashboardVisibility) {
+            this.toggleDashboard();
+        }
+        console.log('dashboard overlay clicked...');
+    }
+
+    _registerOverlayMouseUpEvent = () => {
+        this._dashboardOverlay.addEventListener('mouseup', this._dashboardOverlayMouseUpEvent);
+    }
+    
+}

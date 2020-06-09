@@ -1,97 +1,124 @@
-let dock = document.getElementById('dock');
-
-// Generate button from user
-const generateFromManual = (id, icon, callback) => {
-
-    let customButtonCallback;
-
-    const dockButton = document.createElement('div');
-    dockButton.id = 'button' + id;
-    dockButton.className = 'dockButton';
+class DockButtons {
     
-    dockButton.onmouseup = callback;
-    
-    const buttonImage = document.createElement('div');
-    buttonImage.id = 'buttonImage' + id;
-    buttonImage.className = 'dockButtonImage';
-    buttonImage.style.background = "url('assets/buttons/" + icon + ".svg')";
-    buttonImage.style.backgroundSize = 'cover';
+    constructor() {
+        this._dock = document.querySelector('#dock');
+        
+        // Retrieve dockSites object from Config instance
+        this.dockSites = config.getDockSites();
+        
+        // Populate dock
+        this._populateDock();
+    }
 
-    dockButton.appendChild(buttonImage);
-    dock.appendChild(dockButton);
-}
+    _buildDockButton = (id, className, callback = null) => {
 
-
-// Generate buttons from array
-const generateFromList = () => {
-
-    for (let i = 0; i < (dockSites.length); i++) {
-
-        const site = dockSites[i].site;
-        const icon = dockSites[i].icon;
-        const url = dockSites[i].url;
-
-        // Create a href
-        const aDock = document.createElement('a');
-        aDock.className = 'dockLink';
-        aDock.href = url;
-
-        // Create div container
         const dockButton = document.createElement('div');
-        dockButton.id = 'button' + i;
+        dockButton.id = `button${id}`;
         dockButton.className = 'dockButton';
+        dockButton.onmouseup = callback;
 
-        // Create div container for button icon
+        return dockButton;
+    }
+
+    _buildDockButtonImage = (id, className, background) => {
+
         const buttonImage = document.createElement('div');
-        buttonImage.id = 'buttonImage' + i;
-        buttonImage.className = 'dockButtonImage';
-        buttonImage.style.background = "url('assets/webcons/" + icon + ".svg')";
+        buttonImage.id = id;
+        buttonImage.className = className;
+        buttonImage.style.background = background;
         buttonImage.style.backgroundSize = 'cover';
-
-        // Append divs
-        dockButton.appendChild(buttonImage);
-        aDock.appendChild(dockButton);
-        dock.appendChild(aDock);
-    };
-}
-
-const populateDock = () => {
     
-    // Create launcher button
-    generateFromManual(
-        'Launch',
-        'launch', 
-        () => {
-            // Toggle web menu
-            toggleWebMenu();
-        }
-    );
+        return buttonImage;
+    }
 
-    // Create dock buttons fetched from sites-list.js
-    generateFromList();
+    _generateFromManual = (id, icon, callback) => {
 
-    // Create weather button
-    generateFromManual(
-        'Weather',
-        'weather', 
-        () => {
-            // Toggle weather screen
-            toggleWeatherScreen();
-        }
-    );
+        const dockButton = this._buildDockButton(
+            `button${id}`,
+            'dockButton',
+            callback
+        );
 
-    // Create menu button
-    generateFromManual(
-        'Dashboard',
-        'dashboard', 
-        () => {
-            // Toggle dashboard
-            toggleDashboard();
-        }
-    );
+        const buttonImage = this._buildDockButtonImage(
+            `buttonImage${id}`,
+            'dockButtonImage',
+            `url('assets/buttons/${icon}.svg')`
+        );
+            
+        dockButton.appendChild(buttonImage);
 
+        this._dock.appendChild(dockButton);
+    }
+    
+    _generateFromList = () => {
+
+        for (let i = 0; i < (this.dockSites.length); i++) {
+    
+            const site = this.dockSites[i].site;
+            const icon = this.dockSites[i].icon;
+            const url = this.dockSites[i].url;
+    
+            // Create a href
+            const aDock = document.createElement('a');
+            aDock.className = 'dockLink';
+            aDock.href = url;
+    
+            // Create div container
+            const dockButton = this._buildDockButton(
+                site,
+                'dockButton'
+            );
+    
+            // Create div container for button icon
+            const buttonImage = this._buildDockButtonImage(
+                `buttonImage${i}`,
+                'dockButtonImage',
+                `url('assets/webcons/${icon}.svg')`
+            );
+    
+            // Append divs
+            dockButton.appendChild(buttonImage);
+            aDock.appendChild(dockButton);
+
+            this._dock.appendChild(aDock);
+        };
+    }
+
+    _populateDock = () => {
+    
+        // Create launcher button
+        this._generateFromManual(
+            'Launch',
+            'launch', 
+            () => {
+                // Toggle web menu
+                webMenu.toggleWebMenu();
+            }
+        );
+    
+        // Create dock buttons fetched from sites-list.js
+        this._generateFromList();
+    
+        // Create weather button
+        this._generateFromManual(
+            'Weather',
+            'weather', 
+            () => {
+                // Toggle weather screen
+                weatherScreen.toggleWeatherScreen();
+            }
+        );
+    
+        // Create menu button
+        this._generateFromManual(
+            'Dashboard',
+            'dashboard', 
+            () => {
+                // Toggle dashboard
+                dashboard.toggleDashboard();
+            }
+        );
+
+    }
 }
-
-// Populate dock
-window.onload =  populateDock();
 

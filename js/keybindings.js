@@ -1,81 +1,109 @@
-let keysPressed = {};
+class KeyBinding {
 
-document.addEventListener(
-    'keydown', 
-    (event) => {
-    	
-    	keysPressed[event.key] = true;
+    constructor() {
 
-        // Open dashboard
-        if (keysPressed['Alt'] && event.key === 's') {
-        	event.preventDefault();
-            toggleDashboard();
+        this._searchBox = document.querySelector('#searchBox');
+
+        this._keysPressed = {};
+
+        this._documentAddKeyDownEvent = this._documentAddKeyDownEvent.bind(this);
+        this._documentAddKeyUpEvent = this._documentAddKeyUpEvent.bind(this);
+
+        this._registerDocumentAddKeyDownEvent();
+        this._registerDocumentAddKeyUpEvent();
+    }
+
+    _documentAddKeyDownEvent = e => {
+
+        const searchBoxVisibility = searchBoxShow.getSearchBoxVisibility();
+
+        this._keysPressed[e.key] = true;
+
+
+        if (this._keysPressed['Alt'] && e.key === 's') {
+
+            e.preventDefault();
+            dashboard.toggleDashboard();
             return;
-        } else if (keysPressed['Alt'] && event.key === 'e') {
-        	event.preventDefault();
-            toggleWebMenu();
+
+        } else if (this._keysPressed['Alt'] && e.key === 'e') {
+
+            e.preventDefault();
+            webMenu.toggleWebMenu();
             return;
-        } else if (keysPressed['Alt'] && event.key === 'x') {
-        	event.preventDefault();
-            toggleWeatherScreen();
+
+        } else if (this._keysPressed['Alt'] && e.key === 'x') {
+
+            e.preventDefault();
+            weatherScreen.toggleWeatherScreen();
             return;
+
         }
 
-        if (event.key === 'Escape') {
+        if (e.key === 'Escape') {
 
-            event.preventDefault();
+            e.preventDefault();
             
             // If any of this are open, close it
-            if (searchBoxVisility) {
+            if (searchBoxVisibility) {
                 
                 // Hide searchbox
-                toggleSearchBox();
-                searchBox.value = '';
+                searchBoxShow.toggleSearchBox();
+                this._searchBox.value = '';
                 return;
 
-            } else if (weatherScreenVisibility) {
+            } else if (dashboard.getRightDashboardVisibility()) {
                 
-                toggleWeatherScreen();
+                // Hide dashboard
+                dashboard.toggleDashboard();
+                return;
+                
+            } else if (weatherScreen.getWeatherScreenVisiblity()) {
+                
+                // Hide weather
+                weatherScreen.toggleWeatherScreen();
                 return;
 
-            } else if (rightDashboardVisibility) {
-                
-                toggleDashboard();
-                return;
-                
             }
 
             // Show web menu
-            toggleWebMenu();
+            webMenu.toggleWebMenu();
             return;
         }
 
-        if (searchBoxVisility === false) {
+        if (searchBoxVisibility === false) {
 
             // Don't show searchbox when web menu, dashboard
             // and weather screen is open
-            if (webMenuVisibility || weatherScreenVisibility ||
-            	rightDashboardVisibility) return;
+            if (dashboard.getRightDashboardVisibility() ||
+                webMenu.getwebMenuVisibility() ||
+                weatherScreen.getWeatherScreenVisiblity()) return;
 
             // Only accept single charactered key and backspace to open search box
-            if ((event.key.length > 1) && (event.key !== 'Backspace')) return;
+            if ((e.key.length > 1) && (e.key !== 'Backspace')) return;
 
             // Open searchbox
-            toggleSearchBox();
+            searchBoxShow.toggleSearchBox();
 
         }  else {
             
             // Backspacing while there's no search query will hide searhbox
             // Will also hide if you hit enter
-            if ((event.key === 'Backspace' || event.key === 'Enter') && 
-                searchBox.value < 1) { toggleSearchBox(); return; };
+            if ((e.key === 'Backspace' || e.key === 'Enter') && 
+                this._searchBox.value < 1) { searchBoxShow.toggleSearchBox(); return; };
         }
-    }
-);
 
-document.addEventListener(
-    'keyup',
-    (event) => {
-        delete keysPressed[event.key];
     }
-);
+
+    _documentAddKeyUpEvent = e => {
+        delete this._keysPressed[e.key];
+    }
+
+    _registerDocumentAddKeyDownEvent = () => {
+        document.addEventListener('keydown', this._documentAddKeyDownEvent);
+    }
+
+    _registerDocumentAddKeyUpEvent = () => {
+        document.addEventListener('keyup', this._documentAddKeyUpEvent);
+    }
+}
