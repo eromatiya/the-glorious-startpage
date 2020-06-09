@@ -15,10 +15,10 @@ class SwipeEventCallbacks extends SwipeEventManager {
 		} else if (d === 'down') {
 			// Swiping down will open search box
 			searchBoxShow.toggleSearchBox();
-		} else if (d == 'right') {
+		} else if (d === 'right') {
 			// Swiping right will open web menu
 			webMenu.toggleWebMenu();
-		} else if (d == 'up') {
+		} else if (d === 'up') {
 			// Swiping up will open weather screen
 			weatherScreen.toggleWeatherScreen();
 		}
@@ -46,7 +46,7 @@ class SwipeEventCallbacks extends SwipeEventManager {
 	_webMenuSwipeEvent = (el, d) => {
 
 		// Swiping left will close web menu
-		if (d == 'left') {
+		if (d === 'left') {
 			webMenu.toggleWebMenu();
 		}
 	}
@@ -55,7 +55,7 @@ class SwipeEventCallbacks extends SwipeEventManager {
 	_weatherScreenSwipeEvent = (el, d) => {
 
 		// Swiping left will the weather screem
-		if (d == 'left') {
+		if (d === 'left') {
 			weatherScreen.toggleWeatherScreen();
 		}
 	}

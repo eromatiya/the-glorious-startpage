@@ -128,7 +128,7 @@ class WebMenu {
 		    for (let i = 0; i < compare.length; i++) {
 		        string.indexOf(compare[i]) > -1 ? matches += 1 : matches -=1;
 		    }
-		    return ((matches / this.length) >= ratio || term == '');
+		    return ((matches / this.length) >= ratio || term === '');
 		};
 	}
 

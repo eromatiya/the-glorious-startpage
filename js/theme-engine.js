@@ -58,7 +58,7 @@ class ThemeEngine {
 				return colorStr.replace(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])/, '#$1$1$2$2$3$3');
 
 			// If three-charactered HEX Color(#RGB) with AA - (#RGBAA)
-			} else if (colorStr.length == 6) {
+			} else if (colorStr.length === 6) {
 
 				const bg = colorStr.slice(0, -2);
 				const op = colorStr.slice(-2);
