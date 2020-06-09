@@ -26,7 +26,7 @@ class Clock {
 		
 		// Assigning
 		midDay = (hour >= 12) ? 'PM' : 'AM';
-		hour = (hour == 0) ? 12 : ((hour > 12) ? (hour - 12) : hour);
+		hour = (hour === 0) ? 12 : ((hour > 12) ? (hour - 12) : hour);
 		hour = this._appendZero(hour);
 		min = this._appendZero(min);
 

@@ -59,7 +59,7 @@ class SwipeEventManager {
 			    this._yDown = null;
 
 			    if (dir !== ''){
-				    if (typeof callback == 'function') {
+				    if (typeof callback === 'function') {
 				    	callback(el, dir);
 				    }
 			    }

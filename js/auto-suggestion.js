@@ -33,7 +33,7 @@ class AutoSuggestion {
 
 				this._searchBox.focus();
 
-			} else if ((e.key == 'ArrowDown') || e.key == 'ArrowRight') {
+			} else if ((e.key === 'ArrowDown') || e.key === 'ArrowRight') {
 
 				e.preventDefault();
 
@@ -42,7 +42,7 @@ class AutoSuggestion {
 	       		const phraseButton = phraseButtons[phraseIndex];
 	       		phraseButton.focus();
 
-			} else if ((e.key == 'ArrowUp') || e.key == 'ArrowLeft') {
+			} else if ((e.key === 'ArrowUp') || e.key === 'ArrowLeft') {
 
 				e.preventDefault();
 
@@ -105,6 +105,7 @@ class AutoSuggestion {
 
 		const endpoint = 'https://duckduckgo.com/ac/';
 		const callback = 'autocompleteCallback'
+		const searchQuery = String(this._searchBox.value);
 		window[callback] = res => {
 			// Passed the suggestion object to process it
 			this._autocompleteCallback(res);
@@ -113,7 +114,7 @@ class AutoSuggestion {
 		// Fetch from duckduckgo
 		const script = document.createElement('script');
 		script.type = 'text/javascript';
-		script.src = `${endpoint}?callback=${callback}&q=` + String(this._searchBox.value);
+		script.src = `${endpoint}?callback=${callback}&q=${searchQuery}`;
 		document.querySelector('head').appendChild(script);
 	}
 
