@@ -1,7 +1,7 @@
 ## a modern looking startpage
 [![maintained](https://img.shields.io/maintenance/yes/2020?label=maintained&style=flat-square)](https://github.com/manilarome/the-glorious-startpage/commits/master) [![contributions](https://img.shields.io/badge/contribution-welcome-brightgreen&?style=flat-square)](https://github.com/manilarome/the-glorious-startpage/pulls) [![HitCount](http://hits.dwyl.com/manilarome/the-glorious-startpage.svg)](http://hits.dwyl.com/manilarome/the-glorious-startpage)
 
-### A feature-rich modern-looking startpage and pretty much work in progress
+### A bloated and modern-looking startpage
 
 ## [Live Preview](https://manilarome.github.io/the-glorious-startpage/)
 
@@ -28,15 +28,15 @@
 ## Features
 
 + Responsive UI
-+ Web search Suggestions
++ Web Search Suggestions
 + Mobile Support with Swipe Gestures
 + Theme Settings - Change colors on-the-fly
-+ Weather Forecast - OpenWeatherMap
-+ Search engine selection
++ Weather Forecast - OpenWeatherMap Integration
++ Search Engine Selection
 + Dynamic Background
-+ Web menu with Fuzzy Search
++ Web Menu with Fuzzy Search
 + Keyboard Navigation
-+ Pure Javascript!
++ Vanilla Javascript!
 + And many bugs!
 
 ## Keybindings
@@ -126,7 +126,7 @@ Google is the default search engine of the search bar, if you want to change it 
 The background image changes based on time.
 
 + Change the background images in `assets/backgrounds/`.
-+ Make sure that it is in `webp` format. 
++ Make sure that it is in a `webp` format. 
 + A lower resolution of each images are also required.
 
 #### Keybindings
@@ -143,15 +143,14 @@ The background image changes based on time.
 
 + Tested only on Firefox and Google Chrome.
 
-
 ### TODO
 
-- [x] GUI Settings
+- [x] GUI Settings  
 - [x] Weather Forecast  
 - [x] Dynamic Background   
-- [x] Cleaner code<sup>WIP</sup>    
-- [x] Keyboard navigation
-- [x] Swipe gestures for mobile
+- [x] Cleaner code<sup>WIP</sup>  
+- [x] Keyboard navigation  
+- [x] Swipe gestures for mobile  
 
 
 ### License
