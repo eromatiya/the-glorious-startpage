@@ -1,63 +1,58 @@
-const backgroundBody = document.getElementById('bodyBackground') 
+class BodyBackground {
 
-// High quality background, we'll lazy load this
-const hqBackground = document.createElement("img");
+	constructor() {
+		this._bodyBackground = document.querySelector('#bodyBackground');
+		this._hqBackground = document.createElement('img');
+		this._bodyBackgroundStyle = this._bodyBackground.style;
+		this._startLazyLoad();
+	}
 
-// Style body background
-const styleBodyBackground = (bgBodyStyle) => {
-	bgBodyStyle.backgroundSize = 'cover';
-	bgBodyStyle.backgroundRepeat =  "no-repeat";
-	bgBodyStyle.backgroundPosition = "center";
-	bgBodyStyle.backgroundAttachment = "fixed";
-} 
+	_setBodyBackgrond = urlStr => {
+		this._bodyBackgroundStyle.background = urlStr;
+		this._bodyBackgroundStyle.backgroundSize = 'cover';
+		this._bodyBackgroundStyle.backgroundRepeat =  'no-repeat';
+		this._bodyBackgroundStyle.backgroundPosition = 'center';
+		this._bodyBackgroundStyle.backgroundAttachment = 'fixed';
+	}
 
-const lazyLoadBackground = (fileName) => {
+	_lazyLoadBackground = fileName => {
 
-	// Shorten backgroundBody.style or alias it
-	const bgBodyStyle = backgroundBody.style;
-
-	// Set a low quality background image 
-	bgBodyStyle.background = "url('assets/backgrounds/" + 
-	fileName + "-low" + ".webp')";
-	styleBodyBackground(bgBodyStyle);
-
-	// Add a class to blur it
-	backgroundBody.classList.add("blurFiltered");
-
-	hqBackground.onload = () => {
+		// Set a low quality background image 
+		this._setBodyBackgrond(`url('assets/backgrounds/${fileName}-low.webp')`);
 		
-		// After downloading the HQ image, set it as bg
-		backgroundBody.style.background = "url("+ hqBackground.src; + ")";
-		styleBodyBackground(bgBodyStyle);
+		// Add a class to blur it
+		this._bodyBackground.classList.add('blurFiltered');
 
-		// Remove class to unblur
-		backgroundBody.classList.remove("blurFiltered");
+		this._hqBackground.onload = () => {
+
+			// After downloading the HQ image, set it as bg
+			this._setBodyBackgrond(`url('${this._hqBackground.src}')`);
+			
+			// Remove class to unblur
+			this._bodyBackground.classList.remove('blurFiltered');
+		}
+
+		// Add a delay when to fetch background
+		setTimeout(
+			() => {
+				this._hqBackground.src = `assets/backgrounds/${fileName}.webp`;
+			},
+			50
+		);
 	}
+	
+	_startLazyLoad = () => {
+		const date = new Date();
+		const hour = date.getHours();
 
-	// Add a delay when to fetch background
-	setTimeout(
-		() => {
-			hqBackground.src = "assets/backgrounds/" + 
-			fileName + ".webp";
-		},
-		50
-	);
-}
+		if (hour >= 6 && hour < 12) {
+			this._lazyLoadBackground('morning');
 
-const initLazyLoad = () => {
-	const date = new Date();
-	const hour = date.getHours();
+		} else if (hour >= 12 && hour < 18 ) {
+			this._lazyLoadBackground('noon');
 
-	if (hour >= 6 && hour < 12) {
-		lazyLoadBackground("morning");
-
-	} else if (hour >= 12 && hour < 18 ) {
-		lazyLoadBackground("noon");
-
-	} else {
-		lazyLoadBackground("evening");
+		} else {
+			this._lazyLoadBackground('evening');
+		}
 	}
 }
-
-// Initialize
-window.onload = initLazyLoad();

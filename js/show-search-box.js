@@ -1,52 +1,69 @@
-var searchBox = document.getElementById('searchBox');
-const searchBoxContainer = document.getElementById('searchBoxContainer');
-const centeredBoxOverlay = document.getElementById('centeredBoxOverlay');
+class SearchBoxShow {
+    constructor() {
 
-let searchBoxVisility = false;
+        this._searchBox = document.querySelector('#searchBox');
+        this._searchBoxContainer = document.querySelector('#searchBoxContainer');
+        this._centeredBoxOverlay = document.querySelector('#centeredBoxOverlay');
 
-const showSearchBox = () => {
-	searchBoxContainer.classList.add('showSearchBox');
+        this._searchBoxVisility = false;
 
-	// Focus
-    searchBox.focus();
-
-    searchBoxVisility = !searchBoxVisility;
-
-    // Toggle overlay
-    centeredBoxOverlay.classList.toggle('showOverlay');
-}
-
-const hideSearchBox = () => {
-	searchBoxContainer.classList.remove('showSearchBox');
-
-    // Toggle overlay
-    centeredBoxOverlay.classList.toggle('showOverlay');
-
-    searchBox.value = '';
-
-    // Hide suggestions
-    hideSuggestions();
-
-    searchBoxVisility = !searchBoxVisility;
-}
-
-const toggleSearchBox = () => {
-
-    // If profile anim is still running,
-    // Return to avoid spam
-	if (profileAnimRunning) return;
-
-	// Rotate profile
-    rotateProfile();
-
-    if (searchBoxVisility) {
-    	// Hide search box
-    	hideSearchBox();
-
-    } else {
-    	// Show search box
-    	showSearchBox();  	
+        this.showSearchBox = this.showSearchBox.bind(this);
+        this.hideSearchBox = this.hideSearchBox.bind(this);
+        this.toggleSearchBox = this.toggleSearchBox.bind(this);
+ 
     }
 
-	console.log('toggle searchbox');
+    getSearchBoxVisibility = () => {
+        return this._searchBoxVisility;
+    }
+
+    showSearchBox = () => {
+        this._searchBoxContainer.classList.add('showSearchBox');
+
+        // Focus
+        this._searchBox.focus();
+
+        this._searchBoxVisility = !this._searchBoxVisility;
+
+        // Toggle overlay
+        this._centeredBoxOverlay.classList.toggle('showOverlay');
+    }
+
+    hideSearchBox = () => {
+        this._searchBoxContainer.classList.remove('showSearchBox');
+
+        // Toggle overlay
+        this._centeredBoxOverlay.classList.toggle('showOverlay');
+
+        this._searchBox.value = '';
+
+        // Hide suggestions
+        console.warn('hideSuggestions()');
+
+        this._searchBoxVisility = !this._searchBoxVisility;
+    }
+
+    toggleSearchBox = () => {
+
+        // If profile anim is still running,
+        // Return to avoid spam
+        if (profileImage.getProfileAnimationStatus()) return;
+
+        // Rotate profile
+        profileImage.rotateProfile();
+
+        if (this._searchBoxVisility) {
+            // Hide search box
+            this.hideSearchBox();
+
+        } else {
+            // Show search box
+            this.showSearchBox();    
+        }
+
+        console.log('toggle searchbox');
+    }
+
+
 }
+

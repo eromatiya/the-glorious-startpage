@@ -1,0 +1,137 @@
+class AutoSuggestion {
+	constructor() {
+		this._searchBox = document.querySelector('#searchBox');
+		this._suggestionsUL = document.querySelector('#suggestions');
+		this._suggestionsContainer = document.querySelector('#suggestionsContainer');
+
+		this._registerSearchBoxOnKeyUpEvent();
+	}
+
+	_hideSuggestions = () => {
+		// Hide suggestions
+		this._suggestionsContainer.classList.remove('suggestionsShow');
+	}
+
+	_showSuggestions = () => {
+		// Show suggestions
+		this._suggestionsContainer.classList.add('suggestionsShow');
+	}
+
+	// Create input events
+	_phraseEvents = button => {
+
+		// Update searchbox on enter key and mouse click
+		button.onkeyup = e => {
+
+			if (e.key === 'Enter') {
+
+				this._searchBox.value = button.innerText;
+				this._searchBox.focus();
+
+			} else if (e.key === 'Backspace') {
+
+				this._searchBox.focus();
+
+			} else if ((e.key == 'ArrowDown') || e.key == 'ArrowRight') {
+
+				e.preventDefault();
+
+				const phraseButtons = Array.prototype.slice.call(document.querySelectorAll('button'));
+				const phraseIndex = (phraseButtons.indexOf(document.activeElement) + 1) % phraseButtons.length;
+	       		const phraseButton = phraseButtons[phraseIndex];
+	       		phraseButton.focus();
+
+			} else if ((e.key == 'ArrowUp') || e.key == 'ArrowLeft') {
+
+				e.preventDefault();
+
+				const phraseButtons = Array.prototype.slice.call(document.querySelectorAll('button'));
+				const phraseIndex = (phraseButtons.indexOf(document.activeElement) - 1) % phraseButtons.length;
+
+				if (phraseIndex < 0) { 
+					phraseIndex = phraseButtons.length - 1;
+				};
+
+				const phraseButton = phraseButtons[phraseIndex];
+	       		phraseButton.focus();
+			}
+
+		}
+
+		// Onmouseup event
+		button.onmouseup = e => {
+			this._searchBox.value = button.innerText;
+			this._searchBox.focus();
+		}
+	}
+
+	// Generate and parse suggestions
+	_autocompleteCallback = phrase => {
+
+		// Filter/parse the objectgerome matil
+		const suggestion = phrase.map(i => i.phrase)
+						.filter(s => !(s.toLowerCase() === String(this._searchBox.value).toLowerCase()))
+						.slice(0, 4);
+
+		// Empty ul on every callback to refresh list
+		this._suggestionsUL.innerHTML = '';
+
+		// Generate list elements
+		for (let phrases of suggestion) {
+
+			// Create html elements
+			const li = document.createElement('li');
+			li.id = 'phrase';
+
+			const button = document.createElement('button');
+			button.type = 'button';
+			button.className = 'phraseButton';
+			button.innerHTML = phrases;
+
+			// Create input events
+			this._phraseEvents(button);
+
+			// Appent to ul
+			li.appendChild(button);
+			this._suggestionsUL.appendChild(li);
+		}
+
+		// Show suggestions
+		this._showSuggestions();
+	}
+
+	_fetchSuggestion = () => {
+
+		const endpoint = 'https://duckduckgo.com/ac/';
+		const callback = 'autocompleteCallback'
+		window[callback] = res => {
+			// Passed the suggestion object to process it
+			this._autocompleteCallback(res);
+		}
+
+		// Fetch from duckduckgo
+		const script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.src = `${endpoint}?callback=${callback}&q=` + String(this._searchBox.value);
+		document.querySelector('head').appendChild(script);
+	}
+
+	_searchBoxOnKeyUpEvent = e => {
+
+		if (e.key === 'Tab') return;
+
+		if (this._searchBox.value < 1) {
+			// Hide suggestions
+			this._hideSuggestions();
+			return;
+		}
+
+		// Fetch suggestion/phrases
+		this._fetchSuggestion();
+	}
+
+	_registerSearchBoxOnKeyUpEvent = () => {
+		this._searchBox.onkeyup = this._searchBoxOnKeyUpEvent;
+	}
+
+}
