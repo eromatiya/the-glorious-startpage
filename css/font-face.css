@@ -1,5 +1,10 @@
+@font-face {
+	font-family: 'fantasque-sans-mono';
+	font-style: normal;
+	src: url('../fonts/fantasque-sans-mono-bold-italic-nerd-font-complete.ttf');
+}
 
-/* roboto-300 - latin */
+/*Roboto light*/
 @font-face {
 	font-family: 'roboto-light';
 	font-style: normal;
@@ -12,7 +17,8 @@
 		url('../fonts/roboto-v20-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
 		url('../fonts/roboto-v20-latin-300.svg#Roboto') format('svg'); /* Legacy iOS */
 }
-/* roboto-regular - latin */
+
+/*Roboto normal*/
 @font-face {
 	font-family: 'roboto';
 	font-style: normal;
@@ -26,7 +32,7 @@
 		url('../fonts/roboto-v20-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
 }
 
-/* roboto-700 - latin */
+/*Roboto bold*/
 @font-face {
 	font-family: 'roboto-bold';
 	font-style: normal;
@@ -38,10 +44,4 @@
 		url('../fonts/roboto-v20-latin-700.woff') format('woff'), /* Modern Browsers */
 		url('../fonts/roboto-v20-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
 		url('../fonts/roboto-v20-latin-700.svg#Roboto') format('svg'); /* Legacy iOS */
-}
-
-@font-face {
-	font-family: 'fantasque-sans-mono';
-	font-style: normal;
-	src: url('../fonts/fantasque-sans-mono-bold-italic-nerd-font-complete.ttf');
 }

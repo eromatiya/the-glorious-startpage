@@ -1,7 +1,7 @@
 /*Load all CSS*/
+@import url('normalize.css');
 @import url('base.css');
 @import url('font-face.css');
-@import url('normalize.css');
 @import url('body-background.css');
 @import url('bar.css');
 @import url('top-panel.css');
