@@ -7,9 +7,10 @@ class SearchEngineSettings {
 		this._selectSearchEngine = document.querySelector('#searchEngineSelect');
 		this._selectSearchEngineApply = document.querySelector('#searchEngineAsDefault');
 		
-		this._defaultSearchEngine = this._localStorage.getItem('searchEngine') || 'google';
 		this._placeholderPrefix = '  Search with ';
 		this._searchQueryPrefix = 'http://www.google.com/search?q=';
+
+		this._searchEngines = config.getSearchEngines();
 
 		this._onClickEvent = this._onClickEvent.bind(this);
 		this._onChangeEvent = this._onChangeEvent.bind(this);
@@ -18,69 +19,80 @@ class SearchEngineSettings {
 	}
 
 	_init = () => {
-		this._selectQueryString();
+		this._updateDefaultSearchEngine();
+		this._createSearchEngineOptions();
 		this._selectTheEngine();
 		this._registerOnChangeEvent();
 		this._registerOnClickEvent();
 	}
 
-	// Update query string and placeholder
-	_selectQueryString = () => {
-
-		if (this._defaultSearchEngine === 'google') {
-			this._searchQueryPrefix = 'http://www.google.com/search?q=';
-			this._searchBox.placeholder = this._placeholderPrefix + 'Google';
-
-		} else if (this._defaultSearchEngine === 'duckduckgo') {
-			this._searchQueryPrefix = 'https://duckduckgo.com/?q=';
-			this._searchBox.placeholder = this._placeholderPrefix + 'Duckduckgo';
-
-		} else if (this._defaultSearchEngine === 'ecosia') {
-			this._searchQueryPrefix = 'https://www.ecosia.org/search?q=';
-			this._searchBox.placeholder = this._placeholderPrefix + 'Ecosia';
-
-		} else if (this._defaultSearchEngine === 'yahoo') {
-			this._searchQueryPrefix = 'http://search.yahoo.com/search?p=';
-			this._searchBox.placeholder = this._placeholderPrefix + 'Yahoo';
-
-		} else if (this._defaultSearchEngine === 'bing') {
-			this._searchQueryPrefix = 'https://www.bing.com/search?q=';
-			this._searchBox.placeholder = this._placeholderPrefix + 'Bing';
-		
-		} else {
-			this._searchQueryPrefix = 'http://www.google.com/search?q=';
-			this._searchBox.placeholder = this._placeholderPrefix + 'Google';
-		}
+	_updateDefaultSearchEngine = () => {
+		// Update default search engine and current search engine
+		this._defaultSearchEngine = this._localStorage.getItem('searchEngine') || 'google';
+		this._currentSearchEngine = this._defaultSearchEngine;
 	}
 
-	_getSearchQueryPrefix = () => {
+	// Get query prefix
+	getSearchQueryPrefix = () => {
 		return this._searchQueryPrefix;
 	}
 
-	// Use this to select the default search engine on startup
-	_selectTheEngine = () => {
-		// Available values: google, duckduckgo, ecosia, etc.
-	    this._selectSearchEngine.value = this._defaultSearchEngine;
-	    this._selectQueryString();
+	// Parse the this._searchEngines object to automatically create a selection
+	_createSearchEngineOptions = () => {
+		Object.keys(this._searchEngines)
+		.forEach(key => {
+			const seValue = key;
+			const seData = this._searchEngines[key];
+			const seOption = document.createElement('option');
+			seOption.value = seValue;
+			seOption.innerText = seData.name;
+			this._selectSearchEngine.appendChild(seOption);
+		})
+
+		// Call to update query string and placeholder
+		this._updateSearchEngineElements();
 	}
 
+	// Update query string and placeholder
+	_updateSearchEngineElements = () => {
+
+		const seData = this._searchEngines[this._currentSearchEngine];
+
+		this._searchQueryPrefix = seData.prefix;
+		this._searchBox.placeholder = this._placeholderPrefix + seData.name;
+	}
+
+	// Use this to select the current/default search engine on startup
+	_selectTheEngine = () => {
+	    this._selectSearchEngine.value = this._currentSearchEngine;
+	    this._updateSearchEngineElements();
+	}
+
+	// Execute this on change event of <select>
 	_onChangeEvent = e => {
 		const selectedEngine = this._selectSearchEngine.options[this._selectSearchEngine.selectedIndex].value;
-		this._defaultSearchEngine = selectedEngine;
-		this._selectTheEngine()
+		this._currentSearchEngine = selectedEngine;
+		this._selectTheEngine();
 	}
 
 	_registerOnChangeEvent = () => {
 		this._selectSearchEngine.onchange = this._onChangeEvent;
 	}
 
+	// Apply button callback
 	_onClickEvent = e => {
-		const selectCurrentIndex = this._selectSearchEngine.options[this._selectSearchEngine.selectedIndex]
+		// Get selected <options>
+		const selectCurrentIndex = this._selectSearchEngine.options[this._selectSearchEngine.selectedIndex];
+
+		// Alert
 		alert('Success! ' + selectCurrentIndex.text + 
 			' is now your default search engine!');
 
-		// Save search engine
+		// Save and apply default search engine
 		this._localStorage.setItem('searchEngine', selectCurrentIndex.value);
+
+		// Update default search engine and current search engine
+		this._updateDefaultSearchEngine();
 	}
 
 	_registerOnClickEvent = () => {

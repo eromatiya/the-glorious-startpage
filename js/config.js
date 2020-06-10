@@ -1,8 +1,37 @@
 class Config {
 
 	constructor() {
+		this.getSearchEngines = this.getSearchEngines.bind(this);
 		this.getWebSites = this.getWebSites.bind(this);
 		this.getDockSites = this.getDockSites.bind(this);
+	}
+
+	getSearchEngines = () => {
+
+		const searchEngines = {
+			'google': {
+				name: 'Google',
+				prefix: 'https://www.google.com/search?q='
+			},
+			'duckduckgo': {
+				name: 'Duckduckgo',
+				prefix: 'https://duckduckgo.com/?q='
+			},
+			'ecosia': {
+				name: 'Ecosia',
+				prefix: 'https://www.ecosia.org/search?q='
+			},
+			'yahoo': {
+				name: 'Yahoo',
+				prefix: 'https://search.yahoo.com/search?p='
+			},
+			'bing': {
+				name: 'Bing',
+				prefix: 'https://www.bing.com/search?q='
+			}
+		}
+
+		return searchEngines;
 	}
 
 	getWebSites = () => {

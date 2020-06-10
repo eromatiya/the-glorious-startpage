@@ -67,7 +67,7 @@
 Add more buttons or web shortcuts in web menu by editing the `webSites` array in `js/config.js`. Make sure to put an icon with `svg` format for the shortcut in `assets/webcons/` folder. 
 
 ```js
-let webSites = [
+const webSites = [
 	{
 		site: 'Reddit',
 		icon: 'reddit',
@@ -83,7 +83,7 @@ let webSites = [
 To add more web shortcuts/buttons in the dock, you have to edit the `dockSites` array in `js/config.js`. Make sure to put an icon with `svg` format for the shortcut in `assets/webcons/` folder.
 
 ```js
-let dockSites = [
+const dockSites = [
 	{
 		site: 'Reddit',
 		icon: 'reddit',
@@ -91,6 +91,20 @@ let dockSites = [
 	},
 	...
 ]
+```
+
+#### Adding more search engine in selection
+
+Add more search engine in selection by editing the `searchEngines` object in `js/config.js`. Make sure to follow the format below:
+
+```js
+const searchEngines = {
+	'duckduckgo': {
+		name: 'Duckduckgo',
+		prefix: 'https://duckduckgo.com/?q='
+	},
+	...
+}
 ```
 
 #### Set your OpenWeatherMap API key
