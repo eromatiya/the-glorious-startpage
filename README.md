@@ -1,7 +1,6 @@
-## a modern looking startpage
-[![maintained](https://img.shields.io/maintenance/yes/2020?label=maintained&style=flat-square)](https://github.com/manilarome/the-glorious-startpage/commits/master) [![contributions](https://img.shields.io/badge/contribution-welcome-brightgreen&?style=flat-square)](https://github.com/manilarome/the-glorious-startpage/pulls) [![HitCount](http://hits.dwyl.com/manilarome/the-glorious-startpage.svg)](http://hits.dwyl.com/manilarome/the-glorious-startpage)
+## A bloated and modern-looking startpage
 
-### A bloated and modern-looking startpage
+[![maintained](https://img.shields.io/maintenance/yes/2020?label=maintained&style=flat-square)](https://github.com/manilarome/the-glorious-startpage/commits/master) [![contributions](https://img.shields.io/badge/contribution-welcome-brightgreen&?style=flat-square)](https://github.com/manilarome/the-glorious-startpage/pulls) [![HitCount](http://hits.dwyl.com/manilarome/the-glorious-startpage.svg)](http://hits.dwyl.com/manilarome/the-glorious-startpage)
 
 ## [Live Preview](https://manilarome.github.io/the-glorious-startpage/)
 
@@ -56,7 +55,7 @@
 
 ## Customization and Settings
 
-#### Changing the colors, blur and animation speed strength on-the-fly
+#### Changing the colors, blur strength, and animation speed on-the-fly
 
 + Open the dashboard by clicking the settings button on the dock.
 + Change the color and blur strength by setting it on the `Theme Engine` section.
@@ -111,7 +110,7 @@ const searchEngines = {
 
 #### Set your OpenWeatherMap API key
 
-Setting your OpenWeatherMap credential is a breeze. 
+Setting up your OpenWeatherMap credential is a breeze. 
 
 + If you don't have an API key, follow this guide:
 
@@ -126,16 +125,15 @@ Setting your OpenWeatherMap credential is a breeze.
 
 #### Changing the default search engine
 
-Google is the default search engine of the search bar, if you want to change it DuckDuckGo or something:
+Google is the default search engine of the search bar, if you want to change it to DuckDuckGo or something:
 
 + Open the dashboard by clicking the settings button on the dock.
 + Find the `Search Engine` section and select your preferred search engine.
 + Set it as default.
 
-
 #### Changing the profile picture
 
-+ Replace the `user.png` image file in `/assets/`.
++ Replace the `user.png` image file in `assets/`.
 
 #### Changing the background image
 
@@ -151,7 +149,7 @@ The background image changes based on time.
 
 ### Important Note
 
-+ If you're using firefox and blur effect is not enabled, open `about:config`, accept the risks, find `layout.css.backdrop-filter.enabled` set it to true to enable it. Refresh the startpage.
++ If you're using firefox and blur effect is not enabled, open `about:config`, accept the risks, find `layout.css.backdrop-filter.enabled`, and set it to true to enable it. Refresh the startpage.
 
 + The code could be better, this is my first time writing a startpage from the ground up. I will improve this from time to time.
 
