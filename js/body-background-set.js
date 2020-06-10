@@ -17,12 +17,12 @@ class BodyBackground {
 
 	_lazyLoadBackground = fileName => {
 
-		// Set a low quality background image 
-		this._setBodyBackgrond(`url('assets/backgrounds/${fileName}-low.webp')`);
-		
 		// Add a class to blur it
 		this._bodyBackground.classList.add('blurFiltered');
 
+		// Set a low quality background image 
+		this._setBodyBackgrond(`url('assets/backgrounds/${fileName}-low.webp')`);
+		
 		this._hqBackground.onload = () => {
 
 			// After downloading the HQ image, set it as bg

@@ -317,6 +317,7 @@ class WebMenu {
 
 		const getIndexByWindowWidth = () => {
 			if (window.innerWidth <= 580) { return 1; }
+
 			// width of elements in pixels
 			const menuItemWidth = 138;
 			const scrollBarWidth = 10;
@@ -372,19 +373,19 @@ class WebMenu {
 			if (key === up) { return changeItemFocus((this._webListIndex >= 0), len) }
 			if (key === down) { return changeItemFocus((this._webListIndex <= len), 0) }
 		}
-
 		
 		changeWebListIndex();
+
 		if (this._webItemFocus) {
 			this._removeClass(this._webItemFocus, 'webItemFocus');
 			changeItemFocusByKey();
 			this._addClass(this._webItemFocus, 'webItemFocus');
-			// console.log(webListIndex);
 		} else {
 			this._webListIndex = 0;
 			this._webItemFocus = this._webMenuList.getElementsByTagName('li')[0];
 			this._addClass(this._webItemFocus, 'webItemFocus');
 		}
+
 	}
 
 	_webMenuKeyDownEvent = e => {
@@ -395,7 +396,6 @@ class WebMenu {
 	_registerWebMenuKeyDownEvent = () => {
 		this._webMenu.addEventListener('keydown', this._webMenuKeyDownEvent, false);
 	}
-
 
 	_webMenuSearchBoxKeyDownEvent = e => {
 
