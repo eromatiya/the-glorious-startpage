@@ -1,7 +1,7 @@
-class SearchQuerySend extends SearchEngineSettings {
+class SearchQuerySend {
 
 	constructor() {
-		super();
+		// super();
 		this._searchBox = document.querySelector('#searchBox');
 		this._keyUpEvent = this._keyUpEvent.bind(this);
 		this._registerKeyUpEvent();
@@ -9,7 +9,7 @@ class SearchQuerySend extends SearchEngineSettings {
 
 	_sendQuery = () => {
 		// Search
-		window.location.href = encodeURI(this._getSearchQueryPrefix() + this._searchBox.value);
+		window.location.href = encodeURI(searchEngineSettings.getSearchQueryPrefix() + this._searchBox.value);
 	};
 
 	_keyUpEvent = event => {
