@@ -56,11 +56,13 @@
 
 ## Customization and Settings
 
-#### Changing the colors and blur strength on-the-fly
+#### Changing the colors, blur and animation speed strength on-the-fly
 
 + Open the dashboard by clicking the settings button on the dock.
 + Change the color and blur strength by setting it on the `Theme Engine` section.
-+ Supports #RGB, #RRGGBBAA, and #RRGGBB.
++ Color settings supports `#RGB`, `#RRGGBB`, and `#RRGGBBAA`.
++ Blur strength settings only allows integer with `px` suffix.
++ Animation speed supports `s` and `ms`. 
 
 #### Adding more buttons on the web menu
 
