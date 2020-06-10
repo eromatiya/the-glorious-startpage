@@ -72,6 +72,7 @@ class WebMenu {
 
 			const li = document.createElement('li');
 
+			// Generate web item/li child
 			li.insertAdjacentHTML(
 				'afterbegin',
 				`
