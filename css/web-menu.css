@@ -70,6 +70,7 @@
 	
 	text-align: center;
 	font-family: roboto-bold, sans-serif;
+	font-weight: 700;
 	color: var(--panel-color);
 	
 	border: none;
@@ -82,6 +83,7 @@
 
 #webMenuSearchBox::placeholder {
 	font-family: roboto-bold, fantasque-sans-mono, sans-serif;
+	font-weight: 700;
 }
 
 @media screen and (max-width: 580px) {
@@ -201,6 +203,7 @@
 	text-align: center;
 	font-size: 11pt;
 	font-family: roboto, sans-serif;
+	font-weight: 400;
 	word-wrap: break-word;
 	color: var(--base-color);
 

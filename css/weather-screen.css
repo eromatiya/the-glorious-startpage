@@ -73,6 +73,7 @@
 #weatherTodayLocation {
 	color: var(--base-color);
 	font-family: roboto, sans-serif;
+	font-weight: 400;
 	font-size: 16pt;
 	text-align: center;
 	position: relative;
@@ -81,6 +82,7 @@
 #weatherTodayDescription {
 	color: var(--base-color);
 	font-family: roboto-bold, sans-serif;
+	font-weight: 700;
 	font-size: 20pt;
 	text-align: center;
 	position: relative;
@@ -105,6 +107,7 @@
 .hourDataLabel {
 	color: var(--base-color);
 	font-family: roboto, sans-serif;
+	font-weight: 400;
 	font-size: 14pt;
 	text-align: center;
 }
@@ -178,6 +181,7 @@
 .weatherForecastDayDate {
 	color: var(--base-color);
 	font-family: roboto, sans-serif;
+	font-weight: 400;
 	font-size: 11pt;
 	text-align: center;
 }
