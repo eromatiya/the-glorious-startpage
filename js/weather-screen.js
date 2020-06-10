@@ -80,62 +80,24 @@ class WeatherScreen {
 
 	_createForecastBody = (fIcon, forecastTemp, foreDescription, fHour, fDate) => {
 
-		// Main Div
-	 	const forecastDay = document.createElement('div');
-	 	forecastDay.className = 'weatherForecastDay';
-
-	 	// Icon Container Div
-	 	const forecastIconContainer = document.createElement('div');
-	 	forecastIconContainer.className = 'weatherForecastDayIconContainer';
-
-	 	// Icon Div
-	 	const forecastIcon = document.createElement('div');
-	 	forecastIcon.className = 'weatherForecastDayIcon';
-	 	forecastIcon.style.background = `url('assets/weather-icons/${fIcon}')`;
-	 	forecastIcon.style.backgroundSize = 'cover';
-
-	 	// Details Div
-	 	const forecastDetails = document.createElement('div');
-	 	forecastDetails.className = 'weatherForecastDayDetails';
-
-	 	const forecastTemperature = document.createElement('div');
-	 	forecastTemperature.className = 'weatherForecastDayDetailsTemperature';
-	 	forecastTemperature.innerHTML = forecastTemp;
-
-	 	const forecastDescription = document.createElement('div');
-	 	forecastDescription.className = 'weatherForecastDayDetailsDescription';
-	 	forecastDescription.innerHTML = foreDescription;
-
-	 	// Append details to div container
-	 	forecastDetails.appendChild(forecastTemperature);
-	 	forecastDetails.appendChild(forecastDescription);
-
-	 	// Date Div
-	 	const forecastDayDate = document.createElement('div');
-	 	forecastDayDate.className = 'weatherForecastDayDate';
-
-	 	const forecastHour = document.createElement('div');
-	 	forecastHour.className = 'weatherForecastDayDateHour';
-	 	forecastHour.innerHTML = fHour;
-
-	 	const forecastDate = document.createElement('div');
-	 	forecastDate.className = 'weatherForecastDayDateDate';
-	 	forecastDate.innerHTML = fDate;
-
-	 	// Append icon image to div container
-	 	forecastIconContainer.appendChild(forecastIcon);
-
-	 	// Append details to div container
-	 	forecastDayDate.appendChild(forecastHour);
-	 	forecastDayDate.appendChild(forecastDate);
-
-		// Append to main div
-		forecastDay.appendChild(forecastIconContainer);
-		forecastDay.appendChild(forecastDetails);
-		forecastDay.appendChild(forecastDayDate);
-
-		// Append to the main container
-	 	this._forecastContainer.appendChild(forecastDay);
+		// Generate forecast
+	 	this._forecastContainer.insertAdjacentHTML(
+	 		'beforeend',
+	 		`
+	 		<div class='weatherForecastDay'>
+				<div class='weatherForecastDayIconContainer'>
+					<div class='weatherForecastDayIcon' style='background: url("assets/weather-icons/${fIcon}"); background-size: cover;'></div>
+				</div>
+				<div class='weatherForecastDayDetails'>
+					<div class='weatherForecastDayDetailsTemperature'>${forecastTemp}</div>
+					<div class='weatherForecastDayDetailsDescription'>${foreDescription}</div>
+				</div><div class='weatherForecastDayDate'>
+					<div class='weatherForecastDayDateHour'>${fHour}</div>
+					<div class='weatherForecastDayDateDate'>${fDate}</div>
+				</div>
+			</div>
+	 		`
+	 	)
 	}
 
 
