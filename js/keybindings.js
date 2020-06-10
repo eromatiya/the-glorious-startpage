@@ -75,9 +75,9 @@ class KeyBinding {
             return;
         }
 
-        if (searchBoxVisibility === false) {
+        if (!searchBoxVisibility) {
 
-            // Don't show searchbox when web menu, dashboard
+            // Don't show searchbox if web menu, dashboard
             // and weather screen is open
             if (dashboard.getRightDashboardVisibility() ||
                 webMenu.getwebMenuVisibility() ||
