@@ -113,7 +113,8 @@ select::-ms-expand {
 
 .backgroundColorSetter,
 .foregroundColorSetter,
-.blurSetter {
+.blurSetter,
+.animSpeedSetter {
 	/*Align div inside horizontally*/
 	display: flex;
 	flex-direction: row;
@@ -149,7 +150,8 @@ select::-ms-expand {
 	background: var(--panel-bg);
 }
 
-#blurSet {
+#blurSet,
+#animSpeedSet {
 	height: 32px;
 	width: 100%;
 	box-sizing: border-box;

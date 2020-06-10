@@ -9,6 +9,7 @@ class ThemeEngine {
 		this._foregroundOpacityTextBox = document.querySelector('#foregroundOpacitySet');
 
 		this._blurTextBox = document.querySelector('#blurSet');
+		this._animSpeedTextBox = document.querySelector('#animSpeedSet');
 		this._applyTheme = document.querySelector('#themeEngineAsDefault');
 		this._resetTheme = document.querySelector('#themeEngineReset');
 
@@ -20,8 +21,9 @@ class ThemeEngine {
 		const origBaseBG = this._localStorage.getItem('origBaseBG');
 		const origBaseColor = this._localStorage.getItem('origBaseColor');
 		const origBlurStrength = this._localStorage.getItem('origBlurStrength');
+		const origAnimSpeed = this._localStorage.getItem('origAnimSpeed');
 		
-		if ((origBaseBG === null) || (origBaseColor === null) || (origBlurStrength) === null) {
+		if ((origBaseBG === null) || (origBaseColor === null) || (origBlurStrength === null) || (origAnimSpeed === null)) {
 
 			this._localStorage.setItem(
 				'origBaseBG',
@@ -34,6 +36,10 @@ class ThemeEngine {
 			this._localStorage.setItem(
 				'origBlurStrength',
 				window.getComputedStyle(document.documentElement).getPropertyValue('--blur-strength')
+			);
+			this._localStorage.setItem(
+				'origAnimSpeed',
+				window.getComputedStyle(document.documentElement).getPropertyValue('--transition-speed')
 			);
 		}
 	}
@@ -75,7 +81,7 @@ class ThemeEngine {
 		return colorStr;
 	}
 
-	_updateTextBoxValues = (bgColor, bgOpacity, fgColor, fgOpacity, blurPower) => {
+	_updateTextBoxValues = (bgColor, bgOpacity, fgColor, fgOpacity, blurPower, animSpeed) => {
 
 		// Set placeholders
 		this._backgroundTextBox.value = '';
@@ -92,6 +98,9 @@ class ThemeEngine {
 		this._blurTextBox.value = '';
 		this._blurTextBox.placeholder = blurPower;
 
+		this._animSpeedTextBox.value = '';
+		this._animSpeedTextBox.placeholder = animSpeed;
+
 	}
 
 	_processTheme = () => {
@@ -100,6 +109,7 @@ class ThemeEngine {
 		let baseBG = this._localStorage.getItem('baseBG');
 		let baseColor = this._localStorage.getItem('baseColor');
 		let blurStrength = this._localStorage.getItem('blurStrength');
+		let animSpeed = this._localStorage.getItem('animSpeed');
 
 		// If custom color doesn't exist, use the value in CSS
 		if (baseBG === null) {
@@ -114,10 +124,15 @@ class ThemeEngine {
 			blurStrength = this._localStorage.getItem('origBlurStrength');
 		}
 
+		if (animSpeed === null) {
+			animSpeed = this._localStorage.getItem('origAnimSpeed');
+		}
+
 		// Remove whitespace
 		baseBG = baseBG.replace(/ /g,'');
 		baseColor = baseColor.replace(/ /g,'');
 		blurStrength = blurStrength.replace(/ /g,'');
+		animSpeed = animSpeed.replace(/ /g,'');
 
 		// Check validity
 		baseBG = this._checkColorValidity(baseBG);
@@ -141,7 +156,8 @@ class ThemeEngine {
 			backgroundOpacity,
 			foregroundColor,
 			foregroundOpacity,
-			blurStrength
+			blurStrength,
+			animSpeed
 		)
 	}
 
@@ -156,6 +172,8 @@ class ThemeEngine {
 		
 		const blurPower = (this._blurTextBox.value || this._blurTextBox.placeholder);
 
+		const animSpeed = (this._animSpeedTextBox.value || this._animSpeedTextBox.placeholder);
+
 		// Check color validity
 		const bgColor = this._checkColorValidity(background);
 		const fgColor = this._checkColorValidity(foreground);
@@ -164,11 +182,13 @@ class ThemeEngine {
 		document.documentElement.style.setProperty('--base-bg', bgColor);
 		document.documentElement.style.setProperty('--base-color', fgColor);
 		document.documentElement.style.setProperty('--blur-strength', blurPower);
+		document.documentElement.style.setProperty('--transition-speed', animSpeed);
 
 		// Save custom color
 		this._localStorage.setItem('baseBG', bgColor);
 		this._localStorage.setItem('baseColor', fgColor);
 		this._localStorage.setItem('blurStrength', blurPower);
+		this._localStorage.setItem('animSpeed', animSpeed);
 
 		this._processTheme();
 	}
@@ -186,6 +206,7 @@ class ThemeEngine {
 		this._localStorage.removeItem('baseBG');
 		this._localStorage.removeItem('baseColor');
 		this._localStorage.removeItem('blurStrength');
+		this._localStorage.removeItem('animSpeed');
 
 		this._saveDefaultCSS();
 		this._processTheme();
