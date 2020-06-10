@@ -82,7 +82,7 @@ class WeatherScreen {
 
 		// Generate forecast
 	 	this._forecastContainer.insertAdjacentHTML(
-	 		'afterbegin',
+	 		'beforeend',
 	 		`
 	 		<div class='weatherForecastDay'>
 				<div class='weatherForecastDayIconContainer'>
