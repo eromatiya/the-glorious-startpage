@@ -44,9 +44,14 @@ class SearchEngineSettings {
 			const seValue = key;
 			const seData = this._searchEngines[key];
 			const seOption = document.createElement('option');
-			seOption.value = seValue;
-			seOption.innerText = seData.name;
-			this._selectSearchEngine.appendChild(seOption);
+
+			// Generate search engine suggestions
+			this._selectSearchEngine.insertAdjacentHTML(
+				'beforeend',
+				`
+				<option value='${seValue}'>${seData.name}</option>
+				`
+			)
 		})
 
 		// Call to update query string and placeholder
