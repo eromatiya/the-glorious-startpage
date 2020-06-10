@@ -72,53 +72,27 @@ class WebMenu {
 
 			const li = document.createElement('li');
 
+			li.insertAdjacentHTML(
+				'afterbegin',
+				`
+				<a class='webMenuLink' href='${url}' tabindex='-1'>
+					<div class='webItem' id='${'id' + site}'>
+						<div class='webItemContainer'>
+							<div class='webItemBody'>
+								<div class='webItemIconContainer'>
+									<div class='webItemIcon' style='background: url("assets/webcons/${icon}.svg"); background-size: cover;'></div>
+								</div>
+								<div class='webItemName'>${site}</div>
+							</div>
+						</div>
+					</div>
+				</a>
+				`
+			)
+
 			// Create callback property
 			this._createWebItemCallback(li, url);
 
-			// Create a href
-			const aWebLink = document.createElement('a');
-			aWebLink.className = 'webMenuLink';
-			aWebLink.href = url;
-			aWebLink.tabIndex = '-1';
-
-			// Create an outer div, child of li
-			let webItemDiv = document.createElement('div')
-			webItemDiv.className = 'webItem';
-			webItemDiv.id = 'id' + site;
-			
-			// Create a second div, webItemContainer
-			const webItemContainer = document.createElement('div');
-			webItemContainer.className = 'webItemContainer';
-
-			// Create the innermost div, contains icon and label
-			const webItemBody = document.createElement('div');
-			webItemBody.className = 'webItemBody';
-
-			// Create div for webItemIcon
-			const webItemIconContainer = document.createElement('div');
-			webItemIconContainer.className = 'webItemIconContainer';
-
-			const webItemIcon = document.createElement('div');
-			webItemIcon.className = 'webItemIcon';
-			webItemIcon.style.background = `url('assets/webcons/${icon}.svg')`;
-			webItemIcon.style.backgroundSize = 'cover';
-
-			// Create webItemName
-			const webItemName = document.createElement('div');
-			webItemName.className = 'webItemName';
-			webItemName.innerHTML = site;
-
-			// Append divs with heirarchy
-			webItemDiv.appendChild(webItemContainer);
-			webItemContainer.appendChild(webItemBody);
-
-			webItemIconContainer.appendChild(webItemIcon);
-			webItemBody.appendChild(webItemIconContainer);
-			webItemBody.appendChild(webItemName);
-
-			aWebLink.appendChild(webItemDiv);
-
-			li.appendChild(aWebLink);
 			this._webMenuList.appendChild(li);
 		}
 
