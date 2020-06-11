@@ -149,6 +149,8 @@ The background image changes based on time.
 
 ### Important Note
 
++ Make sure that javascript is enabled!
+
 + If you're using firefox and blur effect is not enabled, open `about:config`, accept the risks, find `layout.css.backdrop-filter.enabled`, and set it to true to enable it. Refresh the startpage.
 
 + The code could be better, this is my first time writing a startpage from the ground up. I will improve this from time to time.
