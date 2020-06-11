@@ -96,17 +96,17 @@
 					</div>
 
 					<div id='weatherSettingsContainer'>
-						<div class='weatherSettingsGroups'>
+						<div class='weatherSettingsGroups' id='weatherSettingsAPIKey'>
 							<label for='apiBox' class='weatherSettingsLabels'>API Key</label>
 							<input type='text' class='weatherSettingsInputs' id='apiBox' autocomplete='off' placeholder='API KEY'/>
 						</div>
 
-						<div class='weatherSettingsGroups'>
+						<div class='weatherSettingsGroups'  id='weatherSettingsCityID'>
 							<label for='cityBox' class='weatherSettingsLabels'>City ID</label>
 							<input type='text' class='weatherSettingsInputs' id='cityBox' autocomplete='off' placeholder='City ID'/>
 						</div>
 
-						<div class='weatherSettingsGroups'>
+						<div class='weatherSettingsGroups' id='weatherSettingsUnitsSelect'>
 							<label for='weatherSelectUnits' class='weatherSettingsLabels'>Units</label>
 							<select class='weatherSettingsInputs' id='weatherSelectUnits'>
 								<option value='metric'>Metric</option>
@@ -153,7 +153,7 @@
 					</div>
 					<div id='themeEngineContainer'>
 
-						<div class='themeEngineGroups'>
+						<div class='themeEngineGroups' id='themeEngineBackground'>
 							<label for='backgroundSet' class='themeEngineLabels'>Background Color and Opacity</label>
 							<div class='backgroundColorSetter'>
 								<input type='text' maxlength='7' class='themeEngineInputs' id='backgroundSet' autocomplete='off' placeholder='000000'/>
@@ -162,7 +162,7 @@
 						</div>
 
 
-						<div class='themeEngineGroups'>
+						<div class='themeEngineGroups' id='themeEngineForeground'>
 							<label for='foregroundSet' class='themeEngineLabels'>Foreground Color and Opacity</label>
 							<div class='foregroundColorSetter'>
 								<input type='text' maxlength='7' class='themeEngineInputs' id='foregroundSet' autocomplete='off' placeholder='000000'/>
@@ -180,12 +180,14 @@
 							</div>
 						</div>
 						<div class='themeEngineGroups'>
+
+						<div class='themeEngineGroups' id='themeEngineBlurStrength'>
 							<label for='blurSet' class='themeEngineLabels'>Blur Strength in Pixels</label>
 							<div class='blurSetter'>
 								<input type='text' class='themeEngineInputs' id='blurSet' autocomplete='off' placeholder='10'/>
 							</div>
 						</div>
-						<div class='themeEngineGroups'>
+						<div class='themeEngineGroups' id='themeEngineAnimSpeed'>
 							<label for='animSpeedSet' class='themeEngineLabels'>Animation Speed</label>
 							<div class='animSpeedSetter'>
 								<input type='text' class='themeEngineInputs' id='animSpeedSet' autocomplete='off' placeholder='300ms'/>
