@@ -4,11 +4,7 @@ class GreeterDateMessage {
 		this._greeterMessage = document.querySelector('#greeterMessage');	
 		this._dateMessage = document.querySelector('#dateMessage');	
 
-		this._updateGreeterDateMessage();
-	}
-
-	_getMonths = () => {
-		const monthsArr = [
+		this._monthsArr = [
 			'January',
 			'February',
 			'March',
@@ -22,11 +18,8 @@ class GreeterDateMessage {
 			'November',
 			'December'
 		];
-		return monthsArr;
-	}
 
-	_getDays = () => {
-		const _daysArr = [
+		this._daysArr = [
 			'Sunday',
 			'Monday',
 			'Tuesday',
@@ -35,7 +28,8 @@ class GreeterDateMessage {
 			'Friday',
 			'Saturday'
 		];
-		return _daysArr;
+
+		this._updateGreeterDateMessage();
 	}
 
 	_getDayOrdinal = (day) => {
@@ -61,7 +55,7 @@ class GreeterDateMessage {
 
 		this._greeterMessage.innerHTML = `Good<br>${greeterSuffix}!`;
 		this._dateMessage.innerHTML = `Today's the ${this._getDayOrdinal(date.getDate())} of ` +
-									`${this._getMonths()[date.getMonth()]}, and it's ${this._getDays()[date.getDay()]}.`;
+									`${this._monthsArr[date.getMonth()]}, and it's ${this._daysArr[date.getDay()]}.`;
 	}
 
 }

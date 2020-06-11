@@ -3,6 +3,15 @@ class WeatherScreen {
 	constructor() {
 		this._weatherScreenVisibility = false;
 		this._tempSymbol = '°C';
+		this._daysArr = [
+			'Sunday',
+			'Monday',
+			'Tuesday',
+			'Wednesday',
+			'Thursday',
+			'Friday',
+			'Saturday'
+		];
 
 		this._weatherScreen = document.querySelector('#weatherScreen');
 		this._weatherIcon = document.querySelector('#weatherTodayIcon');
@@ -78,22 +87,23 @@ class WeatherScreen {
 		this._updateWeatherDockButton(icon);
 	}
 
-	_createForecastBody = (fIcon, forecastTemp, foreDescription, fHour, fDate) => {
+	_createForecastBody = (fIcon, forecastTemp, foreDescription, dayName, fHour) => {
 
 		// Generate forecast
 	 	this._forecastContainer.insertAdjacentHTML(
 	 		'beforeend',
 	 		`
 	 		<div class='weatherForecastDay'>
+				<div class='weatherForecastDayDate'>
+					<div class='weatherForecastDayDateName'>${dayName}</div>
+					<div class='weatherForecastDayDateHour'>${fHour}</div>
+				</div>
 				<div class='weatherForecastDayIconContainer'>
 					<div class='weatherForecastDayIcon' style='background: url("assets/weather-icons/${fIcon}"); background-size: cover;'></div>
 				</div>
 				<div class='weatherForecastDayDetails'>
 					<div class='weatherForecastDayDetailsTemperature'>${forecastTemp}</div>
 					<div class='weatherForecastDayDetailsDescription'>${foreDescription}</div>
-				</div><div class='weatherForecastDayDate'>
-					<div class='weatherForecastDayDateHour'>${fHour}</div>
-					<div class='weatherForecastDayDateDate'>${fDate}</div>
 				</div>
 			</div>
 	 		`
@@ -190,10 +200,14 @@ class WeatherScreen {
 			const minTemp = Math.floor(minimumTemp);
 			const maxTemp = Math.floor(maximumTemp);
 			const forecastTemp = minTemp + ' ~ ' + maxTemp + this._tempSymbol;
-			const fHour = dateTime.substr(dateTime.indexOf(' ') + 1).slice(0, -3);;
+			const fHour = dateTime.substr(dateTime.indexOf(' ') + 1).slice(0, -3);
 			const fDate = dateTime.substr(0, dateTime.indexOf(' '));
 
-			this._createForecastBody(fIcon, forecastTemp, foreDescription, fHour, fDate);
+			// Get day name fDate string and this._daysArr array
+			const d = new Date(fDate);
+			var dayName = this._daysArr[d.getDay()];
+
+			this._createForecastBody(fIcon, forecastTemp, foreDescription, dayName, fHour);
 		}
 	}
 

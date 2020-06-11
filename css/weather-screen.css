@@ -186,6 +186,11 @@
 	text-align: center;
 }
 
+.weatherForecastDayDateName {
+	font-weight: 900;
+	font-size: 14pt;
+}
+
 /*Right side*/
 .weatherForecastDayDate {
 	clear:both;
@@ -233,6 +238,11 @@
 	.weatherForecastDayIconContainer {
 		float: left;
 		clear: none;
+	}
+
+	.weatherForecastDayDateName {
+		font-weight: 400;
+		font-size: 12pt;
 	}
 
 	/*Center*/
