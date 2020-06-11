@@ -45,9 +45,9 @@ class WeatherSettings {
 
 	// Update textbox placeholders
 	_updateWeatherSettingsPlaceholder = () => {
-		this._apiBox.placeholder = String(this._appID) || 'API Key';
-		this._cityBox.placeholder = String(this._cityID) || 'City ID';
-		this._weatherSelectUnits.value = String(this._units) || 'metric';
+		this._apiBox.placeholder = this._appID;
+		this._cityBox.placeholder = this._cityID;
+		this._weatherSelectUnits.value = this._units;
 	}
 
 	// Update weather settings
