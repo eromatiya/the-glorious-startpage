@@ -98,9 +98,9 @@
 	/*The Li*/
 	#phrase {
 		/*Always stack and center horizontally*/
-		display: inline-block !important;
-		width: auto !important;
-	  	text-align: center !important;
+	  	display: table-cell;
+		width: auto;
+	  	text-align: center;
 
 	  	justify-content: space-between !important;
 	  	
