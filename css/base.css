@@ -48,6 +48,7 @@ body {
 }
 
 html, body {
+	font-family: roboto, sans-serif;
 	height: 100% !important;
 	position: fixed !important;
 }
