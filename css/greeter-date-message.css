@@ -7,9 +7,10 @@
 }
 
 #dateMessage {
-	color: #f2f2f2;
+	color: var(--base-color);
 	font-size: 12pt;
 	font-family:  roboto, sans-serif;
 	font-weight: 400;
 	margin: 5px;
+	word-wrap: break-word;
 }
