@@ -6,23 +6,21 @@
 
 ## Gallery
 
-| Searchbar | Settings |
+<div align='center'>
+    <h3>
+    	<img src='/scrots/idle.png' align='center'>
+    </h3>
+</div>
+
+
+| Search Autosuggestion | Settings |
 | --- | --- |
-| ![screenshot](/scrots/searchbar.png) | ![screenshot](/scrots/settings.png) |
+| ![screenshot](/scrots/autosuggestion.png) | ![screenshot](/scrots/settings.png) |
 
 | Web Menu | Weather Forecast |
 | --- | --- |
 | ![screenshot](/scrots/webmenu.png) | ![screenshot](/scrots/weather.png) |
 
-#### It looks good on mobile too
-
-| Searchbar | Settings |
-| --- | --- |
-| ![screenshot](/scrots/mobile-searchbar.jpg) | ![screenshot](/scrots/mobile-settings.jpg) |
-
-| Web Menu | Weather Forecast |
-| --- | --- |
-| ![screenshot](/scrots/mobile-webmenu.jpg) | ![screenshot](/scrots/mobile-weather.jpg) |
 
 ## Features
 
