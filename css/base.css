@@ -19,6 +19,8 @@
 }
 
 * {
+	box-sizing: border-box;
+	
 	/*Font rendering*/
 	-webkit-font-smoothing: antialiased !important;
 	-moz-osx-font-smoothing: grayscale !important;
