@@ -15,7 +15,7 @@ class WeatherSettings {
 		this._watchPositionID = 0;
 
 		this._watchGeoOptions = {
-			enableHighAccuracy: false,
+			enableHighAccuracy: true,
 			timeout: 5000,
 			maximumAge: 0
 		};
