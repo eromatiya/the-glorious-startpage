@@ -8,8 +8,8 @@ class WeatherSettings {
 		this._cityID = '';
 		this._units = '';
 
-		this._apiBox = document.querySelector('#apiBox');
-		this._cityBox = document.querySelector('#cityBox');
+		this._apiKeySet = document.querySelector('#apiKeySet');
+		this._cityIDSet = document.querySelector('#cityIDSet');
 
 		this._weatherSelectUnits = document.querySelector('#weatherSelectUnits');
 
@@ -38,15 +38,15 @@ class WeatherSettings {
 
 	// Reset textboxes
 	_deleteWeatherSettingsValue = () => {
-		this._apiBox.value = '';
-		this._cityBox.value = '';
+		this._apiKeySet.value = '';
+		this._cityIDSet.value = '';
 		this._weatherSelectUnits.value = 'metric';
 	}
 
 	// Update textbox placeholders
 	_updateWeatherSettingsPlaceholder = () => {
-		this._apiBox.placeholder = this._appID;
-		this._cityBox.placeholder = this._cityID;
+		this._apiKeySet.placeholder = this._appID;
+		this._cityIDSet.placeholder = this._cityID;
 		this._weatherSelectUnits.value = this._units;
 	}
 
@@ -77,8 +77,8 @@ class WeatherSettings {
 
 	_weatherApplyOnClickEvent = e => {
 		this._applyWeatherSettings(
-			this._apiBox.value || this._apiBox.placeholder,
-			this._cityBox.value || this._cityBox.placeholder,
+			this._apiKeySet.value || this._apiKeySet.placeholder,
+			this._cityIDSet.value || this._cityIDSet.placeholder,
 			this._weatherSelectUnits.options[this._weatherSelectUnits.selectedIndex].value
 		);
 		this._updateWeatherSettings();
