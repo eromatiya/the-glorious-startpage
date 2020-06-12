@@ -76,7 +76,8 @@
   	align-items: center;
 }
 
-#weatherSelectUnits {
+#weatherSelectUnits,
+#weatherSelectLocator {
 	background: var(--base-container);
 	color: var(--base-color);
 
@@ -85,23 +86,27 @@
 	appearance: none;
 }
 
-#weatherSelectUnits:hover {
+#weatherSelectUnits:hover,
+#weatherSelectLocator:hover {
 	outline: none !important;
 	cursor: pointer;
 	background: var(--base-hover-bg) !important;
 }
 
-#weatherSelectUnits:focus {
+#weatherSelectUnits:focus,
+#weatherSelectLocator:focus {
 	outline: none !important;
 	background: var(--base-focus-bg) !important;
 }
 
-#weatherSelectUnits:active {
+#weatherSelectUnits:active,
+#weatherSelectLocator:active {
 	outline: none !important;
 	background: var(--base-active-bg) !important;
 }
 
-#weatherSelectUnits option {
+#weatherSelectUnits option,
+#weatherSelectLocator option {
 	color: initial;
 	border: none;
 }

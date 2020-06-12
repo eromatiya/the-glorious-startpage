@@ -51,9 +51,9 @@ class WeatherSettings {
 
 	// Update credential variables
 	_updateCredentialVariables = () => {
-		this._appID = localStorage.getItem('apiKey') || 'API Key';
-		this._cityID = localStorage.getItem('cityID') || 'City ID';
-		this._units = localStorage.getItem('units') || 'metric';
+		this._appID = this._localStorage.getItem('apiKey') || 'API Key';
+		this._cityID = this._localStorage.getItem('cityID') || 'City ID';
+		this._units = this._localStorage.getItem('units') || 'metric';
 	}
 
 	// Update textbox placeholders
