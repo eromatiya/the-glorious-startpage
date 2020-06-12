@@ -22,15 +22,14 @@ class WeatherSettings {
 		this._init();
 	}
 
-	// Apply credentials
-	_applyWeatherSettings = (key, city, units) => {
-		this._localStorage.setItem('apiKey', key);
-		this._localStorage.setItem('cityID', city);
-		this._localStorage.setItem('units', units);
+	_init = () => {
+		// this._updat2eWeatherSettings();
+		this._registerWeatherResetOnClickEvent();
+		this._registerWeatherApplyOnClickEvent();
 	}
 
 	// Clear credentials
-	_resetWeatherSettings = () => {
+	_clearWeatherCredentials = () => {
 		this._localStorage.removeItem('apiKey');
 		this._localStorage.removeItem('cityID');
 		this._localStorage.removeItem('units');
@@ -43,6 +42,20 @@ class WeatherSettings {
 		this._weatherSelectUnits.value = 'metric';
 	}
 
+	// Apply credentials
+	_applyWeatherSettings = (key, city, units) => {
+		this._localStorage.setItem('apiKey', key);
+		this._localStorage.setItem('cityID', city);
+		this._localStorage.setItem('units', units);
+	}
+
+	// Update credential variables
+	_updateCredentialVariables = () => {
+		this._appID = localStorage.getItem('apiKey') || 'API Key';
+		this._cityID = localStorage.getItem('cityID') || 'City ID';
+		this._units = localStorage.getItem('units') || 'metric';
+	}
+
 	// Update textbox placeholders
 	_updateWeatherSettingsPlaceholder = () => {
 		this._apiKeySet.placeholder = this._appID;
@@ -52,9 +65,9 @@ class WeatherSettings {
 
 	// Update weather settings
 	_updateWeatherSettings = () => {
-		this._appID = localStorage.getItem('apiKey') || 'API Key';
-		this._cityID = localStorage.getItem('cityID') || 'City ID';
-		this._units = localStorage.getItem('units') || 'metric';
+		
+		// Update cred vars
+		this._updateCredentialVariables();
 
 		// Update weather forecast elements
 		this.getWeatherData(this._appID, this._cityID, this._units);
@@ -62,36 +75,40 @@ class WeatherSettings {
 
 		this._deleteWeatherSettingsValue();
 		this._updateWeatherSettingsPlaceholder();
+
 	}
 
+	// Reset
 	_weatherResetOnClickEvent = e => {
 		// Reset keys
-		this._resetWeatherSettings();
-		this._updateWeatherSettings();
+		this._clearWeatherCredentials();
+
+		this._updateCredentialVariables();
+		this._deleteWeatherSettingsValue();
+		this._updateWeatherSettingsPlaceholder();
 		alert('Credentials deleted!');
+	}
+
+	// Apply Onclick event
+	_weatherApplyOnClickEvent = e => {
+
+		// Update credentials/Settings
+		this._applyWeatherSettings(
+			this._apiKeySet.value || this._apiKeySet.placeholder,
+			this._cityIDSet.value || this._cityIDSet.placeholder,
+			this._weatherSelectUnits.options[this._weatherSelectUnits.selectedIndex].value
+		);
+
+		this._updateWeatherSettings();
+		alert('Successfully updated!');
 	}
 
 	_registerWeatherResetOnClickEvent = () => {
 		this._weatherSettingsReset.onclick = this._weatherResetOnClickEvent;
 	}
 
-	_weatherApplyOnClickEvent = e => {
-		this._applyWeatherSettings(
-			this._apiKeySet.value || this._apiKeySet.placeholder,
-			this._cityIDSet.value || this._cityIDSet.placeholder,
-			this._weatherSelectUnits.options[this._weatherSelectUnits.selectedIndex].value
-		);
-		this._updateWeatherSettings();
-		alert('Successfully updated!');
-	}
-
 	_registerWeatherApplyOnClickEvent = () => {
 		this._weatherSettingsApply.onclick = this._weatherApplyOnClickEvent;
 	}
 
-	_init = () => {
-		this._updateWeatherSettings();
-		this._registerWeatherResetOnClickEvent();
-		this._registerWeatherApplyOnClickEvent();
-	}
 }
