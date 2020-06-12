@@ -163,7 +163,7 @@ class WeatherScreen {
 		request.send();	
 	}
 
-	getWeatherData = (appID, cityID, units) => {
+	getWeatherDataViaCity = (appID, cityID, units) => {
 
 		const requestString = `https://api.openweathermap.org/data/2.5/weather?APPID=${appID}&id=${cityID}&units=${units}`;
 
@@ -173,9 +173,28 @@ class WeatherScreen {
 	};
 
 
-	getForecastData = (appID, cityID, units) => {
+	getForecastDataViaCity = (appID, cityID, units) => {
 
 		const requestString = `https://api.openweathermap.org/data/2.5/forecast?APPID=${appID}&id=${cityID}&units=${units}`;
+
+		this._tempSymbol = (units === 'metric') ? '°C' : '°F';
+		
+		this._fetchOpenWeatherMapDate(requestString, this._processForecastData);
+	}
+
+	getWeatherDataViaGeo = (appID, units, lon, lat) => {
+
+		const requestString = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${appID}&units=${units}`;
+
+		this._tempSymbol = (units === 'metric') ? '°C' : '°F';
+		
+		this._fetchOpenWeatherMapDate(requestString, this._processWeatherData);
+	};
+
+
+	getForecastDataViaGeo = (appID, units, lon, lat) => {
+
+		const requestString = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&APPID=${appID}&units=${units}`;
 
 		this._tempSymbol = (units === 'metric') ? '°C' : '°F';
 		

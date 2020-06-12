@@ -46,6 +46,8 @@
 	height: auto;
 	width: 100%;
 	margin-top: 5px;
+
+	transition: all var(--transition-speed);
 }
 
 .weatherSettingsLabels {
@@ -53,6 +55,14 @@
 	font-size: 11pt;
 	font-weight: 400;
 	text-align: left;
+}
+
+.hideWeatherSettings {
+	height: 0;
+	opacity: 0;
+	pointer-events: none;
+	transition: height var(--transition-speed),
+				opacity var(--transition-speed);
 }
 
 .weatherSettingsInputs {
@@ -76,7 +86,8 @@
   	align-items: center;
 }
 
-#weatherSelectUnits {
+#weatherSelectUnits,
+#weatherSelectLocator {
 	background: var(--base-container);
 	color: var(--base-color);
 
@@ -85,23 +96,27 @@
 	appearance: none;
 }
 
-#weatherSelectUnits:hover {
+#weatherSelectUnits:hover,
+#weatherSelectLocator:hover {
 	outline: none !important;
 	cursor: pointer;
 	background: var(--base-hover-bg) !important;
 }
 
-#weatherSelectUnits:focus {
+#weatherSelectUnits:focus,
+#weatherSelectLocator:focus {
 	outline: none !important;
 	background: var(--base-focus-bg) !important;
 }
 
-#weatherSelectUnits:active {
+#weatherSelectUnits:active,
+#weatherSelectLocator:active {
 	outline: none !important;
 	background: var(--base-active-bg) !important;
 }
 
-#weatherSelectUnits option {
+#weatherSelectUnits option,
+#weatherSelectLocator option {
 	color: initial;
 	border: none;
 }
