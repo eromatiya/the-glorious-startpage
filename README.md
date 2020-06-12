@@ -28,7 +28,7 @@
 + Web Search Suggestions
 + Mobile Support with Swipe Gestures
 + Theme Settings - Change colors on-the-fly
-+ Weather Forecast - OpenWeatherMap Integration
++ Weather Forecast - OpenWeatherMap and Geolocation Integration
 + Search Engine Selection
 + Dynamic Background
 + Web Menu with Fuzzy Search
@@ -117,9 +117,16 @@ Setting up your OpenWeatherMap credential is a breeze.
 	- OpenWeatherMap is the weather provider, so go to OpenWeatherMap's [website](https://home.openweathermap.org/).
 	- Register, log-in, and then go [here](https://home.openweathermap.org/api_keys) to generate your very own API keys.
 
-+ After getting you API key, you have to get your City ID.
-+ Put your API key and City ID in the `Weather Settings`.
++ After this you can choose two locator modes - `Geolocation` and `City`.
++ In City Mode, you have to get your City ID in OpenWeatherMap website.
++ While `Geolocation` mode offers GPS tracking. You don't need to get an ID. Note that you must allow the location permission request.
++ Put your API key in the `Weather Settings`.
++ It's recommended to still put your City ID if you plan to use the `geolocation` mode.
 + Apply.
+
+**Note:**
+
++ If you're using firefox and you're planning to use the `geolocation`, make sure to set the value of `geo.provider.network.url` to `https://location.services.mozilla.com/v1/geolocate?key=test` in `about:config`. **Google changed its policies, so now it requires a valid API key when accessing their geolocation service. This tells us that you need a valid API key in place of** `%GOOGLE_LOCATION_SERVICE_API_KEY%`. - [Citation](https://stackoverflow.com/questions/61032115/unknown-error-acquiring-position-geolocationpositionerror-code-2-firefox-linux).
 
 #### Changing the default search engine
 
@@ -150,6 +157,8 @@ The background image changes based on time.
 + Make sure that javascript is enabled!
 
 + If you're using firefox and blur effect is not enabled, open `about:config`, accept the risks, find `layout.css.backdrop-filter.enabled`, and set it to true to enable it. Refresh the startpage.
+
++ If you're using firefox and planning to use the geolocation, set the value of `geo.provider.network.url` to `https://location.services.mozilla.com/v1/geolocate?key=test` in `about:config`.
 
 + The code could be better, this is my first time writing a startpage from the ground up. I will improve this from time to time.
 
