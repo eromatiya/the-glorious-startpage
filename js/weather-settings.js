@@ -23,7 +23,7 @@ class WeatherSettings {
 	}
 
 	_init = () => {
-		// this._updat2eWeatherSettings();
+		this._updateWeatherSettings();
 		this._registerWeatherResetOnClickEvent();
 		this._registerWeatherApplyOnClickEvent();
 	}
