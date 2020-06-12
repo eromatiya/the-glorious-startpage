@@ -46,6 +46,8 @@
 	height: auto;
 	width: 100%;
 	margin-top: 5px;
+
+	transition: all var(--transition-speed);
 }
 
 .weatherSettingsLabels {
@@ -53,6 +55,14 @@
 	font-size: 11pt;
 	font-weight: 400;
 	text-align: left;
+}
+
+.hideWeatherSettings {
+	height: 0;
+	opacity: 0;
+	pointer-events: none;
+	transition: height var(--transition-speed),
+				opacity var(--transition-speed);
 }
 
 .weatherSettingsInputs {
