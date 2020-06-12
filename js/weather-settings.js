@@ -16,7 +16,7 @@ class WeatherSettings {
 
 		this._watchGeoOptions = {
 			enableHighAccuracy: false,
-			timeout: 10000,
+			timeout: 5000,
 			maximumAge: 0
 		};
 
@@ -98,7 +98,11 @@ class WeatherSettings {
 		this._origLatitude = 0;
 	}
 
+	// You denied the permission request
 	_deniedGeolocation = () => {
+
+		alert(`You denied the request to access your location. As a consequence for your action, ` +
+			`you need to allow it on your browser's settings if you want to use the geolocation functionality. You can just use the City Mode, though.`);
 
 	}
 
@@ -121,7 +125,9 @@ class WeatherSettings {
 		}
 	}
 
+	// Error
 	_watchGeoError = err => {
+
 		console.warn('ERROR(' + err.code + '): ' + err.message);
 		
 		if (err.code == err.PERMISSION_DENIED) {
@@ -129,14 +135,14 @@ class WeatherSettings {
 			this._deniedGeolocation();
 
 		}
-
-		console.log(err);
 	}
 
+	// Start watching location
 	_watchGeoPosition = () => {
 		this._watchPositionID = navigator.geolocation.watchPosition(this._watchGeoSuccess, this._watchGeoError, this._watchGeoOptions);			
 	}
 
+	// Check permission
 	_checkGeoPermission = () => {
 		navigator.permissions.query({name:'geolocation'}).then(result => {
 
@@ -150,6 +156,7 @@ class WeatherSettings {
 		});
 	}
 
+	// Locator mode on change event
 	_weatherSelectLocatorOnChangeEvent = e => {
 
 		this._locatorMode = this._weatherSelectLocator.options[this._weatherSelectLocator.selectedIndex].value;
@@ -170,6 +177,7 @@ class WeatherSettings {
 
 	}
 
+	// Register on change event
 	_registerWeatherSelectLocatorOnChangeEvent = () => {
 
 		this._weatherSelectLocator.onchange = this._weatherSelectLocatorOnChangeEvent;
@@ -218,6 +226,10 @@ class WeatherSettings {
 		// Reset keys
 		this._clearWeatherCredentials();
 
+		// Stop geolocating
+		this._stopGeolocating();
+
+		// Update
 		this._updateCredentialVariables();
 		this._deleteWeatherSettingsValue();
 		this._updateWeatherSettingsPlaceholder();
