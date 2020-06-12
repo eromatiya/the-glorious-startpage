@@ -146,21 +146,30 @@ class WeatherScreen {
 		this._setWeatherValue(wLoc, wDesc, wIcon, rise, set, upd);		
 	}
 
-	getWeatherData = (appID, cityID, units) => {
 
-		const requestString = `https://api.openweathermap.org/data/2.5/weather?APPID=${appID}&id=${cityID}&units=${units}`;
+	_fetchOpenWeatherMapDate = (requestStr, callback) => {
+
+		const requestString = requestStr;
 
 		const request = new XMLHttpRequest();
 		request.open('GET', requestString, true);
 		request.onload = e => {
 			if (request.readyState === 4 && request.status === 200 && request.status < 400) {
-				this._tempSymbol = (units === 'metric') ? '°C' : '°F';
-				this._processWeatherData(JSON.parse(request.response));
+				callback(JSON.parse(request.response));
 			} else {
 				this._setErrValue();
 			};
 		};
-		request.send();
+		request.send();	
+	}
+
+	getWeatherData = (appID, cityID, units) => {
+
+		const requestString = `https://api.openweathermap.org/data/2.5/weather?APPID=${appID}&id=${cityID}&units=${units}`;
+
+		this._tempSymbol = (units === 'metric') ? '°C' : '°F';
+		
+		this._fetchOpenWeatherMapDate(requestString, this._processWeatherData);
 	};
 
 
@@ -168,17 +177,9 @@ class WeatherScreen {
 
 		const requestString = `https://api.openweathermap.org/data/2.5/forecast?APPID=${appID}&id=${cityID}&units=${units}`;
 
-		const request = new XMLHttpRequest();
-		request.open('GET', requestString, true);
-		request.onload = e => {
-			if (request.readyState === 4 && request.status === 200 && request.status < 400) {
-				this._tempSymbol = (units === 'metric') ? '°C' : '°F';
-				this._processForecastData(JSON.parse(request.response));
-			} else {
-				this._setErrValue();
-			};
-		};
-		request.send();
+		this._tempSymbol = (units === 'metric') ? '°C' : '°F';
+		
+		this._fetchOpenWeatherMapDate(requestString, this._processForecastData);
 	}
 
 	_processForecastData = data => {
