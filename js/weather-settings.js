@@ -101,8 +101,8 @@ class WeatherSettings {
 	// You denied the permission request
 	_deniedGeolocation = () => {
 
-		alert(`You denied the request to access your location. As a consequence for your action, ` +
-			`you need to allow it on your browser's settings if you want to use the geolocation functionality. You can just use the City Mode, though.`);
+		alert(`Location access denied! If you're on mobile, make sure to`+
+			` enable your GPS and allow the location permission on your browser's settings.`)
 
 	}
 

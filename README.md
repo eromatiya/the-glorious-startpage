@@ -126,9 +126,12 @@ Setting up your OpenWeatherMap credential is a breeze.
 
 **Note:**
 
-+ If you're using firefox and you're planning to use the `geolocation`, make sure to set the value of `geo.provider.network.url` to `https://location.services.mozilla.com/v1/geolocate?key=test` in `about:config`. **Google changed its policies, so now it requires a valid API key when accessing their geolocation service. This tells us that you need a valid API key in place of** `%GOOGLE_LOCATION_SERVICE_API_KEY%`. - [Citation](https://stackoverflow.com/questions/61032115/unknown-error-acquiring-position-geolocationpositionerror-code-2-firefox-linux).
++ If you're using firefox and you're planning to use the `geolocation`, make sure to set the value of `geo.provider.network.url` to `https://location.services.mozilla.com/v1/geolocate?key=test` in `about:config`. *Google changed its policies, so now it requires a valid API key when accessing their geolocation service. This tells us that you need a valid API key in place of* `%GOOGLE_LOCATION_SERVICE_API_KEY%`. <sup>[Citation](https://stackoverflow.com/questions/61032115/unknown-error-acquiring-position-geolocationpositionerror-code-2-firefox-linux).</sup>
+
++ If you're on mobile, make sure to enable your GPS and allow the location permission if you want to use `geolocation`.
 
 + If you just set the startpage locally, the location permission will always pop-up even if you already accept/denied it. It's better to run it on a web server.
+
 
 #### Changing the default search engine
 
