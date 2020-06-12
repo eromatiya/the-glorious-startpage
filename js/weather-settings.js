@@ -109,15 +109,15 @@ class WeatherSettings {
 	// Watch
 	_watchGeoSuccess = pos => {
 				
-		const coord = pos.coords;
+		const currentCoord = pos.coords;
 
-		if ((this._origLongitude !== coord.longitude) || (this._origLatitude !== coord.latitude)) {
+		if ((this._origLongitude !== currentCoord.longitude) || (this._origLatitude !== currentCoord.latitude)) {
 
 			console.log('update current position');
 
 			// Update origPositions
-			this._origLongitude = coord.longitude;
-			this._origLatitude = coord.latitude;
+			this._origLongitude = currentCoord.longitude;
+			this._origLatitude = currentCoord.latitude;
 
 			// fetch and update widget
 			this._getWeatherDataViaGeo(this._appID, this._units, this._origLongitude, this._origLatitude);
@@ -144,13 +144,17 @@ class WeatherSettings {
 
 	// Check permission
 	_checkGeoPermission = () => {
+
 		navigator.permissions.query({name:'geolocation'}).then(result => {
 
-			if ((result.state == 'prompt') || (result.state == 'granted')) {
+			if ((result.state === 'prompt') || (result.state == 'granted')) {
+
 				this._watchGeoPosition();
-			} else if (result.state == 'denied') {
-				// deniedbitch
+
+			} else if (result.state === 'denied') {
+
 				alert('Manually enable the geolocation in your browser settings. How? Who knows?');
+
 			}
 
 		});
