@@ -14,7 +14,7 @@ class WeatherSettings {
 		this._origLatitude = 0;
 		this._watchPositionID = 0;
 
-		this._watchPositionOptions = {
+		this._watchGeoOptions = {
 			enableHighAccuracy: false,
 			timeout: 10000,
 			maximumAge: 0
@@ -31,8 +31,11 @@ class WeatherSettings {
 
 		this._weatherSettingsCityIDGroup = document.querySelector('#weatherSettingsCityID');
 
-		this.getWeatherData = weatherScreen.getWeatherData;
-		this.getForecastData = weatherScreen.getForecastData;
+		this._getWeatherDataViaCity = weatherScreen.getWeatherDataViaCity;
+		this._getForecastDataViaCity = weatherScreen.getForecastDataViaCity;
+
+		this._getWeatherDataViaGeo = weatherScreen.getWeatherDataViaGeo;
+		this._getForecastDataViaGeo = weatherScreen.getForecastDataViaGeo;
 
 		this._init();
 	}
@@ -84,6 +87,69 @@ class WeatherSettings {
 		this._weatherSelectLocator.value = this._locatorMode;
 	}
 
+	// Stop geolocating
+	_stopGeolocating = () => {
+
+		// Unregister the handler
+		navigator.geolocation.clearWatch(this._watchPositionID);
+
+		// Reset positions
+		this._origLongitude = 0;
+		this._origLatitude = 0;
+	}
+
+	_deniedGeolocation = () => {
+
+	}
+
+	// Watch
+	_watchGeoSuccess = pos => {
+				
+		const coord = pos.coords;
+
+		if ((this._origLongitude !== coord.longitude) || (this._origLatitude !== coord.latitude)) {
+
+			console.log('update current position');
+
+			// Update origPositions
+			this._origLongitude = coord.longitude;
+			this._origLatitude = coord.latitude;
+
+			// fetch and update widget
+			this._getWeatherDataViaGeo(this._appID, this._units, this._origLongitude, this._origLatitude);
+			this._getForecastDataViaGeo(this._appID, this._units, this._origLongitude, this._origLatitude);
+		}
+	}
+
+	_watchGeoError = err => {
+		console.warn('ERROR(' + err.code + '): ' + err.message);
+		
+		if (err.code == err.PERMISSION_DENIED) {
+
+			this._deniedGeolocation();
+
+		}
+
+		console.log(err);
+	}
+
+	_watchGeoPosition = () => {
+		this._watchPositionID = navigator.geolocation.watchPosition(this._watchGeoSuccess, this._watchGeoError, this._watchGeoOptions);			
+	}
+
+	_checkGeoPermission = () => {
+		navigator.permissions.query({name:'geolocation'}).then(result => {
+
+			if ((result.state == 'prompt') || (result.state == 'granted')) {
+				this._watchGeoPosition();
+			} else if (result.state == 'denied') {
+				// deniedbitch
+				alert('Manually enable the geolocation in your browser settings. How? Who knows?');
+			}
+
+		});
+	}
+
 	_weatherSelectLocatorOnChangeEvent = e => {
 
 		this._locatorMode = this._weatherSelectLocator.options[this._weatherSelectLocator.selectedIndex].value;
@@ -113,7 +179,6 @@ class WeatherSettings {
 	// Update weather settings
 	_updateWeatherSettings = () => {
 
-
 		// Update cred vars
 		this._updateCredentialVariables();
 
@@ -121,13 +186,26 @@ class WeatherSettings {
 
 			this._weatherSettingsCityIDGroup.classList.add('hideWeatherSettings');
 
+			if (navigator.geolocation) {
+
+				this._checkGeoPermission();
+
+			} else {
+
+				alert(`Oof! It seems your browser doesn't support geolocation.`);
+			
+			}
+
 		} else if (this._locatorMode === 'city') {
 
 			this._weatherSettingsCityIDGroup.classList.remove('hideWeatherSettings');
 
+			// Stop geolocating
+			this._stopGeolocating();
+
 			// Update weather forecast elements
-			this.getWeatherData(this._appID, this._cityID, this._units);
-			this.getForecastData(this._appID, this._cityID, this._units);
+			this._getWeatherDataViaCity(this._appID, this._cityID, this._units);
+			this._getForecastDataViaCity(this._appID, this._cityID, this._units);
 
 		}
 
