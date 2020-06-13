@@ -15,7 +15,6 @@
 
 .dummyBackgroundBlur {
 	filter: blur(5px);
-	-webkit-filter: blur(5px);
 }
 
 .dummyBackgroundHide {
