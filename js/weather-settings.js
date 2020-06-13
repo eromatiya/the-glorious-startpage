@@ -57,8 +57,8 @@ class WeatherSettings {
 
 	// Reset textboxes
 	_deleteWeatherSettingsValue = () => {
-		this._apiKeySet.value = '';
-		this._cityIDSet.value = '';
+		this._apiKeySet.value = null;
+		this._cityIDSet.value = null;
 		this._weatherSelectUnits.value = 'metric';
 		this._weatherSelectLocator.value = 'city';
 	}
@@ -238,9 +238,12 @@ class WeatherSettings {
 		this._deleteWeatherSettingsValue();
 		this._updateWeatherSettingsPlaceholder();
 
-		// Show city id textbox
-		this._weatherSettingsCityIDGroup.classList.remove('hideWeatherSettings');
-		
+		// Show/hide city id textbox based on the default mode
+		if (this._locatorMode === 'geolocation') {
+			this._weatherSettingsCityIDGroup.classList.add('hideWeatherSettings');
+		} else if (this._locatorMode === 'city') {
+			this._weatherSettingsCityIDGroup.classList.remove('hideWeatherSettings');
+		}
 		alert('Credentials deleted!');
 	}
 
