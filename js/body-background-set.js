@@ -1,11 +1,11 @@
-class BodyBackground {
+class DummyBodyBackground {
 
 	constructor() {
 		this._body = document.body;
-		this._bodyBackground = document.querySelector('#bodyBackground');
+		this._dummyBodyBackground = document.querySelector('#dummyBodyBackground');
 		
 		this._bodyStyle = this._body.style;
-		this._bodyBackgroundStyle = this._bodyBackground.style;
+		this._dummyBodyBackgroundStyle = this._dummyBodyBackground.style;
 		
 		this._hqBackground = document.createElement('img');
 		
@@ -24,10 +24,10 @@ class BodyBackground {
 	_lazyLoadBackground = fileName => {
 				
 		// Add a class to blur the dummy background
-		this._bodyBackground.classList.add('blurFiltered');
+		this._dummyBodyBackground.classList.add('dummyBackgroundBlur');
 
 		// Set a low quality background image for the dummy background
-		this._styleBodyBackgrond(this._bodyBackgroundStyle, `url('assets/backgrounds/${fileName}-low.webp')`);
+		this._styleBodyBackgrond(this._dummyBodyBackgroundStyle, `url('assets/backgrounds/${fileName}-low.webp')`);
 		
 		// After loading/fetching the _hqBackground's background image 
 		this._hqBackground.onload = () => {
@@ -39,10 +39,10 @@ class BodyBackground {
 			setTimeout (
 				() => {
 					// Hide the dummy background
-					this._bodyBackgroundStyle.display = 'none';
+					this._dummyBodyBackground.classList.add('dummyBackgroundHide');
 					
 					// Remove class to unblur
-					this._bodyBackground.classList.remove('blurFiltered');
+					this._dummyBodyBackground.classList.remove('dummyBackgroundBlur');
 
 				},
 				3000

@@ -1,8 +1,8 @@
 // Instantiate config
 const config = new Config();
 
-// Instantiate background setter
-const bodyBackground = new BodyBackground();
+// Instantiate dummy background setter
+const dummyBodyBackground = new DummyBodyBackground();
 
 // Instantiate a clock object
 const clock = new Clock();

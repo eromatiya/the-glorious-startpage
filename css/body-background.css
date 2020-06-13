@@ -1,6 +1,6 @@
 /*Filter for body's lazy loaded background */
 
-#bodyBackground {
+#dummyBodyBackground {
 	background: var(--base-body-bg);
 	position: absolute;
 	top: 0;
@@ -13,7 +13,11 @@
 	transition: all 3s;
 }
 
-.blurFiltered {
+.dummyBackgroundBlur {
 	filter: blur(5px);
 	-webkit-filter: blur(5px);
+}
+
+.dummyBackgroundHide {
+	opacity: 0;
 }
