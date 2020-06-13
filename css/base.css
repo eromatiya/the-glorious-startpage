@@ -3,12 +3,12 @@
 	--base-body-bg: #1a1a1aff;
 
 	--base-bg: #00000060;
-	--base-color: #fefefeff;
-	--base-container: #f2f2f220;
+	--base-color: #FEFEFEFF;
+	--base-container: #F2F2F220;
 
-	--base-hover-bg: #f2f2f230;
+	--base-hover-bg: #F2F2F230;
 	--base-focus-bg: #f2f2f245;
-	--base-active-bg: #fefefe60;
+	--base-active-bg: #FEFEFE60;
 
 	--blur-strength: 6px;
 	
