@@ -1,6 +1,7 @@
 /*Filter for body's lazy loaded background */
 
 #bodyBackground {
+	background: var(--base-body-bg);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -10,7 +11,6 @@
 	padding: 0;
 	overflow: hidden;
 	transition: all 3s;
-	color: var(--foreground);
 }
 
 .blurFiltered {

@@ -1,43 +1,60 @@
 class BodyBackground {
 
 	constructor() {
+		this._body = document.body;
 		this._bodyBackground = document.querySelector('#bodyBackground');
-		this._hqBackground = document.createElement('img');
+		
+		this._bodyStyle = this._body.style;
 		this._bodyBackgroundStyle = this._bodyBackground.style;
+		
+		this._hqBackground = document.createElement('img');
+		
+		// Initialize
 		this._startLazyLoad();
 	}
 
-	_setBodyBackgrond = urlStr => {
-		this._bodyBackgroundStyle.background = urlStr;
-		this._bodyBackgroundStyle.backgroundSize = 'cover';
-		this._bodyBackgroundStyle.backgroundRepeat =  'no-repeat';
-		this._bodyBackgroundStyle.backgroundPosition = 'center';
-		this._bodyBackgroundStyle.backgroundAttachment = 'fixed';
+	_styleBodyBackgrond = (elemStyle, urlStr) => {
+		elemStyle.background = urlStr;
+		elemStyle.backgroundSize = 'cover';
+		elemStyle.backgroundRepeat =  'no-repeat';
+		elemStyle.backgroundPosition = 'center';
+		elemStyle.backgroundAttachment = 'fixed';
 	}
 
 	_lazyLoadBackground = fileName => {
-
-		// Add a class to blur it
+				
+		// Add a class to blur the dummy background
 		this._bodyBackground.classList.add('blurFiltered');
 
-		// Set a low quality background image 
-		this._setBodyBackgrond(`url('assets/backgrounds/${fileName}-low.webp')`);
+		// Set a low quality background image for the dummy background
+		this._styleBodyBackgrond(this._bodyBackgroundStyle, `url('assets/backgrounds/${fileName}-low.webp')`);
 		
+		// After loading/fetching the _hqBackground's background image 
 		this._hqBackground.onload = () => {
 
-			// After downloading the HQ image, set it as bg
-			this._setBodyBackgrond(`url('${this._hqBackground.src}')`);
-			
-			// Remove class to unblur
-			this._bodyBackground.classList.remove('blurFiltered');
+			// After downloading the HQ image, set it as bg of body
+			this._styleBodyBackgrond(this._bodyStyle, `url('${this._hqBackground.src}')`);
+
+			// Add a delay before hiding the overlay dummy background to avoid the white flicker
+			setTimeout (
+				() => {
+					// Hide the dummy background
+					this._bodyBackgroundStyle.display = 'none';
+					
+					// Remove class to unblur
+					this._bodyBackground.classList.remove('blurFiltered');
+
+				},
+				1500
+			)
 		}
 
-		// Add a delay when to fetch background
-		setTimeout(
+		// Add a delay when to fetch the hq background
+		setTimeout (
 			() => {
 				this._hqBackground.src = `assets/backgrounds/${fileName}.webp`;
 			},
-			50
+			500
 		);
 	}
 	
