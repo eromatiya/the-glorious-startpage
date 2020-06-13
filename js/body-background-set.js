@@ -45,7 +45,7 @@ class BodyBackground {
 					this._bodyBackground.classList.remove('blurFiltered');
 
 				},
-				1500
+				3000
 			)
 		}
 
