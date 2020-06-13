@@ -7,6 +7,9 @@ class WeatherSettings {
 		this._appID = '';
 		this._cityID = '';
 		this._units = '';
+
+		this._defaultLocator = 'city';
+
 		this._locatorMode = '';
 
 		// Geolocation data
@@ -60,7 +63,7 @@ class WeatherSettings {
 		this._apiKeySet.value = null;
 		this._cityIDSet.value = null;
 		this._weatherSelectUnits.value = 'metric';
-		this._weatherSelectLocator.value = 'city';
+		this._weatherSelectLocator.value = this._defaultLocator;
 	}
 
 	// Apply credentials
@@ -76,7 +79,7 @@ class WeatherSettings {
 		this._appID = this._localStorage.getItem('apiKey') || 'API Key';
 		this._cityID = this._localStorage.getItem('cityID') || 'City ID';
 		this._units = this._localStorage.getItem('units') || 'metric';
-		this._locatorMode = this._localStorage.getItem('locatorMode') || 'city';
+		this._locatorMode = this._localStorage.getItem('locatorMode') || this._defaultLocator;
 	}
 
 	// Update textbox placeholders
