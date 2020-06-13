@@ -76,9 +76,11 @@
 	border: none;
 	border-radius: 6px;
 	
-	width: 25%;
+	width: 225px;
 	height: 36px;
 	margin: 0;
+
+	transition: all var(--transition-speed);
 }
 
 #webMenuSearchBox::placeholder {
