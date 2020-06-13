@@ -31,7 +31,7 @@
 }
 
 /*Translate dock to left side if width <= 470 and height >= 540*/
-@media screen and (max-width: 470px) and (min-height: 540px) {
+@media screen and (max-width: 470px) and (min-height: 490px) {
 
 	.dockContainer {
 		display: inline-block !important;
@@ -59,8 +59,9 @@
 	}
 }
 
+
 /*Decrease scale to 0.85 if width is less than 580px*/
-@media screen and (max-width: 469px) and (max-height: 539px) {
+@media screen and (max-width: 469px) and (max-height: 489px) {
 
 	.dockContainer {
 		position: absolute !important;
@@ -91,7 +92,7 @@
 
 
 /*Decrease scale to 0.75 if width is less than 380px*/
-@media screen and (max-width: 380px) and (max-height: 539px) {
+@media screen and (max-width: 380px) and (max-height: 489px) {
 
 	.dockContainer {
 		position: absolute !important;
@@ -121,7 +122,7 @@
 }
 
 /*Decrease scale to 0.70 if width is less than or equal to 374px and greater than or equal to 320px*/
-@media screen and (max-width: 350px) and (min-width: 320px) and (max-height: 539px) {
+@media screen and (max-width: 350px) and (min-width: 320px) and (max-height: 489px) {
 
 	.dockContainer {
 		position: absolute !important;
@@ -151,7 +152,7 @@
 
 
 /*Scale to 0 if less than 320px*/
-@media screen and (max-width: 319px) and (max-height: 539px) {
+@media screen and (max-width: 319px) and (max-height: 489px) {
 
 	.dockContainer {
 		position: absolute !important;
