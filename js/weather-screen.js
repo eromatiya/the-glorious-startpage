@@ -147,7 +147,7 @@ class WeatherScreen {
 	}
 
 
-	_fetchOpenWeatherMapDate = (requestStr, callback) => {
+	_fetchOpenWeatherMapData = (requestStr, callback) => {
 
 		const requestString = requestStr;
 
@@ -169,7 +169,7 @@ class WeatherScreen {
 
 		this._tempSymbol = (units === 'metric') ? '°C' : '°F';
 		
-		this._fetchOpenWeatherMapDate(requestString, this._processWeatherData);
+		this._fetchOpenWeatherMapData(requestString, this._processWeatherData);
 	};
 
 
@@ -179,7 +179,7 @@ class WeatherScreen {
 
 		this._tempSymbol = (units === 'metric') ? '°C' : '°F';
 		
-		this._fetchOpenWeatherMapDate(requestString, this._processForecastData);
+		this._fetchOpenWeatherMapData(requestString, this._processForecastData);
 	}
 
 	getWeatherDataViaGeo = (appID, units, lon, lat) => {
@@ -188,7 +188,7 @@ class WeatherScreen {
 
 		this._tempSymbol = (units === 'metric') ? '°C' : '°F';
 		
-		this._fetchOpenWeatherMapDate(requestString, this._processWeatherData);
+		this._fetchOpenWeatherMapData(requestString, this._processWeatherData);
 	};
 
 
@@ -198,7 +198,7 @@ class WeatherScreen {
 
 		this._tempSymbol = (units === 'metric') ? '°C' : '°F';
 		
-		this._fetchOpenWeatherMapDate(requestString, this._processForecastData);
+		this._fetchOpenWeatherMapData(requestString, this._processForecastData);
 	}
 
 	_processForecastData = data => {

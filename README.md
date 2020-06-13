@@ -179,8 +179,3 @@ The background image changes based on time.
 - [x] Cleaner code<sup>WIP</sup>  
 - [x] Keyboard navigation  
 - [x] Swipe gestures for mobile  
-
-
-### License
-
-[Feel free to use or modify this however you like!](https://github.com/manilarome/the-glorious-startpage/blob/master/LICENSE)
