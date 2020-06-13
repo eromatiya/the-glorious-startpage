@@ -237,6 +237,10 @@ class WeatherSettings {
 		this._updateCredentialVariables();
 		this._deleteWeatherSettingsValue();
 		this._updateWeatherSettingsPlaceholder();
+
+		// Show city id textbox
+		this._weatherSettingsCityIDGroup.classList.remove('hideWeatherSettings');
+		
 		alert('Credentials deleted!');
 	}
 
