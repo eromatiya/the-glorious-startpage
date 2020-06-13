@@ -63,7 +63,7 @@ class SwipeEventCallbacks extends SwipeEventManager {
 
 	// Assign swipe callback for each IDs
 	_createSwipeEvents = () => {
-		this.swipeEvent('bodyBackground', this._bodyBackgroundSwipeEvent);
+		this.swipeEvent('dummyBodyBackground', this._bodyBackgroundSwipeEvent);
 
 		this.swipeEvent('rightDashboard', this._rightDashboardSwipeEvent);
 
