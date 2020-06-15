@@ -196,7 +196,7 @@
 	clear:both;
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 470px) {
 	#weatherScreen {
 		padding-top: 6vh;
 		padding-bottom: 0vh;
@@ -211,7 +211,7 @@
 	}
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 470px) {
 
 	.weatherForecast {
 		display: inline-block;

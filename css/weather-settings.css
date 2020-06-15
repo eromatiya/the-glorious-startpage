@@ -163,7 +163,7 @@
 	height: auto;
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 470px) {
 	.weatherSettings {
 		width: 96vw;
 		box-sizing: border-box;

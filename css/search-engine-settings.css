@@ -128,7 +128,7 @@ select::-ms-expand {
 	background: var(--base-focus-bg);
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 470px) {
 	.searchEngine {
 		width: 96vw;
 		box-sizing: border-box;
