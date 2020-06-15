@@ -9,7 +9,7 @@ class Dashboard {
         this._dashboardOverlayMouseUpEvent = this._dashboardOverlayMouseUpEvent.bind(this);        
 
         this._centeredBox = document.querySelector('#centeredBox');
-        this._webMenu = document.querySelector('#webMenu');
+        this._webMenu = document.querySelector('#webMenuScreen');
         this._searchBoxContainer = document.querySelector('#searchBoxContainer');
         this._weatherScreen = document.querySelector('#weatherScreen');
 
