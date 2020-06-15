@@ -16,8 +16,11 @@
 @import url('greeter-date-message.css');
 @import url('search-engine-settings.css');
 @import url('theme-engine.css');
-@import url('screens.css');
-@import url('weather-screen.css');
+
+/*Screens*/
+@import url('screens/screens.css');
+@import url('screens/weather-screen.css');
+@import url('screens/web-menu.css');
+
 @import url('weather-settings.css');
-@import url('web-menu.css');
 @import url('auto-suggestion.css');
