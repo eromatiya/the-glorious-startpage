@@ -16,6 +16,7 @@
 @import url('centeredbox/centered-box-overlay.css');
 @import url('centeredbox/profile-image.css');
 @import url('centeredbox/search-box.css');
+@import url('centeredbox/auto-suggestion.css');
 
 /*Screens*/
 @import url('screens/screens.css');
@@ -28,6 +29,3 @@
 @import url('dashboard/search-engine-settings.css');
 @import url('dashboard/weather-settings.css');
 @import url('dashboard/theme-engine.css');
-
-
-@import url('auto-suggestion.css');
