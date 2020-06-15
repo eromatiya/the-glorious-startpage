@@ -25,7 +25,7 @@
 }
 
 #weatherSettingsHeaderIcon {
-	background: url('../assets/ui-icons/weather.svg');
+	background: url('../../assets/ui-icons/weather.svg');
 	background-size: cover;
 	margin-right: 10px;
 	width: 28px;

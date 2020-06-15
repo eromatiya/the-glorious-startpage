@@ -25,7 +25,7 @@
 }
 
 #themeEngineHeaderIcon {
-	background: url('../assets/ui-icons/theme.svg');
+	background: url('../../assets/ui-icons/theme.svg');
 	background-size: cover;
 	margin-right: 10px;
 	width: 28px;
