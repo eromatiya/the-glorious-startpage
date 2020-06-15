@@ -5,7 +5,7 @@ class WebMenu {
 		this._weatherScreen = document.querySelector('#weatherScreen');
 		this._webSites = config.getWebSites();
 
-		this._webMenu = document.querySelector('#webMenu');
+		this._webMenuScreen = document.querySelector('#webMenuScreen');
 		this._webMenuList = document.querySelector('#webMenuList');
 		this._webMenuListContainer = document.querySelector('#webMenuListContainer');
 		this._webMenuSearchBox = document.querySelector('#webMenuSearchBox');
@@ -37,7 +37,7 @@ class WebMenu {
 
 	// Disable textboxes	
 	_disableWebMenuInputs = status => {
-	    const elems = this._webMenu.getElementsByTagName('input');
+	    const elems = this._webMenuScreen.getElementsByTagName('input');
 	    const len = elems.length;
 
 	    for (let i = 0; i < len; i++) {
@@ -187,7 +187,7 @@ class WebMenu {
 
 	// Show web menu screen
 	showWebMenu = () => {
-		this._webMenu.classList.add('showWebMenu');
+		this._webMenuScreen.classList.add('showWebMenu');
 
 		// Enable inputs
 		this._disableWebMenuInputs(false);
@@ -218,7 +218,7 @@ class WebMenu {
 		// Get first item
 		this._getFirstItem();
 		
-		this._webMenu.classList.remove('showWebMenu');
+		this._webMenuScreen.classList.remove('showWebMenu');
 
 		// Disable inputs
 		this._disableWebMenuInputs(true);
@@ -369,7 +369,7 @@ class WebMenu {
 	}
 
 	_registerWebMenuKeyDownEvent = () => {
-		this._webMenu.addEventListener('keydown', this._webMenuKeyDownEvent, false);
+		this._webMenuScreen.addEventListener('keydown', this._webMenuKeyDownEvent, false);
 	}
 
 	_webMenuSearchBoxKeyDownEvent = e => {

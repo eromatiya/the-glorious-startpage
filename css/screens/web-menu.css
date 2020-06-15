@@ -1,4 +1,4 @@
-#webMenu {
+#webMenuScreen {
 	z-index: 0;
 	
 	padding-top: 40px;
@@ -23,7 +23,7 @@
 }
 
 @media screen and (max-width: 470px) {
-	#webMenu {
+	#webMenuScreen {
 		padding-top: 6vh;
 		padding-bottom: 0vh;
 		padding-left: 18vw;
