@@ -175,7 +175,7 @@ select::-ms-expand {
 	background: var(--panel-bg);
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 470px) {
 	.themeEngine {
 		width: 96vw;
 		box-sizing: border-box;

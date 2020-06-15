@@ -60,7 +60,7 @@
 }
 
 
-/*Decrease scale to 0.85 if width is less than 580px*/
+/*Decrease scale to 0.85 if width is less than 470px*/
 @media screen and (max-width: 469px) and (max-height: 489px) {
 
 	.dockContainer {
