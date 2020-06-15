@@ -6,12 +6,16 @@
 @import url('bar.css');
 @import url('top-panel.css');
 @import url('clock.css');
-@import url('dock.css');
-@import url('dock-buttons.css');
-@import url('centered-box.css');
-@import url('centered-box-overlay.css');
-@import url('profile-image.css');
-@import url('search-box.css');
+
+/*Dock*/
+@import url('dock/dock.css');
+@import url('dock/dock-buttons.css');
+
+/*Centered box and Contents*/
+@import url('centeredbox/centered-box.css');
+@import url('centeredbox/centered-box-overlay.css');
+@import url('centeredbox/profile-image.css');
+@import url('centeredbox/search-box.css');
 
 /*Screens*/
 @import url('screens/screens.css');
