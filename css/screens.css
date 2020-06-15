@@ -1,0 +1,12 @@
+.screen {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	background: var(--panel-bg);
+	
+	overflow: hidden;
+	backdrop-filter: blur(var(--blur-strength));
+}

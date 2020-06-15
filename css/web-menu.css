@@ -1,14 +1,5 @@
 #webMenu {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	margin: 0;
-	background: var(--panel-bg);
 	z-index: 0;
-	overflow: hidden;
-	backdrop-filter: blur(var(--blur-strength));
 	
 	padding-top: 40px;
 	padding-bottom: 6vh;
