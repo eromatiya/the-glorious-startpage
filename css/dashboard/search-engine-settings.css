@@ -94,7 +94,7 @@ select::-ms-expand {
 	cursor: pointer;
 	border: none;
 
-	/*Center vertically*/
+	/* Center vertically */
 	display: flex;
   	justify-content: center;
   	align-items: center;

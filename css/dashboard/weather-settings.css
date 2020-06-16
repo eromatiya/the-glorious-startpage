@@ -28,7 +28,7 @@
 	background-image: url('../../assets/ui-icons/weather.svg');
 }
 
-/*Main settings*/
+/* Main settings */
 .weatherSettingsGroups {
 	height: auto;
 	width: 100%;
@@ -68,7 +68,7 @@
 	font-weight: 400;
 	color: var(--base-color);
 
-	/*Center vertically*/
+	/* Center vertically */
 	display: flex;
   	justify-content: center;
   	align-items: center;

@@ -86,7 +86,7 @@
 .foregroundColorSetter,
 .blurSetter,
 .animSpeedSetter {
-	/*Align div inside horizontally*/
+	/* Align div inside horizontally */
 	display: flex;
 	flex-direction: row;
 	justify-content: left;

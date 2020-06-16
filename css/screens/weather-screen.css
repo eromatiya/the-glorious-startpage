@@ -22,7 +22,7 @@
 #weatherScreenContainer {
 	overflow: hidden;
 
-	/*Align vertically center*/
+	/* Align vertically center */
 	margin: 0;
 	position: absolute;
 	top: 50%;
@@ -107,7 +107,7 @@
 	justify-content: center;
 }
 
-/*Forecast Container*/
+/* Forecast Container */
 .weatherForecastDay {
 	text-align: center;
 	margin-top: 20px;
@@ -117,7 +117,7 @@
 	margin-left: 10px;
 }
 
-/*Add fixed geometry to weatherForecastDay children*/
+/* Add fixed geometry to weatherForecastDay children */
 .weatherForecastDay > div {
 	width: 100px;
 	height: 60px;
@@ -139,7 +139,7 @@
 	transform: translateX(-50%);
 }
 
-/*Center*/
+/* Center */
 .weatherForecastDayDetails {
 
 	clear:both;
@@ -160,7 +160,7 @@
 	font-size: 14pt;
 }
 
-/*Right side*/
+/* Right side */
 .weatherForecastDayDate {
 	clear:both;
 }
@@ -184,7 +184,7 @@
 		justify-content: center;
 	}
 
-	/*Forecast Container*/
+	/* Forecast Container */
 	.weatherForecastDay {
 		text-align: center;
 		margin-top: 20px;
@@ -194,7 +194,7 @@
 		margin-left: 0;
 	}
 
-	/*Add fixed geometry to weatherForecastDay children*/
+	/* Add fixed geometry to weatherForecastDay children */
 	.weatherForecastDay > div {
 		width: 75px;
 		height: 50px;
@@ -210,14 +210,14 @@
 		font-size: 12pt;
 	}
 
-	/*Center*/
+	/* Center */
 	.weatherForecastDayDetails {
 		display: inline-block;
 		margin: 0 auto;
 		clear: none;
 	}
 
-	/*Right side*/
+	/* Right side */
 	.weatherForecastDayDate {
 		float: right;
 		clear: none;
