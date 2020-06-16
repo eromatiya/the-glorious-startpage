@@ -3,13 +3,13 @@
 @import url('font-face.css');
 @import url('base.css');
 @import url('dummy-body-background.css');
-@import url('bar.css');
-@import url('top-panel.css');
-@import url('clock.css');
 
-/*Dock*/
-@import url('dock/dock.css');
-@import url('dock/dock-buttons.css');
+/*Bars and Panels*/
+@import url('bars/bar.css');
+@import url('bars/top-panel.css');
+@import url('bars/clock.css');
+@import url('bars/dock.css');
+@import url('bars/dock-buttons.css');
 
 /*Centered box and Contents*/
 @import url('centeredbox/centered-box.css');
