@@ -25,20 +25,7 @@
 }
 
 #themeEngineHeaderIcon {
-	background: url('../../assets/ui-icons/theme.svg');
-	background-size: cover;
-	margin-right: 10px;
-	width: 28px;
-	height: 28px;
-}
-
-#themeEngineHeaderLabel {
-	font-family: roboto-bold, sans-serif;
-	font-weight: bold;
-	font-size: 14pt;
-	text-align: left;
-	margin-top: auto;
-	margin-bottom: auto;
+	background-image: url('../../assets/ui-icons/theme.svg');
 }
 
 #themeEngineContainer {
