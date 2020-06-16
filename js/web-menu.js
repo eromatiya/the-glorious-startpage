@@ -112,7 +112,7 @@ class WebMenu {
 		    if (string.indexOf(compare) > -1) return true; 
 		    
 		    for (let i = 0; i < compare.length; i++) {
-		        string.indexOf(compare[parseInt(i)]) > -1 ? matches += 1 : matches -=1;
+		        string.indexOf(compare[parseInt(i, 10)]) > -1 ? matches += 1 : matches -=1;
 		    }
 		    return ((matches / this.length) >= ratio || term === '');
 		};
@@ -144,7 +144,7 @@ class WebMenu {
 				oldWebItemFocusChild.classList.remove('webItemFocus');
 
 				// Update webItemFocus
-				this._webItemFocus = li[parseInt(i)];
+				this._webItemFocus = li[parseInt(i, 10)];
 
 				// Update weblistindex
 				this._webListIndex = i;
