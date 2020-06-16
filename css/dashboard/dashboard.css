@@ -62,14 +62,14 @@
 				z-index var(--transition-speed);
 }
 
-.showDashboardOverlay {
-	visibility: visible !important;
-	z-index: 6 !important;
+.dashboardOverlay.showDashboardOverlay {
+	visibility: visible;
+	z-index: 6;
 }
 
 @media screen and (max-width: 470px) {
-	.showRightDashboard {
-		width: 100vw !important;
-		margin-right: 0 !important;
+	.dashboard#rightDashboard.showRightDashboard {
+		width: 100vw;
+		margin-right: 0;
 	}
 }
