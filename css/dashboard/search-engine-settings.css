@@ -67,19 +67,19 @@
 }
 
 #searchEngineSelect:hover {
-	outline: none !important;
+	outline: none;
 	cursor: pointer;
-	background: var(--base-hover-bg) !important;
+	background: var(--base-hover-bg);
 }
 
 #searchEngineSelect:focus {
-	outline: none !important;
-	background: var(--base-focus-bg) !important;
+	outline: none;
+	background: var(--base-focus-bg);
 }
 
 #searchEngineSelect:active {
-	outline: none !important;
-	background: var(--base-active-bg) !important;
+	outline: none;
+	background: var(--base-active-bg);
 }
 
 #searchEngineSelect option {
