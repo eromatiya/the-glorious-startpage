@@ -5,12 +5,12 @@
 	margin: 0 auto;
 	bottom: 0;
 
-	/*On bottom, center horizontally*/
+	/* On bottom, center horizontally */
 	left: 50%;
 	-ms-transform: translateX(-50%);
 	transform: translateX(-50%);
 
-	/*Add transition*/
+	/* Add transition */
 	transition: opacity var(--transition-speed);
 }
 
@@ -30,7 +30,7 @@
 	z-index: 1;
 }
 
-/*Translate dock to left side if width <= 470 and height >= 540*/
+/* Translate dock to left side if width <= 470 and height >= 540 */
 @media screen and (max-width: 470px) and (min-height: 490px) {
 
 	.dockContainer {
@@ -38,7 +38,7 @@
 		opacity: 1;
 
 		position: relative;
-		margin:0  auto;
+		margin:0 auto;
 
 		top: 50%;
 		left: 0;
@@ -60,7 +60,7 @@
 }
 
 
-/*Decrease scale to 0.85 if width is less than 470px*/
+/* Decrease scale to 0.85 if width is less than 470px */
 @media screen and (max-width: 469px) and (max-height: 489px) {
 
 	.dockContainer {
@@ -70,12 +70,12 @@
 		margin: 0 auto;
 		bottom: 0;
 
-		/*On bottom, center horizontally*/
+		/* On bottom, center horizontally */
 		left: 50%;
 		-ms-transform: translateX(-50%);
 		transform: translateX(-50%);
 
-		/*Add transition*/
+		/* Add transition */
 		transition: opacity var(--transition-speed);
 	}
 
@@ -91,7 +91,7 @@
 }
 
 
-/*Decrease scale to 0.75 if width is less than 380px*/
+/* Decrease scale to 0.75 if width is less than 380px */
 @media screen and (max-width: 380px) and (max-height: 489px) {
 
 	.dockContainer {
@@ -101,12 +101,12 @@
 		margin: 0 auto;
 		bottom: 0;
 
-		/*On bottom, center horizontally*/
+		/* On bottom, center horizontally */
 		left: 50%;
 		-ms-transform: translateX(-50%);
 		transform: translateX(-50%);
 
-		/*Add transition*/
+		/* Add transition */
 		transition: opacity var(--transition-speed);
 	}
 
@@ -121,7 +121,7 @@
 
 }
 
-/*Decrease scale to 0.70 if width is less than or equal to 374px and greater than or equal to 320px*/
+/* Decrease scale to 0.70 if width is less than or equal to 374px and greater than or equal to 320px */
 @media screen and (max-width: 350px) and (min-width: 320px) and (max-height: 489px) {
 
 	.dockContainer {
@@ -131,12 +131,12 @@
 		margin: 0 auto;
 		bottom: 0;
 
-		/*On bottom, center horizontally*/
+		/* On bottom, center horizontally */
 		left: 50%;
 		-ms-transform: translateX(-50%);
 		transform: translateX(-50%);
 
-		/*Add transition*/
+		/* Add transition */
 		transition: opacity var(--transition-speed);
 	}
 
@@ -151,7 +151,7 @@
 }
 
 
-/*Scale to 0 if less than 320px*/
+/* Scale to 0 if less than 320px */
 @media screen and (max-width: 319px) and (max-height: 489px) {
 
 	.dockContainer {
@@ -161,12 +161,12 @@
 		margin: 0 auto;
 		bottom: 0;
 
-		/*On bottom, center horizontally*/
+		/* On bottom, center horizontally */
 		left: 50%;
 		-ms-transform: translateX(-50%);
 		transform: translateX(-50%);
 
-		/*Add transition*/
+		/* Add transition */
 		transition: opacity var(--transition-speed);
 	}
 

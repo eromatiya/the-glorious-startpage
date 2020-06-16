@@ -1,10 +1,11 @@
+/* Fantasque Sans */
 @font-face {
 	font-family: 'fantasque-sans-mono';
 	font-style: normal;
 	src: url('../../fonts/fantasque-sans-mono-bold-italic-nerd-font-complete.ttf');
 }
 
-/*Roboto light*/
+/* Roboto light */
 @font-face {
 	font-family: 'roboto-light';
 	font-style: normal;
@@ -18,7 +19,7 @@
 		url('../../fonts/roboto-v20-latin-300.svg#Roboto') format('svg'); /* Legacy iOS */
 }
 
-/*Roboto normal*/
+/* Roboto normal */
 @font-face {
 	font-family: 'roboto';
 	font-style: normal;
@@ -32,7 +33,7 @@
 		url('../../fonts/roboto-v20-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
 }
 
-/*Roboto bold*/
+/* Roboto bold */
 @font-face {
 	font-family: 'roboto-bold';
 	font-style: normal;
