@@ -91,7 +91,7 @@
 }
 
 @media screen and (max-height: 539px) and (min-height: 341px) {
-	#suggestions {	
+	#suggestions {
 		height: auto;
 		width: 100vw;
 	}
@@ -114,5 +114,4 @@
 	#suggestionsContainer.phrasesContainer {
 		opacity: 0;
 	}
-
 }

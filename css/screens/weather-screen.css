@@ -124,7 +124,7 @@
 }
 
 .weatherForecastDayIconContainer {
-	clear:both;
+	clear: both;
 }
 
 .weatherForecastDayIcon {
@@ -222,5 +222,4 @@
 		float: right;
 		clear: none;
 	}
-
 }

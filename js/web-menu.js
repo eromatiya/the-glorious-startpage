@@ -349,7 +349,7 @@ class WebMenu {
 			if (key === left) { return changeItemFocus((this._webListIndex >= 0), len); }
 			if (key === up) { return changeItemFocus((this._webListIndex >= 0), len); }
 			if (key === down) { return changeItemFocus((this._webListIndex <= len), 0); }
-		}
+		};
 		
 		changeWebListIndex();
 
