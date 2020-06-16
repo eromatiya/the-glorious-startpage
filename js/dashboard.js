@@ -61,7 +61,7 @@ class Dashboard {
 
     toggleDashboard = () => {
 
-        console.log('toggle dashboard');
+        // console.log('toggle dashboard');
      
         if (this._rightDashboardVisibility) {
         
@@ -76,7 +76,7 @@ class Dashboard {
             // If centered box is hidden, open it
             if (this._centeredBox.classList.contains('hiddenBox')) {
                 
-                console.log('centered box is hidden, reopening...');
+                // console.log('centered box is hidden, reopening...');
                 
                 // Rotate profile container
                 profileImage.rotateProfile();
@@ -88,16 +88,16 @@ class Dashboard {
 
         // Check if any of these are open, if yes, close it
         if (this._searchBoxContainer.classList.contains('showSearchBox')) {
-            console.log('searchbox is open, closing...');
+            // console.log('searchbox is open, closing...');
             searchBoxShow.hideSearchBox();
 
         } else if (this._webMenu.classList.contains('showWebMenu')) {
-            console.log('web menu is open, closing...');
+            // console.log('web menu is open, closing...');
             webMenu.hideWebMenu();
             return;
         
         } else if (this._weatherScreen.classList.contains('showWeatherScreen')) {
-            console.log('weather screen is open, closing...');
+            // console.log('weather screen is open, closing...');
             weatherScreen.hideWeatherScreen();
             return;
 
@@ -109,7 +109,7 @@ class Dashboard {
         if (this._rightDashboardVisibility) {
             this.toggleDashboard();
         }
-        console.log('dashboard overlay clicked...');
+        // console.log('dashboard overlay clicked...');
     }
 
     _registerOverlayMouseUpEvent = () => {

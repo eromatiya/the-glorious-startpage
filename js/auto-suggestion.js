@@ -48,11 +48,11 @@ class AutoSuggestion {
 				e.preventDefault();
 
 				const phraseButtons = Array.prototype.slice.call(document.querySelectorAll('button'));
-				const phraseIndex = (phraseButtons.indexOf(document.activeElement) - 1) % phraseButtons.length;
+				let phraseIndex = (phraseButtons.indexOf(document.activeElement) - 1) % phraseButtons.length;
 
 				if (phraseIndex < 0) { 
 					phraseIndex = phraseButtons.length - 1;
-				};
+				}
 
 				const phraseButton = phraseButtons[parseInt(phraseIndex, 10)];
 	       		phraseButton.focus();

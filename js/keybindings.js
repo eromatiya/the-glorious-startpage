@@ -94,7 +94,7 @@ class KeyBinding {
             // Backspacing while there's no search query will hide searhbox
             // Will also hide if you hit enter
             if ((e.key === 'Backspace' || e.key === 'Enter') && 
-                this._searchBox.value < 1) { searchBoxShow.toggleSearchBox(); return; };
+                this._searchBox.value < 1) { searchBoxShow.toggleSearchBox(); return; }
         }
 
     }

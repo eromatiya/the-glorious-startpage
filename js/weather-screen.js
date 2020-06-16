@@ -243,7 +243,7 @@ class WeatherScreen {
 
 	toggleWeatherScreen = () => {
 
-		console.log('toggle weather screen');
+		// console.log('toggle weather screen');
 
 	    // If profile anim is still running,
 	    // Return to avoid spam
@@ -263,16 +263,16 @@ class WeatherScreen {
 
 	    // Check if any of these are open, if yes, close it
 	    if (this._webMenu.classList.contains('showWebMenu')) {
-	    	console.log('web menu is open, closing...');
+	    	// console.log('web menu is open, closing...');
 	    	webMenu.hideWebMenu();
 	    	return;
 
 	    } else if (this._searchBoxContainer.classList.contains('showSearchBox')) {
-	    	console.log('searchbox is open, closing...');
+	    	// console.log('searchbox is open, closing...');
 	    	searchBoxShow.hideSearchBox();
 	    	
 	    } else if (this._dashboard.classList.contains('showRightDashboard')) {
-	    	console.log('dashboard is open, closing...');
+	    	// console.log('dashboard is open, closing...');
 	    	dashboard.hideDashboard();
 	    }
 

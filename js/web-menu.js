@@ -103,6 +103,7 @@ class WebMenu {
 
 	// Allow fuzzy searching in web menu
 	_fuzzySearch = () => {
+		// eslint-disable-next-line no-extend-native
 		String.prototype.fuzzy = function(term, ratio) {
 		    const string = this.toLowerCase();
 		    const compare = term.toLowerCase();
@@ -229,7 +230,7 @@ class WebMenu {
 	// Toggle web menu screen
 	toggleWebMenu = () => {
 
-		console.log('toggle web menu');
+		// console.log('toggle web menu');
 
 	    // If profile anim is still running,
 	    // Return to avoid spam
@@ -249,15 +250,15 @@ class WebMenu {
 
 	    // Check if any of these are open, if yes, close it
 	    if (searchBoxContainer.classList.contains('showSearchBox')) {
-	    	console.log('searchbox is open, closing...');
+	    	// console.log('searchbox is open, closing...');
 	    	searchBoxShow.hideSearchBox();
 
 	    } else if (this._dashboard.classList.contains('showRightDashboard')) {
-	    	console.log('dashboard is open, closing...');
+	    	// console.log('dashboard is open, closing...');
 	    	dashboard.hideDashboard();
 
 	    } else if (this._weatherScreen.classList.contains('showWeatherScreen')) {
-	    	console.log('weather screen is open, closing...');
+	    	// console.log('weather screen is open, closing...');
 	    	weatherScreen.hideWeatherScreen();
 	    	return;
 	    	

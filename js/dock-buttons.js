@@ -81,7 +81,7 @@ class DockButtons {
             aDock.appendChild(dockButton);
 
             this._dock.appendChild(aDock);
-        };
+        }
     }
 
     _populateDock = () => {
