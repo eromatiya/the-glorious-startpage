@@ -81,7 +81,7 @@ class WebMenu {
 						<div class='webItemContainer'>
 							<div class='webItemBody'>
 								<div class='webItemIconContainer'>
-									<div class='webItemIcon' style='background: url("assets/webcons/${icon}.svg"); background-size: cover;'></div>
+									<div class='webItemIcon' style='background-image: url("assets/webcons/${icon}.svg");'></div>
 								</div>
 								<div class='webItemName'>${site}</div>
 							</div>
