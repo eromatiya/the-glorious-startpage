@@ -37,12 +37,12 @@ class WebMenu {
 
 	// Disable textboxes	
 	_disableWebMenuInputs = status => {
-	    const elems = this._webMenuScreen.getElementsByTagName('input');
-	    const len = elems.length;
+		const elems = this._webMenuScreen.getElementsByTagName('input');
+		const len = elems.length;
 
-	    for (let i = 0; i < len; i++) {
-	        elems[i].disabled = status;
-	    }
+		for (let i = 0; i < len; i++) {
+			elems[parseInt(i, 10)].disabled = status;
+		}
 	}
 
 	// Create callback property, to be used when enter was pressed while item is focused	
@@ -50,14 +50,14 @@ class WebMenu {
 		// Create a callback property for the passed li
 		li.callback = () => {
 			window.location.href = encodeURI(url);
-		}
+		};
 	}
 	
 	// Sort list alphabetically
 	_sortList = () => {
 		Array.from(this._webMenuList.getElementsByTagName('li'))
 		.sort((a, b) => a.textContent.localeCompare(b.textContent))
-	    .forEach(li => this._webMenuList.appendChild(li));
+		.forEach(li => this._webMenuList.appendChild(li));
 	}
 
 	// Create/generate web items
@@ -81,7 +81,7 @@ class WebMenu {
 						<div class='webItemContainer'>
 							<div class='webItemBody'>
 								<div class='webItemIconContainer'>
-									<div class='webItemIcon' style='background: url("assets/webcons/${icon}.svg"); background-size: cover;'></div>
+									<div class='webItemIcon' style='background-image: url("assets/webcons/${icon}.svg");'></div>
 								</div>
 								<div class='webItemName'>${site}</div>
 							</div>
@@ -89,7 +89,7 @@ class WebMenu {
 					</div>
 				</a>
 				`
-			)
+			);
 
 			// Create callback property
 			this._createWebItemCallback(li, url);
@@ -103,18 +103,25 @@ class WebMenu {
 
 	// Allow fuzzy searching in web menu
 	_fuzzySearch = () => {
+
+		// eslint-disable-next-line no-extend-native
 		String.prototype.fuzzy = function(term, ratio) {
-		    const string = this.toLowerCase();
-		    const compare = term.toLowerCase();
-		    let matches = 0;
-		    
-		    // Covers basic partial matches
-		    if (string.indexOf(compare) > -1) return true; 
-		    
-		    for (let i = 0; i < compare.length; i++) {
-		        string.indexOf(compare[i]) > -1 ? matches += 1 : matches -=1;
-		    }
-		    return ((matches / this.length) >= ratio || term === '');
+			const string = this.toLowerCase();
+			const compare = term.toLowerCase();
+			let matches = 0;
+			
+			// Covers basic partial matches
+			if (string.indexOf(compare) > -1) return true; 
+			
+			for (let i = 0; i < compare.length; i++) {
+				const ind = string.indexOf(compare[parseInt(i, 10)]);
+				if (ind > -1) {
+					matches += 1;
+				} else {
+					matches -=1;
+				}
+			}
+			return ((matches / this.length) >= ratio || term === '');
 		};
 	}
 
@@ -131,7 +138,7 @@ class WebMenu {
 		// Loop through all list items, and focus if matches the search query
 		for (let i = 0; i < li.length; i++) {
 
-			a = li[i].getElementsByClassName('webItemName')[0];
+			a = li[parseInt(i, 10)].getElementsByClassName('webItemName')[0];
 			txtValue = a.innerHTML || a.textContent || a.innerText;
 
 			// If an item match, hightlight it and focus
@@ -144,7 +151,7 @@ class WebMenu {
 				oldWebItemFocusChild.classList.remove('webItemFocus');
 
 				// Update webItemFocus
-				this._webItemFocus = li[i];
+				this._webItemFocus = li[parseInt(i, 10)];
 
 				// Update weblistindex
 				this._webListIndex = i;
@@ -192,22 +199,22 @@ class WebMenu {
 		// Enable inputs
 		this._disableWebMenuInputs(false);
 
-	    this._webMenuVisibility = !this._webMenuVisibility;
+		this._webMenuVisibility = !this._webMenuVisibility;
 
-	    // Focus to input field
-	    this._webMenuSearchBox.focus();
+		// Focus to input field
+		this._webMenuSearchBox.focus();
 	}
 
 	// Hide web menu screen
 	hideWebMenu = () => {
-	    // Clear input field
-	    this._webMenuSearchBox.value = '';
+		// Clear input field
+		this._webMenuSearchBox.value = '';
 
-	    // Unfocus input field
-	    this._webMenuSearchBox.blur();
+		// Unfocus input field
+		this._webMenuSearchBox.blur();
 
-	    // Refilter web list
-	    this._filterWebList();
+		// Refilter web list
+		this._filterWebList();
 		
 		// Scroll to top
 		this._webMenuListContainer.scrollTop = 0;
@@ -223,48 +230,48 @@ class WebMenu {
 		// Disable inputs
 		this._disableWebMenuInputs(true);
 
-	    this._webMenuVisibility = !this._webMenuVisibility;
+		this._webMenuVisibility = !this._webMenuVisibility;
 	}
 
 	// Toggle web menu screen
 	toggleWebMenu = () => {
 
-		console.log('toggle web menu');
+		// console.log('toggle web menu');
 
-	    // If profile anim is still running,
-	    // Return to avoid spam
+		// If profile anim is still running,
+		// Return to avoid spam
 		if (profileImage.getProfileAnimationStatus()) return;
 
 		// Rotate profile
-	    profileImage.rotateProfile();
+		profileImage.rotateProfile();
 
-	    if (this._webMenuVisibility) {
-	    	// Hide web menu
-	    	this.hideWebMenu();  	
+		if (this._webMenuVisibility) {
+			// Hide web menu
+			this.hideWebMenu();
 
-	    } else {
-	    	// Show Web menu
-	    	this.showWebMenu();
-	    }
+		} else {
+			// Show Web menu
+			this.showWebMenu();
+		}
 
-	    // Check if any of these are open, if yes, close it
-	    if (searchBoxContainer.classList.contains('showSearchBox')) {
-	    	console.log('searchbox is open, closing...');
-	    	searchBoxShow.hideSearchBox();
+		// Check if any of these are open, if yes, close it
+		if (searchBoxContainer.classList.contains('showSearchBox')) {
+			// console.log('searchbox is open, closing...');
+			searchBoxShow.hideSearchBox();
 
-	    } else if (this._dashboard.classList.contains('showRightDashboard')) {
-	    	console.log('dashboard is open, closing...');
-	    	dashboard.hideDashboard();
+		} else if (this._dashboard.classList.contains('showRightDashboard')) {
+			// console.log('dashboard is open, closing...');
+			dashboard.hideDashboard();
 
-	    } else if (this._weatherScreen.classList.contains('showWeatherScreen')) {
-	    	console.log('weather screen is open, closing...');
-	    	weatherScreen.hideWeatherScreen();
-	    	return;
-	    	
-	    }
-	    
-	    // Toggle center box
-	    centeredBox.toggleCenteredBox();
+		} else if (this._weatherScreen.classList.contains('showWeatherScreen')) {
+			// console.log('weather screen is open, closing...');
+			weatherScreen.hideWeatherScreen();
+			return;
+			
+		}
+		
+		// Toggle center box
+		centeredBox.toggleCenteredBox();
 	}
 
 	// Remove focus class
@@ -304,7 +311,7 @@ class WebMenu {
 			const containerWindow = ((window.innerWidth - (menuItemWidth / 2) - scrollBarWidth - vw(24)) / menuItemWidth);
 			// Get rounded result
 			return Math.round(containerWindow);
-		}
+		};
 
 		// Determine the index position by key
 		const changeWebListIndex = () => {
@@ -330,24 +337,24 @@ class WebMenu {
 					this._webMenuSearchBox.value = '';
 					break;
 			}
-		}
+		};
 
 		const changeItemFocus = (condition, overFlowIndex) => {
 			const next = this._webMenuList.getElementsByTagName('li')[this._webListIndex];
-			if(typeof next !== undefined && condition) {			
+			if(typeof next !== 'undefined' && condition) {			
 				this._webItemFocus = next;
 			} else {
 				this._webListIndex = overFlowIndex;
-				this._webItemFocus = this._webMenuList.getElementsByTagName('li')[overFlowIndex];
+				this._webItemFocus = this._webMenuList.getElementsByTagName('li')[parseInt(overFlowIndex, 10)];
 			}
-		}
+		};
 
 		const changeItemFocusByKey = () => {
-			if (key === right) { return changeItemFocus((this._webListIndex <= len), 0) }
-			if (key === left) { return changeItemFocus((this._webListIndex >= 0), len) }
-			if (key === up) { return changeItemFocus((this._webListIndex >= 0), len) }
-			if (key === down) { return changeItemFocus((this._webListIndex <= len), 0) }
-		}
+			if (key === right) { return changeItemFocus((this._webListIndex <= len), 0); }
+			if (key === left) { return changeItemFocus((this._webListIndex >= 0), len); }
+			if (key === up) { return changeItemFocus((this._webListIndex >= 0), len); }
+			if (key === down) { return changeItemFocus((this._webListIndex <= len), 0); }
+		};
 		
 		changeWebListIndex();
 

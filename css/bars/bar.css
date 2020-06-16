@@ -3,7 +3,7 @@
 	backdrop-filter: blur(var(--blur-strength));
 	z-index: 5;
 
-    /*Make clock unselectable*/
+	/* Make clock unselectable */
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;

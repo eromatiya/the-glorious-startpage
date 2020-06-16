@@ -8,7 +8,8 @@
 
 	pointer-events: none;
 
-	transition: opacity var(--transition-speed),
+	transition:
+				opacity var(--transition-speed),
 				top var(--transition-speed),
 				pointer-events var(--transition-speed);
 }
@@ -22,8 +23,8 @@
 
 	margin-bottom: 10px;
 
-	/*Center horizontally*/
-	position: relative; 
+	/* Center horizontally */
+	position: relative;
 	left: 50%;
 	transform: translateX(-50%);
 
@@ -54,7 +55,7 @@
 
 @media screen and (max-width: 470px) {
 	#searchBox {
-    	width: 50vw;
+		width: 50vw;
 	}
 
 	#searchBoxContainer.showSearchBox {
@@ -63,4 +64,3 @@
 		pointer-events: initial;
 	}
 }
-

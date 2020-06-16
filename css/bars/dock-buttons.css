@@ -1,4 +1,4 @@
-/*Dock buttons*/
+/* Dock buttons */
 .dockButton {
 	background: var(--base-container);
 	width: 36px;
@@ -9,23 +9,22 @@
 	padding: 5px;
 	border: none;
 	cursor: pointer;
-	transition: transform .2s;
+	transition: transform 0.2s;
 }
 
-/*The a href container/main dock button container*/
+/* The a href container/main dock button container */
 .dockLink {
-	/*Act as div*/
+	/* Act as div */
 	display: block;
 
-	/*Remove outlines*/
+	/* Remove outlines */
 	text-decoration: none;
 	outline: 0;
 	border: none;
 	-moz-outline-style: none;
 
-	/*Disable dragging*/
+	/* Disable dragging */
 	user-select: none;
-	user-drag: none;
 	-webkit-user-drag: none;
 }
 
@@ -41,28 +40,30 @@
 	top: 0;
 	bottom: 0;
 	margin: auto;
-	
 	max-width: 100%;
 	max-height: 100%;
 	overflow: auto;
 }
 
+/* Dock button hover */
 .dockButton:hover {
 	background: var(--base-hover-bg);
 
 	-ms-transform: scale(1.25);
 	-webkit-transform: scale(1.25);
-	transform: scale(1.25); 
+	transform: scale(1.25);
 }
 
+/* Dock button active */
 .dockButton:active {
 	background: var(--base-active-bg);
 
 	-ms-transform: scale(1);
 	-webkit-transform: scale(1);
-	transform: scale(1); 
+	transform: scale(1);
 }
 
+/* Dock button image */
 .dockButtonImage {
 	background-size: cover;
 }

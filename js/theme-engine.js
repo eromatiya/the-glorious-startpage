@@ -53,13 +53,13 @@ class ThemeEngine {
 		if (!colorRGBA) {
 
 			// If RGB - (#RRGGBB)
-			if (/^#([0-9A-F]{3}){1,2}$/i.test(colorStr)) {
+			if (/^#[0-9A-F]{3}$/i.test(colorStr)) {
 				
 				// Add completely opaque alpha
 				return colorStr + 'FF';
 			
 			// If three-charactered HEX color - (#RGB)
-			} else if (/^#([0-9A-F]{3}){1,2}$/i.test(colorStr)) {
+			} else if (/^#[0-9A-F]{3}$/i.test(colorStr)) {
 
 				// Convert it to RRGGBB
 				return colorStr.replace(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])/, '#$1$1$2$2$3$3');
@@ -74,6 +74,7 @@ class ThemeEngine {
 
 			} else {
 				alert('Invalid color');
+				return false;
 			}
 		}
 
@@ -158,7 +159,7 @@ class ThemeEngine {
 			foregroundOpacity,
 			blurStrength,
 			animSpeed
-		)
+		);
 	}
 
 	_updateCSSconstiables = () => {

@@ -1,15 +1,15 @@
 ## A bloated and modern-looking startpage
 
-[![maintained](https://img.shields.io/maintenance/yes/2020?label=maintained&style=flat-square)](https://github.com/manilarome/the-glorious-startpage/commits/master) [![contributions](https://img.shields.io/badge/contribution-welcome-brightgreen&?style=flat-square)](https://github.com/manilarome/the-glorious-startpage/pulls) [![HitCount](http://hits.dwyl.com/manilarome/the-glorious-startpage.svg)](http://hits.dwyl.com/manilarome/the-glorious-startpage)
+[![maintained](https://img.shields.io/maintenance/yes/2020?label=maintained&style=flat-square)](https://github.com/manilarome/the-glorious-startpage/commits/master) [![contributions](https://img.shields.io/badge/contribution-welcome-brightgreen&?style=flat-square)](https://github.com/manilarome/the-glorious-startpage/pulls) [![HitCount](http://hits.dwyl.com/manilarome/the-glorious-startpage.svg)](http://hits.dwyl.com/manilarome/the-glorious-startpage) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/d942895baf48442d8c9df54306887aa0)](https://www.codacy.com/manual/manilarome/the-glorious-startpage?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=manilarome/the-glorious-startpage&amp;utm_campaign=Badge_Grade)
 
 ## [Live Preview](https://manilarome.github.io/the-glorious-startpage/)
 
 ## Gallery
 
 <div align='center'>
-    <h3>
-    	<img src='/scrots/idle.png' align='center'>
-    </h3>
+	<h3>
+		<img src='/scrots/idle.png' align='center'>
+	</h3>
 </div>
 
 

@@ -1,9 +1,10 @@
 .themeEngine {
 	font-family: roboto, sans-serif;
 	font-weight: 400;
+
 	width: 100%;
 	height: auto;
-	position: relative;;
+	position: relative;
 	border-radius: 6px;
 	color: var(--base-color);
 	background: var(--base-container);
@@ -48,7 +49,7 @@
 	cursor: pointer;
 	border: none;
 
-	/*Center vertically*/
+	/* Center vertically */
 	display: flex;
   	justify-content: center;
   	align-items: center;
@@ -85,7 +86,7 @@
 .foregroundColorSetter,
 .blurSetter,
 .animSpeedSetter {
-	/*Align div inside horizontally*/
+	/* Align div inside horizontally */
 	display: flex;
 	flex-direction: row;
 	justify-content: left;

@@ -105,7 +105,7 @@ class WeatherSettings {
 	_deniedGeolocation = () => {
 
 		alert(`Location access denied! If you're on mobile, make sure to`+
-			` enable your GPS and allow the location permission on your browser's settings.`)
+			` enable your GPS and allow the location permission on your browser's settings.`);
 
 	}
 
@@ -116,7 +116,7 @@ class WeatherSettings {
 
 		if ((this._origLongitude !== currentCoord.longitude) || (this._origLatitude !== currentCoord.latitude)) {
 
-			console.log('update current position');
+			// console.log('update current position');
 
 			// Update origPositions
 			this._origLongitude = currentCoord.longitude;
@@ -131,9 +131,9 @@ class WeatherSettings {
 	// Error
 	_watchGeoError = err => {
 
-		console.warn('ERROR(' + err.code + '): ' + err.message);
+		// console.warn('ERROR(' + err.code + '): ' + err.message);
 		
-		if (err.code == err.PERMISSION_DENIED) {
+		if (err.code === err.PERMISSION_DENIED) {
 
 			this._deniedGeolocation();
 
@@ -150,7 +150,7 @@ class WeatherSettings {
 
 		navigator.permissions.query({name:'geolocation'}).then(result => {
 
-			if ((result.state === 'prompt') || (result.state == 'granted')) {
+			if ((result.state === 'prompt') || (result.state === 'granted')) {
 
 				this._watchGeoPosition();
 
@@ -170,13 +170,13 @@ class WeatherSettings {
 
 		if (this._locatorMode === 'geolocation') {
 
-			console.log('geolocation');
+			// console.log('geolocation');
 
 			this._weatherSettingsCityIDGroup.classList.add('hideWeatherSettings');
 
 		} else if (this._locatorMode === 'city') {
 
-			console.log('city');
+			// console.log('city');
 
 			this._weatherSettingsCityIDGroup.classList.remove('hideWeatherSettings');
 

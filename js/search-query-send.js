@@ -34,22 +34,22 @@ class SearchQuerySend {
 	};
 
 	_keyUpEvent = event => {
-	    // Cancel the default action, if needed
-	    event.preventDefault();
+		// Cancel the default action, if needed
+		event.preventDefault();
 		
 		if (event.key === 'Tab') return;
 
 		// Number 13 is the "Enter" key on the keyboard
-	  	if (event.key === 'Enter') {
+		if (event.key === 'Enter') {
 
 			// Don't accept empty strings
 			if (searchBox.value < 1) {
 				return;
 			}
 
-	    	// Search the web
-	    	this._sendQuery()
-		};
+			// Search the web
+			this._sendQuery();
+		}
 	}
 
 	_registerKeyUpEvent = () => {

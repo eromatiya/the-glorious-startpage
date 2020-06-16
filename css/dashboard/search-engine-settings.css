@@ -3,7 +3,7 @@
 	font-weight: 400;
 	width: 100%;
 	height: auto;
-	position: relative;;
+	position: relative;
 	border-radius: 6px;
 	color: var(--base-color);
 	background: var(--base-container);
@@ -94,7 +94,7 @@ select::-ms-expand {
 	cursor: pointer;
 	border: none;
 
-	/*Center vertically*/
+	/* Center vertically */
 	display: flex;
   	justify-content: center;
   	align-items: center;

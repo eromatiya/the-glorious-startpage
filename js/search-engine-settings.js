@@ -42,7 +42,7 @@ class SearchEngineSettings {
 		Object.keys(this._searchEngines)
 		.forEach(key => {
 			const seValue = key;
-			const seData = this._searchEngines[key];
+			const seData = this._searchEngines[String(key)];
 			const seOption = document.createElement('option');
 
 			// Generate search engine suggestions
@@ -51,8 +51,8 @@ class SearchEngineSettings {
 				`
 				<option value='${seValue}'>${seData.name}</option>
 				`
-			)
-		})
+			);
+		});
 
 		// Call to update query string and placeholder
 		this._updateSearchEngineElements();
@@ -69,8 +69,8 @@ class SearchEngineSettings {
 
 	// Use this to select the current/default search engine on startup
 	_selectTheEngine = () => {
-	    this._selectSearchEngine.value = this._currentSearchEngine;
-	    this._updateSearchEngineElements();
+		this._selectSearchEngine.value = this._currentSearchEngine;
+		this._updateSearchEngineElements();
 	}
 
 	// Execute this on change event of <select>

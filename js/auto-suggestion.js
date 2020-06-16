@@ -40,31 +40,31 @@ class AutoSuggestion {
 
 				const phraseButtons = Array.prototype.slice.call(document.querySelectorAll('button'));
 				const phraseIndex = (phraseButtons.indexOf(document.activeElement) + 1) % phraseButtons.length;
-	       		const phraseButton = phraseButtons[phraseIndex];
-	       		phraseButton.focus();
+				const phraseButton = phraseButtons[parseInt(phraseIndex, 10)];
+				phraseButton.focus();
 
 			} else if ((e.key === 'ArrowUp') || e.key === 'ArrowLeft') {
 
 				e.preventDefault();
 
 				const phraseButtons = Array.prototype.slice.call(document.querySelectorAll('button'));
-				const phraseIndex = (phraseButtons.indexOf(document.activeElement) - 1) % phraseButtons.length;
+				let phraseIndex = (phraseButtons.indexOf(document.activeElement) - 1) % phraseButtons.length;
 
 				if (phraseIndex < 0) { 
 					phraseIndex = phraseButtons.length - 1;
-				};
+				}
 
-				const phraseButton = phraseButtons[phraseIndex];
-	       		phraseButton.focus();
+				const phraseButton = phraseButtons[parseInt(phraseIndex, 10)];
+				phraseButton.focus();
 			}
 
-		}
+		};
 
 		// Onmouseup event
 		button.onmouseup = e => {
 			this._searchBox.value = button.innerText;
 			this._searchBox.focus();
-		}
+		};
 	}
 
 	// Generate and parse suggestions
@@ -105,12 +105,12 @@ class AutoSuggestion {
 	_fetchSuggestion = () => {
 
 		const endpoint = 'https://duckduckgo.com/ac/';
-		const callback = 'autocompleteCallback'
+		const callback = 'autocompleteCallback';
 		const searchQuery = String(this._searchBox.value);
-		window[callback] = res => {
+		window[String(callback)] = res => {
 			// Passed the suggestion object to process it
 			this._autocompleteCallback(res);
-		}
+		};
 
 		// Fetch from duckduckgo
 		const script = document.createElement('script');

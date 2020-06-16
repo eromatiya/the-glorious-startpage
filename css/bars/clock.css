@@ -4,9 +4,9 @@
 	font-family: roboto-bold, sans-serif;
 	font-weight: 700;
 
-	/*Center lock*/
+	/* Center lock */
 	text-align: center;
    	position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+	top: 50%;
+	transform: translateY(-50%);
 }

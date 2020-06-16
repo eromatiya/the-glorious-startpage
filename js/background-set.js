@@ -46,8 +46,8 @@ class DummyBodyBackground {
 
 				},
 				3000
-			)
-		}
+			);
+		};
 
 		// Add a delay when to fetch the hq background
 		setTimeout (

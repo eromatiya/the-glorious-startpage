@@ -1,17 +1,14 @@
 #weatherScreen {
-	display:flex;
-    justify-content:center;
-    align-items:center;
-
-	padding-top: 6vh;
-	padding-bottom: 6vh;
-	padding-left: 12vw;
-	padding-right: 12vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 6vh 12vw;
 
 	transform: scale(0);
 	opacity: 0;
 	z-index: 0;
-	transition: transform var(--transition-speed),
+	transition:
+				transform var(--transition-speed),
 				opacity var(--transition-speed),
 				z-index var(--transition-speed);
 }
@@ -24,9 +21,8 @@
 
 #weatherScreenContainer {
 	overflow: hidden;
-    position: relative;
 
-    /*Align vertically center*/
+	/* Align vertically center */
 	margin: 0;
 	position: absolute;
 	top: 50%;
@@ -89,23 +85,21 @@
 }
 
 #sunriseHourDataIcon {
-	background: url("../../assets/weather-icons/sunrise.svg");
+	background-image: url("../../assets/weather-icons/sunrise.svg");
 	background-size: cover;
-
 }
 
 #sunsetHourDataIcon {
-	background: url("../../assets/weather-icons/sunset.svg");
+	background-image: url("../../assets/weather-icons/sunset.svg");
 	background-size: cover;
-	margin-left: 5px
+	margin-left: 5px;
 }
 
 #updateHourDataIcon {
-	background: url("../../assets/weather-icons/refresh.svg");
+	background-image: url("../../assets/weather-icons/refresh.svg");
 	background-size: cover;
-	margin-left: 5px
+	margin-left: 5px;
 }
-
 
 .weatherForecast {
 	display: flex;
@@ -113,8 +107,7 @@
 	justify-content: center;
 }
 
-
-/*Forecast Container*/
+/* Forecast Container */
 .weatherForecastDay {
 	text-align: center;
 	margin-top: 20px;
@@ -124,14 +117,14 @@
 	margin-left: 10px;
 }
 
-/*Add fixed geometry to weatherForecastDay children*/
+/* Add fixed geometry to weatherForecastDay children */
 .weatherForecastDay > div {
 	width: 100px;
 	height: 60px;
 }
 
 .weatherForecastDayIconContainer {
-	clear:both;
+	clear: both;
 }
 
 .weatherForecastDayIcon {
@@ -146,10 +139,9 @@
 	transform: translateX(-50%);
 }
 
-/*Center*/
+/* Center */
 .weatherForecastDayDetails {
-
-	clear:both;
+	clear: both;
 }
 
 .weatherForecastDayDetailsTemperature,
@@ -167,17 +159,14 @@
 	font-size: 14pt;
 }
 
-/*Right side*/
+/* Right side */
 .weatherForecastDayDate {
-	clear:both;
+	clear: both;
 }
 
 @media screen and (max-width: 470px) {
 	#weatherScreen {
-		padding-top: 6vh;
-		padding-bottom: 0vh;
-		padding-left: 18vw;
-		padding-right: 18vw;
+		padding: 6vh 18vw 0 18vw;
 	}
 }
 
@@ -188,24 +177,23 @@
 }
 
 @media screen and (max-width: 470px) {
-
 	.weatherForecast {
 		display: inline-block;
 		flex-direction: row;
 		justify-content: center;
 	}
 
-	/*Forecast Container*/
+	/* Forecast Container */
 	.weatherForecastDay {
 		text-align: center;
 		margin-top: 20px;
 
 		float: none;
 		clear: none;
-		margin-left : 0px;
+		margin-left: 0;
 	}
 
-	/*Add fixed geometry to weatherForecastDay children*/
+	/* Add fixed geometry to weatherForecastDay children */
 	.weatherForecastDay > div {
 		width: 75px;
 		height: 50px;
@@ -221,17 +209,16 @@
 		font-size: 12pt;
 	}
 
-	/*Center*/
+	/* Center */
 	.weatherForecastDayDetails {
 		display: inline-block;
 		margin: 0 auto;
 		clear: none;
 	}
 
-	/*Right side*/
+	/* Right side */
 	.weatherForecastDayDate {
 		float: right;
 		clear: none;
 	}
-
 }
