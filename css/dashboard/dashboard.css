@@ -36,10 +36,11 @@
     display: none;
 }
 
-.showRightDashboard {
-	width: 350px !important;
-	z-index: 7 !important;
-	scrollbar-width: none !important;
+/*Show dashboard*/
+.dashboard#rightDashboard.showRightDashboard {
+	width: 350px;
+	z-index: 7;
+	scrollbar-width: none;
 }
 
 /*Overlay*/
