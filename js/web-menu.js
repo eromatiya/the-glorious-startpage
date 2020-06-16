@@ -114,7 +114,12 @@ class WebMenu {
 			if (string.indexOf(compare) > -1) return true; 
 			
 			for (let i = 0; i < compare.length; i++) {
-				string.indexOf(compare[parseInt(i, 10)]) > -1 ? matches += 1 : matches -=1;
+				const ind = string.indexOf(compare[parseInt(i, 10)]);
+				if (ind > -1) {
+					matches += 1;
+				} else {
+					matches -=1;
+				}
 			}
 			return ((matches / this.length) >= ratio || term === '');
 		};
