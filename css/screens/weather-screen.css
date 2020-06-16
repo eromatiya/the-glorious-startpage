@@ -141,8 +141,7 @@
 
 /* Center */
 .weatherForecastDayDetails {
-
-	clear:both;
+	clear: both;
 }
 
 .weatherForecastDayDetailsTemperature,

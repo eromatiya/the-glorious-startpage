@@ -1,3 +1,19 @@
+:root {
+	/* Colors */
+	--base-body-bg: #1a1a1aff;
+	--base-bg: #00000060;
+	--base-color: #fefefeff;
+	--base-container: #f2f2f220;
+	--base-hover-bg: #f2f2f230;
+	--base-focus-bg: #f2f2f245;
+	--base-active-bg: #fefefe60;
+	--blur-strength: 6px;
+	--panel-bg: var(--base-bg);
+	--panel-color: var(--base-color);
+	--transition-speed: 300ms;
+	--rounded-radius: 12px;
+}
+
 /* Placeholder */
 ::placeholder {
 	color: var(--base-color);
@@ -23,22 +39,6 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
 	background: var(--base-hover-bg);
-}
-
-:root {
-	/* Colors */
-	--base-body-bg: #1a1a1aff;
-	--base-bg: #00000060;
-	--base-color: #fefefeff;
-	--base-container: #f2f2f220;
-	--base-hover-bg: #f2f2f230;
-	--base-focus-bg: #f2f2f245;
-	--base-active-bg: #fefefe60;
-	--blur-strength: 6px;
-	--panel-bg: var(--base-bg);
-	--panel-color: var(--base-color);
-	--transition-speed: 300ms;
-	--rounded-radius: 12px;
 }
 
 * {
