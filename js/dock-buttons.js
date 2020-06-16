@@ -25,8 +25,7 @@ class DockButtons {
         const buttonImage = document.createElement('div');
         buttonImage.id = id;
         buttonImage.className = className;
-        buttonImage.style.background = background;
-        buttonImage.style.backgroundSize = 'cover';
+        buttonImage.style.backgroundImage = background;
     
         return buttonImage;
     }

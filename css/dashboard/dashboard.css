@@ -46,7 +46,7 @@
 /*Overlay*/
 .dashboardOverlay {
 	position: absolute;
-	visibility: none;
+	visibility: hidden;
 	
 	top: 0;
 	left: 0;
