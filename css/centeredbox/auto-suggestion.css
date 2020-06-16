@@ -1,7 +1,7 @@
 /*Container*/
 .phrasesContainer {
 	position: absolute;
-	
+
 	width: 100vw;
 	height: auto;
 
@@ -11,7 +11,7 @@
 	opacity: 0;
 	transition: opacity var(--transition-speed);
 
-	/*Disable user touch/select on text elements*/
+	/* Disable user touch/select on text elements */
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -31,32 +31,32 @@
 	height: auto;
 	width: 50vw;
 
-	/*Center ul horizontally*/
+	/* Center ul horizontally */
 	margin: 0 auto;
 	list-style: none;
 
-	/*Remove the fucking padding*/
-	/*It took me an hour to fix this piece of shit*/
+	/* Remove the fucking padding */
+	/* It took me an hour to fix this piece of shit */
 	padding: 0;
 
-	/*Allow centering of children*/
+	/* Allow centering of children */
 	display: table;
   	table-layout: fixed;
 }
 
 /* LI */
 #phrase {
-	/*Align list horizontally*/
+	/* Align list horizontally */
 	justify-content: center;
 
 	height: auto;
 
-	/*Always stack and center horizontally*/
-	/*display: table-cell;*/
-	/*width: auto;*/
-  	/*text-align: center;*/
+	/* Always stack and center horizontally */
+	/* display: table-cell; */
+	/* width: auto; */
+  	/* text-align: center; */
 
-  	/*Always stack and center vertically*/
+  	/* Always stack and center vertically */
   	display: inline-flex;
   	width: 100%;
   	text-align: center;
