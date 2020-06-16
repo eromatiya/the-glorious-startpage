@@ -36,7 +36,7 @@
 }
 
 #weatherTodayIcon {
-	background: url('../assets/weather-icons/weather-error.svg');
+	background: url('../../assets/weather-icons/weather-error.svg');
 	background-size: cover;
 	width: 128px;
 	height: 128px;
@@ -90,19 +90,19 @@
 }
 
 #sunriseHourDataIcon {
-	background: url("../assets/weather-icons/sunrise.svg");
+	background: url("../../assets/weather-icons/sunrise.svg");
 	background-size: cover;
 
 }
 
 #sunsetHourDataIcon {
-	background: url("../assets/weather-icons/sunset.svg");
+	background: url("../../assets/weather-icons/sunset.svg");
 	background-size: cover;
 	margin-left: 5px
 }
 
 #updateHourDataIcon {
-	background: url("../assets/weather-icons/refresh.svg");
+	background: url("../../assets/weather-icons/refresh.svg");
 	background-size: cover;
 	margin-left: 5px
 }
@@ -136,7 +136,7 @@
 }
 
 .weatherForecastDayIcon {
-	background: url('../assets/weather-icons/weather-error.svg');
+	background: url('../../assets/weather-icons/weather-error.svg');
 	background-size: cover;
 	width: 48px;
 	height: 48px;
