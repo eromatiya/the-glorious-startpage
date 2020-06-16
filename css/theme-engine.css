@@ -163,6 +163,18 @@ select::-ms-expand {
 	width: 25%;
 }
 
+.themeEngineCheckBoxGroups{
+  display: flex;
+}
+.themeEngineCheckBoxGroups > *{
+  margin:5px;
+}
+.themeEngineCheckBox{
+  width: 18px;
+  height: 18px;
+}
+
+#unsplashKeyword,
 #blurSet,
 #animSpeedSet {
 	height: 32px;
