@@ -1,13 +1,13 @@
 :root {
 	/* Colors */
-	--base-body-bg: #1a1a1aff;
+	--base-body-bg: #1A1A1AFF;
 
 	--base-bg: #00000060;
 	--base-color: #FEFEFEFF;
 	--base-container: #F2F2F220;
 
 	--base-hover-bg: #F2F2F230;
-	--base-focus-bg: #f2f2f245;
+	--base-focus-bg: #F2F2F245;
 	--base-active-bg: #FEFEFE60;
 
 	--blur-strength: 6px;
@@ -24,10 +24,10 @@
 	box-sizing: border-box;
 	
 	/*Font rendering*/
-	-webkit-font-smoothing: antialiased !important;
-	-moz-osx-font-smoothing: grayscale !important;
-	text-rendering: optimizeLegibility !important;
-	font-variant-ligatures: none !important;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	font-variant-ligatures: none;
 
 	/*Disable tap hightlight color on mobile devices*/
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -35,7 +35,6 @@
 }
 
 body {
-	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -49,8 +48,8 @@ body {
 
 html, body {
 	font-family: roboto, sans-serif;
-	height: 100% !important;
-	position: fixed !important;
+	height: 100%;
+	position: fixed;
 }
 
 /*Placeholder*/

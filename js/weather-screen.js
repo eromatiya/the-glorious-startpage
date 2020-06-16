@@ -23,7 +23,7 @@ class WeatherScreen {
 		this._weatherDockImageButton = document.querySelector('#buttonImageWeather');
 		this._forecastContainer = document.querySelector('#forecastContainer');
 
-		this._webMenu = document.querySelector('#webMenu');
+		this._webMenu = document.querySelector('#webMenuScreen');
 		this._dashboard = document.querySelector('#rightDashboard');
 		this._searchBoxContainer = document.querySelector('#searchBoxContainer');
 	}

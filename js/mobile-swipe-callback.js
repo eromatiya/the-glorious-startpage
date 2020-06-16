@@ -69,7 +69,7 @@ class SwipeEventCallbacks extends SwipeEventManager {
 
 		this.swipeEvent('centeredBoxOverlay', this._centeredBoxOverlaySwipeEvent);
 
-		this.swipeEvent('webMenu', this._webMenuSwipeEvent);
+		this.swipeEvent('webMenuScreen', this._webMenuSwipeEvent);
 
 		this.swipeEvent('weatherScreen', this._weatherScreenSwipeEvent);
 	}

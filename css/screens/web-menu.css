@@ -1,27 +1,10 @@
-#webMenu {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	margin: 0;
-	background: var(--panel-bg);
+#webMenuScreen {
 	z-index: 0;
-	overflow: hidden;
-	backdrop-filter: blur(var(--blur-strength));
 	
 	padding-top: 40px;
 	padding-bottom: 6vh;
 	padding-left: 12vw;
 	padding-right: 12vw;
-
-	/*Disable user touch/select on text elements*/
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
 
 	/*Transitions*/
 	opacity: 0;
@@ -32,7 +15,7 @@
 }
 
 @media screen and (max-width: 470px) {
-	#webMenu {
+	#webMenuScreen {
 		padding-top: 6vh;
 		padding-bottom: 0vh;
 		padding-left: 18vw;
@@ -41,10 +24,10 @@
 }
 
 /*Show web menu*/
-.showWebMenu {
-	transform: scale(1) !important;
-	opacity: 1 !important;
-	z-index: 3 !important;
+.screen#webMenuScreen.showWebMenu {
+	transform: scale(1);
+	opacity: 1;
+	z-index: 3;
 }
 
 #webMenuContainer {
@@ -55,7 +38,7 @@
 }
 
 #webMenuSearchBox {
-	background: var(--base-container);
+	background: var(--base-bg);
 	
 	text-align: center;
 	font-family: roboto-bold, sans-serif;
@@ -205,7 +188,7 @@
 	position: relative;
 	display: flex;
   	justify-content: center;
-  	max-height: 74vh;
+  	max-height: 70vh;
 	overflow-y: auto;
 
 	/*Fade transparency*/
@@ -236,8 +219,8 @@
 	}
 
 	#webMenuListContainer {
-		scrollbar-width: none !important;
-		-ms-overflow-style: none !important;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
 	}
 
 	#webMenuListContainer::-webkit-scrollbar {

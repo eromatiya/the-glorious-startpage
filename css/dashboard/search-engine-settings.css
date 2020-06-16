@@ -25,20 +25,7 @@
 }
 
 #searchEngineHeaderIcon {
-	background: url('../assets/ui-icons/internet.svg');
-	background-size: cover;
-	margin-right: 10px;
-	width: 28px;
-	height: 28px;
-}
-
-#searchEngineHeaderLabel {
-	font-family: roboto-bold, sans-serif;
-	font-weight: bold;
-	font-size: 14pt;
-	text-align: left;
-	margin-top: auto;
-	margin-bottom: auto;
+	background-image: url('../../assets/ui-icons/internet.svg');
 }
 
 #searchEngineContainer {
@@ -67,19 +54,19 @@
 }
 
 #searchEngineSelect:hover {
-	outline: none !important;
+	outline: none;
 	cursor: pointer;
-	background: var(--base-hover-bg) !important;
+	background: var(--base-hover-bg);
 }
 
 #searchEngineSelect:focus {
-	outline: none !important;
-	background: var(--base-focus-bg) !important;
+	outline: none;
+	background: var(--base-focus-bg);
 }
 
 #searchEngineSelect:active {
-	outline: none !important;
-	background: var(--base-active-bg) !important;
+	outline: none;
+	background: var(--base-active-bg);
 }
 
 #searchEngineSelect option {

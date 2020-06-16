@@ -1,5 +1,5 @@
 /*Container*/
-#suggestionsContainer {
+.phrasesContainer {
 	position: absolute;
 	
 	width: 100vw;
@@ -21,8 +21,8 @@
 }
 
 /*Show suggestion*/
-.suggestionsShow {
-	opacity: 1 !important;
+#suggestionsContainer.suggestionsShow {
+	opacity: 1;
 }
 
 /*ul*/
@@ -102,7 +102,7 @@
 		width: auto;
 	  	text-align: center;
 
-	  	justify-content: space-between !important;
+	  	justify-content: space-between;
 	  	
 	  	padding: 0;
 	  	width: 20px;
@@ -111,8 +111,8 @@
 
 @media screen and (max-height: 340px) {
 
-	#suggestionsContainer {	
-		opacity: 0 !important;
+	#suggestionsContainer.phrasesContainer {	
+		opacity: 0;
 	}
 
 }

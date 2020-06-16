@@ -36,10 +36,11 @@
     display: none;
 }
 
-.showRightDashboard {
-	width: 350px !important;
-	z-index: 7 !important;
-	scrollbar-width: none !important;
+/*Show dashboard*/
+.dashboard#rightDashboard.showRightDashboard {
+	width: 350px;
+	z-index: 7;
+	scrollbar-width: none;
 }
 
 /*Overlay*/
@@ -61,14 +62,30 @@
 				z-index var(--transition-speed);
 }
 
-.showDashboardOverlay {
-	visibility: visible !important;
-	z-index: 6 !important;
+.dashboardOverlay.showDashboardOverlay {
+	visibility: visible;
+	z-index: 6;
 }
 
 @media screen and (max-width: 470px) {
-	.showRightDashboard {
-		width: 100vw !important;
-		margin-right: 0 !important;
+	.dashboard#rightDashboard.showRightDashboard {
+		width: 100vw;
+		margin-right: 0;
 	}
+}
+
+.headerIcon {
+	background-size: cover;
+	margin-right: 10px;
+	width: 28px;
+	height: 28px;
+}
+
+.headerLabel {
+	font-family: roboto-bold, sans-serif;
+	font-weight: bold;
+	font-size: 14pt;
+	text-align: left;
+	margin-top: auto;
+	margin-bottom: auto;
 }

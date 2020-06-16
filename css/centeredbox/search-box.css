@@ -1,5 +1,4 @@
-#searchBoxContainer {
-
+.searchBoxContainer {
 	width: 100%;
 	height: auto;
 	top: 40%;
@@ -47,10 +46,10 @@
 	font-weight: 700;
 }
 
-.showSearchBox {
-	opacity: 1 !important;
-	top: 70% !important;
-	pointer-events: initial !important;
+#searchBoxContainer.showSearchBox {
+	opacity: 1;
+	top: 70%;
+	pointer-events: initial;
 }
 
 @media screen and (max-width: 470px) {
@@ -58,10 +57,10 @@
     	width: 50vw;
 	}
 
-	.showSearchBox {
-		opacity: 1 !important;
-		top: 65% !important;
-		pointer-events: initial !important;
+	#searchBoxContainer.showSearchBox {
+		opacity: 1;
+		top: 65%;
+		pointer-events: initial;
 	}
 }
 

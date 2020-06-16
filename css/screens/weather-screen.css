@@ -1,16 +1,4 @@
 #weatherScreen {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	background: var(--panel-bg);
-	/*z-index: 0;*/
-	z-index: 3;
-	overflow: hidden;
-	backdrop-filter: blur(var(--blur-strength));
-
 	display:flex;
     justify-content:center;
     align-items:center;
@@ -20,30 +8,18 @@
 	padding-left: 12vw;
 	padding-right: 12vw;
 
-	/*Dont increase the geometry by using padding*/
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-
-	/*Disable user touch/select on text elements*/
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-
-	opacity: 0;
 	transform: scale(0);
+	opacity: 0;
+	z-index: 0;
 	transition: transform var(--transition-speed),
-	opacity var(--transition-speed),
-	z-index var(--transition-speed);
+				opacity var(--transition-speed),
+				z-index var(--transition-speed);
 }
 
-.showWeatherScreen{
-	transform: scale(1) !important;
-	opacity: 1 !important;
-	z-index: 3 !important;
+.screen#weatherScreen.showWeatherScreen {
+	transform: scale(1);
+	opacity: 1;
+	z-index: 3;
 }
 
 #weatherScreenContainer {
@@ -59,7 +35,7 @@
 }
 
 #weatherTodayIcon {
-	background: url('../assets/weather-icons/weather-error.svg');
+	background: url('../../assets/weather-icons/weather-error.svg');
 	background-size: cover;
 	width: 128px;
 	height: 128px;
@@ -113,19 +89,19 @@
 }
 
 #sunriseHourDataIcon {
-	background: url("../assets/weather-icons/sunrise.svg");
+	background: url("../../assets/weather-icons/sunrise.svg");
 	background-size: cover;
 
 }
 
 #sunsetHourDataIcon {
-	background: url("../assets/weather-icons/sunset.svg");
+	background: url("../../assets/weather-icons/sunset.svg");
 	background-size: cover;
 	margin-left: 5px
 }
 
 #updateHourDataIcon {
-	background: url("../assets/weather-icons/refresh.svg");
+	background: url("../../assets/weather-icons/refresh.svg");
 	background-size: cover;
 	margin-left: 5px
 }
@@ -159,7 +135,7 @@
 }
 
 .weatherForecastDayIcon {
-	background: url('../assets/weather-icons/weather-error.svg');
+	background: url('../../assets/weather-icons/weather-error.svg');
 	background-size: cover;
 	width: 48px;
 	height: 48px;

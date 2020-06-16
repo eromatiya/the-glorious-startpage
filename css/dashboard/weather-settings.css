@@ -25,20 +25,7 @@
 }
 
 #weatherSettingsHeaderIcon {
-	background: url('../assets/ui-icons/weather.svg');
-	background-size: cover;
-	margin-right: 10px;
-	width: 28px;
-	height: 28px;
-}
-
-#weatherSettingsHeaderLabel {
-	font-family: roboto-bold, sans-serif;
-	font-weight: bold;
-	font-size: 14pt;
-	text-align: left;
-	margin-top: auto;
-	margin-bottom: auto;
+	background-image: url('../../assets/ui-icons/weather.svg');
 }
 
 /*Main settings*/
@@ -98,21 +85,21 @@
 
 #weatherSelectUnits:hover,
 #weatherSelectLocator:hover {
-	outline: none !important;
+	outline: none;
 	cursor: pointer;
-	background: var(--base-hover-bg) !important;
+	background: var(--base-hover-bg);
 }
 
 #weatherSelectUnits:focus,
 #weatherSelectLocator:focus {
-	outline: none !important;
-	background: var(--base-focus-bg) !important;
+	outline: none;
+	background: var(--base-focus-bg);
 }
 
 #weatherSelectUnits:active,
 #weatherSelectLocator:active {
-	outline: none !important;
-	background: var(--base-active-bg) !important;
+	outline: none;
+	background: var(--base-active-bg);
 }
 
 #weatherSelectUnits option,
@@ -125,7 +112,7 @@
 #weatherSettingsReset {
 	margin-top: 0;
 	border: none;
-	background: var(--base-container) !important;
+	background: var(--base-container);
 }
 
 #weatherSettingsApply {
@@ -139,17 +126,17 @@
 #weatherSettingsApply:hover, #weatherSettingsReset:hover {
 	outline: none;
 	cursor: pointer;
-	background: var(--base-hover-bg) !important;
+	background: var(--base-hover-bg);
 }
 
 #weatherSettingsApply:active, #weatherSettingsReset:active {
 	outline: none;
-	background: var(--base-active-bg) !important;
+	background: var(--base-active-bg);
 }
 
 #weatherSettingsApply:focus, #weatherSettingsReset:focus {
 	outline: none;
-	background: var(--base-focus-bg) !important;
+	background: var(--base-focus-bg);
 }
 
 
