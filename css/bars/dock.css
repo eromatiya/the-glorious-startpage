@@ -112,7 +112,6 @@
 		transform: scale(0.75);
 		transition: transform var(--transition-speed);
 	}
-
 }
 
 /* Decrease scale to 0.70 if width is less than or equal to 374px and greater than or equal to 320px */

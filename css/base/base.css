@@ -1,3 +1,19 @@
+/* Scrollbar */
+/* Width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: var(--base-container);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: var(--base-active-bg);
+}
+
 :root {
 	/* Colors */
 	--base-body-bg: #1a1a1aff;
@@ -18,22 +34,6 @@
 ::placeholder {
 	color: var(--base-color);
 	opacity: 0.65;
-}
-
-/* Scrollbar */
-/* Width */
-::-webkit-scrollbar {
-	width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-	background: var(--base-container);
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-	background: var(--base-active-bg);
 }
 
 /* Handle on hover */
