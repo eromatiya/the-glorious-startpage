@@ -50,14 +50,14 @@ class WebMenu {
 		// Create a callback property for the passed li
 		li.callback = () => {
 			window.location.href = encodeURI(url);
-		}
+		};
 	}
 	
 	// Sort list alphabetically
 	_sortList = () => {
 		Array.from(this._webMenuList.getElementsByTagName('li'))
 		.sort((a, b) => a.textContent.localeCompare(b.textContent))
-	    .forEach(li => this._webMenuList.appendChild(li));
+		.forEach(li => this._webMenuList.appendChild(li));
 	}
 
 	// Create/generate web items
@@ -103,6 +103,7 @@ class WebMenu {
 
 	// Allow fuzzy searching in web menu
 	_fuzzySearch = () => {
+
 		// eslint-disable-next-line no-extend-native
 		String.prototype.fuzzy = function(term, ratio) {
 		    const string = this.toLowerCase();

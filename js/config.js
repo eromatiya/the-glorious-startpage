@@ -29,7 +29,7 @@ class Config {
 				name: 'Bing',
 				prefix: 'https://www.bing.com/search?q='
 			}
-		}
+		};
 
 		return searchEngines;
 	}

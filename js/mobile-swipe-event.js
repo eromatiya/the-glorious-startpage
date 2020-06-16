@@ -14,7 +14,7 @@ class SwipeEventManager {
 
 		el.addEventListener(
 			'touchstart',
-			(event) => {
+			event => {
 				// event.preventDefault();
 				this._xDown = event.touches[0].clientX;
 	    		this._yDown = event.touches[0].clientY;
@@ -24,10 +24,10 @@ class SwipeEventManager {
 
 		el.addEventListener(
 			'touchmove',
-			(event) => {
+			event => {
 				// event.preventDefault();
-			    if ( ! this._xDown || ! this._yDown ) {
-			        return;
+				if ( ! this._xDown || ! this._yDown ) {
+			    	return;
 			    }
 
 			    const xUp = event.touches[0].clientX;

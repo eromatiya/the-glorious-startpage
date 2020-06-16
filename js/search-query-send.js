@@ -47,9 +47,9 @@ class SearchQuerySend {
 				return;
 			}
 
-	    	// Search the web
-	    	this._sendQuery()
-		};
+			// Search the web
+	    	this._sendQuery();
+		}
 	}
 
 	_registerKeyUpEvent = () => {

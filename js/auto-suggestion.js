@@ -40,7 +40,7 @@ class AutoSuggestion {
 
 				const phraseButtons = Array.prototype.slice.call(document.querySelectorAll('button'));
 				const phraseIndex = (phraseButtons.indexOf(document.activeElement) + 1) % phraseButtons.length;
-	       		const phraseButton = phraseButtons[parseInt(phraseIndex, 10)];
+				const phraseButton = phraseButtons[parseInt(phraseIndex, 10)];
 	       		phraseButton.focus();
 
 			} else if ((e.key === 'ArrowUp') || e.key === 'ArrowLeft') {
@@ -58,7 +58,7 @@ class AutoSuggestion {
 	       		phraseButton.focus();
 			}
 
-		}
+		};
 
 		// Onmouseup event
 		button.onmouseup = e => {

@@ -53,8 +53,8 @@ class GreeterDateMessage {
 			greeterSuffix = 'Evening';
 		}
 
-		this._greeterMessage.innerHTML = `Good<br>${greeterSuffix}!`;
-		this._dateMessage.innerHTML = `Today's the ${this._getDayOrdinal(date.getDate())} of ` +
+		this._greeterMessage.innerText = `Good\n${greeterSuffix}!`;
+		this._dateMessage.innerText = `Today's the ${this._getDayOrdinal(date.getDate())} of ` +
 									`${this._monthsArr[date.getMonth()]}, and it's ${this._daysArr[date.getDay()]}.`;
 	}
 
