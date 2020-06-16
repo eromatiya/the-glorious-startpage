@@ -11,10 +11,7 @@
 
 @media screen and (max-width: 470px) {
 	#webMenuScreen {
-		padding-top: 6vh;
-		padding-bottom: 0vh;
-		padding-left: 18vw;
-		padding-right: 18vw;
+		padding: 6vh 18vw 0vh 18vw;
 	}
 }
 
@@ -34,7 +31,7 @@
 
 #webMenuSearchBox {
 	background: var(--base-bg);
-	
+
 	text-align: center;
 	font-family: roboto-bold, sans-serif;
 	font-weight: 700;
