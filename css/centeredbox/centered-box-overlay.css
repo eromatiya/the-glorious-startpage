@@ -12,7 +12,8 @@
 	margin: 0;
 	padding: 0;
 	z-index: -1;
-	transition: opacity var(--transition-speed),
+	transition:
+				opacity var(--transition-speed),
 				z-index var(--transition-speed),
 				backdrop-filter var(--transition-speed);
 }

@@ -48,7 +48,8 @@
 	height: 0;
 	opacity: 0;
 	pointer-events: none;
-	transition: height var(--transition-speed),
+	transition:
+				height var(--transition-speed),
 				opacity var(--transition-speed);
 }
 

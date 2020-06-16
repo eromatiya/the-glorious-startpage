@@ -8,7 +8,7 @@
 
 	pointer-events: none;
 
-	transition: 
+	transition:
 				opacity var(--transition-speed),
 				top var(--transition-speed),
 				pointer-events var(--transition-speed);

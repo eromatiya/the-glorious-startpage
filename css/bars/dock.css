@@ -177,7 +177,8 @@
 		opacity: 0;
 		margin: 5px;
 		transform: scale(0);
-		transition: transform var(--transition-speed),
+		transition:
+					transform var(--transition-speed),
 					opacity var(--transition-speed);
 	}
 

@@ -7,7 +7,8 @@
 	transform: scale(0);
 	opacity: 0;
 	z-index: 0;
-	transition: transform var(--transition-speed),
+	transition:
+				transform var(--transition-speed),
 				opacity var(--transition-speed),
 				z-index var(--transition-speed);
 }

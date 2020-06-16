@@ -58,7 +58,8 @@
 	
 	z-index: -2;
 	filter: blur(var(--blur-strength)) brightness(70%);
-	transition: visibility var(--transition-speed),
+	transition:
+				visibility var(--transition-speed),
 				z-index var(--transition-speed);
 }
 
