@@ -40,7 +40,7 @@ class AutoSuggestion {
 
 				const phraseButtons = Array.prototype.slice.call(document.querySelectorAll('button'));
 				const phraseIndex = (phraseButtons.indexOf(document.activeElement) + 1) % phraseButtons.length;
-	       		const phraseButton = phraseButtons[phraseIndex];
+	       		const phraseButton = phraseButtons[parseInt(phraseIndex)];
 	       		phraseButton.focus();
 
 			} else if ((e.key === 'ArrowUp') || e.key === 'ArrowLeft') {
@@ -107,7 +107,7 @@ class AutoSuggestion {
 		const endpoint = 'https://duckduckgo.com/ac/';
 		const callback = 'autocompleteCallback'
 		const searchQuery = String(this._searchBox.value);
-		window[callback] = res => {
+		window[String(callback)] = res => {
 			// Passed the suggestion object to process it
 			this._autocompleteCallback(res);
 		}
