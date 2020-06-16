@@ -170,10 +170,7 @@
 
 @media screen and (max-width: 470px) {
 	#weatherScreen {
-		padding-top: 6vh;
-		padding-bottom: 0vh;
-		padding-left: 18vw;
-		padding-right: 18vw;
+		padding: 6vh 18vw 0vh 18vw;
 	}
 }
 

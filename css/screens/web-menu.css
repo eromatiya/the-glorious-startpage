@@ -1,6 +1,6 @@
 #webMenuScreen {
 	z-index: 0;
-	padding: 40px 6vh 12vw 12vw;
+	padding: 40px 12vw 6vh 12vw;
 
 	opacity: 0;
 	transform: scale(0);
