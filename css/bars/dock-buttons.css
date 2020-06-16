@@ -1,15 +1,32 @@
 /*Dock buttons*/
 .dockButton {
+	background: var(--base-container);
 	width: 36px;
 	height: 36px;
 	position: relative;
-	background: var(--base-container);
 	border-radius: var(--rounded-radius);
 	margin: 2px;
 	padding: 5px;
 	border: none;
 	cursor: pointer;
 	transition: transform .2s;
+}
+
+/*The a href container/main dock button container*/
+.dockLink {
+	/*Act as div*/
+	display: block;
+
+	/*Remove outlines*/
+	text-decoration: none;
+	outline: 0;
+	border: none;
+	-moz-outline-style: none;
+
+	/*Disable dragging*/
+	user-select: none;
+	user-drag: none;
+	-webkit-user-drag: none;
 }
 
 .dockButton div {
@@ -48,21 +65,4 @@
 
 .dockButtonImage {
 	background-size: 'cover';
-}
-
-/*The a href container/main dock button container*/
-.dockLink {
-	/*Act as div*/
-	display: block;
-
-	/*Remove outlines*/
-	text-decoration: none;
-	outline: 0;
-	border: none;
-	-moz-outline-style: none;
-
-	/*Disable dragging*/
-	user-select: none;
-	user-drag: none;
-	-webkit-user-drag: none;
 }
