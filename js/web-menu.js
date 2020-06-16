@@ -41,7 +41,7 @@ class WebMenu {
 	    const len = elems.length;
 
 	    for (let i = 0; i < len; i++) {
-	        elems[i].disabled = status;
+	        elems[parseInt(i, 10)].disabled = status;
 	    }
 	}
 
@@ -112,7 +112,7 @@ class WebMenu {
 		    if (string.indexOf(compare) > -1) return true; 
 		    
 		    for (let i = 0; i < compare.length; i++) {
-		        string.indexOf(compare[i]) > -1 ? matches += 1 : matches -=1;
+		        string.indexOf(compare[parseInt(i)]) > -1 ? matches += 1 : matches -=1;
 		    }
 		    return ((matches / this.length) >= ratio || term === '');
 		};
@@ -131,7 +131,7 @@ class WebMenu {
 		// Loop through all list items, and focus if matches the search query
 		for (let i = 0; i < li.length; i++) {
 
-			a = li[i].getElementsByClassName('webItemName')[0];
+			a = li[parseInt(i, 10)].getElementsByClassName('webItemName')[0];
 			txtValue = a.innerHTML || a.textContent || a.innerText;
 
 			// If an item match, hightlight it and focus
@@ -144,7 +144,7 @@ class WebMenu {
 				oldWebItemFocusChild.classList.remove('webItemFocus');
 
 				// Update webItemFocus
-				this._webItemFocus = li[i];
+				this._webItemFocus = li[parseInt(i)];
 
 				// Update weblistindex
 				this._webListIndex = i;

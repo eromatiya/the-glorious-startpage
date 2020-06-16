@@ -53,9 +53,9 @@ class DockButtons {
 
         for (let i = 0; i < (this.dockSites.length); i++) {
     
-            const site = this.dockSites[i].site;
-            const icon = this.dockSites[i].icon;
-            const url = this.dockSites[i].url;
+            const site = this.dockSites[parseInt(i, 10)].site;
+            const icon = this.dockSites[parseInt(i, 10)].icon;
+            const url = this.dockSites[parseInt(i, 10)].url;
     
             // Create a href
             const aDock = document.createElement('a');

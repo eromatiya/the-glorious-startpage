@@ -42,7 +42,7 @@ class SearchEngineSettings {
 		Object.keys(this._searchEngines)
 		.forEach(key => {
 			const seValue = key;
-			const seData = this._searchEngines[key];
+			const seData = this._searchEngines[String(key)];
 			const seOption = document.createElement('option');
 
 			// Generate search engine suggestions

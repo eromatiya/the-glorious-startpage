@@ -26,7 +26,7 @@ class Dashboard {
         const len = elems.length;
 
         for (let i = 0; i < len; i++) {
-            elems[i].disabled = status;
+            elems[parseInt(i, 10)].disabled = status;
         }
     }
 

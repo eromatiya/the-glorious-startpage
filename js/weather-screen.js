@@ -63,7 +63,7 @@ class WeatherScreen {
 			'50n': 'nmist.svg'
 		};
 
-		return icon_tbl[code];
+		return icon_tbl[String(code)];
 	}
 
 	_updateWeatherDockButton = icon => {

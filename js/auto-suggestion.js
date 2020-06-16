@@ -54,7 +54,7 @@ class AutoSuggestion {
 					phraseIndex = phraseButtons.length - 1;
 				};
 
-				const phraseButton = phraseButtons[phraseIndex];
+				const phraseButton = phraseButtons[parseInt(phraseIndex, 10)];
 	       		phraseButton.focus();
 			}
 
