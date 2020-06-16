@@ -20,12 +20,12 @@
 	user-select: none;
 }
 
-/*Show suggestion*/
+/* Show suggestion */
 #suggestionsContainer.suggestionsShow {
 	opacity: 1;
 }
 
-/*ul*/
+/* UL */
 #suggestions {
 	
 	height: auto;
@@ -44,7 +44,7 @@
   	table-layout: fixed;
 }
 
-/*li*/
+/* LI */
 #phrase {
 	/*Align list horizontally*/
 	justify-content: center;
@@ -62,7 +62,7 @@
   	text-align: center;
 }
 
-/*The li's child*/
+/* LI's Child */
 .phraseButton {
 
 	background: transparent;
@@ -80,10 +80,12 @@
 
 }
 
+/* Focus */
 .phraseButton:focus {
 	background: var(--base-bg);
 }
 
+/* Active */
 .phraseButton:active {
 	background: var(--base-active-bg);
 }
@@ -95,9 +97,9 @@
 		width: 100vw;
 	}
 
-	/*The Li*/
+	/* The Li */
 	#phrase {
-		/*Always stack and center horizontally*/
+		/* Always stack and center horizontally */
 	  	display: table-cell;
 		width: auto;
 	  	text-align: center;
@@ -110,7 +112,7 @@
 }
 
 @media screen and (max-height: 340px) {
-
+	/* Hide */
 	#suggestionsContainer.phrasesContainer {	
 		opacity: 0;
 	}

@@ -51,8 +51,8 @@ class SearchEngineSettings {
 				`
 				<option value='${seValue}'>${seData.name}</option>
 				`
-			)
-		})
+			);
+		});
 
 		// Call to update query string and placeholder
 		this._updateSearchEngineElements();

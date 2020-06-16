@@ -1,7 +1,7 @@
 class ProfileImage {
 
 	constructor() {
-		this._profileContainer = document.querySelector('#profileImageContainer')
+		this._profileContainer = document.querySelector('#profileImageContainer');
 
 		this._profileAnimRunning = false;
 

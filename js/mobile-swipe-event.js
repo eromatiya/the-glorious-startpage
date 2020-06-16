@@ -38,7 +38,7 @@ class SwipeEventManager {
 				if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
 					if ( xDiff > 0 ) {
 						// Left Swipe
-						dir = 'left'
+						dir = 'left';
 					} else {
 						// Right Swipe
 						dir = 'right';

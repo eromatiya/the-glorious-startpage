@@ -89,7 +89,7 @@ class WebMenu {
 					</div>
 				</a>
 				`
-			)
+			);
 
 			// Create callback property
 			this._createWebItemCallback(li, url);
@@ -306,7 +306,7 @@ class WebMenu {
 			const containerWindow = ((window.innerWidth - (menuItemWidth / 2) - scrollBarWidth - vw(24)) / menuItemWidth);
 			// Get rounded result
 			return Math.round(containerWindow);
-		}
+		};
 
 		// Determine the index position by key
 		const changeWebListIndex = () => {
@@ -336,7 +336,7 @@ class WebMenu {
 
 		const changeItemFocus = (condition, overFlowIndex) => {
 			const next = this._webMenuList.getElementsByTagName('li')[this._webListIndex];
-			if(typeof next !== undefined && condition) {			
+			if(typeof next !== 'undefined' && condition) {			
 				this._webItemFocus = next;
 			} else {
 				this._webListIndex = overFlowIndex;
@@ -345,10 +345,10 @@ class WebMenu {
 		}
 
 		const changeItemFocusByKey = () => {
-			if (key === right) { return changeItemFocus((this._webListIndex <= len), 0) }
-			if (key === left) { return changeItemFocus((this._webListIndex >= 0), len) }
-			if (key === up) { return changeItemFocus((this._webListIndex >= 0), len) }
-			if (key === down) { return changeItemFocus((this._webListIndex <= len), 0) }
+			if (key === right) { return changeItemFocus((this._webListIndex <= len), 0); }
+			if (key === left) { return changeItemFocus((this._webListIndex >= 0), len); }
+			if (key === up) { return changeItemFocus((this._webListIndex >= 0), len); }
+			if (key === down) { return changeItemFocus((this._webListIndex <= len), 0); }
 		}
 		
 		changeWebListIndex();

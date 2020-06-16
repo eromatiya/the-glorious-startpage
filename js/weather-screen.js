@@ -42,7 +42,7 @@ class WeatherScreen {
 	}
 
 	_getWeatherIcon = code => {
-		const icon_tbl = {
+		const iconTbl = {
 			'01d': 'sun_icon.svg',
 			'01n': 'moon_icon.svg',
 			'02d': 'dfew_clouds.svg',
@@ -63,7 +63,7 @@ class WeatherScreen {
 			'50n': 'nmist.svg'
 		};
 
-		return icon_tbl[String(code)];
+		return iconTbl[String(code)];
 	}
 
 	_updateWeatherDockButton = icon => {
@@ -90,9 +90,9 @@ class WeatherScreen {
 	_createForecastBody = (fIcon, forecastTemp, foreDescription, dayName, fHour) => {
 
 		// Generate forecast
-	 	this._forecastContainer.insertAdjacentHTML(
-	 		'beforeend',
-	 		`
+		this._forecastContainer.insertAdjacentHTML(
+			'beforeend',
+			`
 	 		<div class='weatherForecastDay'>
 				<div class='weatherForecastDayDate'>
 					<div class='weatherForecastDayDateName'>${dayName}</div>
@@ -107,7 +107,7 @@ class WeatherScreen {
 				</div>
 			</div>
 	 		`
-	 	)
+	 	);
 	}
 
 

@@ -159,7 +159,7 @@ class ThemeEngine {
 			foregroundOpacity,
 			blurStrength,
 			animSpeed
-		)
+		);
 	}
 
 	_updateCSSconstiables = () => {

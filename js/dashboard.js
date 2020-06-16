@@ -62,7 +62,7 @@ class Dashboard {
 	toggleDashboard = () => {
 
 		// console.log('toggle dashboard');
-	 
+		
 		if (this._rightDashboardVisibility) {
 		
 			// Hide dashboard
