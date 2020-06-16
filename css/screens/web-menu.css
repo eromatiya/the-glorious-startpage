@@ -38,7 +38,7 @@
 }
 
 #webMenuSearchBox {
-	background: var(--base-container);
+	background: var(--base-bg);
 	
 	text-align: center;
 	font-family: roboto-bold, sans-serif;
@@ -188,7 +188,7 @@
 	position: relative;
 	display: flex;
   	justify-content: center;
-  	max-height: 74vh;
+  	max-height: 70vh;
 	overflow-y: auto;
 
 	/*Fade transparency*/

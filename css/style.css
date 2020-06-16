@@ -1,8 +1,8 @@
 /*Load all CSS*/
-@import url('normalize.css');
-@import url('font-face.css');
-@import url('base.css');
-@import url('dummy-body-background.css');
+@import url('base/normalize.css');
+@import url('base/font-face.css');
+@import url('base/base.css');
+@import url('base/dummy-body-background.css');
 
 /*Bars and Panels*/
 @import url('bars/bar.css');
