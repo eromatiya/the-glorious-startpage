@@ -2,11 +2,7 @@
 	display:flex;
     justify-content:center;
     align-items:center;
-
-	padding-top: 6vh;
-	padding-bottom: 6vh;
-	padding-left: 12vw;
-	padding-right: 12vw;
+	padding: 6vh 12vw;
 
 	transform: scale(0);
 	opacity: 0;

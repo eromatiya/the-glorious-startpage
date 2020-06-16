@@ -1,12 +1,7 @@
 #webMenuScreen {
 	z-index: 0;
-	
-	padding-top: 40px;
-	padding-bottom: 6vh;
-	padding-left: 12vw;
-	padding-right: 12vw;
+	padding: 40px 6vh 12vw 12vw;
 
-	/*Transitions*/
 	opacity: 0;
 	transform: scale(0);
 	transition: transform var(--transition-speed),
