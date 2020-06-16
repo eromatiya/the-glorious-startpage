@@ -170,7 +170,7 @@
 
 @media screen and (max-width: 470px) {
 	#weatherScreen {
-		padding: 6vh 18vw 0vh 18vw;
+		padding: 6vh 18vw 0 18vw;
 	}
 }
 
@@ -195,7 +195,7 @@
 
 		float: none;
 		clear: none;
-		margin-left : 0px;
+		margin-left : 0;
 	}
 
 	/*Add fixed geometry to weatherForecastDay children*/

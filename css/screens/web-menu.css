@@ -11,7 +11,7 @@
 
 @media screen and (max-width: 470px) {
 	#webMenuScreen {
-		padding: 6vh 18vw 0vh 18vw;
+		padding: 6vh 18vw 0 18vw;
 	}
 }
 
