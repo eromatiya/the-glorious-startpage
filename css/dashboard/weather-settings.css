@@ -139,7 +139,6 @@
 	background: var(--base-focus-bg);
 }
 
-
 #weatherSettingsButtons {
 	display: flex;
 	flex-direction: row;

@@ -242,7 +242,7 @@ class WebMenu {
 
 		if (this._webMenuVisibility) {
 			// Hide web menu
-			this.hideWebMenu();  	
+			this.hideWebMenu();
 
 		} else {
 			// Show Web menu
@@ -332,7 +332,7 @@ class WebMenu {
 					this._webMenuSearchBox.value = '';
 					break;
 			}
-		}
+		};
 
 		const changeItemFocus = (condition, overFlowIndex) => {
 			const next = this._webMenuList.getElementsByTagName('li')[this._webListIndex];

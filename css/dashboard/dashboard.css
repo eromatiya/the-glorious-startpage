@@ -2,7 +2,7 @@
 	background: var(--panel-bg);
 	height: 100%;
 	z-index: 7;
-	/*border-radius: var(--rounded-radius);*/
+	/* border-radius: var(--rounded-radius); */
 	backdrop-filter: blur(var(--blur-strength));
 
 	-webkit-touch-callout: none;
@@ -28,22 +28,22 @@
 	overflow-y: auto;
 	box-sizing: border-box;
 	scrollbar-width: none;
-	transition: width var(--transition-speed); 
+	transition: width var(--transition-speed);
 }
 
-/*Hide scrollbar*/
+/* Hide scrollbar */
 #rightDashboard::-webkit-scrollbar {
 	display: none;
 }
 
-/*Show dashboard*/
+/* Show dashboard */
 .dashboard#rightDashboard.showRightDashboard {
 	width: 350px;
 	z-index: 7;
 	scrollbar-width: none;
 }
 
-/*Overlay*/
+/* Overlay */
 .dashboardOverlay {
 	position: absolute;
 	visibility: hidden;

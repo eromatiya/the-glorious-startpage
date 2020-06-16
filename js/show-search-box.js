@@ -58,7 +58,7 @@ class SearchBoxShow {
 
 		} else {
 			// Show search box
-			this.showSearchBox();   
+			this.showSearchBox();
 		}
 
 		// console.log('toggle searchbox');

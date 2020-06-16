@@ -107,7 +107,7 @@ class WeatherScreen {
 				</div>
 			</div>
 	 		`
-	 	);
+		);
 	}
 
 

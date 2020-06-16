@@ -55,7 +55,7 @@ class AutoSuggestion {
 				}
 
 				const phraseButton = phraseButtons[parseInt(phraseIndex, 10)];
-		   		phraseButton.focus();
+				phraseButton.focus();
 			}
 
 		};
@@ -64,7 +64,7 @@ class AutoSuggestion {
 		button.onmouseup = e => {
 			this._searchBox.value = button.innerText;
 			this._searchBox.focus();
-		}
+		};
 	}
 
 	// Generate and parse suggestions

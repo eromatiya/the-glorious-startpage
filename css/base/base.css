@@ -23,13 +23,13 @@
 * {
 	box-sizing: border-box;
 	
-	/*Font rendering*/
+	/* Font rendering */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-rendering: optimizeLegibility;
 	font-variant-ligatures: none;
 
-	/*Disable tap hightlight color on mobile devices*/
+	/* Disable tap hightlight color on mobile devices */
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
 }
@@ -52,14 +52,14 @@ html, body {
 	position: fixed;
 }
 
-/*Placeholder*/
+/* Placeholder */
 ::placeholder {
 	color: var(--base-color);
 	opacity: 0.65;
 }
 
-/*Scrollbar*/
-/* width */
+/* Scrollbar */
+/* Width */
 ::-webkit-scrollbar {
 	width: 10px;
 }
@@ -79,7 +79,7 @@ html, body {
 	background: var(--base-hover-bg);
 }
 
-/*Hide focus elements outline*/
+/* Hide focus elements outline */
 input:focus,
 textarea:focus,
 select:focus{
@@ -90,7 +90,7 @@ select::-ms-expand {
   display: none;
 }
 
-/*Select*/
+/* Select */
 select {
 	text-align: center;
 	text-align-last: center;
