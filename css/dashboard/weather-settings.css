@@ -124,18 +124,21 @@
 	margin-right: 2.5px;
 }
 
-#weatherSettingsApply:hover, #weatherSettingsReset:hover {
+#weatherSettingsApply:hover,
+#weatherSettingsReset:hover {
 	outline: none;
 	cursor: pointer;
 	background: var(--base-hover-bg);
 }
 
-#weatherSettingsApply:active, #weatherSettingsReset:active {
+#weatherSettingsApply:active,
+#weatherSettingsReset:active {
 	outline: none;
 	background: var(--base-active-bg);
 }
 
-#weatherSettingsApply:focus, #weatherSettingsReset:focus {
+#weatherSettingsApply:focus,
+#weatherSettingsReset:focus {
 	outline: none;
 	background: var(--base-focus-bg);
 }

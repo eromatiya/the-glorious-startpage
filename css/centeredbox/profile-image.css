@@ -18,7 +18,7 @@
 }
 
 #profileImage {
-	background-image: url('../../assets/user.png') ;
+	background-image: url('../../assets/user.png');
 	height: 128px;
 	width: 128px;
 	border-radius: 50%;
@@ -37,6 +37,6 @@
 }
 
 @keyframes rotate {
-	from { -webkit-transform: rotate(0deg) } 
-	to { -webkit-transform: rotate(360deg) } 
+	from { transform: rotate(0deg); } 
+	to { transform: rotate(360deg); } 
 }

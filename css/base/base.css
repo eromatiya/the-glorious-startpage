@@ -1,22 +1,16 @@
 :root {
 	/* Colors */
 	--base-body-bg: #1A1A1AFF;
-
 	--base-bg: #00000060;
 	--base-color: #FEFEFEFF;
 	--base-container: #F2F2F220;
-
 	--base-hover-bg: #F2F2F230;
 	--base-focus-bg: #F2F2F245;
 	--base-active-bg: #FEFEFE60;
-
 	--blur-strength: 6px;
-	
 	--panel-bg: var(--base-bg);
 	--panel-color: var(--base-color);
-
 	--transition-speed: 300ms;
-
 	--rounded-radius: 12px;
 }
 
@@ -46,7 +40,8 @@ body {
 	color: var(--foreground);
 }
 
-html, body {
+html,
+body {
 	font-family: roboto, sans-serif;
 	height: 100%;
 	position: fixed;
@@ -79,6 +74,12 @@ html, body {
 	background: var(--base-hover-bg);
 }
 
+/* Select */
+select {
+	text-align: center;
+	text-align-last: center;
+}
+
 /* Hide focus elements outline */
 input:focus,
 textarea:focus,
@@ -87,13 +88,7 @@ select:focus{
 }
 
 select::-ms-expand {
-  display: none;
-}
-
-/* Select */
-select {
-	text-align: center;
-	text-align-last: center;
+	display: none;
 }
 
 option {

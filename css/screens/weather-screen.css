@@ -1,7 +1,7 @@
 #weatherScreen {
-	display:flex;
-	justify-content:center;
-	align-items:center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	padding: 6vh 12vw;
 
 	transform: scale(0);
@@ -21,7 +21,6 @@
 
 #weatherScreenContainer {
 	overflow: hidden;
-	position: relative;
 
 	/*Align vertically center*/
 	margin: 0;
@@ -86,30 +85,27 @@
 }
 
 #sunriseHourDataIcon {
-	background: url("../../assets/weather-icons/sunrise.svg");
+	background-image: url("../../assets/weather-icons/sunrise.svg");
 	background-size: cover;
-
 }
 
 #sunsetHourDataIcon {
-	background: url("../../assets/weather-icons/sunset.svg");
+	background-image: url("../../assets/weather-icons/sunset.svg");
 	background-size: cover;
-	margin-left: 5px
+	margin-left: 5px;
 }
 
 #updateHourDataIcon {
-	background: url("../../assets/weather-icons/refresh.svg");
+	background-image: url("../../assets/weather-icons/refresh.svg");
 	background-size: cover;
-	margin-left: 5px
+	margin-left: 5px;
 }
-
 
 .weatherForecast {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 }
-
 
 /*Forecast Container*/
 .weatherForecastDay {
@@ -182,7 +178,6 @@
 }
 
 @media screen and (max-width: 470px) {
-
 	.weatherForecast {
 		display: inline-block;
 		flex-direction: row;

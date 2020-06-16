@@ -110,7 +110,7 @@ class AutoSuggestion {
 		window[String(callback)] = res => {
 			// Passed the suggestion object to process it
 			this._autocompleteCallback(res);
-		}
+		};
 
 		// Fetch from duckduckgo
 		const script = document.createElement('script');

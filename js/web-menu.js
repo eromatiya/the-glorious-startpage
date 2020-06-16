@@ -342,7 +342,7 @@ class WebMenu {
 				this._webListIndex = overFlowIndex;
 				this._webItemFocus = this._webMenuList.getElementsByTagName('li')[parseInt(overFlowIndex, 10)];
 			}
-		}
+		};
 
 		const changeItemFocusByKey = () => {
 			if (key === right) { return changeItemFocus((this._webListIndex <= len), 0); }

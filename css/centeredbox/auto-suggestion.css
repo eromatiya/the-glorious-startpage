@@ -71,13 +71,13 @@
 
 	color: var(--base-color);
 	font-size: 12pt;
-	font-family: roboto-bold;
+	font-family: roboto-bold, sans-serif;
+	font-weight: 700;
 	text-align: center;
 
 	border-radius: 6px;
 	vertical-align: middle;
 	padding: 10px;
-
 }
 
 /* Focus */
@@ -91,7 +91,6 @@
 }
 
 @media screen and (max-height: 539px) and (min-height: 341px) {
-
 	#suggestions {	
 		height: auto;
 		width: 100vw;
@@ -101,7 +100,6 @@
 	#phrase {
 		/* Always stack and center horizontally */
 	  	display: table-cell;
-		width: auto;
 	  	text-align: center;
 
 	  	justify-content: space-between;
@@ -113,7 +111,7 @@
 
 @media screen and (max-height: 340px) {
 	/* Hide */
-	#suggestionsContainer.phrasesContainer {	
+	#suggestionsContainer.phrasesContainer {
 		opacity: 0;
 	}
 

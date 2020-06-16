@@ -139,7 +139,7 @@
 /* Contains web icon and label */
 .webItemContainer {
 	/* Align vertically */
-	margin:0  auto;
+	margin: 0 auto;
 	position: relative;
 	top: 50%;
 	-webkit-transform: translateY(-50%);
@@ -175,7 +175,6 @@
 	font-weight: 400;
 	word-wrap: break-word;
 	color: var(--base-color);
-
 }
 
 #webMenuListContainer {
@@ -235,6 +234,5 @@
 
 	/*Disable dragging*/
 	user-select: none;
-	user-drag: none;
 	-webkit-user-drag: none;
 }
