@@ -1,7 +1,7 @@
 #weatherScreen {
 	display:flex;
-    justify-content:center;
-    align-items:center;
+	justify-content:center;
+	align-items:center;
 	padding: 6vh 12vw;
 
 	transform: scale(0);
@@ -20,9 +20,9 @@
 
 #weatherScreenContainer {
 	overflow: hidden;
-    position: relative;
+	position: relative;
 
-    /*Align vertically center*/
+	/*Align vertically center*/
 	margin: 0;
 	position: absolute;
 	top: 50%;

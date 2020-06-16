@@ -69,8 +69,8 @@ class SearchEngineSettings {
 
 	// Use this to select the current/default search engine on startup
 	_selectTheEngine = () => {
-	    this._selectSearchEngine.value = this._currentSearchEngine;
-	    this._updateSearchEngineElements();
+		this._selectSearchEngine.value = this._currentSearchEngine;
+		this._updateSearchEngineElements();
 	}
 
 	// Execute this on change event of <select>

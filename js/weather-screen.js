@@ -73,15 +73,15 @@ class WeatherScreen {
 
 	_setWeatherValue = (loc, desc, icon, sunr, suns, updt) => {
 		
-		this._weatherLocation.innerHTML = loc;
-		this._weatherDescription.innerHTML = desc + this._tempSymbol;
+		this._weatherLocation.innerText = loc;
+		this._weatherDescription.innerText = desc + this._tempSymbol;
 
 		this._weatherIcon.style.background = `url('assets/weather-icons/${icon}')`;
 		this._weatherIcon.style.backgroundSize = 'cover';
 
-		this._sunriseHour.innerHTML = sunr;
-		this._sunsetHour.innerHTML = suns;
-		this._updateHour.innerHTML = updt;
+		this._sunriseHour.innerText = sunr;
+		this._sunsetHour.innerText = suns;
+		this._updateHour.innerText = updt;
 
 		// Update weather button on dock
 		this._updateWeatherDockButton(icon);
@@ -136,7 +136,7 @@ class WeatherScreen {
 		const wLoc = cityName + ', ' + countryName;
 
 		let wDesc = weatherDescription + ', ' + weatherTemp;
-		wDesc = wDesc && wDesc[0].toUpperCase() + wDesc.slice(1)
+		wDesc = wDesc && wDesc[0].toUpperCase() + wDesc.slice(1);
 
 		const wIcon = this._getWeatherIcon(weatherIcon);
 		const rise = this._formatUnixTime(sunRise);
@@ -158,7 +158,7 @@ class WeatherScreen {
 				callback(JSON.parse(request.response));
 			} else {
 				this._setErrValue();
-			};
+			}
 		};
 		request.send();	
 	}
@@ -204,17 +204,17 @@ class WeatherScreen {
 	_processForecastData = data => {
 		
 		// Empty forecast container to avoid duplication
-		this._forecastContainer.innerHTML = '';
+		this._forecastContainer.innerText = '';
 
 		const forecast = data.list;
 
 		for (let i = 8; i < forecast.length; i+=8) {
 			
-			const foreIcon = forecast[i].weather[0].icon;
-			const minimumTemp = forecast[i].main.temp_min;
-			const maximumTemp = forecast[i].main.temp_max;
-			const foreDescription = forecast[i].weather[0].description;
-			const dateTime = forecast[i].dt_txt;
+			const foreIcon = forecast[parseInt(i, 10)].weather[0].icon;
+			const minimumTemp = forecast[parseInt(i, 10)].main.temp_min;
+			const maximumTemp = forecast[parseInt(i, 10)].main.temp_max;
+			const foreDescription = forecast[parseInt(i, 10)].weather[0].description;
+			const dateTime = forecast[parseInt(i, 10)].dt_txt;
 
 			const fIcon = this._getWeatherIcon(foreIcon);
 			const minTemp = Math.floor(minimumTemp);
@@ -233,51 +233,51 @@ class WeatherScreen {
 
 	showWeatherScreen = () => {
 		this._weatherScreen.classList.add('showWeatherScreen');
-	    this._weatherScreenVisibility = !this._weatherScreenVisibility;
+		this._weatherScreenVisibility = !this._weatherScreenVisibility;
 	}
 
 	hideWeatherScreen = () => {
 		this._weatherScreen.classList.remove('showWeatherScreen');
-	    this._weatherScreenVisibility = !this._weatherScreenVisibility;
+		this._weatherScreenVisibility = !this._weatherScreenVisibility;
 	}
 
 	toggleWeatherScreen = () => {
-
+		
 		// console.log('toggle weather screen');
-
-	    // If profile anim is still running,
-	    // Return to avoid spam
+		
+		// If profile anim is still running,
+		// Return to avoid spam
 		if (profileImage.getProfileAnimationStatus()) return;
 
 		// Rotate profile
-	    profileImage.rotateProfile();
+		profileImage.rotateProfile();
 
-	    if (this._weatherScreenVisibility) {
-	    	// Hide weather screen
-	    	this.hideWeatherScreen();
+		if (this._weatherScreenVisibility) {
+			// Hide weather screen
+			this.hideWeatherScreen();
 
-	    } else {
-	    	// Show weather screen
-	    	this.showWeatherScreen();  	
-	    }
+		} else {
+			// Show weather screen
+			this.showWeatherScreen();
+		}
 
-	    // Check if any of these are open, if yes, close it
-	    if (this._webMenu.classList.contains('showWebMenu')) {
-	    	// console.log('web menu is open, closing...');
-	    	webMenu.hideWebMenu();
-	    	return;
+		// Check if any of these are open, if yes, close it
+		if (this._webMenu.classList.contains('showWebMenu')) {
+			// console.log('web menu is open, closing...');
+			webMenu.hideWebMenu();
+			return;
 
-	    } else if (this._searchBoxContainer.classList.contains('showSearchBox')) {
-	    	// console.log('searchbox is open, closing...');
-	    	searchBoxShow.hideSearchBox();
-	    	
-	    } else if (this._dashboard.classList.contains('showRightDashboard')) {
-	    	// console.log('dashboard is open, closing...');
-	    	dashboard.hideDashboard();
-	    }
+		} else if (this._searchBoxContainer.classList.contains('showSearchBox')) {
+			// console.log('searchbox is open, closing...');
+			searchBoxShow.hideSearchBox();
+			
+		} else if (this._dashboard.classList.contains('showRightDashboard')) {
+			// console.log('dashboard is open, closing...');
+			dashboard.hideDashboard();
+		}
 
-	    // Toggle center box
-	    centeredBox.toggleCenteredBox();
+		// Toggle center box
+		centeredBox.toggleCenteredBox();
 	}
 
 }

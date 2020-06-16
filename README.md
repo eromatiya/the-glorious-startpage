@@ -7,9 +7,9 @@
 ## Gallery
 
 <div align='center'>
-    <h3>
-    	<img src='/scrots/idle.png' align='center'>
-    </h3>
+	<h3>
+		<img src='/scrots/idle.png' align='center'>
+	</h3>
 </div>
 
 

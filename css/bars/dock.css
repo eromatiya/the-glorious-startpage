@@ -2,8 +2,8 @@
 	background: transparent;
 	position: absolute;
 	z-index: 5;
-    margin: 0 auto;
-    bottom: 0;
+	margin: 0 auto;
+	bottom: 0;
 
 	/*On bottom, center horizontally*/
 	left: 50%;
@@ -16,8 +16,8 @@
 
 #dock {
 	background: var(--panel-bg);
-    border-radius: var(--rounded-radius);
-    
+	border-radius: var(--rounded-radius);
+	
 	display: flex;
 	position: relative;
 	height: auto;
@@ -26,7 +26,7 @@
 	padding: 5px;
 	margin: 10px;
 
-    transition: transform var(--transition-speed);
+	transition: transform var(--transition-speed);
 	z-index: 1;
 }
 
@@ -37,22 +37,22 @@
 		display: inline-block;
 		opacity: 1;
 
-    	position: relative;
+		position: relative;
 		margin:0  auto;
 
-    	top: 50%;
-    	left: 0;
-    	bottom: 0;
-    	right: 0;
+		top: 50%;
+		left: 0;
+		bottom: 0;
+		right: 0;
 
-    	-webkit-transform: translateY(-50%);
-    	transition: opacity var(--transition-speed);
+		-webkit-transform: translateY(-50%);
+		transition: opacity var(--transition-speed);
 	}
 
 	#dock {
 		display: inline-block;
-    	width: auto;
-    	height: auto;
+		width: auto;
+		height: auto;
 		margin: 5px;
 		transform: scale(0.90);
 		transition: transform var(--transition-speed);
@@ -67,8 +67,8 @@
 		position: absolute;
 		background: transparent;
 		z-index: 5;
-	    margin: 0 auto;
-	    bottom: 0;
+		margin: 0 auto;
+		bottom: 0;
 
 		/*On bottom, center horizontally*/
 		left: 50%;
@@ -81,8 +81,8 @@
 
 	#dock {
 		display: flex;
-    	width: auto;
-    	height: auto;
+		width: auto;
+		height: auto;
 		margin: 5px;
 		transform: scale(0.85);
 		transition: transform var(--transition-speed);
@@ -98,8 +98,8 @@
 		position: absolute;
 		background: transparent;
 		z-index: 5;
-	    margin: 0 auto;
-	    bottom: 0;
+		margin: 0 auto;
+		bottom: 0;
 
 		/*On bottom, center horizontally*/
 		left: 50%;
@@ -112,8 +112,8 @@
 
 	#dock {
 		display: flex;
-    	width: auto;
-    	height: auto;
+		width: auto;
+		height: auto;
 		margin: 5px;
 		transform: scale(0.75);
 		transition: transform var(--transition-speed);
@@ -128,8 +128,8 @@
 		position: absolute;
 		background: transparent;
 		z-index: 5;
-	    margin: 0 auto;
-	    bottom: 0;
+		margin: 0 auto;
+		bottom: 0;
 
 		/*On bottom, center horizontally*/
 		left: 50%;
@@ -142,8 +142,8 @@
 
 	#dock {
 		display: flex;
-    	width: auto;
-    	height: auto;
+		width: auto;
+		height: auto;
 		margin: 5px;
 		transform: scale(0.70);
 		transition: transform var(--transition-speed);
@@ -158,8 +158,8 @@
 		position: absolute;
 		background: transparent;
 		z-index: 5;
-	    margin: 0 auto;
-	    bottom: 0;
+		margin: 0 auto;
+		bottom: 0;
 
 		/*On bottom, center horizontally*/
 		left: 50%;
@@ -172,9 +172,9 @@
 
 	#dock {
 		display: flex;
-    	width: auto;
-    	height: auto;
-    	opacity: 0;
+		width: auto;
+		height: auto;
+		opacity: 0;
 		margin: 5px;
 		transform: scale(0.0);
 		transition: transform var(--transition-speed),

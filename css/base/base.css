@@ -30,7 +30,7 @@
 	font-variant-ligatures: none;
 
 	/*Disable tap hightlight color on mobile devices*/
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
 }
 
@@ -83,7 +83,7 @@ html, body {
 input:focus,
 textarea:focus,
 select:focus{
-    outline: none;
+	outline: none;
 }
 
 select::-ms-expand {

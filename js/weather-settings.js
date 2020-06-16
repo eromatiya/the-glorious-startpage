@@ -105,7 +105,7 @@ class WeatherSettings {
 	_deniedGeolocation = () => {
 
 		alert(`Location access denied! If you're on mobile, make sure to`+
-			` enable your GPS and allow the location permission on your browser's settings.`)
+			` enable your GPS and allow the location permission on your browser's settings.`);
 
 	}
 

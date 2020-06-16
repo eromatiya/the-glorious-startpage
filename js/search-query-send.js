@@ -34,8 +34,8 @@ class SearchQuerySend {
 	};
 
 	_keyUpEvent = event => {
-	    // Cancel the default action, if needed
-	    event.preventDefault();
+		// Cancel the default action, if needed
+		event.preventDefault();
 		
 		if (event.key === 'Tab') return;
 
@@ -48,7 +48,7 @@ class SearchQuerySend {
 			}
 
 			// Search the web
-	    	this._sendQuery();
+			this._sendQuery();
 		}
 	}
 

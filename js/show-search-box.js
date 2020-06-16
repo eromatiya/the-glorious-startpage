@@ -1,68 +1,68 @@
 class SearchBoxShow {
-    
-    constructor() {
+	
+	constructor() {
 
-        this._searchBox = document.querySelector('#searchBox');
-        this._searchBoxContainer = document.querySelector('#searchBoxContainer');
-        this._centeredBoxOverlay = document.querySelector('#centeredBoxOverlay');
+		this._searchBox = document.querySelector('#searchBox');
+		this._searchBoxContainer = document.querySelector('#searchBoxContainer');
+		this._centeredBoxOverlay = document.querySelector('#centeredBoxOverlay');
 
-        this._searchBoxVisility = false;
+		this._searchBoxVisility = false;
 
-        this.showSearchBox = this.showSearchBox.bind(this);
-        this.hideSearchBox = this.hideSearchBox.bind(this);
-        this.toggleSearchBox = this.toggleSearchBox.bind(this);
-    }
+		this.showSearchBox = this.showSearchBox.bind(this);
+		this.hideSearchBox = this.hideSearchBox.bind(this);
+		this.toggleSearchBox = this.toggleSearchBox.bind(this);
+	}
 
-    getSearchBoxVisibility = () => {
-        return this._searchBoxVisility;
-    }
+	getSearchBoxVisibility = () => {
+		return this._searchBoxVisility;
+	}
 
-    showSearchBox = () => {
-        this._searchBoxContainer.classList.add('showSearchBox');
+	showSearchBox = () => {
+		this._searchBoxContainer.classList.add('showSearchBox');
 
-        // Focus
-        this._searchBox.focus();
+		// Focus
+		this._searchBox.focus();
 
-        this._searchBoxVisility = !this._searchBoxVisility;
+		this._searchBoxVisility = !this._searchBoxVisility;
 
-        // Toggle overlay
-        this._centeredBoxOverlay.classList.toggle('showOverlay');
-    }
+		// Toggle overlay
+		this._centeredBoxOverlay.classList.toggle('showOverlay');
+	}
 
-    hideSearchBox = () => {
-        this._searchBoxContainer.classList.remove('showSearchBox');
+	hideSearchBox = () => {
+		this._searchBoxContainer.classList.remove('showSearchBox');
 
-        // Toggle overlay
-        this._centeredBoxOverlay.classList.toggle('showOverlay');
+		// Toggle overlay
+		this._centeredBoxOverlay.classList.toggle('showOverlay');
 
-        this._searchBox.value = '';
+		this._searchBox.value = '';
 
-        // Hide suggestions
-        autoSuggestion.hideSuggestions();
+		// Hide suggestions
+		autoSuggestion.hideSuggestions();
 
-        this._searchBoxVisility = !this._searchBoxVisility;
-    }
+		this._searchBoxVisility = !this._searchBoxVisility;
+	}
 
-    toggleSearchBox = () => {
+	toggleSearchBox = () => {
 
-        // If profile anim is still running,
-        // Return to avoid spam
-        if (profileImage.getProfileAnimationStatus()) return;
+		// If profile anim is still running,
+		// Return to avoid spam
+		if (profileImage.getProfileAnimationStatus()) return;
 
-        // Rotate profile
-        profileImage.rotateProfile();
+		// Rotate profile
+		profileImage.rotateProfile();
 
-        if (this._searchBoxVisility) {
-            // Hide search box
-            this.hideSearchBox();
+		if (this._searchBoxVisility) {
+			// Hide search box
+			this.hideSearchBox();
 
-        } else {
-            // Show search box
-            this.showSearchBox();    
-        }
+		} else {
+			// Show search box
+			this.showSearchBox();   
+		}
 
-        // console.log('toggle searchbox');
-    }
+		// console.log('toggle searchbox');
+	}
 
 
 }

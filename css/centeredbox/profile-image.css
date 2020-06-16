@@ -6,10 +6,10 @@
 	width: 138px;
 	border-radius: 50%;
 	pointer-events: initial;
-    
-    margin: 0 auto;
-    margin-bottom: 110px;
-    position: relative;
+	
+	margin: 0 auto;
+	margin-bottom: 110px;
+	position: relative;
 
    	flex-flow: column wrap;
 	display: flex;
@@ -37,6 +37,6 @@
 }
 
 @keyframes rotate {
-    from { -webkit-transform: rotate(0deg) } 
-    to { -webkit-transform: rotate(360deg) } 
+	from { -webkit-transform: rotate(0deg) } 
+	to { -webkit-transform: rotate(360deg) } 
 }

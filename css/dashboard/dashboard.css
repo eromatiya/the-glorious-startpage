@@ -16,7 +16,7 @@
 .rightDashboardBody {
 	margin: 10px;
 	height: auto;
-    width: 330px;
+	width: 330px;
 }
 
 #rightDashboard {
@@ -33,7 +33,7 @@
 
 /*Hide scrollbar*/
 #rightDashboard::-webkit-scrollbar {
-    display: none;
+	display: none;
 }
 
 /*Show dashboard*/

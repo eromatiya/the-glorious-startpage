@@ -37,12 +37,12 @@ class WebMenu {
 
 	// Disable textboxes	
 	_disableWebMenuInputs = status => {
-	    const elems = this._webMenuScreen.getElementsByTagName('input');
-	    const len = elems.length;
+		const elems = this._webMenuScreen.getElementsByTagName('input');
+		const len = elems.length;
 
-	    for (let i = 0; i < len; i++) {
-	        elems[parseInt(i, 10)].disabled = status;
-	    }
+		for (let i = 0; i < len; i++) {
+			elems[parseInt(i, 10)].disabled = status;
+		}
 	}
 
 	// Create callback property, to be used when enter was pressed while item is focused	
@@ -106,17 +106,17 @@ class WebMenu {
 
 		// eslint-disable-next-line no-extend-native
 		String.prototype.fuzzy = function(term, ratio) {
-		    const string = this.toLowerCase();
-		    const compare = term.toLowerCase();
-		    let matches = 0;
-		    
-		    // Covers basic partial matches
-		    if (string.indexOf(compare) > -1) return true; 
-		    
-		    for (let i = 0; i < compare.length; i++) {
-		        string.indexOf(compare[parseInt(i, 10)]) > -1 ? matches += 1 : matches -=1;
-		    }
-		    return ((matches / this.length) >= ratio || term === '');
+			const string = this.toLowerCase();
+			const compare = term.toLowerCase();
+			let matches = 0;
+			
+			// Covers basic partial matches
+			if (string.indexOf(compare) > -1) return true; 
+			
+			for (let i = 0; i < compare.length; i++) {
+				string.indexOf(compare[parseInt(i, 10)]) > -1 ? matches += 1 : matches -=1;
+			}
+			return ((matches / this.length) >= ratio || term === '');
 		};
 	}
 
@@ -194,22 +194,22 @@ class WebMenu {
 		// Enable inputs
 		this._disableWebMenuInputs(false);
 
-	    this._webMenuVisibility = !this._webMenuVisibility;
+		this._webMenuVisibility = !this._webMenuVisibility;
 
-	    // Focus to input field
-	    this._webMenuSearchBox.focus();
+		// Focus to input field
+		this._webMenuSearchBox.focus();
 	}
 
 	// Hide web menu screen
 	hideWebMenu = () => {
-	    // Clear input field
-	    this._webMenuSearchBox.value = '';
+		// Clear input field
+		this._webMenuSearchBox.value = '';
 
-	    // Unfocus input field
-	    this._webMenuSearchBox.blur();
+		// Unfocus input field
+		this._webMenuSearchBox.blur();
 
-	    // Refilter web list
-	    this._filterWebList();
+		// Refilter web list
+		this._filterWebList();
 		
 		// Scroll to top
 		this._webMenuListContainer.scrollTop = 0;
@@ -225,7 +225,7 @@ class WebMenu {
 		// Disable inputs
 		this._disableWebMenuInputs(true);
 
-	    this._webMenuVisibility = !this._webMenuVisibility;
+		this._webMenuVisibility = !this._webMenuVisibility;
 	}
 
 	// Toggle web menu screen
@@ -233,40 +233,40 @@ class WebMenu {
 
 		// console.log('toggle web menu');
 
-	    // If profile anim is still running,
-	    // Return to avoid spam
+		// If profile anim is still running,
+		// Return to avoid spam
 		if (profileImage.getProfileAnimationStatus()) return;
 
 		// Rotate profile
-	    profileImage.rotateProfile();
+		profileImage.rotateProfile();
 
-	    if (this._webMenuVisibility) {
-	    	// Hide web menu
-	    	this.hideWebMenu();  	
+		if (this._webMenuVisibility) {
+			// Hide web menu
+			this.hideWebMenu();  	
 
-	    } else {
-	    	// Show Web menu
-	    	this.showWebMenu();
-	    }
+		} else {
+			// Show Web menu
+			this.showWebMenu();
+		}
 
-	    // Check if any of these are open, if yes, close it
-	    if (searchBoxContainer.classList.contains('showSearchBox')) {
-	    	// console.log('searchbox is open, closing...');
-	    	searchBoxShow.hideSearchBox();
+		// Check if any of these are open, if yes, close it
+		if (searchBoxContainer.classList.contains('showSearchBox')) {
+			// console.log('searchbox is open, closing...');
+			searchBoxShow.hideSearchBox();
 
-	    } else if (this._dashboard.classList.contains('showRightDashboard')) {
-	    	// console.log('dashboard is open, closing...');
-	    	dashboard.hideDashboard();
+		} else if (this._dashboard.classList.contains('showRightDashboard')) {
+			// console.log('dashboard is open, closing...');
+			dashboard.hideDashboard();
 
-	    } else if (this._weatherScreen.classList.contains('showWeatherScreen')) {
-	    	// console.log('weather screen is open, closing...');
-	    	weatherScreen.hideWeatherScreen();
-	    	return;
-	    	
-	    }
-	    
-	    // Toggle center box
-	    centeredBox.toggleCenteredBox();
+		} else if (this._weatherScreen.classList.contains('showWeatherScreen')) {
+			// console.log('weather screen is open, closing...');
+			weatherScreen.hideWeatherScreen();
+			return;
+			
+		}
+		
+		// Toggle center box
+		centeredBox.toggleCenteredBox();
 	}
 
 	// Remove focus class
@@ -340,7 +340,7 @@ class WebMenu {
 				this._webItemFocus = next;
 			} else {
 				this._webListIndex = overFlowIndex;
-				this._webItemFocus = this._webMenuList.getElementsByTagName('li')[overFlowIndex];
+				this._webItemFocus = this._webMenuList.getElementsByTagName('li')[parseInt(overFlowIndex, 10)];
 			}
 		}
 
