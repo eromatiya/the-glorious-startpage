@@ -170,7 +170,6 @@ class ThemeEngine {
 
 		this._animSpeedTextBox.value = '';
 		this._animSpeedTextBox.placeholder = animSpeed;
-
 	}
 
 	// Get/Update current css value
@@ -262,6 +261,14 @@ class ThemeEngine {
 		return inputFieldValues;
 	}
 
+	_updateCSSColors = (bgColor, fgColor, blurPower, animSpeed) => {
+		// Change CSS colors
+		document.documentElement.style.setProperty('--base-bg', bgColor);
+		document.documentElement.style.setProperty('--base-color', fgColor);
+		document.documentElement.style.setProperty('--blur-strength', blurPower);
+		document.documentElement.style.setProperty('--transition-speed', animSpeed);
+	}
+
 	// Update css variables and set theme
 	_updateCSSVariables = () => {
 
@@ -298,7 +305,7 @@ class ThemeEngine {
 				this._getStorageItem(validatedColorValues[String(key)].fallbackVar) ||
 				this._getStorageItem(validatedColorValues[String(key)].fallbackOrigVar);
 
-				return new Promise(() => { alert('Invalid Color! Will use default color!') });
+				// console.log('Invalid Color! Will use previous one...')
 			}
 		});
 
@@ -334,47 +341,63 @@ class ThemeEngine {
 			this._getStorageItem(validatedSpeedValue['transitionSpeed'].fallbackVar) ||
 			this._getStorageItem(validatedSpeedValue['transitionSpeed'].fallbackOrigVar);
 
-		console.log('bg: '+bgColor+'\nfg: '+fgColor+'\nblur: '+blurPower+'\nspeed: '+animSpeed);
+		// console.log('bg: '+bgColor+'\nfg: '+fgColor+'\nblur: '+blurPower+'\nspeed: '+animSpeed);
+
+		// Save custom color
+		this._localStorage.setItem('baseBG', bgColor);
+		this._localStorage.setItem('baseColor', fgColor);
+		this._localStorage.setItem('blurStrength', blurPower);
+		this._localStorage.setItem('animSpeed', animSpeed);
+
+		// Update css colors
+		this._updateCSSColors(bgColor, fgColor, blurPower, animSpeed);
+		this._processCurrentCSSValues();
 	}
 
+	_reApplyTheme = () => {
+		this._updateCSSColors(
+			this._getStorageItem('baseBG') || this._getStorageItem('origBaseBG'),
+			this._getStorageItem('baseColor') || this._getStorageItem('origBaseColor'),
+			this._getStorageItem('blurStrength') || this._getStorageItem('origBlurStrength'),
+			this._getStorageItem('animSpeed') || this._getStorageItem('origAnimSpeed')
+		);
+
+		this._processCurrentCSSValues();
+	}
 
 	_applyOnClickEvent = e => {
 		this._updateCSSVariables();
-		// alert('Success!');
 	}
 
 	_registerApplyOnClickEvent = () => {
 		this._applyTheme.onclick = this._applyOnClickEvent;
 	}
 
-	// _resetOnClickEvent = e => {
-	// 	this._localStorage.removeItem('baseBG');
-	// 	this._localStorage.removeItem('baseColor');
-	// 	this._localStorage.removeItem('blurStrength');
-	// 	this._localStorage.removeItem('animSpeed');
+	_resetOnClickEvent = e => {
+		this._localStorage.removeItem('baseBG');
+		this._localStorage.removeItem('baseColor');
+		this._localStorage.removeItem('blurStrength');
+		this._localStorage.removeItem('animSpeed');
 
-	// 	// this._saveOriginalDefaultCSS();
-	// 	// this._processTheme();
-	// 	// this._updateCSSVariables();
-		
-	// 	alert('Success!');
-	// }
+		this._saveOriginalDefaultCSS();
+		this._reApplyTheme();
+	}
 
-	// _registerResetOnClickEvent = () => {
-	// 	this._resetTheme.onclick = this._resetOnClickEvent;
-	// }
+	_registerResetOnClickEvent = () => {
+		this._resetTheme.onclick = this._resetOnClickEvent;
+	}
 
 	_init = () => {
 
+		// Save original css variables value
 		this._saveOriginalDefaultCSS();
 
 		// Process theme
-		this._processCurrentCSSValues();
-		// Update settings
-		// this._updateCSSVariables();
+		this._reApplyTheme();
 
+		// Register events
 		this._registerApplyOnClickEvent();
-		// this._registerResetOnClickEvent();
+		this._registerResetOnClickEvent();
 	}
 
 }
