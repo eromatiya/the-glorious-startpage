@@ -21,7 +21,7 @@ class ThemeEngine {
 		let cssValue = window.getComputedStyle(document.documentElement).getPropertyValue(String(variable));
 
 		// Remove whitespaces
-		// I don't know why getProverty value adds a whitespace(i'm really noob at js)
+		// I don't know why getProperty value adds a whitespace(i'm really noob at js)
 		cssValue = cssValue.replace(/ /g,'');
 
 		return cssValue;
@@ -180,6 +180,7 @@ class ThemeEngine {
 		return currentValues;
 	}
 
+	// Process css variables to update input fields
 	_processCurrentCSSValues = () => {
 
 		// Get current css values
@@ -205,6 +206,29 @@ class ThemeEngine {
 			blurStrength,
 			animSpeed
 		);
+	}
+	
+	// Get input fields values
+	_getInputFieldsValue = () => {
+
+		// Get value from the input fields
+		const background = (this._backgroundTextBox.value || this._backgroundTextBox.placeholder) +
+			(this._backgroundOpacityTextBox.value || this._backgroundOpacityTextBox.placeholder);
+
+		const foreground = (this._foregroundTextBox.value || this._foregroundTextBox.placeholder) +
+			(this._foregroundOpacityTextBox.value || this._foregroundOpacityTextBox.placeholder);
+
+		const blurPower = (this._blurTextBox.value || this._blurTextBox.placeholder);
+		const animSpeed = (this._animSpeedTextBox.value || this._animSpeedTextBox.placeholder);
+
+		const inputFieldValues = {
+			'background': background,
+			'foreground': foreground,
+			'blurPower': blurPower,
+			'animSpeed': animSpeed 
+		}
+
+		return inputFieldValues;
 	}
 
 
