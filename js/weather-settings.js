@@ -129,13 +129,10 @@ class WeatherSettings {
 
 	// Error
 	_watchGeoError = err => {
-
 		// console.warn('ERROR(' + err.code + '): ' + err.message);
-		
 		if (err.code === err.PERMISSION_DENIED) {
 
 			this._deniedGeolocation();
-
 		}
 	}
 
@@ -152,13 +149,10 @@ class WeatherSettings {
 			if ((result.state === 'prompt') || (result.state === 'granted')) {
 
 				this._watchGeoPosition();
-
 			} else if (result.state === 'denied') {
 
 				alert('Manually enable the geolocation in your browser settings. How? Who knows?');
-
 			}
-
 		});
 	}
 
@@ -169,25 +163,17 @@ class WeatherSettings {
 
 		if (this._locatorMode === 'geolocation') {
 
-			// console.log('geolocation');
-
 			this._weatherSettingsCityIDGroup.classList.add('hideWeatherSettings');
-
 		} else if (this._locatorMode === 'city') {
 
-			// console.log('city');
-
 			this._weatherSettingsCityIDGroup.classList.remove('hideWeatherSettings');
-
 		}
-
 	}
 
 	// Register on change event
 	_registerWeatherSelectLocatorOnChangeEvent = () => {
 
 		this._weatherSelectLocator.onchange = this._weatherSelectLocatorOnChangeEvent;
-
 	}
 
 	// Update weather settings
@@ -202,11 +188,9 @@ class WeatherSettings {
 			if (navigator.geolocation) {
 
 				this._checkGeoPermission();
-
 			} else {
 
 				alert(`Oof! It seems your browser doesn't support geolocation.`);
-			
 			}
 
 		} else if (this._locatorMode === 'city') {
@@ -219,7 +203,6 @@ class WeatherSettings {
 			// Update weather forecast elements
 			this._getWeatherDataViaCity(this._appID, this._cityID, this._units);
 			this._getForecastDataViaCity(this._appID, this._cityID, this._units);
-
 		}
 
 		this._deleteWeatherSettingsValue();
@@ -229,55 +212,43 @@ class WeatherSettings {
 	// Reset
 	_weatherResetOnClickEvent = e => {
 
-		const confirmationMsg = `Reset settings?`;
+		// Reset keys
+		this._clearWeatherCredentials();
 
-		if (confirm(confirmationMsg)) {
-			// Reset keys
-			this._clearWeatherCredentials();
+		// Stop geolocating
+		this._stopGeolocating();
 
-			// Stop geolocating
-			this._stopGeolocating();
+		// Update
+		this._updateCredentialVariables();
+		this._deleteWeatherSettingsValue();
+		this._updateWeatherSettingsPlaceholder();
 
-			// Update
-			this._updateCredentialVariables();
-			this._deleteWeatherSettingsValue();
-			this._updateWeatherSettingsPlaceholder();
-
-			// Show/hide city id textbox based on the default mode
-			if (this._locatorMode === 'geolocation') {
-				this._weatherSettingsCityIDGroup.classList.add('hideWeatherSettings');
-			} else if (this._locatorMode === 'city') {
-				this._weatherSettingsCityIDGroup.classList.remove('hideWeatherSettings');
-			}
+		// Show/hide city id textbox based on the default mode
+		if (this._locatorMode === 'geolocation') {
+			this._weatherSettingsCityIDGroup.classList.add('hideWeatherSettings');
+		} else if (this._locatorMode === 'city') {
+			this._weatherSettingsCityIDGroup.classList.remove('hideWeatherSettings');
 		}
 	}
 
 	// Apply Onclick event
 	_weatherApplyOnClickEvent = e => {
 
-		const confirmationMsg = `Apply changes?`;
+		// Set input field value to variables
+		const apiKey = this._apiKeySet.value || this._apiKeySet.placeholder;
+		const cityID = this._cityIDSet.value || this._cityIDSet.placeholder;
+		const units = this._weatherSelectUnits.options[this._weatherSelectUnits.selectedIndex].value;
+		const locator = this._weatherSelectLocator.options[this._weatherSelectLocator.selectedIndex].value;
 
-		if (confirm(confirmationMsg)) {
-			// Set input field value to variables
-			const apiKey = this._apiKeySet.value || this._apiKeySet.placeholder;
-			const cityID = this._cityIDSet.value || this._cityIDSet.placeholder;
-			const units = this._weatherSelectUnits.options[this._weatherSelectUnits.selectedIndex].value;
-			const locator = this._weatherSelectLocator.options[this._weatherSelectLocator.selectedIndex].value;
+		// Update credentials/Settings
+		this._applyWeatherSettings(
+			apiKey,
+			cityID,
+			units,
+			locator
+		);
 
-			// Update credentials/Settings
-			this._applyWeatherSettings(
-				apiKey,
-				cityID,
-				units,
-				locator
-			);
-
-			this._updateWeatherSettings();
-		} else {
-			this._deleteWeatherSettingsValue();
-			this._updateWeatherSettingsPlaceholder();
-		}
-
+		this._updateWeatherSettings();
 	}
 
 	_registerWeatherResetOnClickEvent = () => {

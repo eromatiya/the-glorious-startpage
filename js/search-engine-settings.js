@@ -12,9 +12,6 @@ class SearchEngineSettings {
 
 		this._searchEngines = config.getSearchEngines();
 
-		this._onClickEvent = this._onClickEvent.bind(this);
-		this._onChangeEvent = this._onChangeEvent.bind(this);
-
 		this._init();
 	}
 
@@ -22,8 +19,8 @@ class SearchEngineSettings {
 		this._updateDefaultSearchEngine();
 		this._createSearchEngineOptions();
 		this._selectTheEngine();
-		this._registerOnChangeEvent();
-		this._registerOnClickEvent();
+		this._registerSearchEngineSelectOnChangeEvent();
+		this._registerApplyOnClickEvent();
 	}
 
 	_updateDefaultSearchEngine = () => {
@@ -74,18 +71,18 @@ class SearchEngineSettings {
 	}
 
 	// Execute this on change event of <select>
-	_onChangeEvent = e => {
+	_searchEngineSelectOnChangeEvent = e => {
 		const selectedEngine = this._selectSearchEngine.options[this._selectSearchEngine.selectedIndex].value;
 		this._currentSearchEngine = selectedEngine;
 		this._selectTheEngine();
 	}
 
-	_registerOnChangeEvent = () => {
-		this._selectSearchEngine.onchange = this._onChangeEvent;
+	_registerSearchEngineSelectOnChangeEvent = () => {
+		this._selectSearchEngine.onchange = this._searchEngineSelectOnChangeEvent;
 	}
 
 	// Apply button callback
-	_onClickEvent = e => {
+	_applyOnClickEvent = e => {
 		// Get selected <options>
 		const selectCurrentIndex = this._selectSearchEngine.options[this._selectSearchEngine.selectedIndex];
 
@@ -100,8 +97,8 @@ class SearchEngineSettings {
 		this._updateDefaultSearchEngine();
 	}
 
-	_registerOnClickEvent = () => {
-		this._selectSearchEngineApply.onclick = this._onClickEvent;
+	_registerApplyOnClickEvent = () => {
+		this._selectSearchEngineApply.onclick = this._applyOnClickEvent;
 	}
 
 }
