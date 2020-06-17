@@ -115,6 +115,41 @@ class ThemeEngine {
 		return colorStr;
 	}
 
+	// Validate color
+	_checkBlurValidity = blurStr => {
+
+		let blurStrength = parseInt(blurStr);
+
+		if (String(blurStrength) === 'NaN') {
+			return null;
+		} else {
+			return String(blurStrength) + 'px';
+		}
+	}
+
+	_checkAnimSpeedValidity = speedStr => {
+
+		let animSpeed = parseInt(speedStr);
+		let timeSuffix;
+
+		if (speedStr.endsWith('ms')) {
+			timeSuffix = 'ms';
+		} else if (speedStr.endsWith('s')) {
+			timeSuffix = 's';
+		}
+
+		if(String(animSpeed) === 'NaN') {
+			return null;
+		} else {
+			if (timeSuffix) {
+				return String(animSpeed) + timeSuffix;
+			} else {
+				return String(animSpeed) + 'ms';
+			}
+		}
+
+	}
+
 	// Update textboxes value
 	_updateTextBoxValues = (bgColor, bgOpacity, fgColor, fgOpacity, blurPower, animSpeed) => {
 
@@ -234,31 +269,51 @@ class ThemeEngine {
 
 		const bgColorRaw = inputValueObj['background'];
 		const fgColorRaw = inputValueObj['foreground'];
+		const blurPowerRaw = inputValueObj['blurPower'];
+		const animSpeedRaw = inputValueObj['animSpeed'];
 
 		let validatedColorValues = {
-			'baseBG': this._checkColorValidity(String(bgColorRaw)),
-			'baseColor': this._checkColorValidity(String(fgColorRaw))
+			'bgColor': {
+				value: this._checkColorValidity(String(bgColorRaw)),
+				fallbackVar: 'baseBG',
+				fallbackOrigVar: 'origBaseBG'
+			},
+			'fgColor': {
+				value: this._checkColorValidity(String(fgColorRaw)),
+				fallbackVar: 'baseColor',
+				fallbackOrigVar: 'origBaseColor'
+			}
 		}
 
-		// console.log(validatedColorValues['baseBG']);
-
+		// Check color validity
 		Object.keys(validatedColorValues)
 		.forEach(key => {
 
 			let colorVar = key;
-			let colorValue = validatedColorValues[key];
+			let colorValue = validatedColorValues[key].value;
 
-			if (!colorVar) {
-				console.log('null biatch');
+			if (!colorValue) {
+				validatedColorValues[String(key)].value = 
+				this._getStorageItem(validatedColorValues[String(key)].fallbackVar) ||
+				this._getStorageItem(validatedColorValues[String(key)].fallbackOrigVar);
+
+				return new Promise(() => { alert('Invalid Color! Will use default color!') });
 			}
-
-			console.log(colorValue);
-
 		});
 
-		// console.log('raw: '+bgColorRaw);
-		// console.log('validated: '+bgColor);
+		// Set valid color to variables
+		const bgColor = validatedColorValues['bgColor'].value;
+		const fgColor = validatedColorValues['fgColor'].value;
 
+		// Validate and set blur strength
+		const blurPower = this._checkBlurValidity(blurPowerRaw) ||
+			this._getStorageItem('blurStrength') || this._getStorageItem('origBlurStrength');
+
+		// Valudate and set anim speed
+		const animSpeed = this._checkAnimSpeedValidity(animSpeedRaw) ||
+			this._getStorageItem('animSpeed') || this._getStorageItem('origAnimSpeed');
+
+		// console.log('bg: '+bgColor+'\nfg: '+fgColor+'\nblur: '+blurPower+'\nspeed: '+animSpeed);
 	}
 
 
