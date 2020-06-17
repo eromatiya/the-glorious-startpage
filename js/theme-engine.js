@@ -16,32 +16,62 @@ class ThemeEngine {
 		this._init();
 	}
 
-	_saveDefaultCSS = () => {
+	// Get CSS variable value
+	_getCSSProperty = variable => {
+		return window.getComputedStyle(document.documentElement).getPropertyValue(String(variable));
+	}
 
-		const origBaseBG = this._localStorage.getItem('origBaseBG');
-		const origBaseColor = this._localStorage.getItem('origBaseColor');
-		const origBlurStrength = this._localStorage.getItem('origBlurStrength');
-		const origAnimSpeed = this._localStorage.getItem('origAnimSpeed');
-		
-		if ((origBaseBG === null) || (origBaseColor === null) || (origBlurStrength === null) || (origAnimSpeed === null)) {
+	// Get localStorage item value
+	_getStorageItem = item => {
+		return this._localStorage.getItem(String(item));
+	}
 
-			this._localStorage.setItem(
-				'origBaseBG',
-				window.getComputedStyle(document.documentElement).getPropertyValue('--base-bg')
-			);
-			this._localStorage.setItem(
-				'origBaseColor',
-				window.getComputedStyle(document.documentElement).getPropertyValue('--base-color')
-			);
-			this._localStorage.setItem(
-				'origBlurStrength',
-				window.getComputedStyle(document.documentElement).getPropertyValue('--blur-strength')
-			);
-			this._localStorage.setItem(
-				'origAnimSpeed',
-				window.getComputedStyle(document.documentElement).getPropertyValue('--transition-speed')
-			);
+	// Set localStorage item value
+	_setStorageItem = (item, value) => {
+		this._localStorage.setItem(
+			String(item),
+			this._getCSSProperty(String(value))
+		)
+	}
+
+	// Set/Save original CSS Value, useful when reseting theme engine
+	_saveOriginalDefaultCSS = () => {
+
+		// Check original default CSS values
+		const defaultValues = {
+			'origBaseBG': {
+				value: this._getStorageItem('origBaseBG'),
+				cssVariable: '--base-bg'
+			},
+			'origBaseColor': {
+				value: this._getStorageItem('origBaseColor'),
+				cssVariable: '--base-color'
+			},
+			'origBlurStrength': {
+				value: this._getStorageItem('origBlurStrength'),
+				cssVariable: '--blur-strength'
+			},
+			'origAnimSpeed': {
+				value: this._getStorageItem('origAnimSpeed'),
+				cssVariable: '--transition-speed'
+			}
 		}
+
+		// If original css variable has has no value, set it
+		Object.keys(defaultValues)
+		.forEach(item => {
+			const itemName = item;
+			const itemValue = defaultValues[String(item)].value;
+
+			// If value is null, set
+			if (!itemValue) {
+				this._setStorageItem(itemName, defaultValues[String(item)].cssVariable);
+			}
+		});
+	}
+
+	_invalidColor = () => {
+		alert('Invalid color');
 	}
 
 	_checkColorValidity = colorStr => {
@@ -59,6 +89,7 @@ class ThemeEngine {
 				return colorStr + 'FF';
 			
 			// If three-charactered HEX color - (#RGB)
+			// I feel that this is never used lol
 			} else if (/^#[0-9A-F]{3}$/i.test(colorStr)) {
 
 				// Convert it to RRGGBB
@@ -73,8 +104,8 @@ class ThemeEngine {
 				return bg.replace(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])/, '#$1$1$2$2$3$3') + op;
 
 			} else {
-				alert('Invalid color');
-				return false;
+				this._invalidColor();
+				return;
 			}
 		}
 
@@ -104,133 +135,82 @@ class ThemeEngine {
 
 	}
 
-	_processTheme = () => {
+	// Get/Update current css value
+	_getCurrentCSSValues = () => {
 
-		// Retrieve custom colors
-		let baseBG = this._localStorage.getItem('baseBG');
-		let baseColor = this._localStorage.getItem('baseColor');
-		let blurStrength = this._localStorage.getItem('blurStrength');
-		let animSpeed = this._localStorage.getItem('animSpeed');
-
-		// If custom color doesn't exist, use the value in CSS
-		if (baseBG === null) {
-			baseBG = this._localStorage.getItem('origBaseBG');
+		// Retrieve current css values
+		let currentValues = {
+			'baseBG': {
+				value: this._getStorageItem('baseBG'),
+				origVariable: 'origBaseBG'
+			},
+			'baseColor': {
+				value: this._getStorageItem('baseColor'),
+				origVariable: 'origBaseColor'
+			},
+			'blurStrength': {
+				value: this._getStorageItem('blurStrength'),
+				origVariable: 'origBlurStrength'
+			},
+			'animSpeed': {
+				value: this._getStorageItem('animSpeed'),
+				origVariable: 'origAnimSpeed'
+			}
 		}
 
-		if (baseColor === null) {
-			baseColor = this._localStorage.getItem('origBaseColor');
-		}
+		// If current css variable has has no value, set it
+		Object.keys(currentValues)
+		.forEach(key => {
+			const cssVar = key;
+			const cssValue = currentValues[String(cssVar)].value;
 
-		if (blurStrength === null) {
-			blurStrength = this._localStorage.getItem('origBlurStrength');
-		}
-
-		if (animSpeed === null) {
-			animSpeed = this._localStorage.getItem('origAnimSpeed');
-		}
-
-		// Remove whitespace
-		baseBG = baseBG.replace(/ /g,'');
-		baseColor = baseColor.replace(/ /g,'');
-		blurStrength = blurStrength.replace(/ /g,'');
-		animSpeed = animSpeed.replace(/ /g,'');
-
-		// Check validity
-		baseBG = this._checkColorValidity(baseBG);
-		baseColor = this._checkColorValidity(baseColor);
-
-		// Slice to separate RGB and A of background color
-		// Slice alpha out
-		const backgroundColor = baseBG.slice(0, -2);
-		// Get alpha
-		const backgroundOpacity = baseBG.slice(-2);
-
-
-		// Slice to separate RGB and A of foreground color		
-		// Slice alpha out
-		const foregroundColor = baseColor.slice(0, -2);
-		// Get alpha
-		const foregroundOpacity = baseColor.slice(-2);
-
-		this._updateTextBoxValues(
-			backgroundColor,
-			backgroundOpacity,
-			foregroundColor,
-			foregroundOpacity,
-			blurStrength,
-			animSpeed
-		);
+			// If value is null, set
+			if (!cssValue) {
+				currentValues[String(cssVar)].value = this._getStorageItem(currentValues[String(cssVar)].origVariable);
+			}
+		});
 	}
 
-	_updateCSSconstiables = () => {
 
-		// Get value from input fields
-		const background = (this._backgroundTextBox.value || this._backgroundTextBox.placeholder) +
-			(this._backgroundOpacityTextBox.value || this._backgroundOpacityTextBox.placeholder);
 
-		const foreground = (this._foregroundTextBox.value || this._foregroundTextBox.placeholder) +
-			(this._foregroundOpacityTextBox.value || this._foregroundOpacityTextBox.placeholder);
+
+	// _applyOnClickEvent = e => {
+	// 	// this._updateCSSVariables();
+	// 	alert('Success!');
+	// }
+
+	// _registerApplyOnClickEvent = () => {
+	// 	this._applyTheme.onclick = this._applyOnClickEvent;
+	// }
+
+	// _resetOnClickEvent = e => {
+	// 	this._localStorage.removeItem('baseBG');
+	// 	this._localStorage.removeItem('baseColor');
+	// 	this._localStorage.removeItem('blurStrength');
+	// 	this._localStorage.removeItem('animSpeed');
+
+	// 	// this._saveOriginalDefaultCSS();
+	// 	// this._processTheme();
+	// 	// this._updateCSSVariables();
 		
-		const blurPower = (this._blurTextBox.value || this._blurTextBox.placeholder);
+	// 	alert('Success!');
+	// }
 
-		const animSpeed = (this._animSpeedTextBox.value || this._animSpeedTextBox.placeholder);
-
-		// Check color validity
-		const bgColor = this._checkColorValidity(background);
-		const fgColor = this._checkColorValidity(foreground);
-
-		// Change CSS colors
-		document.documentElement.style.setProperty('--base-bg', bgColor);
-		document.documentElement.style.setProperty('--base-color', fgColor);
-		document.documentElement.style.setProperty('--blur-strength', blurPower);
-		document.documentElement.style.setProperty('--transition-speed', animSpeed);
-
-		// Save custom color
-		this._localStorage.setItem('baseBG', bgColor);
-		this._localStorage.setItem('baseColor', fgColor);
-		this._localStorage.setItem('blurStrength', blurPower);
-		this._localStorage.setItem('animSpeed', animSpeed);
-
-		this._processTheme();
-	}
-
-	_applyOnClickEvent = e => {
-		this._updateCSSconstiables();
-		alert('Success!');
-	}
-
-	_registerApplyOnClickEvent = () => {
-		this._applyTheme.onclick = this._applyOnClickEvent;
-	}
-
-	_resetOnClickEvent = e => {
-		this._localStorage.removeItem('baseBG');
-		this._localStorage.removeItem('baseColor');
-		this._localStorage.removeItem('blurStrength');
-		this._localStorage.removeItem('animSpeed');
-
-		this._saveDefaultCSS();
-		this._processTheme();
-		this._updateCSSconstiables();
-		
-		alert('Success!');
-	}
-
-	_registerResetOnClickEvent = () => {
-		this._resetTheme.onclick = this._resetOnClickEvent;
-	}
+	// _registerResetOnClickEvent = () => {
+	// 	this._resetTheme.onclick = this._resetOnClickEvent;
+	// }
 
 	_init = () => {
 
-		this._saveDefaultCSS();
+		this._saveOriginalDefaultCSS();
 
 		// Update
-		this._processTheme();
+		// this._processTheme();
 		// Update settings
-		this._updateCSSconstiables();
+		// this._updateCSSVariables();
 
-		this._registerApplyOnClickEvent();
-		this._registerResetOnClickEvent();
+		// this._registerApplyOnClickEvent();
+		// this._registerResetOnClickEvent();
 	}
 
 }
