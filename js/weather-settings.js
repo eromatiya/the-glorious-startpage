@@ -104,9 +104,8 @@ class WeatherSettings {
 	// You denied the permission request
 	_deniedGeolocation = () => {
 
-		alert(`Location access denied! If you're on mobile, make sure to`+
+		confirm(`Location access denied! If you're on mobile, make sure to`+
 			` enable your GPS and allow the location permission on your browser's settings.`);
-
 	}
 
 	// Watch
@@ -130,13 +129,10 @@ class WeatherSettings {
 
 	// Error
 	_watchGeoError = err => {
-
 		// console.warn('ERROR(' + err.code + '): ' + err.message);
-		
 		if (err.code === err.PERMISSION_DENIED) {
 
 			this._deniedGeolocation();
-
 		}
 	}
 
@@ -153,13 +149,10 @@ class WeatherSettings {
 			if ((result.state === 'prompt') || (result.state === 'granted')) {
 
 				this._watchGeoPosition();
-
 			} else if (result.state === 'denied') {
 
 				alert('Manually enable the geolocation in your browser settings. How? Who knows?');
-
 			}
-
 		});
 	}
 
@@ -170,25 +163,17 @@ class WeatherSettings {
 
 		if (this._locatorMode === 'geolocation') {
 
-			// console.log('geolocation');
-
 			this._weatherSettingsCityIDGroup.classList.add('hideWeatherSettings');
-
 		} else if (this._locatorMode === 'city') {
 
-			// console.log('city');
-
 			this._weatherSettingsCityIDGroup.classList.remove('hideWeatherSettings');
-
 		}
-
 	}
 
 	// Register on change event
 	_registerWeatherSelectLocatorOnChangeEvent = () => {
 
 		this._weatherSelectLocator.onchange = this._weatherSelectLocatorOnChangeEvent;
-
 	}
 
 	// Update weather settings
@@ -200,15 +185,12 @@ class WeatherSettings {
 		if (this._locatorMode === 'geolocation') {
 
 			this._weatherSettingsCityIDGroup.classList.add('hideWeatherSettings');
-
 			if (navigator.geolocation) {
 
 				this._checkGeoPermission();
-
 			} else {
 
 				alert(`Oof! It seems your browser doesn't support geolocation.`);
-			
 			}
 
 		} else if (this._locatorMode === 'city') {
@@ -221,7 +203,6 @@ class WeatherSettings {
 			// Update weather forecast elements
 			this._getWeatherDataViaCity(this._appID, this._cityID, this._units);
 			this._getForecastDataViaCity(this._appID, this._cityID, this._units);
-
 		}
 
 		this._deleteWeatherSettingsValue();
@@ -230,6 +211,7 @@ class WeatherSettings {
 
 	// Reset
 	_weatherResetOnClickEvent = e => {
+
 		// Reset keys
 		this._clearWeatherCredentials();
 
@@ -247,22 +229,26 @@ class WeatherSettings {
 		} else if (this._locatorMode === 'city') {
 			this._weatherSettingsCityIDGroup.classList.remove('hideWeatherSettings');
 		}
-		alert('Credentials deleted!');
 	}
 
 	// Apply Onclick event
 	_weatherApplyOnClickEvent = e => {
 
+		// Set input field value to variables
+		const apiKey = this._apiKeySet.value || this._apiKeySet.placeholder;
+		const cityID = this._cityIDSet.value || this._cityIDSet.placeholder;
+		const units = this._weatherSelectUnits.options[this._weatherSelectUnits.selectedIndex].value;
+		const locator = this._weatherSelectLocator.options[this._weatherSelectLocator.selectedIndex].value;
+
 		// Update credentials/Settings
 		this._applyWeatherSettings(
-			this._apiKeySet.value || this._apiKeySet.placeholder,
-			this._cityIDSet.value || this._cityIDSet.placeholder,
-			this._weatherSelectUnits.options[this._weatherSelectUnits.selectedIndex].value,
-			this._weatherSelectLocator.options[this._weatherSelectLocator.selectedIndex].value
+			apiKey,
+			cityID,
+			units,
+			locator
 		);
 
 		this._updateWeatherSettings();
-		alert('Successfully updated!');
 	}
 
 	_registerWeatherResetOnClickEvent = () => {

@@ -189,7 +189,7 @@
 	/* mask-image: linear-gradient(to bottom, black 85%, transparent 100%); */
 }
 
-/*Stretch list item if screen width < 470px*/
+/* Stretch list item if screen width < 470px */
 @media screen and (max-width: 470px) {
 	#webMenuList {
 		flex-grow: 1;
@@ -221,18 +221,18 @@
 	}
 }
 
-/*The a href container/main web menu button container*/
+/* The a href container/main web menu button container */
 .webMenuLink {
-	/*Act as div*/
+	/* Act as div */
 	display: block;
 
-	/*Remove outlines*/
+	/* Remove outlines */
 	text-decoration: none;
 	outline: 0;
 	border: none;
 	-moz-outline-style: none;
 
-	/*Disable dragging*/
+	/* Disable dragging */
 	user-select: none;
 	-webkit-user-drag: none;
 }
