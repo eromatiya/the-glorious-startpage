@@ -76,33 +76,30 @@ class ThemeEngine {
 		});
 	}
 
-	_invalidColor = () => {
-		alert('Invalid color');
-	}
-
+	// Validate color
 	_checkColorValidity = colorStr => {
 
 		// Check if RGBA - (#RRGGBBAA)
-		const colorRGBA = /^#[0-9A-F]{8}$/i.test(colorStr);
+		const colorRGBA = /^#[0-9a-fA-F]{8}$/i.test(colorStr);
 
 		// If not RGBA
 		if (!colorRGBA) {
 
 			// If RGB - (#RRGGBB)
-			if (/^#[0-9A-F]{3}$/i.test(colorStr)) {
+			if (/^#[0-9a-fA-F]{3}$/i.test(colorStr)) {
 				
 				// Add completely opaque alpha
 				return colorStr + 'FF';
 			
 			// If three-charactered HEX color - (#RGB)
 			// I feel that this is never used lol
-			} else if (/^#[0-9A-F]{3}$/i.test(colorStr)) {
+			} else if (/^#[0-9a-fA-F]{3}$/i.test(colorStr)) {
 
 				// Convert it to RRGGBB
 				return colorStr.replace(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])/, '#$1$1$2$2$3$3');
 
 			// If three-charactered HEX Color(#RGB) with AA - (#RGBAA)
-			} else if (colorStr.length === 6) {
+			} else if (/^#[0-9a-fA-F]{3}[0-9a-fA-F]$/i.test(colorStr)) {
 
 				const bg = colorStr.slice(0, -2);
 				const op = colorStr.slice(-2);
@@ -110,8 +107,7 @@ class ThemeEngine {
 				return bg.replace(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])/, '#$1$1$2$2$3$3') + op;
 
 			} else {
-				this._invalidColor();
-				return;
+				return null;
 			}
 		}
 
@@ -231,17 +227,49 @@ class ThemeEngine {
 		return inputFieldValues;
 	}
 
+	// Update css variables and set theme
+	_updateCSSVariables = () => {
+
+		const inputValueObj = this._getInputFieldsValue();
+
+		const bgColorRaw = inputValueObj['background'];
+		const fgColorRaw = inputValueObj['foreground'];
+
+		let validatedColorValues = {
+			'baseBG': this._checkColorValidity(String(bgColorRaw)),
+			'baseColor': this._checkColorValidity(String(fgColorRaw))
+		}
+
+		// console.log(validatedColorValues['baseBG']);
+
+		Object.keys(validatedColorValues)
+		.forEach(key => {
+
+			let colorVar = key;
+			let colorValue = validatedColorValues[key];
+
+			if (!colorVar) {
+				console.log('null biatch');
+			}
+
+			console.log(colorValue);
+
+		});
+
+		// console.log('raw: '+bgColorRaw);
+		// console.log('validated: '+bgColor);
+
+	}
 
 
+	_applyOnClickEvent = e => {
+		this._updateCSSVariables();
+		// alert('Success!');
+	}
 
-	// _applyOnClickEvent = e => {
-	// 	// this._updateCSSVariables();
-	// 	alert('Success!');
-	// }
-
-	// _registerApplyOnClickEvent = () => {
-	// 	this._applyTheme.onclick = this._applyOnClickEvent;
-	// }
+	_registerApplyOnClickEvent = () => {
+		this._applyTheme.onclick = this._applyOnClickEvent;
+	}
 
 	// _resetOnClickEvent = e => {
 	// 	this._localStorage.removeItem('baseBG');
@@ -269,7 +297,7 @@ class ThemeEngine {
 		// Update settings
 		// this._updateCSSVariables();
 
-		// this._registerApplyOnClickEvent();
+		this._registerApplyOnClickEvent();
 		// this._registerResetOnClickEvent();
 	}
 
