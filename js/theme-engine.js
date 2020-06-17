@@ -18,7 +18,13 @@ class ThemeEngine {
 
 	// Get CSS variable value
 	_getCSSProperty = variable => {
-		return window.getComputedStyle(document.documentElement).getPropertyValue(String(variable));
+		let cssValue = window.getComputedStyle(document.documentElement).getPropertyValue(String(variable));
+
+		// Remove whitespaces
+		// I don't know why getProverty value adds a whitespace(i'm really noob at js)
+		cssValue = cssValue.replace(/ /g,'');
+
+		return cssValue;
 	}
 
 	// Get localStorage item value
@@ -169,6 +175,8 @@ class ThemeEngine {
 				currentValues[String(cssVar)].value = this._getStorageItem(currentValues[String(cssVar)].origVariable);
 			}
 		});
+
+		return currentValues;
 	}
 
 
