@@ -256,7 +256,7 @@ class ThemeEngine {
 			'foreground': foregroundColor,
 			'blurPower': blurStrength,
 			'animSpeed': transitionSpeed 
-		}
+		};
 
 		return inputFieldValues;
 	}
@@ -291,7 +291,7 @@ class ThemeEngine {
 				fallbackVar: 'baseColor',
 				fallbackOrigVar: 'origBaseColor'
 			}
-		}
+		};
 
 		// Check color validity
 		Object.keys(validatedColorValues)
@@ -320,7 +320,7 @@ class ThemeEngine {
 				fallbackVar: 'blurStrength',
 				fallbackOrigVar: 'origBlurStrength'
 			}
-		}
+		};
 
 		// Validate and set blur strength
 		const blurPower = this._checkBlurValidity(blurPowerRaw) ||
@@ -334,7 +334,7 @@ class ThemeEngine {
 				fallbackVar: 'animSpeed',
 				fallbackOrigVar: 'origAnimSpeed'
 			}
-		}
+		};
 
 		// Valudate and set anim speed
 		const animSpeed = this._checkAnimSpeedValidity(animSpeedRaw) ||
