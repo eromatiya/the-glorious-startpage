@@ -193,7 +193,7 @@ class ThemeEngine {
 				value: this._getStorageItem('animSpeed'),
 				origVariable: 'origAnimSpeed'
 			}
-		}
+		};
 
 		// If current css variable has has no value, set it
 		Object.keys(currentValues)
