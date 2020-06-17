@@ -272,6 +272,7 @@ class ThemeEngine {
 		const blurPowerRaw = inputValueObj['blurPower'];
 		const animSpeedRaw = inputValueObj['animSpeed'];
 
+		// Colors data obj
 		let validatedColorValues = {
 			'bgColor': {
 				value: this._checkColorValidity(String(bgColorRaw)),
@@ -305,15 +306,35 @@ class ThemeEngine {
 		const bgColor = validatedColorValues['bgColor'].value;
 		const fgColor = validatedColorValues['fgColor'].value;
 
+		// Blur data obj
+		let validatedBlurValue = {
+			'blurStrength': {
+				value: this._checkBlurValidity(blurPowerRaw),
+				fallbackVar: 'blurStrength',
+				fallbackOrigVar: 'origBlurStrength'
+			}
+		}
+
 		// Validate and set blur strength
 		const blurPower = this._checkBlurValidity(blurPowerRaw) ||
-			this._getStorageItem('blurStrength') || this._getStorageItem('origBlurStrength');
+			this._getStorageItem(validatedBlurValue['blurStrength'].fallbackVar) ||
+			this._getStorageItem(validatedBlurValue['blurStrength'].fallbackOrigVar);
+
+		// Anim speed data obj
+		let validatedSpeedValue = {
+			'transitionSpeed' : {
+				value: this._checkBlurValidity(animSpeedRaw),
+				fallbackVar: 'animSpeed',
+				fallbackOrigVar: 'origAnimSpeed'
+			}
+		}
 
 		// Valudate and set anim speed
 		const animSpeed = this._checkAnimSpeedValidity(animSpeedRaw) ||
-			this._getStorageItem('animSpeed') || this._getStorageItem('origAnimSpeed');
+			this._getStorageItem(validatedSpeedValue['transitionSpeed'].fallbackVar) ||
+			this._getStorageItem(validatedSpeedValue['transitionSpeed'].fallbackOrigVar);
 
-		// console.log('bg: '+bgColor+'\nfg: '+fgColor+'\nblur: '+blurPower+'\nspeed: '+animSpeed);
+		console.log('bg: '+bgColor+'\nfg: '+fgColor+'\nblur: '+blurPower+'\nspeed: '+animSpeed);
 	}
 
 
