@@ -1,4 +1,4 @@
-/*Filter for body's lazy loaded background */
+/* Filter for body's lazy loaded background */
 
 #dummyBodyBackground {
 	background: var(--base-body-bg);

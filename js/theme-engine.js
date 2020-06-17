@@ -37,7 +37,7 @@ class ThemeEngine {
 		this._localStorage.setItem(
 			String(item),
 			this._getCSSProperty(String(value))
-		)
+		);
 	}
 
 	// Set/Save original CSS Value, useful when reseting theme engine
@@ -61,7 +61,7 @@ class ThemeEngine {
 				value: this._getStorageItem('origAnimSpeed'),
 				cssVariable: '--transition-speed'
 			}
-		}
+		};
 
 		// If original css variable has has no value, set it
 		Object.keys(defaultValues)
@@ -118,7 +118,7 @@ class ThemeEngine {
 	// Validate color
 	_checkBlurValidity = blurStr => {
 
-		let blurStrength = parseInt(blurStr);
+		let blurStrength = parseInt(blurStr, 10);
 
 		if (String(blurStrength) === 'NaN') {
 			return null;
@@ -129,7 +129,7 @@ class ThemeEngine {
 
 	_checkAnimSpeedValidity = speedStr => {
 
-		let animSpeed = parseInt(speedStr);
+		let animSpeed = parseInt(speedStr, 10);
 		let timeSuffix;
 
 		if (speedStr.endsWith('ms')) {
@@ -242,20 +242,20 @@ class ThemeEngine {
 	_getInputFieldsValue = () => {
 
 		// Get value from the input fields
-		const background = (this._backgroundTextBox.value || this._backgroundTextBox.placeholder) +
+		const backgroundColor = (this._backgroundTextBox.value || this._backgroundTextBox.placeholder) +
 			(this._backgroundOpacityTextBox.value || this._backgroundOpacityTextBox.placeholder);
 
-		const foreground = (this._foregroundTextBox.value || this._foregroundTextBox.placeholder) +
+		const foregroundColor = (this._foregroundTextBox.value || this._foregroundTextBox.placeholder) +
 			(this._foregroundOpacityTextBox.value || this._foregroundOpacityTextBox.placeholder);
 
-		const blurPower = (this._blurTextBox.value || this._blurTextBox.placeholder);
-		const animSpeed = (this._animSpeedTextBox.value || this._animSpeedTextBox.placeholder);
+		const blurStrength = (this._blurTextBox.value || this._blurTextBox.placeholder);
+		const transitionSpeed = (this._animSpeedTextBox.value || this._animSpeedTextBox.placeholder);
 
 		const inputFieldValues = {
-			'background': background,
-			'foreground': foreground,
-			'blurPower': blurPower,
-			'animSpeed': animSpeed 
+			'background': backgroundColor,
+			'foreground': foregroundColor,
+			'blurPower': blurStrength,
+			'animSpeed': transitionSpeed 
 		}
 
 		return inputFieldValues;
@@ -298,7 +298,7 @@ class ThemeEngine {
 		.forEach(key => {
 
 			let colorVar = key;
-			let colorValue = validatedColorValues[key].value;
+			let colorValue = validatedColorValues[String(key)].value;
 
 			if (!colorValue) {
 				validatedColorValues[String(key)].value = 
