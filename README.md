@@ -161,6 +161,8 @@ The background image changes based on time.
 
 + Make sure that javascript is enabled!
 
++ If you're using `NoScript` and `Dark Mode Reader` extensions make sure to disable them on the starpage! NoScript will disable javascript making this startpage useless. While, Dark Mode Reader will change the ligher CSS colors to dark, ruining the design.
+
 + If you're using firefox and blur effect is not enabled, open `about:config`, accept the risks, find `layout.css.backdrop-filter.enabled`, and set it to true to enable it. Refresh the startpage.
 
 + If you're using firefox and planning to use the geolocation, set the value of `geo.provider.network.url` to `https://location.services.mozilla.com/v1/geolocate?key=test` in `about:config`.
