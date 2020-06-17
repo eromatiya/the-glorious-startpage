@@ -99,7 +99,7 @@ class ThemeEngine {
 				return colorStr.replace(/^#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])/, '#$1$1$2$2$3$3');
 
 			// If three-charactered HEX Color(#RGB) with AA - (#RGBAA)
-			} else if (/^#[0-9a-fA-F]{3}[0-9a-fA-F]$/i.test(colorStr)) {
+			} else if (/^#[0-9a-fA-F]{3}[0-9a-fA-F]{2}$/i.test(colorStr)) {
 
 				const bg = colorStr.slice(0, -2);
 				const op = colorStr.slice(-2);
