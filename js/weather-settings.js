@@ -104,9 +104,8 @@ class WeatherSettings {
 	// You denied the permission request
 	_deniedGeolocation = () => {
 
-		alert(`Location access denied! If you're on mobile, make sure to`+
+		confirm(`Location access denied! If you're on mobile, make sure to`+
 			` enable your GPS and allow the location permission on your browser's settings.`);
-
 	}
 
 	// Watch
@@ -200,7 +199,6 @@ class WeatherSettings {
 		if (this._locatorMode === 'geolocation') {
 
 			this._weatherSettingsCityIDGroup.classList.add('hideWeatherSettings');
-
 			if (navigator.geolocation) {
 
 				this._checkGeoPermission();
@@ -230,39 +228,56 @@ class WeatherSettings {
 
 	// Reset
 	_weatherResetOnClickEvent = e => {
-		// Reset keys
-		this._clearWeatherCredentials();
 
-		// Stop geolocating
-		this._stopGeolocating();
+		const confirmationMsg = `Reset settings?`;
 
-		// Update
-		this._updateCredentialVariables();
-		this._deleteWeatherSettingsValue();
-		this._updateWeatherSettingsPlaceholder();
+		if (confirm(confirmationMsg)) {
+			// Reset keys
+			this._clearWeatherCredentials();
 
-		// Show/hide city id textbox based on the default mode
-		if (this._locatorMode === 'geolocation') {
-			this._weatherSettingsCityIDGroup.classList.add('hideWeatherSettings');
-		} else if (this._locatorMode === 'city') {
-			this._weatherSettingsCityIDGroup.classList.remove('hideWeatherSettings');
+			// Stop geolocating
+			this._stopGeolocating();
+
+			// Update
+			this._updateCredentialVariables();
+			this._deleteWeatherSettingsValue();
+			this._updateWeatherSettingsPlaceholder();
+
+			// Show/hide city id textbox based on the default mode
+			if (this._locatorMode === 'geolocation') {
+				this._weatherSettingsCityIDGroup.classList.add('hideWeatherSettings');
+			} else if (this._locatorMode === 'city') {
+				this._weatherSettingsCityIDGroup.classList.remove('hideWeatherSettings');
+			}
 		}
-		alert('Credentials deleted!');
 	}
 
 	// Apply Onclick event
 	_weatherApplyOnClickEvent = e => {
 
-		// Update credentials/Settings
-		this._applyWeatherSettings(
-			this._apiKeySet.value || this._apiKeySet.placeholder,
-			this._cityIDSet.value || this._cityIDSet.placeholder,
-			this._weatherSelectUnits.options[this._weatherSelectUnits.selectedIndex].value,
-			this._weatherSelectLocator.options[this._weatherSelectLocator.selectedIndex].value
-		);
+		const confirmationMsg = `Apply changes?`;
 
-		this._updateWeatherSettings();
-		alert('Successfully updated!');
+		if (confirm(confirmationMsg)) {
+			// Set input field value to variables
+			const apiKey = this._apiKeySet.value || this._apiKeySet.placeholder;
+			const cityID = this._cityIDSet.value || this._cityIDSet.placeholder;
+			const units = this._weatherSelectUnits.options[this._weatherSelectUnits.selectedIndex].value;
+			const locator = this._weatherSelectLocator.options[this._weatherSelectLocator.selectedIndex].value;
+
+			// Update credentials/Settings
+			this._applyWeatherSettings(
+				apiKey,
+				cityID,
+				units,
+				locator
+			);
+
+			this._updateWeatherSettings();
+		} else {
+			this._deleteWeatherSettingsValue();
+			this._updateWeatherSettingsPlaceholder();
+		}
+
 	}
 
 	_registerWeatherResetOnClickEvent = () => {
