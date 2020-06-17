@@ -119,6 +119,7 @@ class ThemeEngine {
 		return colorStr;
 	}
 
+	// Update textboxes value
 	_updateTextBoxValues = (bgColor, bgOpacity, fgColor, fgOpacity, blurPower, animSpeed) => {
 
 		// Set placeholders
@@ -179,6 +180,33 @@ class ThemeEngine {
 		return currentValues;
 	}
 
+	_processCurrentCSSValues = () => {
+
+		// Get current css values
+		const themeObj = this._getCurrentCSSValues();
+
+		const baseBG = themeObj['baseBG'].value;
+		const backgroundColor = baseBG.slice(0, -2);
+		const backgroundOpacity = baseBG.slice(-2);
+
+		const baseColor = themeObj['baseColor'].value;
+		const foregroundColor = baseColor.slice(0, -2);
+		const foregroundOpacity = baseColor.slice(-2);
+
+		const blurStrength = themeObj['blurStrength'].value;
+		const animSpeed = themeObj['animSpeed'].value;
+
+		// Pass value to update textboxes
+		this._updateTextBoxValues(
+			backgroundColor,
+			backgroundOpacity,
+			foregroundColor,
+			foregroundOpacity,
+			blurStrength,
+			animSpeed
+		);
+	}
+
 
 
 
@@ -212,8 +240,8 @@ class ThemeEngine {
 
 		this._saveOriginalDefaultCSS();
 
-		// Update
-		// this._processTheme();
+		// Process theme
+		this._processCurrentCSSValues();
 		// Update settings
 		// this._updateCSSVariables();
 
