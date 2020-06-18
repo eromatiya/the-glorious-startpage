@@ -1,4 +1,4 @@
-class DummyBodyBackground {
+class BackgroundSet {
 
 	constructor() {
 		this._body = document.body;

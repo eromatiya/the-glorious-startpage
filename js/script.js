@@ -2,7 +2,7 @@
 const config = new Config();
 
 // Instantiate dummy background setter
-const dummyBodyBackground = new DummyBodyBackground();
+const backgroundSet = new BackgroundSet();
 
 // Instantiate a clock object
 const clock = new Clock();
