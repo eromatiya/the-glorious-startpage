@@ -30,7 +30,7 @@ class Config {
 			'n/': {
 				urlPrefix: 'https://nhentai.net/g/'	
 			}
-		}
+		};
 
 		return quickSearchData;
 	}
