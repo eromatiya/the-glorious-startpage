@@ -51,6 +51,16 @@
 + <kbd>swipe up</kbd> - opens weather screen
 + <kbd>swipe down</kbd> - opens search box
 
+## Quick search
+
++ `r/` + `subreddit name` will open the subreddit.
++ `w/` + `search query` to search in wikipedia.
++ `u/` + `search query` to search for an image/photo in unsplash.
++ `a/` + `search query` to search a product in amazon.
++ `e/` + `search query` to search a product in ebay.
++ `y/` + `search query` to search a video in youtube.
++ `n/` + `comic id` to search a "comic" in a certain "comic" website.
+
 ## Customization and Settings
 
 #### Changing the colors, blur strength, and animation speed on-the-fly
@@ -104,6 +114,18 @@ const searchEngines = {
 	},
 	...
 }
+```
+
+#### Adding more quick search urls
+
+Add more quick search shortcuts by editing the `quickSearchData` object in `js/config.js`. Make sure to follow the format below:
+
+```js
+const quickSearchData = {
+	'r/': {
+		urlPrefix: 'https://reddit.com/r/'
+	},
+	...
 ```
 
 #### Set your OpenWeatherMap API key

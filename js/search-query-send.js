@@ -2,9 +2,7 @@ class SearchQuerySend {
 
 	constructor() {
 		this._searchBox = document.querySelector('#searchBox');
-		this._keyUpEvent = this._keyUpEvent.bind(this);
-		
-		this._registerKeyUpEvent();
+		this._quickSearchData = config.getQuickSearchData();
 	}
 
 	// Check if search query is a valid url
@@ -20,39 +18,39 @@ class SearchQuerySend {
 		return dummyInput.validity.valid;
 	}
 
-	// Search query
-	_sendQuery = () => {
+	// Open link
+	_OpenURL = url => {
+		window.location.href = encodeURI(url);
+	}
 
-		// If search query is a url, open it
-		if (this._isURL(this._searchBox.value)) {
-			window.location.href = encodeURI(this._searchBox.value);
+	// Quick search
+	_quickSearch = query => {
+
+		const prefix = query.substring(0, query.indexOf('/') + 1);
+
+		// Checks if it's a valid quick search
+		if (typeof this._quickSearchData[String(prefix)] === 'undefined') {
+			// The prefix does not exist in the object
+			return false;
+		} else {
+			const webSite = this._quickSearchData[String(prefix)].urlPrefix;
+			const queryNoSuffix = query.substring(prefix.indexOf('/') + 1);
+			this._OpenURL(webSite + queryNoSuffix);
+			return true;
+		}
+	}
+
+	// Search query
+	sendQuery = () => {
+
+		const searchQuery = this._searchBox.value;
+
+		// If quick search, return
+		if (this._quickSearch(searchQuery)) {
 			return;
 		}
 
 		// Web search
-		window.location.href = encodeURI(searchEngineSettings.getSearchQueryPrefix() + this._searchBox.value);
+		this._OpenURL(searchEngineSettings.getSearchQueryPrefix() + searchQuery);
 	};
-
-	_keyUpEvent = event => {
-		// Cancel the default action, if needed
-		event.preventDefault();
-		
-		if (event.key === 'Tab') return;
-
-		// Number 13 is the "Enter" key on the keyboard
-		if (event.key === 'Enter') {
-
-			// Don't accept empty strings
-			if (searchBox.value < 1) {
-				return;
-			}
-
-			// Search the web
-			this._sendQuery();
-		}
-	}
-
-	_registerKeyUpEvent = () => {
-		this._searchBox.addEventListener('keyup', this._keyUpEvent);
-	}
 }

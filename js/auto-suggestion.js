@@ -4,8 +4,6 @@ class AutoSuggestion {
 		this._searchBox = document.querySelector('#searchBox');
 		this._suggestionsUL = document.querySelector('#suggestions');
 		this._suggestionsContainer = document.querySelector('#suggestionsContainer');
-
-		this._registerSearchBoxOnKeyUpEvent();
 	}
 
 	hideSuggestions = () => {
@@ -88,7 +86,7 @@ class AutoSuggestion {
 			const button = document.createElement('button');
 			button.type = 'button';
 			button.className = 'phraseButton';
-			button.innerHTML = phrases;
+			button.innerText = phrases;
 
 			// Create input events
 			this._phraseEvents(button);
@@ -102,7 +100,7 @@ class AutoSuggestion {
 		this._showSuggestions();
 	}
 
-	_fetchSuggestion = () => {
+	fetchSuggestions = () => {
 
 		const endpoint = 'https://duckduckgo.com/ac/';
 		const callback = 'autocompleteCallback';
@@ -117,24 +115,6 @@ class AutoSuggestion {
 		script.type = 'text/javascript';
 		script.src = `${endpoint}?callback=${callback}&q=${searchQuery}`;
 		document.querySelector('head').appendChild(script);
-	}
-
-	_searchBoxOnKeyUpEvent = e => {
-
-		if (e.key === 'Tab') return;
-
-		if (this._searchBox.value < 1) {
-			// Hide suggestions
-			this.hideSuggestions();
-			return;
-		}
-
-		// Fetch suggestion/phrases
-		this._fetchSuggestion();
-	}
-
-	_registerSearchBoxOnKeyUpEvent = () => {
-		this._searchBox.onkeyup = this._searchBoxOnKeyUpEvent;
 	}
 
 }
