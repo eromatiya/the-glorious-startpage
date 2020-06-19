@@ -29,7 +29,7 @@ class SearchQuerySend {
 		const prefix = query.substring(0, query.indexOf('/') + 1);
 
 		// Checks if it's a valid quick search
-		if (typeof this._quickSearchData[String(prefix)] === undefined) {
+		if (typeof this._quickSearchData[String(prefix)] === 'undefined') {
 			// The prefix does not exist in the object
 			return false;
 		} else {
