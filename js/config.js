@@ -1,10 +1,40 @@
 class Config {
 
 	constructor() {
+		this.getQuickSearchData = this.getQuickSearchData.bind(this);
 		this.getSearchEngines = this.getSearchEngines.bind(this);
 		this.getWebSites = this.getWebSites.bind(this);
 		this.getDockSites = this.getDockSites.bind(this);
 	}
+
+	getQuickSearchData = () => {
+		const quickSearchData = {
+			'r/': {
+				urlPrefix: 'https://reddit.com/r/'
+			},
+			'w/': {
+				urlPrefix: 'https://wikipedia.org/wiki/'
+			},
+			'u/': {
+				urlPrefix: 'https://unsplash.com/s/photos/'
+			},
+			'a/': {
+				urlPrefix: 'https://amazon.com/s?k='	
+			},
+			'e/': {
+				urlPrefix: 'https://ebay.com/sch/?_nkw='
+			},
+			'y/': {
+				urlPrefix: 'https://youtube.com/results?search_query='
+			},
+			'n/': {
+				urlPrefix: 'https://nhentai.net/g/'	
+			}
+		}
+
+		return quickSearchData;
+	}
+	
 
 	getSearchEngines = () => {
 

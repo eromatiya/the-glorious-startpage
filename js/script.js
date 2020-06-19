@@ -13,7 +13,7 @@ const dockButtons = new DockButtons();
 // Instantiate profile image/animation
 const profileImage = new ProfileImage();
 
-// Instantiate searchbox events
+// Instantiate searchbox anim events
 const searchBoxShow = new SearchBoxShow();
 
 // Instantiate autosuggestion
@@ -39,6 +39,9 @@ const greeter = new GreeterDateMessage();
 
 // Instantiate search send
 const searchQuerySend = new SearchQuerySend();
+
+// Instantiate searchbox keydown events
+const searchboxKeyEvents = new SearchboxKeyEvents();
 
 // Instantiate theme engine
 const themeEngine = new ThemeEngine();

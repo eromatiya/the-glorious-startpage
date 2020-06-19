@@ -139,7 +139,7 @@ class WebMenu {
 		for (let i = 0; i < li.length; i++) {
 
 			a = li[parseInt(i, 10)].getElementsByClassName('webItemName')[0];
-			txtValue = a.innerHTML || a.textContent || a.innerText;
+			txtValue = a.textContent || a.innerText;
 
 			// If an item match, hightlight it and focus
 			// if (txtValue.toUpperCase().indexOf(filter) !== -1) {
