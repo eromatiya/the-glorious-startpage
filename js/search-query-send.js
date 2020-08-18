@@ -19,7 +19,7 @@ class SearchQuerySend {
 	}
 
 	// Open link
-	_OpenURL = url => {
+	_openURL = url => {
 		window.location.href = encodeURI(url);
 	}
 
@@ -35,7 +35,7 @@ class SearchQuerySend {
 		} else {
 			const webSite = this._quickSearchData[String(prefix)].urlPrefix;
 			const queryNoSuffix = query.substring(prefix.indexOf('/') + 1);
-			this._OpenURL(webSite + queryNoSuffix);
+			this._openURL(webSite + queryNoSuffix);
 			return true;
 		}
 	}
@@ -45,12 +45,18 @@ class SearchQuerySend {
 
 		const searchQuery = this._searchBox.value;
 
+		// Check if a valid url
+		if (this._isURL(searchQuery)) {
+			this._openURL(searchQuery);
+			return;
+		}
+
 		// If quick search, return
 		if (this._quickSearch(searchQuery)) {
 			return;
 		}
 
 		// Web search
-		this._OpenURL(searchEngineSettings.getSearchQueryPrefix() + searchQuery);
+		this._openURL(searchEngineSettings.getSearchQueryPrefix() + searchQuery);
 	};
 }
